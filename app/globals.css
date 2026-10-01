@@ -1,10 +1,10 @@
 :root {
-  --bg: #100e0b;
-  --panel: #181510;
-  --cream: #f0dfc0;
-  --gold: #c99e62;
-  --muted: #ab9e89;
-  --line: #ffffff19;
+  --bg: #ffffff;
+  --panel: #ffffff;
+  --cream: #211b14;
+  --gold: #88632f;
+  --muted: #6e6456;
+  --line: #211b1426;
   --serif: "Cormorant Garamond Variable", Georgia, serif;
 }
 * {
@@ -83,13 +83,23 @@ h2 {
   width: calc(100% - 100px);
   margin: auto;
 }
+.header-wrap,
+.announcement,
+.nav-wrap {
+  --cream: #f0dfc0;
+  --gold: #c99e62;
+  --muted: #ab9e89;
+  --line: #ffffff19;
+  background: #000000;
+  color: var(--cream);
+}
 .announcement {
   display: flex;
   justify-content: space-between;
   padding: 8px max(50px, calc((100vw - 1280px) / 2));
   font-size: 10px;
   letter-spacing: 0.4px;
-  background: #211b12;
+  background: #000000;
   color: #ccba9a;
   border-bottom: 1px solid #c99e621c;
 }
@@ -174,7 +184,7 @@ h2 {
 .nav-wrap {
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
-  background: #14110d;
+  background: #000000;
 }
 .main-nav {
   display: flex;
@@ -196,6 +206,8 @@ h2 {
   color: var(--gold);
 }
 .hero {
+  --gold: #c99e62;
+  color: #f0dfc0;
   position: relative;
   min-height: 500px;
   margin-top: 28px;
@@ -407,14 +419,14 @@ h1 {
 }
 .product-card {
   border: 1px solid #c99e6224;
-  background: #17140f;
+  background: var(--panel);
 }
 .product-photo {
   height: 275px;
   display: block;
   position: relative;
   overflow: hidden;
-  background: #30291d;
+  background: var(--panel);
 }
 .product-photo img {
   object-fit: cover;
@@ -437,6 +449,7 @@ h1 {
   border: 1px solid #e5d3b02d;
 }
 .photo-arrow {
+  color: #f0dfc0;
   position: absolute;
   right: 15px;
   bottom: 15px;
@@ -488,16 +501,17 @@ h1 {
 }
 .demo-note {
   font-size: 9px;
-  color: #a19582;
+  color: var(--muted);
   margin-top: 16px;
 }
 .origins {
   display: grid;
   grid-template-columns: 1fr 1fr;
   border: 1px solid #c99e623b;
-  background: #17130f;
+  background: var(--panel);
 }
 .origins-art {
+  --gold: #c99e62;
   min-height: 365px;
   background:
     linear-gradient(#0002, #0002),
@@ -558,7 +572,7 @@ h1 {
 .journal-card {
   position: relative;
   padding: 25px 25px 35px;
-  background: #18150f;
+  background: var(--panel);
   border-top: 1px solid #c99e6260;
   min-height: 225px;
 }
@@ -584,7 +598,7 @@ h1 {
   color: var(--gold);
 }
 .journal-card:hover {
-  background: #221c12;
+  background: #f7f4ef;
   color: var(--cream);
 }
 .faq {
@@ -634,9 +648,7 @@ h1 {
 }
 footer {
   border-top: 1px solid #c99e6230;
-  background:
-    linear-gradient(#0c0b09ed, #0c0b09ed),
-    url("/images/original-background.jpg") center/cover;
+  background: var(--bg);
 }
 .footer-main {
   padding: 45px 0;
@@ -863,13 +875,6 @@ footer {
 }
 .empty-page h1 {
   margin-bottom: 25px;
-}
-@media (min-width: 1500px) {
-  body {
-    background:
-      linear-gradient(#100e0bf2, #100e0bf2),
-      url("/images/original-background.jpg") top center/1600px auto fixed;
-  }
 }
 @media (max-width: 1100px) {
   .shell {

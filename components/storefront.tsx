@@ -89,56 +89,58 @@ export default function Storefront() {
           A fresh perspective. The same spirit. <Sparkles size={12} />
         </span>
       </div>
-      <header className="site-header shell">
-        <Link href="/" className="wordmark" aria-label="Katukina — home">
-          Katukina<span>BOTANICALS · ART · TRADITIONS</span>
-        </Link>
-        <form
-          className="search"
-          role="search"
-          onSubmit={(e) => {
-            e.preventDefault();
-            document
-              .getElementById("collection")
-              ?.scrollIntoView({ behavior: "smooth" });
-          }}
-        >
-          <Search size={18} />
-          <input
-            aria-label="Search the collection"
-            placeholder="What are you looking for?"
-            value={query}
-            onChange={(e) => {
-              setQuery(e.target.value);
-              setCategory("All");
+      <div className="header-wrap">
+        <header className="site-header shell">
+          <Link href="/" className="wordmark" aria-label="Katukina — home">
+            Katukina<span>BOTANICALS · ART · TRADITIONS</span>
+          </Link>
+          <form
+            className="search"
+            role="search"
+            onSubmit={(e) => {
+              e.preventDefault();
+              document
+                .getElementById("collection")
+                ?.scrollIntoView({ behavior: "smooth" });
             }}
-          />
-          <button aria-label="Search">
-            <ArrowRight size={18} />
-          </button>
-        </form>
-        <div className="header-links">
-          <a href="#origins">Our story</a>
-          <a href="#questions">Need a hand?</a>
-          <button
-            className="bag"
-            onClick={() => dialog.current?.showModal()}
-            aria-label={`Open bag, ${count} items`}
           >
-            <ShoppingBag size={21} />
-            <span className="bag-label">Bag</span>
-            <b>{count}</b>
-          </button>
-          <button
-            className="mobile-toggle"
-            aria-label="Open categories"
-            aria-expanded={menu}
-            onClick={() => setMenu(!menu)}
-          >
-            {menu ? <X /> : <Menu />}
-          </button>
-        </div>
-      </header>
+            <Search size={18} />
+            <input
+              aria-label="Search the collection"
+              placeholder="What are you looking for?"
+              value={query}
+              onChange={(e) => {
+                setQuery(e.target.value);
+                setCategory("All");
+              }}
+            />
+            <button aria-label="Search">
+              <ArrowRight size={18} />
+            </button>
+          </form>
+          <div className="header-links">
+            <a href="#origins">Our story</a>
+            <a href="#questions">Need a hand?</a>
+            <button
+              className="bag"
+              onClick={() => dialog.current?.showModal()}
+              aria-label={`Open bag, ${count} items`}
+            >
+              <ShoppingBag size={21} />
+              <span className="bag-label">Bag</span>
+              <b>{count}</b>
+            </button>
+            <button
+              className="mobile-toggle"
+              aria-label="Open categories"
+              aria-expanded={menu}
+              onClick={() => setMenu(!menu)}
+            >
+              {menu ? <X /> : <Menu />}
+            </button>
+          </div>
+        </header>
+      </div>
       <div className="nav-wrap">
         <nav
           className={`main-nav shell ${menu ? "is-open" : ""}`}
