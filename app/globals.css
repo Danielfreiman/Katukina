@@ -15,12 +15,25 @@ html {
   scroll-padding-top: 24px;
 }
 body {
+  position: relative;
+  isolation: isolate;
   margin: 0;
   color: var(--cream);
   background: var(--bg);
   font-family: "Inter Variable", Arial, sans-serif;
   font-size: 13px;
   line-height: 1.65;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: url("/images/original-background.jpg") top center / 1600px auto
+    repeat;
+  filter: grayscale(1) invert(1);
+  opacity: 0.45;
 }
 body:has(dialog[open]) {
   overflow: hidden;
@@ -648,7 +661,7 @@ h1 {
 }
 footer {
   border-top: 1px solid #c99e6230;
-  background: var(--bg);
+  background: transparent;
 }
 .footer-main {
   padding: 45px 0;
