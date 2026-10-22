@@ -1,80 +1,68 @@
 import { test, expect } from "@playwright/test";
-test("busca, filtros, sacola persistente e páginas de produto", async ({
+test("public pages use Next.js, render SEO and remain responsive", async ({
   page,
+  request,
 }) => {
   await page.goto("/");
   await expect(page.getByRole("heading", { level: 1 })).toContainText(
-    "Deep roots",
+    "Find your",
   );
-  await page
-    .getByRole("button", { name: "Tea & botanicals", exact: true })
-    .click();
-  await expect(page.locator(".product-card")).toHaveCount(1);
-  await page.getByRole("button", { name: "All", exact: true }).click();
-  await page
-    .getByRole("textbox", { name: "Search the collection" })
-    .fill("inexistente");
-  await page.getByRole("button", { name: "Search", exact: true }).click();
-  await expect(page.getByText("No discoveries here just yet.")).toBeVisible();
-  await page.getByRole("button", { name: "Clear search" }).click();
-  await page
-    .getByRole("button", { name: "Add Sacred Incense · Benzoe to bag" })
-    .click();
-  await expect(page.getByRole("dialog")).toBeVisible();
-  await page
-    .getByRole("button", {
-      name: "Increase quantity of Sacred Incense · Benzoe",
-    })
-    .click();
-  await expect(page.locator(".cart-total")).toContainText("17.00");
-  await page.getByRole("button", { name: "Close bag" }).click();
-  await page.reload();
-  await page.getByRole("button", { name: "Open bag, 2 items" }).click();
-  await page
-    .getByRole("button", { name: "Remove Sacred Incense · Benzoe" })
-    .click();
-  await expect(
-    page.getByText("New discoveries are waiting for you."),
-  ).toBeVisible();
-  await page.keyboard.press("Escape");
-  await page
-    .getByRole("link", { name: "Sacred Incense · Benzoe", exact: true })
-    .click();
-  await expect(page).toHaveURL(/products\/benzoe-incense/);
-  await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-    "Sacred Incense · Benzoe",
-  );
-});
-test("conteúdo indexável, schema e rotas de descoberta", async ({
-  request,
-}) => {
-  const home = await request.get("/");
-  const html = await home.text();
+  const html = await (await request.get("/")).text();
   expect(html).toContain("application/ld+json");
-  expect(html).toContain("FAQPage");
   expect(html).toContain('rel="canonical"');
   expect(html).toContain('lang="en-GB"');
-  expect((await request.get("/sitemap.xml")).status()).toBe(200);
-  expect((await request.get("/robots.txt")).status()).toBe(200);
-  expect((await request.get("/products/nao-existe")).status()).toBe(404);
-});
-test("mobile sem transbordamento e navegação acessível", async ({ page }) => {
+  expect(html).not.toContain("wp-block-site-title");
+  expect(html).not.toContain("The collection is temporarily unavailable.");
+  expect(
+    (await request.get("/products/katukina-definitely-missing")).status(),
+  ).toBe(404);
+  expect((await request.get("/xmlrpc.php")).status()).toBe(404);
+  expect((await request.get("/shop?q=first&q=second")).status()).toBe(200);
+  expect((await request.get("/wp-content/debug.log")).status()).toBe(404);
+  expect(
+    (await request.get("/wp-content/katukina-tools/setup-local.php")).status(),
+  ).toBe(404);
+  const slash = await request.get("/about/", { maxRedirects: 0 });
+  expect(slash.status()).toBe(308);
+  for (const path of [
+    "/shop",
+    "/collections",
+    "/journal",
+    "/shipping",
+    "/cart",
+    "/checkout",
+    "/account",
+  ]) {
+    expect((await request.get(path)).status(), path).toBe(200);
+  }
+  expect(await (await request.get("/robots.txt")).text()).toContain(
+    "Disallow: /wp-admin/",
+  );
+  const sitemapResponse = await request.get("/sitemap.xml");
+  expect(sitemapResponse.status()).toBe(200);
+  const sitemap = await sitemapResponse.text();
+  expect(sitemap).toContain("/shop");
+  expect(sitemap).not.toContain("/checkout");
+  expect(sitemap).not.toContain("localhost:8888");
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto("/");
   expect(
     await page.evaluate(
       () => document.documentElement.scrollWidth <= innerWidth,
     ),
   ).toBe(true);
-  await page.getByRole("button", { name: "Open categories" }).click();
+  await page.getByRole("button", { name: "Open menu", exact: true }).click();
   await expect(
-    page.getByRole("button", { name: "Open categories" }),
-  ).toHaveAttribute("aria-expanded", "true");
+    page.getByRole("navigation", { name: "Mobile navigation" }),
+  ).toBeVisible();
+  await page.keyboard.press("Escape");
+  await expect(
+    page.getByRole("button", { name: "Open menu", exact: true }),
+  ).toBeFocused();
+  await page.getByRole("button", { name: "Open search", exact: true }).click();
   await page
-    .getByRole("navigation", { name: "Main navigation" })
-    .getByRole("link", { name: "Tea & botanicals" })
-    .click();
-  await expect(page.locator(".product-card")).toHaveCount(1);
-  await page.locator("summary").first().click();
-  await expect(page.locator("details").first()).toHaveAttribute("open", "");
+    .getByRole("textbox", { name: "Search the collection" })
+    .fill("katukina-no-results");
+  await page.getByRole("button", { name: "Search", exact: true }).click();
+  await expect(page).toHaveURL(/\/shop\?q=katukina-no-results/);
+  await expect(page.getByText("No discoveries here just yet.")).toBeVisible();
 });

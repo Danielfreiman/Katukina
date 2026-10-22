@@ -1,0 +1,27 @@
+{
+  "core": "https://wordpress.org/wordpress-7.1.3.zip",
+  "phpVersion": "8.3",
+  "mariadbVersion": "11.4",
+  "port": 8888,
+  "testsEnvironment": false,
+  "plugins": [
+    "https://downloads.wordpress.org/plugin/woocommerce.11.2.1.zip",
+    "./plugins/katukina-core"
+  ],
+  "mappings": {
+    "wp-content/mu-plugins": "./mu-plugins",
+    "wp-content/katukina-tools": "./tools"
+  },
+  "config": {
+    "WP_HOME": "http://localhost:3001",
+    "WP_SITEURL": "http://localhost:3001",
+    "KATUKINA_FRONTEND_URL": "http://localhost:3001",
+    "WP_ENVIRONMENT_TYPE": "local",
+    "WP_DEBUG": true,
+    "WP_DEBUG_LOG": true,
+    "WP_DEBUG_DISPLAY": false,
+    "WP_MEMORY_LIMIT": "256M",
+    "WP_MAX_MEMORY_LIMIT": "512M",
+    "DISALLOW_FILE_EDIT": true
+  }
+}

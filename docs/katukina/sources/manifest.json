@@ -1,0 +1,63 @@
+{
+  "imported_on": "2026-10-19",
+  "archive": {
+    "file": "skill.zip",
+    "sha256": "658f5815afce322456f8d858791e7d5a2b9276310693e106709f47ea43cf3ca8"
+  },
+  "files": [
+    {
+      "source": "skill.zip:katukina-architecture/SKILL.md",
+      "destination": "skills/katukina-architecture/SKILL.md",
+      "bytes": 6754,
+      "sha256": "54c5bf5d56666508ab516854056c765629bd4c099140c75994463ad94fe4353a"
+    },
+    {
+      "source": "skill.zip:katukina-architecture/references/project-governance.md",
+      "destination": "skills/katukina-architecture/references/project-governance.md",
+      "bytes": 2507,
+      "sha256": "60ccafaf9d903012bd64c8c39c28df6ed73e5366499fc59a3b13660985c6a00e"
+    },
+    {
+      "source": "skill.zip:katukina-architecture/references/MASTER_PROMPT.md",
+      "destination": "skills/katukina-architecture/references/MASTER_PROMPT.md",
+      "bytes": 8538,
+      "sha256": "87ddad0f927a9def78fbd8f67a47e6529a525787bb8f7b5d10cfdeec7b31e830"
+    },
+    {
+      "source": "skill.zip:katukina-architecture/references/architecture-baseline.md",
+      "destination": "skills/katukina-architecture/references/architecture-baseline.md",
+      "bytes": 4244,
+      "sha256": "cf824498976f5d168adf276f38afd5c5b428079e62cef8d7a6871d6af5daa55c"
+    },
+    {
+      "source": "skill.zip:katukina-architecture/references/functional-scope.md",
+      "destination": "skills/katukina-architecture/references/functional-scope.md",
+      "bytes": 6270,
+      "sha256": "30e114874f723f75e94b2708f6d3cbd941902c4abbb45678a6dd4f29bedf223f"
+    },
+    {
+      "source": "skill.zip:katukina-architecture/references/newSiteFunctions-original.txt",
+      "destination": "skills/katukina-architecture/references/newSiteFunctions-original.txt",
+      "bytes": 8833,
+      "sha256": "08304b3fa98ef5b33f6ea5cde6bbc5976a199bc0716e029dc162dcdfff8ac9b0"
+    },
+    {
+      "source": "skill.zip:katukina-architecture/agents/openai.yaml",
+      "destination": "skills/katukina-architecture/agents/openai.yaml",
+      "bytes": 161,
+      "sha256": "9d7b83460d0f2f09b20c81b116bb2c5ff1575fc983fbdb7e030996b94aeb958e"
+    },
+    {
+      "source": "KATUKINA_SKILL.md",
+      "destination": "docs/katukina/sources/KATUKINA_SKILL.md",
+      "bytes": 6754,
+      "sha256": "54c5bf5d56666508ab516854056c765629bd4c099140c75994463ad94fe4353a"
+    },
+    {
+      "source": "KATUKINA_MASTER_PROMPT.md",
+      "destination": "docs/katukina/sources/KATUKINA_MASTER_PROMPT.md",
+      "bytes": 8538,
+      "sha256": "87ddad0f927a9def78fbd8f67a47e6529a525787bb8f7b5d10cfdeec7b31e830"
+    }
+  ]
+}

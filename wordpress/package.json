@@ -1,0 +1,22 @@
+{
+  "name": "katukina-wordpress-local",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.18.0",
+    "npm": ">=11.16.0"
+  },
+  "scripts": {
+    "start": "node scripts/wp-env.mjs start",
+    "stop": "node scripts/wp-env.mjs stop",
+    "status": "node scripts/wp-env.mjs status",
+    "logs": "node scripts/wp-env.mjs logs",
+    "env": "node scripts/wp-env.mjs",
+    "setup": "node scripts/setup-local.mjs",
+    "setup:existing": "node scripts/setup-local.mjs --no-start"
+  },
+  "devDependencies": {
+    "@wordpress/env": "11.17.0"
+  }
+}

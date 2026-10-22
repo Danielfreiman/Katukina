@@ -1,7 +1,28 @@
 node_modules/
 .next/
+next-env.d.ts
 .env*
 !.env.example
 test-results/
 *.tsbuildinfo
 *-preview.png
+wordpress/.runtime/
+wordpress/.wp-env.override.json
+wordpress/.local-access.json
+wordpress/backups/
+debug.log
+
+# Private source exports and historical dashboards (contain customer data).
+/export*.xlsx
+/Dashboard Katukina.html
+/dashboard/
+# Local captures, tools and generated reports are not runtime dependencies.
+/artifacts/
+/tools/vnc/
+playwright-report/
+__pycache__/
+*.pyc
+*.sql
+*.sql.gz
+.DS_Store
+Thumbs.db

@@ -1,14 +1,28 @@
 {
   "name": "katukina-2026",
   "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=24.18.0",
+    "npm": ">=11.16.0"
+  },
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "playwright test",
-    "dev": "next dev",
+    "dev": "next dev --hostname 127.0.0.1 --port 3001",
     "build": "next build",
-    "start": "next start",
-    "typecheck": "tsc --noEmit"
+    "start": "next start --hostname 127.0.0.1 --port 3001",
+    "typecheck": "next typegen && tsc --noEmit",
+    "setup:local": "node wordpress/scripts/setup-local.mjs",
+    "wp:backup": "node wordpress/scripts/backup-local.mjs",
+    "wp:start": "npm --prefix wordpress run start",
+    "wp:stop": "npm --prefix wordpress run stop",
+    "wp:status": "npm --prefix wordpress run status",
+    "wp:logs": "npm --prefix wordpress run logs",
+    "wp:setup": "npm --prefix wordpress run setup",
+    "wp:env": "npm --prefix wordpress run env",
+    "wp:verify": "node wordpress/scripts/verify-browser.mjs"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +31,7 @@
   "dependencies": {
     "@fontsource-variable/cormorant-garamond": "^5.3.0",
     "@fontsource-variable/inter": "^5.3.0",
+    "@fontsource-variable/manrope": "^5.3.0",
     "lucide-react": "^1.47.0",
     "next": "^16.3.6",
     "react": "^19.3.0",

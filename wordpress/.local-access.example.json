@@ -1,0 +1,6 @@
+{
+  "site_url": "http://localhost:3001",
+  "username": "admin",
+  "password": "Katukina-Local-Test-Only-2026!",
+  "notice": "Public credentials for local testing only. Rotate before publishing or sharing a running environment."
+}

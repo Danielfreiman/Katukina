@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import "@fontsource-variable/inter";
-import "@fontsource-variable/cormorant-garamond";
-import { siteUrl } from "@/lib/content";
+import "@fontsource-variable/manrope";
+import { siteUrl } from "@/lib/config/site";
+import { SiteHeader } from "@/components/site/header";
+import { SiteFooter } from "@/components/site/footer";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: { default: "Katukina | Rooted in nature", template: "%s | Katukina" },
+  title: {
+    default: "Katukina | Find your natural rhythm",
+    template: "%s | Katukina",
+  },
   description:
     "Discover Katukina: incense, botanicals and objects connecting nature, culture and everyday rituals. Explore the collection and its origins.",
   alternates: { canonical: "/" },
@@ -14,21 +18,19 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_GB",
     siteName: "Katukina",
-    title: "Katukina — Rooted in nature",
+    title: "Katukina — Find your natural rhythm",
     description: "Nature, tradition and connection in every discovery.",
     images: [
       {
-        url: "/images/forest.jpg",
-        width: 1800,
-        height: 1200,
-        alt: "Sunlight through a forest",
+        url: "/images/original-background.jpg",
+        alt: "Katukina geometric pattern",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Katukina — Rooted in nature",
-    images: ["/images/forest.jpg"],
+    title: "Katukina — Find your natural rhythm",
+    images: ["/images/original-background.jpg"],
   },
 };
 export default function RootLayout({
@@ -36,7 +38,11 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en-GB" data-scroll-behavior="smooth">
-      <body>{children}</body>
+      <body>
+        <SiteHeader />
+        {children}
+        <SiteFooter />
+      </body>
     </html>
   );
 }

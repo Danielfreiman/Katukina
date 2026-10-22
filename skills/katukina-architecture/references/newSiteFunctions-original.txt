@@ -1,0 +1,216 @@
+Functies voor nieuwe website:
+------------------------------
+
+EMAILS
+------
+Emails from different email accounts visible together and option to select certain email accounts and those respected emails, but generally all emails come into the same inbox. info@katukina.com / info@sacred-incense.co.uk / info@junglepowder.com
+
+* Emails can be linked to orders
+* Emails can be linked to supplier/or other contact
+* EMAIL templates that we can add/insert to emails. Managed here: https://sacred-incense.co.uk/admin/email_templates/
+
+
+PEOPLE / CONTACTS / SUPPLIERS
+-----------------------------
+* Page with Customers	--> https://sacred-incense.co.uk/admin/customers/
+* Page with suppliers	--> https://sacred-incense.co.uk/admin/suppliers/
+* Page with contacts	--> https://sacred-incense.co.uk/admin/contacts/
+
+
+CHECKOUT PROCESS
+----------------
+where the customer can select their shipping country from the start then we can display the corresponding prices (including VAT if that is applicable).
+Option to show the prices in the currency of choice.
+Currenlty VAT only added during the checkout process and then customer suddenly sees extra VAT cost in top of the prices of items, so best from the start display correct price.
+
+Have some kind of confirmation where the customer can double check their address and the items they wish to purchase at checkout before making payment
+something like "Are these details correct ?"
+
+
+POST SHIPPING NOTE/EMAIL
+------------------------
+INFO regarding products store info etc we can include this in the SHIPPED email with tracking code. For example "how to store and treat your Raw Tabaco Mapacho"
+
+
+ORDERS
+------
+* LISTING ORDERS + STATUS	--> https://sacred-incense.co.uk/admin/orders/
+STATUS WE USE: 
+	- IN PROGRESS (IN BASKET)
+	- ORDERED
+	- PENDING ACTION (= ORDERED ORDERS CHECKED we move here, pending payment or waiting for interaction with customer)
+	- READY TO PROCESS (READY TO BE PACKED, BUT DOES NOT COME OF STOCK YET)
+	- PACKED AND PENDING (TAKEN OFF STOCK HERE)
+	- READY TO SHIP
+	- SHIPPED
+	- DELIVERED (once confirmed by customer)
+	- PICKED UP (not shipped, but customer comes and collects parcel at warehouse)
+	- BEING RETURNED
+	- RETURNED
+	- RESHIPPED
+	- LOST
+
+
+STORE CREDIT
+------------
+Page where we can manage store credit per customer.  So option in a customer profile.
+example https://sacred-incense.co.uk/admin/customer/26771
+
+
+TEST ORDER DANIEL	--> https://sacred-incense.co.uk/admin/order/204139
+We use the SHORT NOTE for messages that are displayed in the overview in ORDERS
+
+
+
+
+
+ORDER ACCOUNTING
+----------------
+Page where we display the orders and can export this data for bookkeeper
+https://sacred-incense.co.uk/admin/orders_accounting/
+
+
+COUPONS
+-------
+DISCOUNT COUPON PAGE MANAGING	--> https://sacred-incense.co.uk/admin/coupons/
+
+
+ITEMS
+-----
+* ITEMS shows all items	--> https://sacred-incense.co.uk/admin/items/
+ITEM --> https://sacred-incense.co.uk/admin/item/1588
+INFO RELATED TO THE ITEM
+- RT PRICE
+- SKU
+- NAME
+- DESCRIPTION
+- NET WEIGHT
+- GROSS WEIGHT
+- VOLUME
+- SITES THE ITEM IS ACTIVE ON (Sacred Incense, Katukina, JUNGLEPOWDER (WHOLESALE), ... select the site
+- ITEM CATEGORY
+- RELATED ITEMS ?
+- FORBIDDEN COUNTRIES
+
+* ITEM FORMS --> Each items can have different item forms. For example Item = Ashes Mulateiro, and then that item can have different item forms, like 10ml bottle item form, 25ml item form, 60ml item form etc
+ITEM FORM --> https://sacred-incense.co.uk/admin/item_form/3179
+In item form all things related to that item.
+- ENABLE/DISBALE
+- VAT%
+- VAT CATEGORY can be selected here but the main VAT CATEGORIES are managed here --> https://sacred-incense.co.uk/admin/vat_categories/
+- ORIGIN ITEM
+- CUSTOMS DESCRIPTION
+- STOCK COUNT ITEM
+- STOCK HISTORY
+- STOCK NOTE
+- PHYSICAL LOCATION
+- OPTIONS: FORM, VOLUME, NET WEIGHT OF ITEM, etc, see current website
+- IMAGES FOR ITEM
+- HS CODE ***
+
+*** --> FOR HS CODE would be good to have the option to enter 3 different HS CODES PER ITEM FORM. We could manage this in another page and on the item form we could select HS CODE GROUP. FOR EXAMPLE: RAPEH, SANANGA, RAW TABACO, CD, etc from a drop down or so
+Then on another page we can have these HS CODE GROUPS and there we can enter a HS CODE that is valid for UK, EU and USA, so 3 different possible HS code
+HS codes have the first 6 digits the same, but then UK uses other nrs after from 7th digit, USA uses different one.
+121190 = universal
+12119086 = more in dept and valid for UK
+1211908997 = more in dept and valid for USA
+--> when customer orders and they enter the shipping address then the site automatically chooses the correct HS code for the destination and adds the correct HS code on the invoice and send the correct HS code via API with other data.
+
+* ITEM CATEGORY	--> https://sacred-incense.co.uk/admin/categories/
+
+* STOCK LEVELS	--> https://sacred-incense.co.uk/admin/reports/stock_levels
+Easily see what is the stock per items and which ones are low in stock so we know what to order with supplier.
+Product Arrival Notification ---> Also option if an item is EXPECTED to be RESTOCKED, customers can click button to be notified when item is restocked.
+
+
+
+
+SITES
+-----
+* Page where we can manage the different from end sites --> https://sacred-incense.co.uk/admin/sites/
+For example then Katukina site	--> https://sacred-incense.co.uk/admin/site/3
+Where can manage different things for each site
+
+
+COUNTRIES
+---------
+* Page where we can manage the countries we ship to and selecting what shipper we can enable for that specific country
+Different shippers, like POST NL, DHL EXPRESS, DHL PARCEL can be selected/ enabled per country
+https://sacred-incense.co.uk/admin/countries/
+We have on that page like a BACKOFFICE NOTE, which is important, there we can keep if there have been any issue in the past shipping to that country and leaving notes of past problems, customs issues, returns etc.. Countries with that info have YES in the BACKOFFICE NOTE COLUMN
+
+From current page we use
+- NAME
+- SHIP VIA
+- SHIPPING INSURANCE ENABLED (for post NL included for free, DHL is optional, so if shipper is DHL, then the customer has option to select INSURANCE UPON CHECKOUT, for POST NL COUNTRIES NOT VISIBLE as insurance is already included in price)
+- DELIVERY TIME can be set nxt to country and this is also visible in front and on SHIPPING TIME CALCULATOR https://katukina.com/shipping
+- SHIPPING NOTE = note that is printed on pick list for the order picker
+- CHECKOUT NOTE = note for customer upon checkout, anything we want to be visible for customer we can enter here
+- CHECKOUT WARNING = warning for customer upon checkout like "Import duties or local taxes may apply in your country, and the receiver is responsible for payment."
+currently we also manually email the customer with a note: for example we email customer in USA to let them know there is import duties to be paid and we want the customer to agree to that, currently via email, but this could be a checkbox.. If not agreed and then the customer has to pay import duties, and the customer can then say i did not know i had to pay import duties and refuse the parcel. then the parcel is returned to us, and with DHL EXPRESS we have to pay to get the parcel back .. so with this note/warning we can avoid and make sure the customer knows and agrees to these things.
+Same with Raw Tabaco we ship, we email customer and ask them to check legalities of the items they wish to order. Is buying importing Raw Tabaco allowed? customer needs to accept liability.
+
+
+
+
+
+MAILING
+-------
+* Page where we can mange emailing customer that are subscribed to mailing list
+https://sacred-incense.co.uk/admin/group_actions/
+https://sacred-incense.co.uk/admin/group_action_history/
+https://sacred-incense.co.uk/admin/group_email_templates/
+
+
+SHIPPERS
+--------
+* Page where we can manage the shippers
+Currently here, but ideally this works with API so no need to manually enter prices
+https://sacred-incense.co.uk/admin/shipping_zones/
+
+
+* PAYMENT METHODS
+-----------------
+What payment methods are allowed per country
+https://sacred-incense.co.uk/admin/payment_methods/
+
+
+* VAT CATEGORIES
+----------------
+EU countries and their respective VAT percentage for different items
+https://sacred-incense.co.uk/admin/vat_categories/
+
+
+* SAMPLES
+---------
+Page where we can manage the samples
+https://sacred-incense.co.uk/admin/samples/
+
+
+* EMAIL TEMPLATES
+-----------------
+Page where we can manage the email templates
+https://sacred-incense.co.uk/admin/email_templates/
+we can inset these templates into an email with simple click
+
+
+* ORDER VOLUME
+--------------
+Page that shows analysis of ordering
+https://sacred-incense.co.uk/admin/reports/order_volume
+
+
+* ACCOUNTS
+----------
+Page where we can manage user accounts for admin
+
+ 
+Other notes:
+------------
+- Main backend currency is in GBP
+
+
+
+
+
+
