@@ -12,6 +12,8 @@ function main() {
   if (flags.some((flag) => flag !== "--no-start")) {
     throw new Error("Usage: node wordpress/scripts/setup-local.mjs [--no-start]");
   }
+  console.log("This bootstrap installs six demo products and their original sample photos. Git does not include the full imported catalogue or the edited photos.");
+  console.log("To reproduce the imported catalogue, also transfer the private katukina-catalog-edited-2026-10-27.zip package and follow docs/katukina/LOCAL-SETUP.md (Full catalogue).");
   const environmentFile = resolve(workspaceRoot, ".env.local");
   if (!existsSync(environmentFile)) {
     copyFileSync(resolve(workspaceRoot, ".env.example"), environmentFile, constants.COPYFILE_EXCL);

@@ -2,6 +2,8 @@
 
 Este procedimento recria o ambiente de **desenvolvimento e teste** a partir do Git: Next.js, WordPress, WooCommerce, plugin Katukina, seis produtos com fotos e configuração fictícia de checkout. Os limites funcionais permanecem na [auditoria de cobertura](FUNCTIONAL-COVERAGE.md).
 
+**Para reproduzir o catálogo desta máquina, o clone e `setup:local` não bastam.** Eles instalam somente seis amostras com as fotos originais. Os 370 produtos, 908 variações e as fotos fornecidas em `Editadas.rar` exigem transferir também `katukina-catalog-edited-2026-10-27.zip` e executar a [importação do catálogo completo](#catálogo-completo-de-2026-10-27). `git pull` não sincroniza banco nem biblioteca de mídia entre computadores.
+
 ## Credenciais públicas de demonstração
 
 Por autorização explícita do responsável em 2026-10-22, o arquivo [`.local-access.example.json`](../../wordpress/.local-access.example.json) contém um acesso conhecido, usado pelo instalador em ambientes novos:
@@ -86,16 +88,23 @@ Opcional, com Python 3: `python -B -m unittest discover -s scripts/tests -v`. Es
 
 **Fotos atualizadas:** o pacote mais recente é `katukina-catalog-edited-2026-10-27.zip`, em `wordpress/backups/`, acompanhado do recibo `.zip.json`. Ele inclui as fotos fornecidas em `Editadas.rar`. Use esse nome no comando de extração abaixo para reproduzir também essa atualização. [Detalhes das imagens](PRODUCT-IMPORT-2026-10-27.md#fotos-editadas-fornecidas-em-2026-10-27).
 
-O código de importação acompanha o Git. O catálogo com **370 produtos, 908 variações, sete rascunhos, imagens e preços USD** exige também o pacote privado `katukina-catalog.zip`. Ele contém os três manifestos de importação e as imagens, incluindo referências comerciais da planilha; não contém contas, senhas, clientes ou pedidos. Não publicar esse pacote no repositório. Para gerar novamente na máquina de origem:
+**Se você já executou somente `setup:local` no outro PC:** continue daqui, sem reinstalar ou apagar o WordPress. Copie o ZIP atualizado e o recibo da máquina de origem por meio privado. Não use o antigo `katukina-catalog.zip`: ele contém as fotos anteriores. Isso é uma diferença de dados importados, não um problema de cache do navegador.
+
+O código de importação acompanha o Git. O catálogo com **370 produtos, 908 variações, sete rascunhos, imagens e preços USD** exige também o pacote privado `katukina-catalog-edited-2026-10-27.zip`. Ele contém os três manifestos de importação e as imagens, incluindo referências comerciais da planilha; não contém contas, senhas, clientes ou pedidos. Não publicar esse pacote no repositório. Para gerar novamente na máquina de origem, a partir do cache que já recebeu as fotos editadas:
 
 ```powershell
-python -B scripts/package_product_catalog.py
+python -B scripts/package_product_catalog.py --output wordpress/backups/katukina-catalog-edited-2026-10-27.zip
 ```
 
-O arquivo e seu recibo SHA-256 ficam em `wordpress/backups/`. Copie ambos para a outra máquina por meio privado. Depois de concluir a **primeira instalação** acima, confira `Get-FileHash` contra o recibo e execute na raiz do clone:
+O arquivo e seu recibo SHA-256 ficam em `wordpress/backups/`. Copie ambos para a outra máquina por meio privado. Depois de concluir a **primeira instalação** acima, com Docker em execução, execute na raiz do clone. Ajuste somente o caminho do ZIP. Pare se qualquer comando falhar:
 
 ```powershell
-Expand-Archive -LiteralPath "C:\caminho\katukina-catalog.zip" -DestinationPath "wordpress\tools\.imports\sacred-incense-uk"
+$catalogZip = "C:\caminho\katukina-catalog-edited-2026-10-27.zip"
+$catalogReceipt = Get-Content -Raw -LiteralPath ($catalogZip + ".json") | ConvertFrom-Json
+if ((Get-FileHash -Algorithm SHA256 -LiteralPath $catalogZip).Hash -ne $catalogReceipt.sha256) { throw "O ZIP nao corresponde ao recibo SHA-256." }
+if (Test-Path "wordpress\tools\.imports\sacred-incense-uk") { throw "A pasta de importacao ja existe. Preserve-a antes de extrair o novo pacote." }
+Expand-Archive -LiteralPath $catalogZip -DestinationPath "wordpress\tools\.imports\sacred-incense-uk"
+npm.cmd run wp:start
 node wordpress/scripts/import-product-workbook.mjs inspect
 node wordpress/scripts/import-product-workbook.mjs apply
 node wordpress/scripts/import-product-workbook.mjs media
@@ -106,6 +115,8 @@ node wordpress/scripts/verify-product-workbook.mjs
 ```
 
 Use um diretório de importação novo ao extrair. No Linux/macOS, extraia o ZIP para `wordpress/tools/.imports/sacred-incense-uk/` com o descompactador do sistema. A etapa inicial usa o manifesto GBP e a etapa seguinte aplica o snapshot USD do site público; a gravação guarda backups e preserva os seis IDs iniciais. A verificação de navegador exige o Next.js aberto e Chromium instalado. Python 3.10+ é necessário para gerar o pacote ou coletar novos dados; importar o pacote usa Node e PHP do Docker.
+
+Não execute novamente `apply` ou a verificação GBP em uma instalação que já recebeu o catálogo completo e os preços USD. Os comandos acima são a continuação da instalação com seis amostras. Para transferir somente uma alteração posterior de fotos, use o procedimento específico de mídia; não reimporte preços para atualizar imagens.
 
 A importação e a geração das imagens podem levar vários minutos. Aguarde cada comando terminar com sucesso antes de executar o seguinte; se houver erro, consulte o relatório indicado e não avance para a troca de moeda.
 
@@ -139,3 +150,4 @@ Após a recuperação, a verificação de navegador também passou: API pública
 - **Login falha:** consultar `wordpress/.local-access.json`. Uma instalação antiga pode ter uma senha diferente da demonstração.
 - **Falha no download inicial:** verificar internet/proxy e repetir. As dependências e os volumes existentes são preservados.
 - **Produtos sem estoque físico:** os exemplos não contêm saldos migrados. Isso é esperado; não é uma autorização para operar comercialmente.
+- **Fotos antigas depois de clonar:** `setup:local` instala somente as seis amostras. Transfira o pacote atualizado e complete a [importação do catálogo](#catálogo-completo-de-2026-10-27); atualizar o Git ou limpar o cache não transfere as imagens que estão em outro computador.

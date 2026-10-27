@@ -1,5 +1,11 @@
 # Histórico do discovery Katukina
 
+## 2026-10-27 — Fotos diferentes após instalação em outro PC
+
+- **CONFIRMADO pelo responsável:** no outro computador foram executados somente clone e `setup:local`. Esse fluxo instala seis amostras com as fotos originais; o catálogo completo e as imagens editadas exigem o pacote privado, ignorado pelo Git.
+- Guia de instalação passou a destacar essa diferença no início e a usar explicitamente `katukina-catalog-edited-2026-10-27.zip`, com conferência automática do recibo SHA-256 antes de extrair. Incluída continuação para quem já instalou as amostras, sem apagar o banco. Instalador informa a etapa adicional.
+- Verificados SHA-256 do ZIP, os 1.710 arquivos de imagem e a correspondência das 65 fotos fornecidas no RAR. WP-CLI local confirmou 65 imagens, 13 produtos e 29 variações sem divergências. Sintaxe JavaScript do instalador e `git diff --check` aprovados. Não houve nova importação nem acesso ao outro computador nesta verificação; a transferência e execução lá ainda são necessárias.
+
 ## 2026-10-27 — Política de cookies e consentimento na vitrine
 
 - Criadas `/cookies` e `/privacy` em inglês, com dados do controlador e contato encontrados em `https://katukina.com/privacy` por orientação do responsável. Textos descrevem a operação local auditada; não copiam integrações nem regras de retenção do legado como se estivessem implementadas.
