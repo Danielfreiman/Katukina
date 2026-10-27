@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./catalog.css";
+import "./privacy.css";
 import "@fontsource-variable/manrope";
 import { siteUrl } from "@/lib/config/site";
 import { SiteHeader } from "@/components/site/header";
 import { SiteFooter } from "@/components/site/footer";
+import { CookieConsentProvider } from "@/components/privacy/cookie-consent";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
@@ -39,9 +42,11 @@ export default function RootLayout({
   return (
     <html lang="en-GB" data-scroll-behavior="smooth">
       <body>
-        <SiteHeader />
-        {children}
-        <SiteFooter />
+        <CookieConsentProvider>
+          <SiteHeader />
+          {children}
+          <SiteFooter />
+        </CookieConsentProvider>
       </body>
     </html>
   );

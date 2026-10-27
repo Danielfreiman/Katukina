@@ -4,6 +4,9 @@ test("public pages use Next.js, render SEO and remain responsive", async ({
   request,
 }) => {
   await page.goto("/");
+  await page
+    .getByRole("button", { name: "Reject optional", exact: true })
+    .click();
   await expect(page.getByRole("heading", { level: 1 })).toContainText(
     "Find your",
   );

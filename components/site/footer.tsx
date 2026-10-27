@@ -30,6 +30,8 @@ export function SiteFooter() {
             <Link href="/shipping">Shipping & destinations</Link>
             <Link href="/account">My account</Link>
             <Link href="/cart">Your bag</Link>
+            <Link href="/cookies">Cookie policy</Link>
+            <Link href="/privacy">Privacy notice</Link>
             <Link href="/shop" className="footer-cta">
               Find your next discovery <ArrowUpRight size={16} />
             </Link>

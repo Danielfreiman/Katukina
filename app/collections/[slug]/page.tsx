@@ -1,45 +1,34 @@
 import { notFound } from "next/navigation";
-import Link from "next/link";
-import { getCategories, getProducts } from "@/lib/commerce/catalog";
+import { getCategories } from "@/lib/commerce/catalog";
 import { plainText } from "@/lib/wordpress/text";
-import { ProductGrid } from "@/components/catalog/product-grid";
-import { PageIntro } from "@/components/site/page-intro";
+import { CatalogPage } from "@/components/catalog/catalog-page";
+import type { SearchParams } from "@/lib/commerce/catalog-query";
 type Props = {
   params: Promise<{ slug: string }>;
-  searchParams: Promise<{ page?: string }>;
+  searchParams: Promise<SearchParams>;
 };
 export async function generateMetadata({ params, searchParams }: Props) {
   const { slug } = await params;
-  const category = (await getCategories()).find((c) => c.slug === slug);
+  const category = (await getCategories()).find((item) => item.slug === slug);
   if (!category) notFound();
   return {
     title: plainText(category.name),
+    description: plainText(category.description).slice(0, 160) || undefined,
     alternates: { canonical: `/collections/${slug}` },
-    ...((await searchParams).page
+    ...(Object.keys(await searchParams).length
       ? { robots: { index: false, follow: true } }
       : {}),
   };
 }
 export default async function Collection({ params, searchParams }: Props) {
-  const { slug } = await params;
-  const category = (await getCategories()).find((c) => c.slug === slug);
+  const [{ slug }, query, categories] = await Promise.all([
+    params,
+    searchParams,
+    getCategories(),
+  ]);
+  const category = categories.find((item) => item.slug === slug);
   if (!category) notFound();
-  const page = Math.max(1, parseInt((await searchParams).page || "1") || 1);
-  const products = await getProducts({ category: category.id, page });
   return (
-    <main id="content" className="shell page-content">
-      <PageIntro title={plainText(category.name)}>
-        <p>{plainText(category.description)}</p>
-      </PageIntro>
-      <ProductGrid products={products.data} />
-      <nav className="pagination" aria-label="Pagination">
-        {page > 1 && (
-          <Link href={`/collections/${slug}?page=${page - 1}`}>← Previous</Link>
-        )}
-        {page < products.pages && (
-          <Link href={`/collections/${slug}?page=${page + 1}`}>Next →</Link>
-        )}
-      </nav>
-    </main>
+    <CatalogPage params={query} category={category} categories={categories} />
   );
 }

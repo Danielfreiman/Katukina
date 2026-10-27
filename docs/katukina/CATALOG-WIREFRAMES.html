@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-BR">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Katukina — esquema de categorias e produtos</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#e9e8e1;color:#25352e;font:15px/1.5 system-ui,sans-serif}button,select{font:inherit}button{cursor:pointer}button:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #bb632c;outline-offset:3px}.intro{max-width:1440px;margin:auto;padding:28px 24px 16px}.intro h1{font-size:26px;margin:0 0 8px}.intro p{max-width:900px;margin:8px 0;color:#526056}.tools{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}.tools button,.control{border:1px solid #9da99e;border-radius:5px;background:white;padding:9px 15px;color:inherit}.tools button[aria-pressed=true]{background:#294b38;color:white}.sep{width:16px}a{color:#294b38}.stage{max-width:1440px;margin:0 auto 30px;padding:0 24px}.preview{container-type:inline-size;background:#fffef8;border:1px solid #bfc6bb;border-radius:12px;overflow:hidden;margin:auto;box-shadow:0 12px 40px #26372a14}.preview.phone{max-width:390px}.site{padding:22px 28px}.header{display:flex;align-items:center;gap:24px;border-bottom:1px solid #d5dacc;padding-bottom:18px}.logo{font:700 25px Georgia,serif;letter-spacing:2px}.search{border:1px solid #ccd2c5;background:white;border-radius:30px;padding:10px 20px;flex:1;color:#6e776d}.nav{padding:14px 0;border-bottom:1px solid #d5dacc;font-size:13px;color:#526056}.breadcrumb{margin:22px 0 16px;font-size:12px;color:#667165}.eyebrow{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#64765f}h2{font:40px/1.1 Georgia,serif;margin:10px 0}h3{font-size:17px;margin:8px 0}p{margin:8px 0 16px}.muted{color:#6c786d;font-size:13px}.tiles{display:flex;gap:12px;margin:24px 0}.tile{background:#ecf0e5;border:1px solid #d7dfcb;padding:18px;flex:1;text-align:center}.layout{display:grid;grid-template-columns:210px 1fr;gap:28px;margin-top:28px}.filters{border-right:1px solid #d6ddcc;padding-right:22px}.filter{padding:16px 0;border-bottom:1px solid #e0e4da}.line{height:9px;background:#dfe5d6;border-radius:3px;margin:12px 0;width:80%}.line.short{width:55%}.toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}.card{min-width:0}.photo{aspect-ratio:1;background:#edf0e6;display:flex;align-items:center;justify-content:center;border:1px dashed #afbaa3;color:#65765e;text-align:center;padding:12px;font-size:13px}.card h3{font-size:15px}.badge{font-size:11px;color:#626b5d}.action{display:block;width:100%;padding:10px;background:#294b38;color:white;border:0;border-radius:4px;text-align:center;font-size:13px}.pagination{text-align:center;border-top:1px solid #ddd;padding:24px;margin-top:24px}.note{padding:18px;background:#f5efdf;border-left:3px solid #aa793e;font-size:13px;margin-top:26px}.product-layout{display:grid;grid-template-columns:1.1fr 1fr;gap:40px}.thumbs{display:flex;gap:10px;margin-top:12px}.thumbs span{width:65px;height:65px;border:1px solid #b3bea6;display:grid;place-items:center;background:#edf0e6;font-size:12px}.purchase{border:1px solid #d0d8c4;padding:26px;background:white}.purchase label{display:block;font-weight:600;font-size:13px;margin:18px 0 8px}.purchase select{width:100%;padding:12px;border:1px solid #9da99e;background:white}.price{font:26px Georgia,serif;margin:22px 0 6px}.quantity{border:1px solid #ccd4c1;display:inline-block;padding:8px 16px;margin-bottom:18px}.details{display:grid;grid-template-columns:2fr 1fr;gap:30px;margin:35px 0;border-top:1px solid #ccd4c1;padding-top:24px}.mobile-filter{display:none}.footer{padding:28px 0 6px;border-top:1px solid #d5dacc;font-size:13px;color:#667165}.hidden{display:none!important}.legend{max-width:1100px;margin:20px auto 40px;padding:0 24px}.legend p{margin:8px 0}.wire-label{font-size:11px;color:#7d704b;border:1px solid #ddd2b4;padding:3px 6px;display:inline-block;margin-bottom:8px}
+@container (max-width:700px){.site{padding:18px}.header{gap:12px;flex-wrap:wrap}.logo{font-size:22px}.search{order:3;flex-basis:100%}.nav{font-size:12px}.tiles{gap:6px}.tile{padding:12px 5px;font-size:11px}h2{font-size:31px}.layout{display:block}.filters{display:none}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 12px}.toolbar{flex-wrap:wrap;font-size:12px}.mobile-filter{display:inline-block}.product-layout,.details{grid-template-columns:1fr;gap:22px}.purchase{padding:18px}.details{margin-top:24px}.card h3{font-size:13px}.photo{font-size:11px}.thumbs span{width:54px;height:54px}}@container (max-width:330px){.grid{grid-template-columns:1fr}}@media(max-width:500px){.intro{padding:20px 12px 8px}.stage{padding:0 8px}.sep{display:none}.tools button{font-size:13px}.intro h1{font-size:22px}}
+</style>
+<header class="intro">
+  <span class="eyebrow">Katukina / proposta de estrutura / 27.10.2026</span>
+  <h1>Da descoberta à apresentação certa</h1>
+  <p>Wireframes próprios inspirados na organização pública da iHerb. Layout proposto, sem reprodução visual medida. Conteúdo ilustrativo: não representa preços, estoque ou categorias cadastradas.</p>
+  <div class="tools" aria-label="Configurar visualização">
+    <button id="categoryButton" aria-pressed="true">Category</button><button id="productButton" aria-pressed="false">Product</button><span class="sep"></span>
+    <button id="desktopButton" aria-pressed="true">Desktop</button><button id="mobileButton" aria-pressed="false">Mobile · 390px</button>
+  </div>
+  <p><a href="CATALOG-UX-BLUEPRINT.md">Especificação técnica e critérios de aceite</a> · Apenas os controles acima e a seleção de apresentação abaixo são interativos.</p>
+</header>
+<main class="stage">
+<div id="preview" class="preview"><div class="site" lang="en">
+  <div class="header"><span class="logo">KATUKINA</span><div class="search">Search products…</div><span class="muted">Account · Cart</span></div>
+  <div class="nav">Shop all &nbsp; / &nbsp; Categories &nbsp; / &nbsp; Our story</div>
+  <section id="category" aria-label="Category wireframe">
+    <div class="breadcrumb">Home / Shop / Category</div><span class="wire-label">01 · CATEGORY INTRO</span>
+    <h2>Category name</h2><p class="muted">A short introduction from the category description in WooCommerce.</p>
+    <div class="tiles"><div class="tile">Subcategory A</div><div class="tile">Subcategory B</div><div class="tile">Subcategory C</div></div>
+    <div class="layout">
+      <aside class="filters"><span class="wire-label">02 · FILTERS</span><h3>Refine your search</h3><div class="filter">Subcategory<div class="line"></div><div class="line short"></div></div><div class="filter">Price range<div class="line"></div><span class="muted">Min — Max · API currency</span></div><div class="filter">□ In stock</div></aside>
+      <div><div class="toolbar"><span>Results from WooCommerce</span><span class="control mobile-filter">Filters</span><span class="control">Sort: Name A–Z</span></div><span class="wire-label">03 · PRODUCT GRID</span><div class="grid" id="cards"></div><div class="pagination">Previous &nbsp; <strong>1</strong> &nbsp; 2 &nbsp; 3 &nbsp; Next</div></div>
+    </div>
+    <div class="note">Proposta: filtros na URL, contagens sobre todos os resultados e cartões compartilhados entre busca e categoria. No móvel, “Filters” abrirá um diálogo; aqui é apenas representação.</div>
+  </section>
+  <section id="product" class="hidden" aria-label="Product wireframe">
+    <div class="breadcrumb">Home / Shop / Category / Product</div><div class="product-layout">
+      <div><span class="wire-label">01 · PRODUCT GALLERY</span><div class="photo" id="mainPhoto">Main product image<br>WooCommerce media</div><div class="thumbs"><span>Cover</span><span>Detail</span><span>Option</span></div></div>
+      <div class="purchase"><span class="wire-label">02 · PURCHASE PANEL</span><div class="eyebrow">Category</div><h2>Product name</h2><p class="muted">Product summary from the native product editor.</p><p class="price" id="price">Price range from API</p><p class="muted">Currency and availability from WooCommerce</p>
+        <label for="presentation">Presentation</label><select id="presentation"><option value="">Choose a presentation</option><option value="a">Example presentation A</option><option value="b">Example presentation B</option></select><p id="selection" class="muted" aria-live="polite">Select an option to resolve its SKU, image and price.</p>
+        <label>Quantity</label><div class="quantity">− &nbsp; 1 &nbsp; +</div><div class="action" id="purchaseAction">Choose a presentation</div><p class="muted">Wireframe only — no cart action.</p>
+      </div>
+    </div>
+    <div class="details"><div><span class="wire-label">03 · PRODUCT INFORMATION</span><h3>Description</h3><p class="muted">Published product description. Details and guidance only when provided and reviewed.</p><div class="line"></div><div class="line"></div><div class="line short"></div></div><div><h3>Product details</h3><p class="muted">SKU / presentation / verified public attributes</p><h3>Related products</h3><p class="muted">Published products from relevant categories.</p></div></div>
+    <div class="note">Proposta: selecionar a apresentação altera foto, preço, SKU e disponibilidade. O botão só permitirá compra quando a opção e a quantidade forem válidas. O catálogo local está sem estoque; a simulação não altera esse estado.</div>
+  </section>
+  <div class="footer">Existing Katukina footer · Policies · Contact</div>
+</div></div>
+</main>
+<footer class="legend"><p><strong>Leitura do esquema:</strong> campos verdes delimitam mídia; blocos numerados indicam componentes. Categorias e produtos compartilham o cabeçalho e a linguagem visual.</p><p>As propostas mantêm WordPress/WooCommerce como fonte de dados e Next.js como vitrine. Não há novas telas administrativas ou integração comercial neste arquivo.</p></footer>
+<script>
+const byId = id => document.getElementById(id);
+for (let i = 0; i < 6; i++) {
+  const card = document.createElement('article'); card.className = 'card';
+  card.innerHTML = '<div class="photo">Product image</div><h3>Product name</h3><p class="muted">Available presentations</p><p>Price / range from API</p><p class="badge">Availability from API</p><div class="action">Choose options</div>';
+  byId('cards').append(card);
+}
+function showPage(page) {
+  for (const name of ['category','product']) { byId(name).classList.toggle('hidden', name !== page); byId(name+'Button').setAttribute('aria-pressed', String(name === page)); }
+}
+byId('categoryButton').onclick = () => showPage('category'); byId('productButton').onclick = () => showPage('product');
+function size(phone) { byId('preview').classList.toggle('phone',phone); byId('mobileButton').setAttribute('aria-pressed',String(phone)); byId('desktopButton').setAttribute('aria-pressed',String(!phone)); }
+byId('mobileButton').onclick = () => size(true); byId('desktopButton').onclick = () => size(false);
+byId('presentation').onchange = event => {
+  const value = event.target.value;
+  byId('selection').textContent = value ? 'Selected example '+value.toUpperCase()+' — resolve the matching variation ID.' : 'Select an option to resolve its SKU, image and price.';
+  byId('price').textContent = value ? 'Selected variation price from API' : 'Price range from API';
+  byId('mainPhoto').textContent = value ? 'Variation '+value.toUpperCase()+' image · parent image as fallback' : 'Main product image · WooCommerce media';
+  byId('purchaseAction').textContent = value ? 'Check real availability before purchase' : 'Choose a presentation';
+};
+</script>
+</html>

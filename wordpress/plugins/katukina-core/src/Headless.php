@@ -67,6 +67,16 @@ final class Headless {
             if ( is_admin() || wp_doing_ajax() || wp_doing_cron() || ( defined( 'REST_REQUEST' ) && REST_REQUEST ) ) {
                 return;
             }
+            // Missing upload files must fail as assets, not redirect to an HTML storefront.
+            // Existing files are served by the web server before WordPress runs.
+            $asset_path = wp_parse_url( $_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH ) ?: '/';
+            if ( is_404() && 0 === strpos( $asset_path, '/wp-content/uploads/' ) ) {
+                status_header( 404 );
+                nocache_headers();
+                header( 'Content-Type: text/plain; charset=utf-8' );
+                echo 'Media file not found.';
+                exit;
+            }
             $target = self::origin() . '/';
             if ( is_singular( array( 'product', 'post', 'page' ) ) ) {
                 $target = get_permalink();

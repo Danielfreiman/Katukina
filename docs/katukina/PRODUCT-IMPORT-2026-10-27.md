@@ -1,5 +1,15 @@
 # Importação de produtos Sacred Incense UK
 
+## Fotos editadas fornecidas em 2026-10-27
+
+O responsável forneceu `Editadas.rar` para substituir as fotos correspondentes. Os 65 JPEGs foram associados pelos códigos dos arquivos a 13 produtos: 12 publicados e Muna em rascunho. Atualizadas as capas, galerias e imagens principais das 29 variações existentes; não foi criada uma variação para o rascunho Muna. O arquivo contém 50 conteúdos de imagem distintos, reaproveitados quando capa e apresentação usam exatamente a mesma foto.
+
+Backup SQL anterior salvo; imagens antigas mantidas na biblioteca. Conferência dos 65 arquivos por SHA-256 e das referências WooCommerce aprovada; preços, estoques, descrições, estados e históricos operacionais preservados. Reexecução sem novos anexos. API pública: 12 capas conferidas e 49 URLs de imagens editadas respondendo HTTP 200; navegador: Emburana bark e Aromatherapy Pendant Steel carregaram as novas fotos sem erros JavaScript. A página pública atual mostra a capa; as fotos adicionais ficam na galeria nativa WooCommerce.
+
+`wordpress/tools/replace-edited-images.php` executa inspect/apply/verify somente pelo WP-CLI local, usando o manifesto privado em `wordpress/tools/.imports/edited-images-2026-10-27/`. Antes de aplicar novamente, executar `npm.cmd run wp:backup`. Originais, manifesto, referências anteriores e relatório ficam fora do Git. `scripts/sync_edited_catalog_media.py` incorpora as fotos verificadas ao cache privado e preserva cópias dos arquivos anteriores.
+
+O pacote atualizado é `wordpress/backups/katukina-catalog-edited-2026-10-27.zip` (272.775.883 bytes; SHA-256 `e4189c46c8ba97e5f01e1590b66a1cbd24cab322d569087ac3dd9fdd3bc1428d`). Use-o no procedimento de instalação em outra máquina, no lugar do ZIP anterior. Contém os três manifestos e 1.710 arquivos de imagem; os metadados distinguem as fotos do RAR das URLs históricas de origem. A importação de mídia elimina IDs repetidos na galeria quando arquivos distintos têm conteúdo idêntico.
+
 ## Atualização posterior: preços públicos em USD
 
 Em 2026-10-27, o responsável substituiu a orientação de moeda: usar dólar com base no katukina.com. **908 preços atualizados e reconciliados, sem divergências**, para os mesmos SKUs e quantidades de venda; moeda WooCommerce e canal ativo agora em USD. O canal fictício `LOCAL-DEMO` foi reutilizado, mantendo o canal GBP no histórico. Os sete rascunhos sem associação confiável permanecem sem preço.

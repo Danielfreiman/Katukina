@@ -11,6 +11,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/collections",
     "/about",
     "/journal",
+    "/cookies",
+    "/privacy",
   ].map((path) => ({ url: `${siteUrl}${path}`, changeFrequency: "weekly" }));
   const categories = await getCategories();
   categories.forEach((category) =>

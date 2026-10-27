@@ -84,6 +84,8 @@ Opcional, com Python 3: `python -B -m unittest discover -s scripts/tests -v`. Es
 
 ### Catálogo completo de 2026-10-27
 
+**Fotos atualizadas:** o pacote mais recente é `katukina-catalog-edited-2026-10-27.zip`, em `wordpress/backups/`, acompanhado do recibo `.zip.json`. Ele inclui as fotos fornecidas em `Editadas.rar`. Use esse nome no comando de extração abaixo para reproduzir também essa atualização. [Detalhes das imagens](PRODUCT-IMPORT-2026-10-27.md#fotos-editadas-fornecidas-em-2026-10-27).
+
 O código de importação acompanha o Git. O catálogo com **370 produtos, 908 variações, sete rascunhos, imagens e preços USD** exige também o pacote privado `katukina-catalog.zip`. Ele contém os três manifestos de importação e as imagens, incluindo referências comerciais da planilha; não contém contas, senhas, clientes ou pedidos. Não publicar esse pacote no repositório. Para gerar novamente na máquina de origem:
 
 ```powershell

@@ -1,5 +1,44 @@
 # Histórico do discovery Katukina
 
+## 2026-10-27 — Política de cookies e consentimento na vitrine
+
+- Criadas `/cookies` e `/privacy` em inglês, com dados do controlador e contato encontrados em `https://katukina.com/privacy` por orientação do responsável. Textos descrevem a operação local auditada; não copiam integrações nem regras de retenção do legado como se estivessem implementadas.
+- Banner com aceitar/rejeitar/personalizar no primeiro nível e peso visual equivalente; opção funcional desmarcada; painel acessível e reabertura permanente. Escolha versionada por 180 dias, mesma duração para recusa; limpeza e desligamento em retirada/expiração entre abas. Falha de persistência mantém opcionais desligados.
+- Histórico antes automático passou a depender de consentimento; até oito IDs com validade individual de 30 dias. Dados antigos são removidos; cookie de carrinho e login independem do aceite. Links de privacidade em rodapé, conta, checkout e sitemap.
+- Auditoria WP-CLI somente leitura: Katukina Core e WooCommerce são os únicos plugins ativos; nenhuma opção `woocommerce_*retention*` gravada. Referências europeias e pendências de retenção, fornecedores, direitos dos titulares e produção em [PRIVACY-COOKIES.md](PRIVACY-COOKIES.md). A mudança não declara conformidade integral do negócio com GDPR/ePrivacy.
+- Oito testes Playwright conjuntos aprovados em 2,1 minutos; um teste adicional de expiração em aba aberta e funcionamento sem JavaScript também passou. Incluídos ausência de leitura opcional prévia, recusa, retirada entre abas, preservação do carrinho, falha de storage, teclado, mobile e regressão de compra por SKU. Capturas revisadas em `artifacts/privacy/`.
+- Typecheck e build finais aprovados; `/cookies` e `/privacy` geradas com sucesso. `git diff --check` sem erros de whitespace. Não houve alteração de configuração comercial, instalação de plugins, exclusão de dados preexistentes ou publicação em produção.
+
+## 2026-10-27 — Swatches e revisão da referência Grocery
+
+- Correção explícita do responsável: Presentation passou a usar swatches de texto com preço, disponibilidade, seleção e teclado nativos. Categorias passaram a uma lista lateral de links, com hierarquia, contagens e expansão, também disponível no diálogo móvel.
+- Adicionados filtros rápidos, faixas de preço, ofertas, avaliação e marcas quando cadastradas; ordenação por vendas/avaliação, 12/24/48 itens, quatro colunas no desktop amplo e histórico local de até oito produtos vistos. Histórico guarda somente IDs e consulta dados públicos atualizados; limpeza disponível. Cartões exibem opções e metadados comerciais reais, sem fabricar dados.
+- Nova consulta ao conteúdo público indexado de Grocery; acesso ao vivo bloqueado por HTTP 403/Cloudflare. Evidências, contratos, cobertura e limites na [seção 10 do esquema](CATALOG-UX-BLUEPRINT.md#10-revisão-grocery-categorias-em-lista-e-swatches--2026-10-27).
+- Typecheck e build aprovados. Quatro testes Playwright passaram juntos em 1,8 minuto: consultas, categorias, filtros/oferta real, paginação/tamanho, histórico, swatches por teclado, galeria, carrinho por SKU, respostas incertas, estoque/preço e regressão pública. Revisão visual em desktop/celular e verificações de largura 1440/768/390/360. Fixtures removidas após os testes; produtos comerciais preservados. Um seletor de teste foi corrigido para reconhecer o novo nome do botão após a expansão.
+
+## 2026-10-27 — Implementação das páginas de categoria e produto
+
+- Pedido “implemente” autorizou executar REQ-UX-001. Categorias e busca compartilham filtros, ordenação, agregações da Store API, URLs reproduzíveis, estados vazios/erro e paginação numerada; hierarquia e categorias permanecem nativas. Filtros móveis usam diálogo acessível.
+- Produto recebeu galeria/miniaturas/ampliação, seleção de apresentação por ID, preço/SKU/foto/disponibilidade da variação e quantidade validada. Carrinho usa BFF existente, revalidação WooCommerce e nenhuma repetição automática de POST em resposta incerta. Relacionados por categoria, detalhes públicos, breadcrumbs, cartões responsivos e metadados implementados em inglês.
+- Revisão visual revelou referências antigas de mídia sem arquivo. Upload ausente deixa de redirecionar para HTML da home e responde 404; componente tenta o original quando uma miniatura responsiva falha e mostra placeholder quando necessário, inclusive se a imagem falhar antes da hidratação. Anexos e produtos existentes preservados.
+- Fronteira de erro usa `retry()` conforme documentação da versão Next.js instalada. Não foram alteradas regras comerciais, preços, moeda ou estoque do catálogo existente. Testes de compra criam e removem somente fixtures próprias; não houve pagamento, pedido ou envio de e-mail nesta validação.
+- Typecheck, build e sintaxe PHP de `Headless.php` aprovados. Testes, revisão e limites detalhados em [CATALOG-UX-BLUEPRINT.md](CATALOG-UX-BLUEPRINT.md#9-implementação-autorizada--2026-10-27). Avaliações, filtros globais de atributos e entrega no produto permanecem condicionais aos dados/contratos correspondentes.
+- Execução conjunta final: `npx.cmd playwright test tests/catalog.spec.ts tests/storefront.spec.ts` — quatro testes aprovados em 1,8 minuto. Cobertura inclui moeda/consultas, filtros, paginação/histórico, mídia ausente, simples/variável, SKU/quantidade, foto herdada, rascunho, preço/estoque alterado após leitura, resposta perdida sem duplicação, teclado e larguras 1440/768/390/360. Falhas intermediárias de seletores ambíguos foram corrigidas nos testes; falha real de imagem anterior à hidratação foi corrigida no componente. O ambiente de desenvolvimento exigiu aguardar a navegação dinâmica por até 20 segundos no teste de paginação.
+- Conferência após a limpeza: 370 produtos publicados, 908 variações e nenhum produto/categoria temporário `catalog-fixture-*` restante. Typecheck e build finais também aprovados após a correção de hidratação da imagem.
+
+## 2026-10-27 — Esquema de categorias e produtos
+
+- Registrado REQ-UX-001 a partir do pedido de engenharia reversa da iHerb. [Esquema técnico](CATALOG-UX-BLUEPRINT.md) e [wireframe interativo](CATALOG-WIREFRAMES.html) separam observação pública, auditoria local e proposta de implementação; mantêm identidade Katukina, interface em inglês e administração nativa.
+- Código e consultas GET confirmaram a lacuna de seleção de variações/galeria, atributo Presentation local sem taxonomia global e catálogo indisponível. Contratos propostos preservam IDs, carrinho existente, moeda da API, estoque e restrições reais. Nenhum dado comercial foi alterado.
+- Referência consultada por HTML público indexado; navegação ao vivo bloqueada por desafio de segurança. Layout e comportamento móvel são propostas, não medições da referência.
+- Playwright/Chromium do wireframe: seis combinações de página/tamanho sem overflow horizontal, alternância de telas e seleção A/B/reset aprovadas, sem erros JavaScript. Corrigida uma tag option após falha inicial; nova execução completa aprovada. Revisão visual de produto desktop e categoria móvel. Aplicação não alterada; não executados build ou testes funcionais da loja nesta entrega.
+
+## 2026-10-27 — Fotos editadas do catálogo
+
+- Aplicados os 65 JPEGs de `Editadas.rar` às capas/galerias de 13 produtos e às imagens principais de 29 variações. Doze produtos publicados; Muna permanece em rascunho. Cinquenta conteúdos distintos reutilizados sem duplicar anexos na reexecução.
+- Backup anterior, arquivos antigos preservados, hashes/referências conferidos e dados comerciais/históricos inalterados. API pública e duas páginas de produto verificadas no navegador.
+- Cache e pacote privado do catálogo atualizados para reproduzir as fotos em outra máquina. Importador de mídia elimina IDs repetidos na galeria para imagens de conteúdo idêntico. [Evidência e limites](PRODUCT-IMPORT-2026-10-27.md#fotos-editadas-fornecidas-em-2026-10-27).
+
 ## 2026-10-27 — Reprodução do catálogo e revisão antes do push
 
 - Criado `package_product_catalog.py`: pacote privado com três manifestos e 1.688 imagens, sem contas, clientes, pedidos ou credenciais; hashes das imagens e integridade ZIP verificados. Guia de instalação distingue clone com seis amostras, importação completa e transferência do histórico por banco/uploads.

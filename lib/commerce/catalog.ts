@@ -2,32 +2,9 @@ import "server-only";
 import { cache } from "react";
 import { wordpressGet } from "@/lib/wordpress/client";
 import { plainText } from "@/lib/wordpress/text";
-export type Category = {
-  id: number;
-  name: string;
-  slug: string;
-  count: number;
-  description: string;
-};
-export type Product = {
-  id: number;
-  slug: string;
-  name: string;
-  type: string;
-  sku: string;
-  description: string;
-  short_description: string;
-  is_in_stock: boolean;
-  images: { id: number; src: string; alt: string }[];
-  categories: Category[];
-  attributes?: { name: string; terms: { name: string }[] }[];
-  prices: {
-    price: string;
-    currency_code: string;
-    currency_minor_unit: number;
-    price_range: { min_amount: string; max_amount: string } | null;
-  };
-};
+import type { Category, Product, ProductVariation } from "./product";
+export { productName, productPrice } from "./product";
+export type { Category, Product } from "./product";
 export const getProduct = cache(async (slug: string) => {
   const { data } = await wordpressGet<Product[]>(
     "/wp-json/wc/store/v1/products",
@@ -35,14 +12,7 @@ export const getProduct = cache(async (slug: string) => {
   );
   return data[0] ?? null;
 });
-export async function getProducts(
-  query: {
-    search?: string;
-    category?: number;
-    page?: number;
-    per_page?: number;
-  } = {},
-) {
+export async function getProducts(query: Record<string, string | number> = {}) {
   return wordpressGet<Product[]>("/wp-json/wc/store/v1/products", {
     per_page: 12,
     page: 1,
@@ -54,25 +24,84 @@ export const getCategories = cache(async () => {
   for (let page = 1; ; page++) {
     const result = await wordpressGet<Category[]>(
       "/wp-json/wc/store/v1/products/categories",
+      { per_page: 100, page, hide_empty: "false" },
+    );
+    items.push(...result.data);
+    if (result.pages ? page >= result.pages : result.data.length < 100)
+      return items;
+  }
+});
+export type Brand = { id: number; name: string; slug: string; count: number };
+export const getBrands = cache(async () => {
+  const items: Brand[] = [];
+  for (let page = 1; ; page++) {
+    const result = await wordpressGet<Brand[]>(
+      "/wp-json/wc/store/v1/products/brands",
       { per_page: 100, page, hide_empty: "true" },
     );
     items.push(...result.data);
-    if (page >= result.pages) return items;
+    if (result.pages ? page >= result.pages : result.data.length < 100)
+      return items;
   }
 });
-export function productName(product: Product) {
-  return plainText(product.name);
+export type CollectionData = {
+  price_range: {
+    min_price: string;
+    max_price: string;
+    currency_code: string;
+    currency_minor_unit: number;
+  } | null;
+  stock_status_counts: { status: string; count: number | string }[] | null;
+};
+export async function getCollectionData(
+  query: Record<string, string | number> = {},
+) {
+  const { data } = await wordpressGet<CollectionData>(
+    "/wp-json/wc/store/v1/products/collection-data",
+    {
+      ...query,
+      calculate_price_range: "true",
+      calculate_stock_status_counts: "true",
+    },
+  );
+  return data;
 }
-export function productPrice(product: Product) {
-  const { price, currency_code, currency_minor_unit, price_range } =
-    product.prices;
-  if (!price || !currency_code) return null;
-  const format = (value: string) =>
-    new Intl.NumberFormat("en-GB", {
-      style: "currency",
-      currency: currency_code,
-    }).format(Number(value) / 10 ** currency_minor_unit);
-  return price_range
-    ? `${format(price_range.min_amount)} – ${format(price_range.max_amount)}`
-    : format(price);
+export async function getVariations(
+  product: Product,
+): Promise<ProductVariation[]> {
+  if (product.type !== "variable") return [];
+  const children: Product[] = [];
+  for (let page = 1; ; page++) {
+    const result = await getProducts({
+      type: "variation",
+      parent: product.id,
+      per_page: 100,
+      page,
+    });
+    children.push(...result.data);
+    if (page >= result.pages) break;
+  }
+  return (product.variations ?? []).flatMap((option) => {
+    const child = children.find(
+      (item) => item.id === option.id && item.parent === product.id,
+    );
+    // Wildcard attributes require a full combination resolver; never guess a sellable SKU.
+    if (
+      !child ||
+      !option.attributes.length ||
+      option.attributes.some((attribute) => !attribute.value)
+    )
+      return [];
+    return [
+      {
+        ...child,
+        optionLabel: option.attributes
+          .map(
+            (attribute) =>
+              `${option.attributes.length > 1 ? `${plainText(attribute.name)}: ` : ""}${plainText(attribute.value)}`,
+          )
+          .join(" / "),
+      },
+    ];
+  });
 }

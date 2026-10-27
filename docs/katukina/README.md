@@ -10,6 +10,8 @@ A [auditoria de cobertura funcional de 2026-10-22](FUNCTIONAL-COVERAGE.md) é a 
 
 | Artefato | Conteúdo |
 | --- | --- |
+| [Privacidade e cookies](PRIVACY-COOKIES.md) | Política, consentimento, inventário, fontes públicas e pendências de GDPR/ePrivacy antes de produção |
+| [Categorias e produtos](CATALOG-UX-BLUEPRINT.md) | Esquema, implementação, contratos, verificações e limites; [wireframe inicial](CATALOG-WIREFRAMES.html) |
 | [Importação Sacred Incense UK](PRODUCT-IMPORT-2026-10-27.md) | Fonte XLSX, produtos/variações, preços atualizados para USD, imagens, reprodução e validação local |
 | [Instalação em outro computador](LOCAL-SETUP.md) | Clone, bootstrap, credenciais públicas de teste, rotação obrigatória antes de publicação, atualização e persistência |
 | [Cobertura funcional auditada](FUNCTIONAL-COVERAGE.md) | Comparação requisito a requisito com código e configuração local; lacunas de Sendcloud, HS, multi-site e demais domínios |

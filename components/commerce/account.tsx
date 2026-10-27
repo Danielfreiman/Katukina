@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 type Session = {
   user: { name: string; email: string } | null;
   nonce: string;
@@ -142,6 +143,10 @@ export function AccountView() {
       ) : (
         <form className="commerce-form account-form" onSubmit={submit}>
           <h2>{register ? "Create your account" : "Welcome back"}</h2>
+          <p>
+            We use your details to provide your account. Read our{" "}
+            <Link href="/privacy">privacy notice</Link>.
+          </p>
           <label>
             Email
             <input name="email" type="email" autoComplete="email" required />

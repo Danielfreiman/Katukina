@@ -51,10 +51,21 @@ export function CheckoutView() {
           ...empty,
           ...c.shipping_address,
           country,
-          state: c.shipping_address?.country === country ? c.shipping_address.state : "",
+          state:
+            c.shipping_address?.country === country
+              ? c.shipping_address.state
+              : "",
           email: c.billing_address?.email || "",
         });
-        setBilling({ ...empty, ...c.billing_address, country, state: c.billing_address?.country === country ? c.billing_address.state : "" });
+        setBilling({
+          ...empty,
+          ...c.billing_address,
+          country,
+          state:
+            c.billing_address?.country === country
+              ? c.billing_address.state
+              : "",
+        });
       })
       .catch((e) => {
         if (active) setError(e.message);
@@ -68,7 +79,7 @@ export function CheckoutView() {
     (isBilling ? setBilling : setAddress)((prev) => ({
       ...prev,
       [field]: value,
-      ...(field === 'country' && value !== prev.country ? { state: '' } : {}),
+      ...(field === "country" && value !== prev.country ? { state: "" } : {}),
     }));
     setReviewed(false);
     setAccepted(false);
@@ -229,6 +240,11 @@ export function CheckoutView() {
       <div className="commerce-layout">
         <form className="commerce-form" onSubmit={review}>
           <h2>Contact and delivery</h2>
+          <p className="commerce-caption">
+            We use these details to manage your bag and order. Read our{" "}
+            <Link href="/privacy">privacy notice</Link>. Optional cookie consent
+            is not required to check out.
+          </p>
           <label>
             Email
             <input

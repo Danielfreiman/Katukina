@@ -237,6 +237,7 @@ final class KatukinaWorkbookImport {
             if ( get_post_meta( $id, '_kat_workbook_media_complete', true ) === $fingerprint ) { continue; }
             try {
                 $images = array(); foreach ( $row['image_files'] ?? array() as $file ) { $images[] = $this->attachment( $file, $id, $item['name'] ); }
+                $images = array_values( array_unique( $images ) );
                 $parent = wc_get_product( $id );
                 if ( $images ) { $parent->set_image_id( $images[0] ); $parent->set_gallery_image_ids( array_slice( $images, 1 ) ); }
                 foreach ( $item['forms'] as $form ) {
@@ -255,6 +256,7 @@ final class KatukinaWorkbookImport {
             if ( ! $id ) { continue; }
             try {
                 $images = array(); foreach ( $row['image_files'] ?? array() as $file ) { $images[] = $this->attachment( $file, $id, $item['name'] ); }
+                $images = array_values( array_unique( $images ) );
                 if ( $images ) { $product = wc_get_product( $id ); $product->set_image_id( $images[0] ); $product->set_gallery_image_ids( array_slice( $images, 1 ) ); $product->save(); }
             } catch ( Throwable $error ) { $report['errors'][] = array( 'unmatched' => $item['key'], 'message' => $error->getMessage() ); }
         }

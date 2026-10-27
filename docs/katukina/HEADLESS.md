@@ -6,6 +6,8 @@ O intermediário `/api/commerce/{action}` mantém Cart-Token em cookie HttpOnly 
 
 ## Acesso e execução
 
+Atualização de catálogo em 2026-10-27: categorias/busca compartilham filtros de preço/disponibilidade, ordenação, totais e paginação. Produtos têm galeria ampliável, escolha de variação por ID, quantidade, preço/SKU/foto da opção e compra pelo carrinho existente. Dados comerciais continuam autoritativos no WooCommerce; tratamento de falta de estoque e resposta incerta não cria adição automática duplicada. Relacionados usam categorias nativas. [Cobertura e limites](CATALOG-UX-BLUEPRINT.md#9-implementação-autorizada--2026-10-27); testes em `tests/catalog.spec.ts`. O catálogo importado permanece sem estoque disponível; os testes de compra usam produtos temporários, sem modificar esses saldos.
+
 - Site: http://localhost:3001/
 - Administração: http://localhost:3001/wp-admin/
 - Products nativo: http://localhost:3001/wp-admin/edit.php?post_type=product

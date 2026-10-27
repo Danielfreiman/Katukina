@@ -129,6 +129,23 @@ Motivação: unificar atendimento preservando origem, consentimento e contexto. 
 
 ## Conflitos e controle de mudança
 
+### REQ-PRIV-001 — Cookies e proteção de dados europeia
+
+- **Origem/estado:** pedido explícito do responsável em 2026-10-27; consulta dos dados do controlador no katukina.com também autorizada. **CONFIRMADO:** política e controle de consentimento na vitrine, com integração real ao storage opcional.
+- **Aceite:** nenhuma leitura/gravação de histórico antes do aceite; recusa no primeiro nível; finalidade desmarcada; retirada acessível; limpeza/expiração; escolhas válidas entre abas; carrinho e autenticação independentes; fontes e dados do controlador rastreáveis.
+- **Implementação e limites:** [PRIVACY-COOKIES.md](PRIVACY-COOKIES.md). Conformidade integral em produção, retenção de registros comerciais, contratos/transferências e cobertura dos direitos sobre módulos próprios continuam **A VALIDAR**. Não presume apagamento de créditos ou dados preexistentes.
+
+### REQ-UX-001 — Estrutura de categorias e produtos inspirada na iHerb
+
+- **Origem/estado:** pedido do responsável em 2026-10-27 de um esquema de engenharia reversa da categoria pública `br.iherb.com/c/bath-personal-care` e de páginas de produto. **CONFIRMADO:** elaboração do esquema; **PROPOSTO:** implementação detalhada em [CATALOG-UX-BLUEPRINT.md](CATALOG-UX-BLUEPRINT.md). Prioridade a definir.
+- **Escopo:** categorias com subcategorias, filtros, ordenação e paginação; produto com galeria, apresentação/variação, preço, disponibilidade e compra. Reutilizar identidade Katukina, rotas Next.js, dados e editores nativos WooCommerce; manter a interface em inglês.
+- **Papéis/dependências:** visitante navega e seleciona; editor mantém dados nativos; backend valida compra. Depende de contratos de variações, atributos normalizados para filtros adicionais e dados reais para avaliações/entrega. Não depende de reproduzir a infraestrutura interna da referência.
+- **Aceite proposto:** filtros reproduzíveis pela URL, contagens de todo o resultado, seleção vinculada ao SKU correto, galeria das imagens cadastradas, bloqueio de compra indisponível, estados de erro e funcionamento por teclado e em dispositivos móveis. Detalhamento e fases no esquema.
+- **Limites/dúvidas:** o acesso automatizado ao vivo da iHerb foi bloqueado; a análise usa conteúdo público indexado, sem comprovar layout exato ou comportamento móvel. Taxonomia editorial e evoluções de avaliações/entrega permanecem a validar. Não amplia a cobertura comercial de Sendcloud, estoque ou multi-site.
+- **Implementação autorizada em seguida (2026-10-27):** pedido “implemente”. Categoria/busca com filtros e ordenação, produto com galeria e apresentações, carrinho por SKU, relacionados, adaptação móvel e tratamento de erros implementados. Cobertura, verificações e limites na seção 9 do esquema; avaliações, atributos globais e entrega no produto permanecem condicionais.
+
+- **Correção explícita posterior (2026-10-27):** Presentation deve usar swatches; categorias devem ser lista de links, com revisão da referência Grocery para ampliar os elementos ausentes. Revisão implementada na seção 10 do esquema: categorias hierárquicas, swatches, filtros rápidos/faixas/ofertas/avaliação/marcas, ordenação adicional, tamanho de página e histórico local de produtos. Dados ausentes não são inventados.
+
 ### REQ-ADM-001 — Inglês e consistência com WordPress/WooCommerce
 
 - **CONFIRMADO:** solicitação explícita do responsável em 2026-10-22, acompanhada da tela de fornecedores.
