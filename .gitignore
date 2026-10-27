@@ -10,6 +10,7 @@ wordpress/.runtime/
 wordpress/.wp-env.override.json
 wordpress/.local-access.json
 wordpress/backups/
+wordpress/tools/.imports/
 debug.log
 
 # Private source exports and historical dashboards (contain customer data).

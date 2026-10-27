@@ -29,6 +29,8 @@ No macOS/Linux, use `npm` em vez de `npm.cmd`. O setup prepara WordPress/WooComm
 
 ## WordPress + WooCommerce local
 
+Para levar também o catálogo completo (370 produtos, 908 variações, sete rascunhos e preços USD), copie o pacote privado de importação além do clone. [Instruções para outra máquina](docs/katukina/LOCAL-SETUP.md#catálogo-completo-de-2026-10-27). Banco, pedidos e credenciais efetivas não são enviados pelo Git.
+
 Site e administração no mesmo endereço: [site Next.js](http://localhost:3001/), [painel WordPress](http://localhost:3001/wp-admin/) e [Products](http://localhost:3001/wp-admin/edit.php?post_type=product). Após a primeira instalação, com o Docker Desktop aberto:
 
 ```powershell

@@ -1,5 +1,7 @@
 # WordPress local Katukina
 
+A importação do catálogo Sacred Incense UK usa GBP e produtos/variações nativos. Veja [fonte, comandos e limites da importação](../docs/katukina/PRODUCT-IMPORT-2026-10-27.md). Depois da importação, use `wp:start` para iniciar o ambiente; o bootstrap dos exemplos USD não deve ser usado para repor este catálogo.
+
 Backend de desenvolvimento em Docker, separado do frontend Next.js. Configuração: WordPress 7.1.3, WooCommerce 11.2.1, PHP 8.3, MariaDB 11.4 e wp-env 11.17.0. WordPress/WooCommerce/wp-env têm versões exatas; imagens PHP/MariaDB acompanham as respectivas séries de manutenção.
 
 O plugin `katukina-core` 0.3.0 amplia os editores nativos de Products/Variations e Orders, as configurações WooCommerce e os perfis WordPress. Não há painel ou catálogo paralelo. Estoque simples, preços, impostos, frete, pagamentos e cupons usam os recursos nativos; lotes/fracionamento são extensões em Products. Carrinho, conta e checkout de teste estão integrados à vitrine. Veja [operação local e limites](../docs/katukina/OPERATIONS.md). A empresa/canal `LOCAL-DEMO` é fictícia, a matriz de transições está vazia e nenhum estoque foi inventado.

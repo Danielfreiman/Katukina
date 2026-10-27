@@ -1,5 +1,31 @@
 # Histórico do discovery Katukina
 
+## 2026-10-27 — Reprodução do catálogo e revisão antes do push
+
+- Criado `package_product_catalog.py`: pacote privado com três manifestos e 1.688 imagens, sem contas, clientes, pedidos ou credenciais; hashes das imagens e integridade ZIP verificados. Guia de instalação distingue clone com seis amostras, importação completa e transferência do histórico por banco/uploads.
+- Ensaio em cópia dos arquivos preparados para Git, sem banco, uploads ou dependências locais copiados: ambos os `npm ci` com npm 11.16.0, bootstrap WordPress/WooCommerce em banco novo, typecheck, build Next.js 16.4.3, 13 testes Python e sintaxe de 32 arquivos PHP aprovados. Falhas temporárias de DNS resolvidas por nova tentativa; portas isoladas 3002/8889 e outro projeto 8080 preservado.
+- Atualizações compatíveis dos lockfiles: frontend sem alertas no `npm audit`; seis alertas remanescentes nas ferramentas de desenvolvimento WordPress, com correção sugerida via versão principal wp-env 12 ainda não homologada. Limite registrado em `LOCAL-SETUP.md`. Bloco de instruções Next.js atualizado automaticamente pela nova versão.
+- Verificador USD passou a retornar erro de execução quando encontra divergências, para que a reprodução não prossiga como se a conferência tivesse passado.
+- Nove testes Playwright aprovados em uma execução conjunta (6,2 minutos) na base limpa com amostras: painel nativo, APIs, operações, concorrência, checkout, conta e vitrine. Catálogo principal também conferido no navegador após atualização de dependências.
+- Pacote de 237.141.808 bytes extraído e importado na instalação nova: 370 produtos, 908 variações e sete rascunhos com imagens; 2.405 linhas reconciliadas e seis IDs iniciais preservados. Aplicação/verificação dos 908 preços USD aprovada, sem mudança de históricos. Teste negativo de preço divergente confirmou a saída de erro do verificador e restaurou a entrada privada, sem gravar no banco.
+- Verificação final de navegador da cópia recuperada aprovada: catálogo público em USD, imagens, login e editores nativos. Serviços temporários de teste encerrados com volumes preservados; ambiente principal continua em 3001/8888.
+
+## 2026-10-27 — Preços em USD conforme o site público
+
+- Por instrução posterior do responsável, os 908 SKUs passaram a usar os preços públicos USD do katukina.com, confirmando SKU e quantidade. Nenhum câmbio estimado; seletor USD aplicado em sessão anônima quando necessário.
+- WooCommerce e canal local em USD. Backup anterior, transação, reconciliação dos 908 preços sem divergências e checksums históricos preservados. Importador GBP protegido contra mudança acidental da moeda após essa atualização.
+- Coletor com cache/atualização explícita e atualizador CLI documentados no [relatório da importação](PRODUCT-IMPORT-2026-10-27.md). Treze testes Python e sintaxe PHP/JS aprovados.
+
+## 2026-10-27 — Cadastro da planilha Sacred Incense UK
+
+Origem: cadastro de todos os produtos do XLSX fornecido; aprovação explícita para usar GBP e os preços da planilha na loja de teste.
+
+- Importados 370 produtos variáveis, 908 variações e sete rascunhos de correspondência ambígua, todos com imagens. SKUs textuais e seis IDs preexistentes preservados; 2.405 linhas de origem reconciliadas sem duplicar SKUs ou somar saldos repetidos.
+- Moeda WooCommerce GBP e novo canal fictício `LOCAL-DEMO-GBP`, preservando canal anterior, avisos e pedidos históricos. Saldos da planilha permanecem como referência e a disponibilidade para venda aguarda conferência; pesos, IVA, HS e descontos não foram inferidos.
+- Parser, downloader com cache e importador CLI local com backup, prévia, retomada e verificação. Dados privados fora do Git e bloqueados por HTTP. Seção em inglês `Imported source data` nos editores nativos; duplicação WooCommerce remove identidade e metadados da importação.
+- Verificações: 11 testes Python, sintaxe PHP/JS, 13 verificações de duplicação em memória, Playwright do catálogo/editor, hash da fonte, preços e quantidades, imagens, preservação dos históricos e reexecução sem novos produtos. [Relatório e reprodução](PRODUCT-IMPORT-2026-10-27.md).
+- Docker Desktop recuperado após autorização de reinício; volumes preservados e outro projeto na porta 8080 confirmado acessível.
+
 ## 2026-10-22 — Ambiente de teste reproduzível pelo Git
 
 Origem: pedido de commit/push com instruções para outro computador; autorização explícita para incluir credenciais de teste e exigir rotação antes de publicação.

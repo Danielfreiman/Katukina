@@ -10,7 +10,15 @@ final class NativeCatalog {
         add_action( 'woocommerce_before_product_object_save', array( self::class, 'guard' ) );
         add_action( 'woocommerce_before_product_variation_object_save', array( self::class, 'guard' ) );
         add_action( 'before_delete_post', array( self::class, 'archive' ) );
-        add_filter( 'woocommerce_duplicate_product_exclude_meta', static fn( $keys ) => array_merge( $keys, array( '_kat_item_record_id', '_kat_form_record_id', '_kat_lot_identity', '_kat_catalog_migration_source', '_kat_legacy_item_id', '_kat_legacy_form_id' ) ) );
+        add_filter( 'woocommerce_duplicate_product_exclude_meta', static function ( $keys, $existing ) {
+            $workbook = array_filter( $existing, static fn( $key ) => is_string( $key ) && str_starts_with( $key, '_kat_workbook_' ) );
+            return array_values( array_unique( array_merge( $keys, array( '_kat_item_record_id', '_kat_form_record_id', '_kat_lot_identity', '_kat_catalog_migration_source', '_kat_legacy_item_id', '_kat_legacy_form_id' ), $workbook ) ) );
+        }, 10, 2 );
+        // WooCommerce reuses the parent's exclusion list for children. Remove
+        // variation-only provenance from each clone before its first save too.
+        add_action( 'woocommerce_product_duplicate_before_save', static function ( $duplicate ) {
+            foreach ( $duplicate->get_meta_data() as $meta ) { if ( str_starts_with( $meta->key, '_kat_workbook_' ) ) { $duplicate->delete_meta_data( $meta->key ); } }
+        } );
         add_filter( 'woocommerce_product_data_tabs', static function ( $tabs ) {
             $tabs['katukina_details'] = array( 'label' => 'Origin and packaging', 'target' => 'katukina_product_data', 'priority' => 65 ); return $tabs;
         } );
@@ -64,6 +72,76 @@ final class NativeCatalog {
         }
         $form_id = (int) $product->get_meta( '_kat_form_record_id' );
         if ( $form_id ) { echo '<p class="form-field"><a class="button" href="' . esc_url( admin_url( 'edit.php?post_type=product&page=katukina-lots&product_id=' . $product->get_id() ) ) . '">View product lots and repacking</a></p>'; }
+        self::imported_source_data( $product );
+    }
+    private static function source_text( mixed $value ): string {
+        return is_scalar( $value ) ? (string) $value : '';
+    }
+    private static function source_table( array $rows, array $columns ): void {
+        echo '<div style="overflow-x:auto"><table class="widefat striped"><thead><tr><th scope="col">Source row</th>';
+        foreach ( $columns as $label ) { echo '<th scope="col">' . esc_html( $label ) . '</th>'; }
+        echo '</tr></thead><tbody>';
+        foreach ( $rows as $row ) {
+            if ( ! is_array( $row ) || ! isset( $row['data'] ) || ! is_array( $row['data'] ) ) { continue; }
+            echo '<tr><th scope="row">' . esc_html( self::source_text( $row['source_row'] ?? '' ) ) . '</th>';
+            foreach ( $columns as $field => $label ) {
+                $value = self::source_text( $row['data'][ $field ] ?? '' );
+                if ( in_array( $field, array( 'retail_active', 'wholesale_active' ), true ) ) { $value = match ( $value ) { '1' => 'Yes', '0' => 'No', default => $value }; }
+                echo '<td>' . esc_html( '' === $value ? '—' : $value ) . '</td>';
+            }
+            echo '</tr>';
+        }
+        echo '</tbody></table></div>';
+    }
+    private static function imported_source_data( \WC_Product $product ): void {
+        if ( ! current_user_can( 'edit_post', $product->get_id() ) ) { return; }
+        $rows = $product->get_meta( '_kat_workbook_source_rows', true, 'edit' );
+        $urls = $product->get_meta( '_kat_workbook_source_urls', true, 'edit' );
+        $issues = $product->get_meta( '_kat_workbook_issues', true, 'edit' );
+        $hash = self::source_text( $product->get_meta( '_kat_workbook_source_sha256', true, 'edit' ) );
+        $rows = is_array( $rows ) ? $rows : array();
+        $urls = is_array( $urls ) ? $urls : array();
+        $issues = is_array( $issues ) ? $issues : array();
+        if ( ! $rows && ! $urls && ! $issues && ! $hash ) { return; }
+        echo '<div class="options_group" style="clear:both;padding:12px"><details><summary style="cursor:pointer;font-weight:600">Imported source data</summary>';
+        echo '<p class="description">Read-only workbook references. Current selling settings remain in the standard WooCommerce fields.</p>';
+        if ( $rows ) {
+            $quantity = self::source_text( $product->get_meta( '_kat_workbook_sale_quantity', true, 'edit' ) );
+            $stock = self::source_text( $product->get_meta( '_kat_workbook_stock_snapshot', true, 'edit' ) );
+            $unit = self::source_text( $product->get_meta( '_kat_workbook_stock_unit', true, 'edit' ) );
+            echo '<p><strong>Imported sale quantity:</strong> ' . esc_html( '' === $quantity ? '—' : $quantity ) . '</p>';
+            echo '<p><strong>Stock snapshot:</strong> ' . esc_html( '' === $stock ? '—' : trim( $stock . ' ' . $unit ) ) . '<br><span class="description">Reference only — not available inventory. Repeated quantity tiers share the same source snapshot.</span></p>';
+            echo '<h4>Original price tiers</h4><p class="description">Prices are in GBP for the stated quantity. Active flags describe the source workbook; wholesale tiers are not configured pricing rules.</p>';
+            self::source_table( $rows, array( 'quantity_label' => 'Quantity', 'retail_price_gbp' => 'Retail price (GBP)', 'retail_active' => 'Retail active', 'wholesale_price_gbp' => 'Wholesale price (GBP)', 'wholesale_active' => 'Wholesale active' ) );
+            echo '<h4>Original measurements and VAT</h4><p class="description">Weight and volume units require validation. These raw values have not been converted to shipping measurements. VAT labels are source references, not configured tax rates.</p>';
+            self::source_table( $rows, array( 'quantity_label' => 'Quantity', 'weight' => 'Weight (raw)', 'net_weight' => 'Net weight (raw)', 'gross_weight' => 'Gross weight (raw)', 'volume' => 'Volume (raw)', 'vat_label' => 'VAT label (source)' ) );
+        }
+        $links = array();
+        foreach ( $urls as $url ) {
+            $text = self::source_text( $url );
+            if ( ! preg_match( '#^https?://#i', $text ) ) { continue; }
+            $safe = esc_url( $text, array( 'http', 'https' ) );
+            if ( $safe ) { $links[] = '<li><a href="' . $safe . '" target="_blank" rel="noopener noreferrer">' . esc_html( $text ) . '</a></li>'; }
+        }
+        if ( $links ) { echo '<h4>Source product pages</h4><ul style="overflow-wrap:anywhere">' . implode( '', $links ) . '</ul>'; }
+        if ( $issues ) {
+            echo '<h4>Import notes</h4><ul class="ul-disc" style="margin-left:20px">';
+            foreach ( $issues as $issue ) {
+                $message = self::source_text( is_array( $issue ) ? ( $issue['message'] ?? '' ) : $issue );
+                if ( '' === $message ) { continue; }
+                $numbers = array();
+                foreach ( is_array( $issue ) && is_array( $issue['source_rows'] ?? null ) ? $issue['source_rows'] : array() as $number ) {
+                    $value = self::source_text( $number );
+                    if ( preg_match( '/^[1-9][0-9]*$/D', $value ) ) { $numbers[] = $value; }
+                }
+                echo '<li>' . esc_html( $message );
+                if ( $numbers ) { echo ' <span class="description">' . esc_html( 'Source rows: ' . implode( ', ', $numbers ) . '.' ) . '</span>'; }
+                echo '</li>';
+            }
+            echo '</ul>';
+        }
+        if ( preg_match( '/^[a-f0-9]{64}$/iD', $hash ) ) { echo '<p class="description">Source SHA-256: <code style="overflow-wrap:anywhere">' . esc_html( $hash ) . '</code></p>'; }
+        echo '</details></div>';
     }
     public static function save_fields( \WC_Product $product, ?int $index = null ): void {
         if ( ! current_user_can( 'edit_post', $product->get_id() ) ) { return; }
