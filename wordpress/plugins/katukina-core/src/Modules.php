@@ -15,7 +15,7 @@ final class Modules {
             'payments' => $module( 'Payments', 'Gateways WooCommerce', 'Local testing without payment. External gateway documentation is pending.', 'admin.php?page=wc-settings&tab=checkout' ),
             'tax' => $module( 'Taxes', 'WooCommerce tax engine', 'Enable taxes in General before configuring Tax. No tax rates are assumed.', 'admin.php?page=wc-settings&tab=general' ),
             'customers' => $module( 'Customers', 'WordPress users and WooCommerce customers', 'Credit and permissions in the WordPress profile.', 'users.php' ),
-            'crm' => $module( 'Additional support records', 'Users extension', 'Records and drafts without synchronisation or outgoing messages.', 'users.php?page=katukina-contacts' ),
+            'crm' => $module( 'Contacts and unified inbox', 'Users extension', 'Async inbox/outbox, consent and campaign history. Live providers require verified configuration.', 'users.php?page=katukina-inbox' ),
             'reports' => $module( 'Reports', 'WooCommerce Analytics', 'WooCommerce business reports; operational audit in Tools.', 'admin.php?page=wc-admin&path=/analytics/overview' ),
         );
     }

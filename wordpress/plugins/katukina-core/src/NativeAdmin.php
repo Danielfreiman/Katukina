@@ -11,7 +11,12 @@ final class NativeAdmin {
         add_action( 'admin_enqueue_scripts', static function () { if ( current_user_can( 'manage_woocommerce' ) ) { wp_enqueue_script( 'wp-api-request' ); } } );
         add_action( 'admin_menu', static function () {
             add_submenu_page( 'edit.php?post_type=product', 'Lots and repacking', 'Lots and repacking', 'katukina_inventory', 'katukina-lots', array( self::class, 'inventory' ) );
+            add_submenu_page( 'edit.php?post_type=product', 'Inventory', 'Inventory', 'katukina_inventory', 'katukina-inventory', static function () { echo '<div class="wrap"><h1>Inventory</h1>'; self::report( 'stock_levels' ); echo '<p><a href="' . esc_url( admin_url( 'edit.php?post_type=product&page=katukina-lots' ) ) . '">Lots, receipts, adjustments and reservations</a></p></div>'; } );
+            add_submenu_page( 'edit.php?post_type=product', 'Production', 'Production', 'katukina_inventory', 'katukina-production', array( ProductionAdmin::class, 'render' ) );
+            add_submenu_page( 'edit.php?post_type=product', 'HS Codes', 'HS Codes', 'katukina_settings', 'katukina-hs', static fn() => self::record_page( 'hs' ) );
+            add_submenu_page( 'edit.php?post_type=product', 'Samples', 'Samples', 'katukina_inventory', 'katukina-samples', static function () { $_GET['operation'] = 'issue-sample'; self::inventory(); } );
             add_submenu_page( 'edit.php?post_type=product', 'Suppliers', 'Suppliers', 'katukina_crm', 'katukina-suppliers', static fn() => self::record_page( 'supplier' ) );
+            add_submenu_page( 'edit.php?post_type=product', 'Expected receipts', 'Expected receipts', 'katukina_inventory', 'katukina-incoming', static fn() => self::record_page( 'incoming' ) );
             add_submenu_page( 'users.php', 'Contacts and support', 'Contacts and support', 'katukina_crm', 'katukina-contacts', array( self::class, 'contacts' ) );
             add_submenu_page( 'tools.php', 'Operational audit', 'Operational audit', 'katukina_reports', 'katukina-audit', static function () { echo '<div class="wrap"><h1>Operational audit</h1>'; self::report( 'audit' ); echo '</div>'; } );
         } );
@@ -39,6 +44,7 @@ final class NativeAdmin {
             $name = $prefix . '[' . $key . ']'; $id = 'kat-' . $prefix . '-' . $key; $value = $values[ $key ] ?? ''; $type = $field['type']; $options = $field['options'] ?? array();
             if ( str_starts_with( $type, 'ref:' ) ) { $options = array( '' => 'Select…' ); foreach ( Registry::all( substr( $type, 4 ) ) as $row ) { if ( ! empty( $row['data']['active'] ) || (string) $row['id'] === (string) $value ) { $options[ $row['id'] ] = $row['data']['name'] . ' (' . $row['code'] . ')'; } } $type = 'select'; }
             if ( 'country' === $type ) { $options = array( '' => 'Select…' ) + WC()->countries->get_countries(); $type = 'select'; }
+            if ( 'jurisdiction' === $type ) { $options = array( '' => 'Select…', 'EU' => 'European Union' ) + WC()->countries->get_countries(); $type = 'select'; }
             if ( 'currency' === $type ) { $options = array( '' => 'Select…' ) + get_woocommerce_currencies(); $type = 'select'; }
             echo '<tr><th scope="row"><label for="' . esc_attr( $id ) . '">' . esc_html( $field['label'] ) . '</label></th><td>';
             $attrs = ' id="' . esc_attr( $id ) . '" name="' . esc_attr( $name ) . '" ' . ( ! empty( $field['required'] ) ? 'required ' : '' );
@@ -51,6 +57,8 @@ final class NativeAdmin {
         echo '</tbody></table>';
     }
     private static function record_url( string $kind ): string {
+        if ( 'incoming' === $kind ) { return admin_url( 'edit.php?post_type=product&page=katukina-incoming' ); }
+        if ( 'hs' === $kind ) { return admin_url( 'edit.php?post_type=product&page=katukina-hs' ); }
         if ( in_array( $kind, self::SETTINGS, true ) ) { return admin_url( 'admin.php?page=wc-settings&tab=katukina&section=' . $kind ); }
         return admin_url( 'supplier' === $kind ? 'edit.php?post_type=product&page=katukina-suppliers' : 'users.php?page=katukina-contacts&section=' . $kind );
     }
@@ -62,6 +70,7 @@ final class NativeAdmin {
             echo '<form method="post" action="' . esc_url( admin_url( 'admin-post.php' ) ) . '"><input type="hidden" name="action" value="katukina_record">';
             self::record_editor( $kind ); submit_button( empty( $_GET['record_id'] ) ? 'Add new' : 'Save changes' ); echo '</form>';
         } else { self::record_table( $kind ); }
+        if ( self::editing_record() && ! empty( $_GET['record_id'] ) ) { do_action( 'katukina_record_detail', $kind, absint( $_GET['record_id'] ) ); }
         echo '</div>';
     }
     private static function editing_record(): bool {
@@ -104,7 +113,7 @@ final class NativeAdmin {
     }
     private static function persist_record(): array {
         $kind = sanitize_key( $_POST['kind'] ?? '' );
-        if ( ! in_array( $kind, array_merge( self::SETTINGS, self::CONTACTS, array( 'supplier' ) ), true ) ) { throw new DomainError( 'Use the standard WooCommerce screens for this record.' ); }
+        if ( ! in_array( $kind, array_merge( self::SETTINGS, self::CONTACTS, array( 'supplier', 'incoming' ) ), true ) ) { throw new DomainError( 'Use the standard WooCommerce screens for this record.' ); }
         self::check( Registry::definitions()[ $kind ]['capability'] ); check_admin_referer( 'kat-record-' . $kind, 'kat_record_nonce' );
         $input = array_intersect_key( wp_unslash( $_POST ), array_flip( array( 'kind', 'id', 'version', 'key', 'code', 'data' ) ) );
         return Database::command( 'record.save', $input, array( Registry::class, 'save' ) );
@@ -148,25 +157,29 @@ final class NativeAdmin {
     }
     public static function contacts(): void {
         self::check( 'katukina_crm' ); $section = sanitize_key( $_GET['section'] ?? 'contact' ); if ( ! in_array( $section, self::CONTACTS, true ) ) { $section = 'contact'; }
-        echo '<div class="wrap"><h1>Contacts and support</h1><p>Manage customers in WordPress Users and WooCommerce Customers. Messages and campaigns are saved as records and drafts; they are not sent.</p><nav class="nav-tab-wrapper">';
+        echo '<div class="wrap"><h1>Contacts and support</h1><p>Manage customers in WordPress Users and WooCommerce Customers. Campaign delivery requires an authorized mailbox and an explicit queue action.</p><nav class="nav-tab-wrapper">';
         foreach ( self::CONTACTS as $kind ) { echo '<a class="nav-tab ' . ( $section === $kind ? 'nav-tab-active' : '' ) . '" href="' . esc_url( self::record_url( $kind ) ) . '">' . esc_html( Registry::definitions()[ $kind ]['label'] ) . '</a>'; } echo '</nav></div>'; self::record_page( $section );
     }
     private static function operation_fields( string $action ): array {
         $f = static fn( $label, $type = 'text', $required = true ) => compact( 'label', 'type', 'required' );
         $fields = match ( $action ) {
+            'return-stock' => array( 'reservation_id' => $f( 'Fulfilled reservation ID' ), 'quantity' => $f( 'Quantity physically received' ), 'reference' => $f( 'Unique return receipt reference' ), 'inspected' => $f( 'Physically received and inspected', 'boolean' ) ),
+            'issue-sample' => array( 'lot_id' => $f( 'Packaged lot ID' ), 'contact_id' => $f( 'Recipient', 'ref:contact' ), 'quantity' => $f( 'Quantity issued' ), 'reference' => $f( 'Unique sample reference' ) ),
             'receive' => array( 'code' => $f( 'Lot code' ), 'form_id' => $f( 'Product / variation', 'ref:form' ), 'warehouse_id' => $f( 'Warehouse', 'ref:warehouse' ), 'quantity' => $f( 'Quantity received' ), 'supplier_id' => $f( 'Supplier', 'ref:supplier', false ), 'supplier_lot' => $f( 'Supplier lot code', 'text', false ), 'expiry' => $f( 'Expiry date', 'date', false ), 'location' => $f( 'Location', 'text', false ), 'cost_minor' => $f( 'Total cost (currency minor units)', 'text', false ), 'currency' => $f( 'Cost currency', 'currency', false ) ),
             'adjust' => array( 'lot_id' => $f( 'Lot ID' ), 'quantity' => $f( 'Quantity (negative to remove stock)' ), 'reference' => $f( 'Reference' ) ),
             'reserve' => array( 'lot_id' => $f( 'Lot ID' ), 'order_id' => $f( 'WooCommerce order' ), 'line_id' => $f( 'Order item ID' ), 'quantity' => $f( 'Quantity' ), 'expires_at' => $f( 'Expires at (UTC, YYYY-MM-DD HH:MM:SS)' ) ),
             'release' => array( 'reservation_id' => $f( 'Reservation ID' ) ),
             'produce' => array( 'input_lot_id' => $f( 'Bulk lot ID' ), 'form_id' => $f( 'Output product / variation', 'ref:form' ), 'code' => $f( 'Output lot code' ), 'quantity' => $f( 'Number of packs' ), 'loss' => $f( 'Loss in bulk units (0 for none)' ) ),
             'reverse-production' => array( 'production_id' => $f( 'Production ID' ) ), default => array(),
-        }; $fields['reason'] = $f( 'Reason', 'textarea' ); return $fields;
+        }; if ( 'receive' === $action ) { $fields['incoming_id'] = $f( 'Expected receipt (optional)', 'ref:incoming', false ); } $fields['reason'] = $f( 'Reason', 'textarea' ); return $fields;
     }
     public static function inventory(): void {
         self::check( 'katukina_inventory' ); $tabs = array( 'lots' => 'Lots', 'receive' => 'Receive lot', 'adjust' => 'Adjust stock', 'produce' => 'Repack', 'production' => 'Repacking runs', 'reverse-production' => 'Reverse repacking', 'reservations' => 'Reservations', 'reserve' => 'Reserve stock', 'release' => 'Release reservation', 'movements' => 'Movements', 'reconciliation' => 'Reconciliation' );
+        $tabs['return-stock'] = 'Receive inspected return'; $tabs['issue-sample'] = 'Issue sample';
         $action = sanitize_key( $_GET['operation'] ?? 'lots' ); if ( ! isset( $tabs[ $action ] ) ) { $action = 'lots'; }
         echo '<div class="wrap"><h1>Lots and repacking</h1><p>Manage the catalogue in <a href="' . esc_url( admin_url( 'edit.php?post_type=product' ) ) . '">Products</a>. Products without lots use WooCommerce stock management. Receiving the first lot enables lot-based stock control and locks the packaging identity.</p><nav class="nav-tab-wrapper">';
         $parents = array( 'receive' => 'lots', 'adjust' => 'lots', 'produce' => 'production', 'reverse-production' => 'production', 'reserve' => 'reservations', 'release' => 'reservations' );
+        $parents['return-stock'] = 'lots'; $parents['issue-sample'] = 'lots';
         $current = $parents[ $action ] ?? $action;
         $url = static fn( $operation ) => add_query_arg( array( 'operation' => $operation, 'product_id' => absint( $_GET['product_id'] ?? 0 ), 'order_id' => absint( $_GET['order_id'] ?? 0 ) ), admin_url( 'edit.php?post_type=product&page=katukina-lots' ) );
         foreach ( array( 'lots', 'production', 'reservations', 'movements', 'reconciliation' ) as $key ) { echo '<a class="nav-tab ' . ( $key === $current ? 'nav-tab-active' : '' ) . '" href="' . esc_url( $url( $key ) ) . '">' . esc_html( $tabs[ $key ] ) . '</a>'; } echo '</nav>';

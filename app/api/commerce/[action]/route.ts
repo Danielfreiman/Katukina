@@ -7,6 +7,8 @@ const cookieName = "katukina_cart";
 const actions: Record<string, { path: string; method: string }> = {
   cart: { path: "wc/store/v1/cart", method: "GET" },
   config: { path: "katukina/v1/commerce/config", method: "GET" },
+  currency: { path: "katukina/v1/commerce/config", method: "POST" },
+  subscribe: { path: "katukina/v1/commerce/subscriptions", method: "POST" },
   add: { path: "wc/store/v1/cart/add-item", method: "POST" },
   update: { path: "wc/store/v1/cart/update-item", method: "POST" },
   remove: { path: "wc/store/v1/cart/remove-item", method: "POST" },
@@ -34,6 +36,8 @@ async function handle(request: NextRequest, context: Context) {
   )
     return reply({ message: "Invalid request origin." }, 403);
   let token = request.cookies.get(cookieName)?.value;
+  let destination = request.cookies.get("katukina_destination")?.value || "";
+  let currency = request.cookies.get("katukina_currency")?.value || "";
   const loginCookies = request.cookies
     .getAll()
     .filter((c) => /^wordpress_logged_in_[a-f0-9]+$/.test(c.name))
@@ -49,6 +53,34 @@ async function handle(request: NextRequest, context: Context) {
       const data = JSON.parse(body);
       if (!data || typeof data !== "object" || Array.isArray(data))
         return reply({ message: "Invalid request." }, 400);
+      if (action === "currency") {
+        if (!/^[A-Z]{3}$/.test(data.currency || ""))
+          return reply({ message: "Invalid currency." }, 400);
+        if (token) {
+          const existing = await fetch(`${backend}/wp-json/wc/store/v1/cart`, {
+            headers: {
+              "Cart-Token": token,
+              "X-Katukina-Channel": process.env.KATUKINA_CHANNEL || "",
+              "X-Katukina-Currency": currency,
+            },
+            cache: "no-store",
+            redirect: "error",
+            signal: AbortSignal.timeout(45000),
+          });
+          if (!existing.ok || (await existing.json()).items_count)
+            return reply(
+              { message: "Empty your bag before changing currency." },
+              409,
+            );
+        }
+        currency = data.currency;
+        body = undefined;
+      }
+      if (
+        action === "address" &&
+        /^[A-Z]{2}$/.test(data.shipping_address?.country || "")
+      )
+        destination = data.shipping_address.country;
       if (
         action === "checkout" &&
         !/^\d+$/.test(String(data.expected_total ?? ""))
@@ -65,8 +97,17 @@ async function handle(request: NextRequest, context: Context) {
         body = JSON.stringify(data);
       }
     }
-    if (!token && target.method === "POST") {
+    if (
+      !token &&
+      target.method === "POST" &&
+      !["currency", "subscribe"].includes(action)
+    ) {
       const initial = await fetch(`${backend}/wp-json/wc/store/v1/cart`, {
+        headers: {
+          "X-Katukina-Channel": process.env.KATUKINA_CHANNEL || "",
+          "X-Katukina-Destination": destination,
+          "X-Katukina-Currency": currency,
+        },
         cache: "no-store",
         redirect: "error",
         signal: AbortSignal.timeout(15000),
@@ -79,9 +120,12 @@ async function handle(request: NextRequest, context: Context) {
         );
     }
     const response = await fetch(`${backend}/wp-json/${target.path}`, {
-      method: target.method,
+      method: action === "currency" ? "GET" : target.method,
       headers: {
         Accept: "application/json",
+        "X-Katukina-Channel": process.env.KATUKINA_CHANNEL || "",
+        "X-Katukina-Destination": destination,
+        "X-Katukina-Currency": currency,
         ...(body ? { "Content-Type": "application/json" } : {}),
         ...(token ? { "Cart-Token": token } : {}),
         ...(checkoutKey ? { "X-Katukina-Request": checkoutKey } : {}),
@@ -94,6 +138,22 @@ async function handle(request: NextRequest, context: Context) {
     });
     const data = await response.json();
     const result = reply(data, response.status);
+    if (response.ok && action === "currency")
+      result.cookies.set("katukina_currency", currency, {
+        httpOnly: true,
+        secure: publicOrigin.startsWith("https:"),
+        sameSite: "lax",
+        path: "/",
+        maxAge: 1209600,
+      });
+    if (response.ok && action === "address" && destination)
+      result.cookies.set("katukina_destination", destination, {
+        httpOnly: true,
+        secure: publicOrigin.startsWith("https:"),
+        sameSite: "lax",
+        path: "/",
+        maxAge: 1209600,
+      });
     const nextToken = response.headers.get("cart-token") || token;
     if (nextToken && action !== "config")
       result.cookies.set(cookieName, nextToken, {

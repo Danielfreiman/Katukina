@@ -2,9 +2,29 @@ import "server-only";
 import { cache } from "react";
 import { wordpressGet } from "@/lib/wordpress/client";
 import { plainText } from "@/lib/wordpress/text";
-import type { Category, Product, ProductVariation } from "./product";
+import type {
+  Category,
+  Product,
+  ProductVariation,
+  PresentationChoice,
+} from "./product";
 export { productName, productPrice } from "./product";
 export type { Category, Product } from "./product";
+export type Presentation = {
+  id: number;
+  label: string;
+  price: string;
+  currency: string;
+  available: boolean;
+  choices: PresentationChoice[];
+};
+export async function getPresentations(id: number) {
+  return (
+    await wordpressGet<Presentation[]>(
+      `/wp-json/katukina/v1/commerce/products/${id}/presentations`,
+    )
+  ).data;
+}
 export const getProduct = cache(async (slug: string) => {
   const { data } = await wordpressGet<Product[]>(
     "/wp-json/wc/store/v1/products",
@@ -81,26 +101,35 @@ export async function getVariations(
     children.push(...result.data);
     if (page >= result.pages) break;
   }
+  const presentations = (product.variations ?? []).some((option) =>
+    option.attributes.some((attribute) => !attribute.value),
+  )
+    ? await getPresentations(product.id)
+    : [];
   return (product.variations ?? []).flatMap((option) => {
     const child = children.find(
       (item) => item.id === option.id && item.parent === product.id,
     );
-    // Wildcard attributes require a full combination resolver; never guess a sellable SKU.
+    const wildcard = option.attributes.some((attribute) => !attribute.value);
+    const presentation = presentations.find((item) => item.id === option.id);
     if (
       !child ||
       !option.attributes.length ||
-      option.attributes.some((attribute) => !attribute.value)
+      (wildcard && !presentation?.choices.length)
     )
       return [];
     return [
       {
         ...child,
-        optionLabel: option.attributes
-          .map(
-            (attribute) =>
-              `${option.attributes.length > 1 ? `${plainText(attribute.name)}: ` : ""}${plainText(attribute.value)}`,
-          )
-          .join(" / "),
+        choices: wildcard ? presentation!.choices : [],
+        optionLabel: wildcard
+          ? plainText(presentation!.label)
+          : option.attributes
+              .map(
+                (attribute) =>
+                  `${option.attributes.length > 1 ? `${plainText(attribute.name)}: ` : ""}${plainText(attribute.value)}`,
+              )
+              .join(" / "),
       },
     ];
   });

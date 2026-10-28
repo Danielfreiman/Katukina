@@ -6,12 +6,14 @@ export function AddToCart({
   available,
   simple,
   quantity = 1,
+  variation = [],
   onPendingChange,
 }: {
   id: number;
   available: boolean;
   simple: boolean;
   quantity?: number;
+  variation?: { attribute: string; value: string }[];
   onPendingChange?: (pending: boolean) => void;
 }) {
   const [pending, setPending] = useState(false);
@@ -38,7 +40,11 @@ export function AddToCart({
       const response = await fetch("/api/commerce/add", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ id, quantity }),
+        body: JSON.stringify({
+          id,
+          quantity,
+          ...(variation.length ? { variation } : {}),
+        }),
         signal: AbortSignal.timeout(65000),
       });
       if (response.status >= 500) throw new Error("Uncertain cart response");

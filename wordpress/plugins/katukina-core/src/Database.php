@@ -7,7 +7,8 @@ final class DomainError extends \RuntimeException {
 }
 
 final class Database {
-    const VERSION = '1';
+    const VERSION = '4';
+    private static int $depth = 0;
     public static function table( string $name ): string { global $wpdb; return $wpdb->prefix . 'kat_' . $name; }
     public static function install(): void {
         if ( get_option( 'katukina_schema' ) === self::VERSION ) { return; }
@@ -15,6 +16,12 @@ final class Database {
         require_once ABSPATH . 'wp-admin/includes/upgrade.php';
         $collate = $wpdb->get_charset_collate();
         $definitions = array(
+            'returns' => "id bigint unsigned NOT NULL AUTO_INCREMENT,\norder_id bigint unsigned NOT NULL,\nreservation_id bigint unsigned NOT NULL,\nquantity bigint NOT NULL,\nreference varchar(100) NOT NULL,\nreason text NOT NULL,\nactor_id bigint unsigned NOT NULL,\ncreated_at datetime NOT NULL,\nPRIMARY KEY  (id),\nUNIQUE KEY receipt_reference (reference),\nKEY reservation_id (reservation_id)",
+            'inbox' => "id bigint unsigned NOT NULL AUTO_INCREMENT,\nmailbox_id bigint unsigned NOT NULL,\nexternal_key char(64) NOT NULL,\nsender varchar(254) NOT NULL,\nsubject text NOT NULL,\nbody longtext NOT NULL,\nreceived_at datetime NOT NULL,\norder_id bigint unsigned NOT NULL DEFAULT 0,\ncontact_id bigint unsigned NOT NULL DEFAULT 0,\nsupplier_id bigint unsigned NOT NULL DEFAULT 0,\nPRIMARY KEY  (id),\nUNIQUE KEY external_key (external_key),\nKEY mailbox_received (mailbox_id,received_at),\nKEY related_order (order_id),\nKEY related_contact (contact_id),\nKEY related_supplier (supplier_id)",
+            'outbox' => "id bigint unsigned NOT NULL AUTO_INCREMENT,\ndelivery_key char(64) NOT NULL,\npayload longtext NOT NULL,\nsubscription_id bigint unsigned NOT NULL DEFAULT 0,\nstate varchar(20) NOT NULL,\nattempts int NOT NULL DEFAULT 0,\nlease_until datetime NULL,\nprovider_id varchar(255) NOT NULL DEFAULT '',\nlast_error varchar(255) NOT NULL DEFAULT '',\ncreated_at datetime NOT NULL,\nsent_at datetime NULL,\nPRIMARY KEY  (id),\nUNIQUE KEY delivery_key (delivery_key),\nKEY queue (state,lease_until)",
+            'subscription_tokens' => "subscription_id bigint unsigned NOT NULL,\ntoken_hash char(64) NOT NULL,\nexpires_at datetime NOT NULL,\nrequested_at datetime NOT NULL,\nPRIMARY KEY  (subscription_id),\nKEY expiry (expires_at)",
+            'production_jobs' => "id bigint unsigned NOT NULL AUTO_INCREMENT,\nstate varchar(20) NOT NULL,\nversion bigint NOT NULL DEFAULT 1,\nplan longtext NOT NULL,\nresult longtext NULL,\nactor_id bigint unsigned NOT NULL,\ncreated_at datetime NOT NULL,\nupdated_at datetime NOT NULL,\nPRIMARY KEY  (id),\nKEY state (state)",
+            'production_allocations' => "id bigint unsigned NOT NULL AUTO_INCREMENT,\njob_id bigint unsigned NOT NULL,\nlot_id bigint unsigned NOT NULL,\nquantity bigint NOT NULL,\nstate varchar(20) NOT NULL,\nPRIMARY KEY  (id),\nUNIQUE KEY job_lot (job_id,lot_id),\nKEY lot_state (lot_id,state)",
             'records' => "id bigint unsigned NOT NULL AUTO_INCREMENT,\nkind varchar(32) NOT NULL,\ncode varchar(100) NOT NULL,\ndata longtext NOT NULL,\nversion bigint NOT NULL DEFAULT 1,\ncreated_at datetime NOT NULL,\nupdated_at datetime NOT NULL,\nPRIMARY KEY  (id),\nUNIQUE KEY identity (kind,code)",
             'commands' => "idempotency_key varchar(100) NOT NULL,\nfingerprint char(64) NOT NULL,\nresult longtext NULL,\ncreated_at datetime NOT NULL,\nPRIMARY KEY  (idempotency_key)",
             'locks' => "name varchar(32) NOT NULL,\nPRIMARY KEY  (name)",
@@ -59,20 +66,27 @@ final class Database {
         if ( ! preg_match( '/^[a-zA-Z0-9_-]{16,100}$/D', $key ) ) { throw new DomainError( 'Provide an idempotency key of 16 to 100 characters.' ); }
         unset( $input['key'] );
         $hash = hash( 'sha256', wp_json_encode( self::canonical( array( $action, $input ) ) ) );
-        self::query( 'START TRANSACTION' );
+        $level = ++self::$depth;
+        $savepoint = 'kat_command_' . $level;
+        self::query( 1 === $level ? 'START TRANSACTION' : 'SAVEPOINT ' . $savepoint );
         try {
             // All domain writes acquire this mutex, including catalogue edits.
             $wpdb->get_var( 'SELECT name FROM ' . self::table( 'locks' ) . " WHERE name='operations' FOR UPDATE" );
             self::query( $wpdb->prepare( 'INSERT IGNORE INTO ' . self::table( 'commands' ) . ' (idempotency_key,fingerprint,created_at) VALUES (%s,%s,%s)', $key, $hash, gmdate( 'Y-m-d H:i:s' ) ) );
             $row = $wpdb->get_row( $wpdb->prepare( 'SELECT * FROM ' . self::table( 'commands' ) . ' WHERE idempotency_key=%s FOR UPDATE', $key ), ARRAY_A );
             if ( ! $row || ! hash_equals( $row['fingerprint'], $hash ) ) { throw new DomainError( 'This key has already been used for another command.', 409 ); }
-            if ( null !== $row['result'] ) { self::query( 'COMMIT' ); return json_decode( $row['result'], true ); }
+            if ( null !== $row['result'] ) { self::query( 1 === $level ? 'COMMIT' : 'RELEASE SAVEPOINT ' . $savepoint ); self::$depth--; return json_decode( $row['result'], true ); }
             $result = $callback( $input );
             self::audit( $action, (string) ( $result['id'] ?? $result['order_id'] ?? $key ), array( 'key' => $key ) );
             self::query( $wpdb->prepare( 'UPDATE ' . self::table( 'commands' ) . ' SET result=%s WHERE idempotency_key=%s', wp_json_encode( $result ), $key ) );
-            self::query( 'COMMIT' );
+            self::query( 1 === $level ? 'COMMIT' : 'RELEASE SAVEPOINT ' . $savepoint );
+            self::$depth--;
+            if ( 1 === $level ) {
+                try { do_action( 'katukina_domain_committed', $action, $result ); }
+                catch ( \Throwable $notification_error ) { error_log( 'Katukina post-commit scheduling failed: ' . get_class( $notification_error ) ); }
+            }
             return $result;
-        } catch ( \Throwable $error ) { $wpdb->query( 'ROLLBACK' ); throw $error; }
+        } catch ( \Throwable $error ) { $wpdb->query( 1 === $level ? 'ROLLBACK' : 'ROLLBACK TO SAVEPOINT ' . $savepoint ); self::$depth--; throw $error; }
     }
     public static function quantity( mixed $value, bool $signed = false ): int {
         if ( ! is_scalar( $value ) || ! preg_match( $signed ? '/^-?\d{1,9}(\.\d{1,3})?$/D' : '/^\d{1,9}(\.\d{1,3})?$/D', (string) $value ) ) { throw new DomainError( 'Invalid quantity: use a decimal point and up to three decimal places.' ); }

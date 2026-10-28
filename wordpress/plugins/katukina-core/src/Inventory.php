@@ -3,6 +3,55 @@ namespace Katukina\Core;
 defined( 'ABSPATH' ) || exit;
 
 final class Inventory {
+    public static function register(): void {
+        add_action( 'woocommerce_order_status_changed', static function ( $id, $from, $to ) {
+            if ( ! in_array( $to, array( 'cancelled', 'failed', 'refunded' ), true ) ) { return; }
+            try {
+                Database::command( 'order.release', array( 'key' => 'order-release-' . wp_generate_uuid4(), 'order_id' => $id, 'reason' => 'Native order status: ' . $to ), array( self::class, 'release_order' ) );
+            } catch ( \Throwable $error ) {
+                // Financial changes are already saved. Keep an actionable retry rather than hiding a stranded reservation.
+                if ( function_exists( 'as_schedule_single_action' ) ) { as_schedule_single_action( time() + 60, 'katukina_release_order', array( (int) $id ), 'katukina', true ); }
+                wc_get_logger()->error( 'Reservation release failed for order ' . (int) $id, array( 'source' => 'katukina' ) );
+            }
+        }, 20, 3 );
+        add_action( 'katukina_release_order', static function ( $id ) {
+            $order = wc_get_order( $id );
+            if ( $order && in_array( $order->get_status(), array( 'cancelled', 'failed', 'refunded' ), true ) ) {
+                Database::command( 'order.release', array( 'key' => 'order-retry-' . wp_generate_uuid4(), 'order_id' => $id, 'reason' => 'Retry native cancellation release' ), array( self::class, 'release_order' ) );
+            }
+        } );
+    }
+
+    public static function release_order( array $input ): array {
+        global $wpdb; $id = Registry::positive_id( $input['order_id'] ?? 0 ); $reason = Database::reason( $input );
+        $rows = $wpdb->get_results( $wpdb->prepare( 'SELECT * FROM ' . Database::table( 'reservations' ) . " WHERE order_id=%d AND state='active'", $id ), ARRAY_A );
+        foreach ( $rows as $row ) { self::release_one( $row, 'released', $reason ); }
+        return array( 'order_id' => $id, 'released' => count( $rows ) );
+    }
+    public static function receive_return( array $input ): array {
+        global $wpdb;
+        if ( ! filter_var( $input['inspected'] ?? false, FILTER_VALIDATE_BOOLEAN ) ) { throw new DomainError( 'Confirm physical receipt and inspection before returning stock.' ); }
+        $reason = Database::reason( $input ); $quantity = Database::quantity( $input['quantity'] ?? '' );
+        $id = Registry::positive_id( $input['reservation_id'] ?? 0 );
+        $reservation = $wpdb->get_row( $wpdb->prepare( 'SELECT * FROM ' . Database::table( 'reservations' ) . " WHERE id=%d AND state='fulfilled'", $id ), ARRAY_A );
+        if ( ! $reservation ) { throw new DomainError( 'Only physically deducted reservations can be received back.', 409 ); }
+        $already = (int) $wpdb->get_var( $wpdb->prepare( 'SELECT COALESCE(SUM(quantity),0) FROM ' . Database::table( 'returns' ) . ' WHERE reservation_id=%d', $id ) );
+        if ( $already + $quantity > (int) $reservation['quantity'] ) { throw new DomainError( 'Return exceeds the shipped quantity.', 409 ); }
+        $reference = sanitize_text_field( $input['reference'] ?? '' );
+        if ( ! preg_match( '/^[A-Za-z0-9_.:-]{3,100}$/D', $reference ) ) { throw new DomainError( 'Provide a unique return receipt reference.' ); }
+        $return_id = Database::insert( 'returns', array( 'order_id' => $reservation['order_id'], 'reservation_id' => $id, 'quantity' => $quantity, 'reference' => $reference, 'reason' => $reason, 'actor_id' => get_current_user_id(), 'created_at' => gmdate( 'Y-m-d H:i:s' ) ) );
+        self::move( (int) $reservation['lot_id'], $quantity, 0, 'return_received', 'return:' . $return_id, $reason );
+        return array( 'id' => $return_id, 'order_id' => (int) $reservation['order_id'], 'quantity' => $quantity );
+    }
+    public static function issue_sample( array $input ): array {
+        $lot = self::lot( Registry::positive_id( $input['lot_id'] ?? 0 ) );
+        $form = Registry::get( (int) $lot['form_id'], 'form' );
+        if ( 'packaged' !== $form['data']['type'] || ( ! empty( $lot['data']['expiry'] ) && $lot['data']['expiry'] < gmdate( 'Y-m-d' ) ) ) { throw new DomainError( 'Select an unexpired packaged product lot.' ); }
+        $quantity = Database::quantity( $input['quantity'] ?? '' ); $reason = Database::reason( $input );
+        $record = Registry::save( array( 'kind' => 'sample', 'code' => (string) ( $input['reference'] ?? '' ), 'data' => array( 'name' => $form['data']['name'], 'form_id' => $lot['form_id'], 'contact_id' => $input['contact_id'] ?? 0, 'quantity' => Database::number( $quantity ), 'movement_reference' => (string) ( $input['reference'] ?? '' ), 'notes' => $reason, 'active' => true ) ) );
+        self::move( (int) $lot['id'], -$quantity, 0, 'sample', 'sample:' . $record['id'], $reason );
+        return array( 'id' => (int) $record['id'], 'lot_id' => (int) $lot['id'], 'quantity' => $quantity );
+    }
     public static function lot( int $id ): array {
         global $wpdb;
         $row = $wpdb->get_row( $wpdb->prepare( 'SELECT * FROM ' . Database::table( 'lots' ) . ' WHERE id=%d FOR UPDATE', $id ), ARRAY_A );
@@ -37,10 +86,20 @@ final class Inventory {
     }
     public static function receive( array $input ): array {
         $reason = Database::reason( $input ); $quantity = Database::quantity( $input['quantity'] ?? '' );
+        $incoming_id = absint( $input['incoming_id'] ?? 0 );
+        if ( $incoming_id ) {
+            $incoming = Registry::get( $incoming_id, 'incoming' );
+            foreach ( array( 'form_id', 'warehouse_id', 'supplier_id' ) as $field ) { if ( (int) ( $input[ $field ] ?? 0 ) !== (int) $incoming['data'][ $field ] ) { throw new DomainError( 'Receipt product, warehouse and supplier must match the expected receipt.' ); } }
+            if ( self::incoming_received( $incoming_id ) + $quantity > Database::quantity( $incoming['data']['quantity'] ) ) { throw new DomainError( 'Receipt exceeds the outstanding expected quantity.', 409 ); }
+        }
         $input['source_lot_id'] = 0;
         $lot = self::create_lot( $input );
         self::move( (int) $lot['id'], $quantity, 0, 'receipt', (string) ( $input['reference'] ?? $lot['code'] ), $reason );
+        if ( $incoming_id ) { global $wpdb; $data = $lot['data'] + array( 'incoming_id' => $incoming_id, 'received_quantity' => $quantity ); Database::query( $wpdb->prepare( 'UPDATE ' . Database::table( 'lots' ) . ' SET data=%s WHERE id=%d', wp_json_encode( $data ), $lot['id'] ) ); }
         return self::lot( (int) $lot['id'] );
+    }
+    public static function incoming_received( int $id ): int {
+        global $wpdb; return (int) $wpdb->get_var( $wpdb->prepare( 'SELECT COALESCE(SUM(JSON_EXTRACT(data,\'$.received_quantity\')),0) FROM ' . Database::table( 'lots' ) . " WHERE JSON_EXTRACT(data,'$.incoming_id')=%d", $id ) );
     }
     public static function adjust( array $input ): array {
         $id = Registry::positive_id( $input['lot_id'] ?? 0 ); $reason = Database::reason( $input );
@@ -50,8 +109,15 @@ final class Inventory {
     public static function expire( array $input = array() ): array {
         global $wpdb;
         $rows = $wpdb->get_results( 'SELECT * FROM ' . Database::table( 'reservations' ) . " WHERE state='active' AND expires_at <= UTC_TIMESTAMP()", ARRAY_A );
-        foreach ( $rows as $row ) { self::release_one( $row, 'expired', 'The reservation has expired.' ); }
-        return array( 'expired' => count( $rows ) );
+        $expired = 0;
+        foreach ( $rows as $row ) {
+            $order = wc_get_order( (int) $row['order_id'] );
+            // Payment turns the temporary allocation into a fulfilment obligation.
+            // A cancellation/refund or explicit operator release owns its disposition.
+            if ( $order && $order->is_paid() ) { continue; }
+            self::release_one( $row, 'expired', 'The unpaid reservation has expired.' ); ++$expired;
+        }
+        return array( 'expired' => $expired );
     }
     private static function release_one( array $row, string $state, string $reason ): void {
         global $wpdb;
@@ -76,6 +142,7 @@ final class Inventory {
         if ( 'packaged' !== $form['type'] ) { throw new DomainError( 'Repack bulk stock before reserving it for sale.' ); }
         if ( ! empty( $lot['data']['expiry'] ) && $lot['data']['expiry'] < gmdate( 'Y-m-d' ) ) { throw new DomainError( 'The lot has expired.', 409 ); }
         $order_id = Registry::positive_id( $input['order_id'] ?? 0 ); $order = wc_get_order( $order_id );
+        if ( ! $order || in_array( $order->get_status(), array( 'cancelled', 'failed', 'refunded', 'trash' ), true ) ) { throw new DomainError( 'This order cannot reserve stock.', 409 ); }
         $workflow = Workflow::get( $order_id );
         if ( $workflow['packed_at'] ) { throw new DomainError( 'The order is already packed.', 409 ); }
         $channel = Registry::get( (int) $workflow['channel_id'], 'channel' )['data'];
@@ -155,6 +222,15 @@ final class Inventory {
     }
     public static function reconcile(): array {
         global $wpdb;
-        return $wpdb->get_results( 'SELECT l.id,l.code,l.balance,l.reserved,COALESCE(m.physical,0) ledger_balance,COALESCE(m.reserved,0) ledger_reserved,COALESCE(r.quantity,0) active_reserved FROM ' . Database::table( 'lots' ) . ' l LEFT JOIN (SELECT lot_id,SUM(quantity) physical,SUM(reserved_delta) reserved FROM ' . Database::table( 'movements' ) . ' GROUP BY lot_id) m ON m.lot_id=l.id LEFT JOIN (SELECT lot_id,SUM(quantity) quantity FROM ' . Database::table( 'reservations' ) . " WHERE state='active' GROUP BY lot_id) r ON r.lot_id=l.id HAVING balance <> ledger_balance OR reserved <> ledger_reserved OR reserved <> active_reserved OR balance < reserved OR reserved < 0", ARRAY_A );
+        $lots = Database::table( 'lots' ); $moves = Database::table( 'movements' );
+        $reservations = Database::table( 'reservations' ); $production = Database::table( 'production_allocations' );
+        return $wpdb->get_results( "SELECT l.id,l.code,l.balance,l.reserved,
+            COALESCE(m.physical,0) ledger_balance,COALESCE(m.reserved,0) ledger_reserved,
+            COALESCE(r.quantity,0)+COALESCE(p.quantity,0) active_reserved
+            FROM $lots l
+            LEFT JOIN (SELECT lot_id,SUM(quantity) physical,SUM(reserved_delta) reserved FROM $moves GROUP BY lot_id) m ON m.lot_id=l.id
+            LEFT JOIN (SELECT lot_id,SUM(quantity) quantity FROM $reservations WHERE state='active' GROUP BY lot_id) r ON r.lot_id=l.id
+            LEFT JOIN (SELECT lot_id,SUM(quantity) quantity FROM $production WHERE state='active' GROUP BY lot_id) p ON p.lot_id=l.id
+            HAVING balance <> ledger_balance OR reserved <> ledger_reserved OR reserved <> active_reserved OR balance < reserved OR reserved < 0", ARRAY_A );
     }
 }

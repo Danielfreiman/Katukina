@@ -22,7 +22,8 @@
     "wp:logs": "npm --prefix wordpress run logs",
     "wp:setup": "npm --prefix wordpress run setup",
     "wp:env": "npm --prefix wordpress run env",
-    "wp:verify": "node wordpress/scripts/verify-browser.mjs"
+    "wp:verify": "node wordpress/scripts/verify-browser.mjs",
+    "wp:test": "node wordpress/scripts/verify-backend.mjs"
   },
   "keywords": [],
   "author": "",

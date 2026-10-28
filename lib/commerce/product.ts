@@ -49,7 +49,15 @@ export type Product = {
     price_range: { min_amount: string; max_amount: string } | null;
   };
 };
-export type ProductVariation = Product & { optionLabel: string };
+export type PresentationChoice = {
+  attribute: string;
+  label: string;
+  options: string[];
+};
+export type ProductVariation = Product & {
+  optionLabel: string;
+  choices?: PresentationChoice[];
+};
 
 export function productName(product: Product) {
   return plainText(product.name);

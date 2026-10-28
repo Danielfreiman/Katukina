@@ -5,7 +5,7 @@ defined( 'ABSPATH' ) || exit;
 final class Commerce {
     public static function local_enabled(): bool { return 'local' === wp_get_environment_type() && 'yes' === get_option( 'katukina_local_checkout' ); }
     public static function channel(): ?array {
-        try { return Registry::get( (int) get_option( 'katukina_storefront_channel', 0 ), 'channel' ); } catch ( DomainError $e ) { return null; }
+        return Channels::current();
     }
     public static function public_config(): array {
         $channel = self::channel(); $countries = array(); $notices = array();
@@ -13,19 +13,44 @@ final class Commerce {
             foreach ( explode( ',', $channel['data']['countries'] ) as $country ) { $countries[ $country ] = WC()->countries->get_countries()[ $country ] ?? $country; }
             foreach ( Registry::all( 'country' ) as $record ) { $data = $record['data']; if ( $data['active'] && (int) $data['channel_id'] === (int) $channel['id'] ) { $notices[ $data['country'] ] = array( 'id' => (int) $record['id'], 'version' => (int) $record['version'], 'note' => $data['checkout_note'], 'warning' => $data['checkout_warning'], 'requires_acceptance' => $data['requires_acceptance'] ); } }
         }
-        return array( 'local_checkout' => self::local_enabled(), 'countries' => $countries, 'notices' => $notices, 'currency' => get_woocommerce_currency(), 'payment_method' => self::local_enabled() ? 'katukina_local_test' : null );
+        return array( 'local_checkout' => self::local_enabled(), 'countries' => $countries, 'destination' => Channels::destination(), 'notices' => $notices, 'currency' => get_woocommerce_currency(), 'currencies' => $channel ? PriceLists::currencies( $channel ) : array(), 'payment_method' => self::local_enabled() ? 'katukina_local_test' : null );
     }
     public static function register(): void {
         add_action( 'plugins_loaded', static function () {
             if ( ! class_exists( '\WC_Payment_Gateway' ) ) { return; }
             require_once __DIR__ . '/LocalGateway.php';
             require_once __DIR__ . '/LocalShipping.php';
+            require_once __DIR__ . '/CreditGateway.php';
+            require_once __DIR__ . '/CarrierShipping.php';
             add_filter( 'woocommerce_payment_gateways', static function ( $gateways ) { $gateways[] = LocalGateway::class; return $gateways; } );
+            add_filter( 'woocommerce_payment_gateways', static function ( $gateways ) { $gateways[] = CreditGateway::class; return $gateways; } );
             add_filter( 'woocommerce_shipping_methods', static function ( $methods ) { $methods['katukina_test'] = LocalShipping::class; return $methods; } );
+            add_filter( 'woocommerce_shipping_methods', static function ( $methods ) { $methods['katukina_carrier'] = CarrierShipping::class; return $methods; } );
         }, 30 );
         add_action( 'rest_api_init', static function () { register_rest_route( 'katukina/v1', '/commerce/config', array( 'methods' => 'GET', 'permission_callback' => '__return_true', 'callback' => static fn() => OperationsApi::response( static fn() => self::public_config() ) ) ); } );
+        add_action( 'woocommerce_init', static function () {
+            foreach ( WC()->payment_gateways()->payment_gateways() as $gateway ) {
+                $gateway->form_fields['katukina_countries'] = array( 'title' => 'Allowed destinations', 'type' => 'multiselect', 'class' => 'wc-enhanced-select', 'options' => WC()->countries->get_countries(), 'description' => 'Empty inherits the channel destinations.' );
+                $choices = array(); foreach ( Registry::all( 'channel' ) as $channel ) { $choices[ $channel['id'] ] = $channel['data']['name']; }
+                $gateway->form_fields['katukina_channels'] = array( 'title' => 'Allowed sales channels', 'type' => 'multiselect', 'class' => 'wc-enhanced-select', 'options' => $choices, 'description' => 'Empty permits all configured channels.' );
+                if ( 'bacs' === $gateway->id ) { $gateway->form_fields['katukina_bank_currencies'] = array( 'title' => 'Verified bank transfer currencies', 'type' => 'multiselect', 'options' => array( 'GBP' => 'GBP', 'EUR' => 'EUR' ), 'description' => 'Enable only currencies supported by the bank accounts and instructions configured in this gateway. No conversion is performed.' ); }
+            }
+        } );
+        add_action( 'woocommerce_blocks_loaded', static function () { woocommerce_store_api_register_endpoint_data( array( 'endpoint' => \Automattic\WooCommerce\StoreApi\Schemas\V1\CartSchema::IDENTIFIER, 'namespace' => 'katukina', 'schema_type' => ARRAY_A, 'schema_callback' => static fn() => array( 'payment_options' => array( 'type' => 'array', 'readonly' => true, 'items' => array( 'type' => 'object', 'properties' => array( 'id' => array( 'type' => 'string' ), 'title' => array( 'type' => 'string' ), 'description' => array( 'type' => 'string' ) ) ) ) ), 'data_callback' => static function () {
+            $rows = array();
+            foreach ( WC()->payment_gateways()->get_available_payment_gateways() as $gateway ) {
+                // Providers with interactive fields must supply a reviewed headless integration.
+                if ( ! in_array( $gateway->id, apply_filters( 'katukina_headless_gateways', array( 'katukina_local_test', 'katukina_credit', 'bacs' ) ), true ) ) { continue; }
+                $rows[] = array( 'id' => $gateway->id, 'title' => wp_strip_all_tags( $gateway->get_title() ), 'description' => wp_strip_all_tags( $gateway->get_description() ) );
+            }
+            return array( 'payment_options' => $rows );
+        } ) ); } );
         add_filter( 'woocommerce_available_payment_gateways', static function ( $gateways ) {
-            if ( self::local_enabled() ) { return isset( $gateways['katukina_local_test'] ) ? array( 'katukina_local_test' => $gateways['katukina_local_test'] ) : array(); }
+            $channel = self::channel(); $country = WC()->customer ? WC()->customer->get_shipping_country() : Channels::destination();
+            foreach ( $gateways as $id => $gateway ) {
+                $countries = (array) $gateway->get_option( 'katukina_countries', array() ); $channels = array_map( 'strval', (array) $gateway->get_option( 'katukina_channels', array() ) );
+                if ( ( self::local_enabled() && ! in_array( $id, array( 'katukina_local_test', 'katukina_credit' ), true ) ) || ( $countries && ! in_array( $country, $countries, true ) ) || ( $channels && ( ! $channel || ! in_array( (string) $channel['id'], $channels, true ) ) ) ) { unset( $gateways[ $id ] ); }
+            }
             return $gateways;
         } );
         // Shipping zones, enabled instances and rates are resolved by WooCommerce itself.
@@ -51,10 +76,11 @@ final class Commerce {
         if ( ! $channel ) { self::fail( 'Checkout is not configured for a sales channel.' ); }
         $country = $order->get_shipping_country() ?: $order->get_billing_country();
         if ( ! in_array( $country, explode( ',', $channel['data']['countries'] ), true ) ) { self::fail( 'This destination is not available for this channel.' ); }
-        if ( $order->get_currency() !== $channel['data']['currency'] ) { self::fail( 'Checkout currency does not match the channel.' ); }
+        if ( ! in_array( $order->get_currency(), PriceLists::currencies( $channel ), true ) || $order->get_currency() !== get_woocommerce_currency() ) { self::fail( 'Checkout currency does not match the selected channel price list.' ); }
         foreach ( $order->get_items() as $line ) {
             $product = $line->get_product();
             if ( ! $product ) { self::fail( 'An item is unavailable.' ); }
+            if ( ! Channels::listed( $product, (int) $channel['id'] ) ) { self::fail( 'An item is not published on this channel.' ); }
             $blocked = explode( ',', NativeCatalog::value( $product, 'blocked_countries' ) );
             if ( $product->get_parent_id() ) { $parent = wc_get_product( $product->get_parent_id() ); if ( $parent ) { $blocked = array_merge( $blocked, explode( ',', NativeCatalog::value( $parent, 'blocked_countries' ) ) ); } }
             if ( 'trash' === $product->get_status() || in_array( $country, $blocked, true ) ) { self::fail( 'An item is unavailable for this destination.' ); }

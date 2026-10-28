@@ -31,6 +31,10 @@ export function CheckoutView() {
   const [accepted, setAccepted] = useState(false);
   const [error, setError] = useState("");
   const [order, setOrder] = useState<number>();
+  const [payments, setPayments] = useState<
+    { id: string; title: string; description: string }[]
+  >([]);
+  const [payment, setPayment] = useState("");
   const requestKey = useRef("");
   useEffect(() => {
     let active = true;
@@ -98,6 +102,13 @@ export function CheckoutView() {
         },
       });
       setCart(data);
+      const methods = data.extensions?.katukina?.payment_options || [];
+      setPayments(methods);
+      setPayment((previous) =>
+        methods.some((m) => m.id === previous)
+          ? previous
+          : methods[0]?.id || "",
+      );
       setReviewed(true);
       requestKey.current = crypto.randomUUID();
     } catch (e) {
@@ -121,7 +132,7 @@ export function CheckoutView() {
           email: address.email,
         },
         shipping_address: address,
-        payment_method: config.payment_method,
+        payment_method: payment,
         payment_data: [],
         expected_total: cart.totals.total_price,
         extensions: notice?.requires_acceptance
@@ -204,11 +215,18 @@ export function CheckoutView() {
   if (order)
     return (
       <section className="commerce-success">
-        <p className="eyebrow">LOCAL TEST COMPLETE</p>
+        <p className="eyebrow">
+          {payment === "katukina_local_test"
+            ? "LOCAL TEST COMPLETE"
+            : "ORDER RECORDED"}
+        </p>
         <h2>Order #{order} is recorded.</h2>
         <p>
-          No payment was collected. This order is on hold in WooCommerce and
-          will not be dispatched.
+          {payment === "katukina_local_test"
+            ? "No payment was collected. This order is on hold in WooCommerce and will not be dispatched."
+            : payment === "bacs"
+              ? "Your order is awaiting bank transfer. Follow the payment instructions from the shop."
+              : "Your order has been recorded. You can follow its progress in your account."}
         </p>
         <Link href="/shop" className="button primary">
           Back to the collection
@@ -321,6 +339,32 @@ export function CheckoutView() {
             ))}
           <Totals cart={cart} />
           {reviewed && (
+            <fieldset className="shipping-options">
+              <legend>Payment</legend>
+              {payments.map((method) => (
+                <label key={method.id}>
+                  <input
+                    type="radio"
+                    name="payment"
+                    checked={payment === method.id}
+                    disabled={busy}
+                    onChange={() => {
+                      setPayment(method.id);
+                      requestKey.current = crypto.randomUUID();
+                    }}
+                  />
+                  {method.title}
+                  <small>{method.description}</small>
+                </label>
+              ))}
+              {!payments.length && (
+                <p>
+                  No payment method is available for this address and balance.
+                </p>
+              )}
+            </fieldset>
+          )}
+          {reviewed && (
             <p className="reviewed-address">
               Deliver to: {address.first_name} {address.last_name},{" "}
               {address.address_1}, {address.city}, {address.postcode},{" "}
@@ -347,7 +391,7 @@ export function CheckoutView() {
             disabled={
               busy ||
               !reviewed ||
-              !config.local_checkout ||
+              !payment ||
               (!!notice?.requires_acceptance && !accepted) ||
               (cart.needs_shipping &&
                 !cart.shipping_rates.every((p) =>
@@ -357,9 +401,11 @@ export function CheckoutView() {
           >
             {busy
               ? "Processing…"
-              : config.local_checkout
+              : payment === "katukina_local_test"
                 ? "Place local test order — no payment"
-                : "Payments are not configured"}
+                : payment
+                  ? "Place order"
+                  : "Payments are not configured"}
           </button>
           {!reviewed && (
             <p className="commerce-caption">

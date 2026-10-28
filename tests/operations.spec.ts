@@ -60,19 +60,19 @@ test("operational admin forms, permissions and concurrent reservation of the las
     expect([401, 403]).toContain(
       (await request.get("/wp-json/katukina/v1/report/lots")).status(),
     );
-    await page.goto('/wp-admin/edit.php?post_type=product&page=katukina-suppliers');
-    await expect(page.locator('#kat-code')).toHaveCount(0);
-    await page.getByRole('link', { name: 'Add new', exact: true }).click();
-    await page
-      .getByLabel("Reference code")
-      .fill(`${prefix}-supplier`);
+    await page.goto(
+      "/wp-admin/edit.php?post_type=product&page=katukina-suppliers",
+    );
+    await expect(page.locator("#kat-code")).toHaveCount(0);
+    await page.getByRole("link", { name: "Add new", exact: true }).click();
+    await page.getByLabel("Reference code").fill(`${prefix}-supplier`);
     await page
       .getByLabel("Name", { exact: true })
       .fill("Browser integration supplier");
-    await page
-      .getByRole("button", { name: "Add new", exact: true })
-      .click();
-    await expect(page.locator('.notice-success')).toContainText("Record saved.");
+    await page.getByRole("button", { name: "Add new", exact: true }).click();
+    await expect(page.locator(".notice-success")).toContainText(
+      "Record saved.",
+    );
     const supplier = (
       await (
         await page.request.get(
@@ -116,9 +116,25 @@ test("operational admin forms, permissions and concurrent reservation of the las
     });
     expect(productResponse.status()).toBe(201);
     productId = (await productResponse.json()).id;
-    const nativeProduct = await (await page.request.get(`/wp-json/wc/v3/products/${productId}`, { headers })).json();
-    const form = { id: nativeProduct.meta_data.find((m: {key: string}) => m.key === '_kat_form_record_id').value };
-    expect((await post('records/form', {key: randomUUID(), code: prefix, data: {name: 'Duplicate'}})).status()).toBe(410);
+    const nativeProduct = await (
+      await page.request.get(`/wp-json/wc/v3/products/${productId}`, {
+        headers,
+      })
+    ).json();
+    const form = {
+      id: nativeProduct.meta_data.find(
+        (m: { key: string }) => m.key === "_kat_form_record_id",
+      ).value,
+    };
+    expect(
+      (
+        await post("records/form", {
+          key: randomUUID(),
+          code: prefix,
+          data: { name: "Duplicate" },
+        })
+      ).status(),
+    ).toBe(410);
     const receipt = await command("receive", {
       code: `${prefix}-lot`,
       form_id: form.id,
@@ -184,7 +200,7 @@ test("operational admin forms, permissions and concurrent reservation of the las
         ).json()
       ).rows,
     ).toEqual([]);
-    await page.goto('/wp-admin/edit.php?post_type=product&page=katukina-lots');
+    await page.goto("/wp-admin/edit.php?post_type=product&page=katukina-lots");
     await expect(
       page.getByRole("heading", { name: "Lots and repacking", exact: true }),
     ).toBeVisible();
@@ -241,7 +257,10 @@ test("headless cart, destination quote, local checkout retry and customer privac
     const fixture = products.find(
       (product: { sku: string }) => product.sku === "1809-4055",
     );
-    expect(fixture, "Import the local catalogue fixtures before testing.").toBeTruthy();
+    expect(
+      fixture,
+      "Import the local catalogue fixtures before testing.",
+    ).toBeTruthy();
     await page.goto("/products/sacred-incense-palo-santo");
     await page.getByRole("button", { name: "Add to bag", exact: true }).click();
     await expect(page.getByRole("status")).toContainText("Added to your bag.");
@@ -294,7 +313,12 @@ test("headless cart, destination quote, local checkout retry and customer privac
         exact: true,
       }),
     ).toBeEnabled();
-    await expect(page.locator('.shipping-options')).toContainText('Local test delivery');
+    await expect(
+      page.getByRole("group", { name: "Delivery", exact: true }),
+    ).toContainText("Local test delivery");
+    await expect(
+      page.getByRole("group", { name: "Payment", exact: true }),
+    ).toContainText("Local test");
     let checkoutBody: object | undefined;
     page.on("request", (req) => {
       if (req.url().endsWith("/api/commerce/checkout"))
@@ -339,33 +363,71 @@ test("headless cart, destination quote, local checkout retry and customer privac
   }
 });
 
-test('customer registration, native session, logout and private order history', async ({ page, browser }) => {
+test("customer registration, native session, logout and private order history", async ({
+  page,
+  browser,
+}) => {
   test.setTimeout(120000);
   const email = `account-test-${Date.now()}@example.invalid`;
   const password = `Test-${randomUUID()}`;
-  const admin = await browser.newContext({ baseURL: 'http://localhost:3001' });
+  const admin = await browser.newContext({ baseURL: "http://localhost:3001" });
   let customerId = 0;
   try {
-    await page.goto('/account');
-    await page.getByRole('button', { name: 'New here? Create an account' }).click();
-    await page.getByLabel('Email', { exact: true }).fill(email);
-    await page.getByLabel('Password', { exact: true }).fill(password);
-    await page.getByRole('button', { name: 'Create account', exact: true }).click();
-    await expect(page.getByRole('heading', { name: 'Your orders', exact: true })).toBeVisible();
-    expect((await page.request.get('/wp-admin/admin-ajax.php?action=katukina_customer_session')).headers()['cache-control']).toContain('no-store');
-    await page.getByRole('button', { name: 'Sign out', exact: true }).click();
-    await expect(page.getByRole('button', { name: 'Sign in', exact: true })).toBeVisible();
-    await page.getByLabel('Email', { exact: true }).fill(email);
-    await page.getByLabel('Password', { exact: true }).fill(password);
-    await page.getByRole('button', { name: 'Sign in', exact: true }).click();
-    await expect(page.getByRole('heading', { name: 'Your orders', exact: true })).toBeVisible();
-    const adminPage = await admin.newPage(); const nonce = await login(adminPage);
-    const customers = await admin.request.get(`/wp-json/wc/v3/customers?email=${encodeURIComponent(email)}`, { headers: { 'X-WP-Nonce': nonce } }); customerId = (await customers.json())[0].id;
-    expect([401, 403]).toContain((await page.request.get('/wp-json/katukina/v1/report/money')).status());
-    const own = await page.request.get('/wp-admin/admin-ajax.php?action=katukina_customer_session&customer_id=1');
+    await page.goto("/account");
+    await page
+      .getByRole("button", { name: "New here? Create an account" })
+      .click();
+    await page.getByLabel("Email", { exact: true }).fill(email);
+    await page.getByLabel("Password", { exact: true }).fill(password);
+    await page
+      .getByRole("button", { name: "Create account", exact: true })
+      .click();
+    await expect(
+      page.getByRole("heading", { name: "Your orders", exact: true }),
+    ).toBeVisible();
+    expect(
+      (
+        await page.request.get(
+          "/wp-admin/admin-ajax.php?action=katukina_customer_session",
+        )
+      ).headers()["cache-control"],
+    ).toContain("no-store");
+    await page.getByRole("button", { name: "Sign out", exact: true }).click();
+    await expect(
+      page.getByRole("button", { name: "Sign in", exact: true }),
+    ).toBeVisible();
+    await page.getByLabel("Email", { exact: true }).fill(email);
+    await page.getByLabel("Password", { exact: true }).fill(password);
+    await page.getByRole("button", { name: "Sign in", exact: true }).click();
+    await expect(
+      page.getByRole("heading", { name: "Your orders", exact: true }),
+    ).toBeVisible();
+    const adminPage = await admin.newPage();
+    const nonce = await login(adminPage);
+    const customers = await admin.request.get(
+      `/wp-json/wc/v3/customers?email=${encodeURIComponent(email)}`,
+      { headers: { "X-WP-Nonce": nonce } },
+    );
+    customerId = (await customers.json())[0].id;
+    expect([401, 403]).toContain(
+      (await page.request.get("/wp-json/katukina/v1/report/money")).status(),
+    );
+    const own = await page.request.get(
+      "/wp-admin/admin-ajax.php?action=katukina_customer_session&customer_id=1",
+    );
     expect((await own.json()).orders).toEqual([]);
     await page.setViewportSize({ width: 390, height: 844 });
-    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-    await admin.request.delete(`/wp-json/wc/v3/customers/${customerId}?force=true`, { headers: { 'X-WP-Nonce': nonce } }); customerId = 0;
-  } finally { await admin.close(); }
+    expect(
+      await page.evaluate(
+        () => document.documentElement.scrollWidth <= innerWidth,
+      ),
+    ).toBe(true);
+    await admin.request.delete(
+      `/wp-json/wc/v3/customers/${customerId}?force=true`,
+      { headers: { "X-WP-Nonce": nonce } },
+    );
+    customerId = 0;
+  } finally {
+    await admin.close();
+  }
 });

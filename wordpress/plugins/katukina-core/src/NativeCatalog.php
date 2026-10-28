@@ -46,6 +46,8 @@ final class NativeCatalog {
             'supplier_id' => array( 'Supplier', array(), '' ),
             'location' => array( 'Storage location', null, '' ),
             'volume_ml' => array( 'Volume (ml)', null, '' ),
+            'net_weight_g' => array( 'Net weight (g)', null, '' ),
+            'channel_ids' => array( 'Sales channels', null, '' ),
             'hs_group' => array( 'HS group', null, '' ),
             'customs_description' => array( 'Customs description', null, '' ),
             'blocked_countries' => array( 'Blocked destinations', null, '' ),
@@ -53,6 +55,8 @@ final class NativeCatalog {
             'legacy_item_id' => array( 'Legacy item ID', null, '' ),
             'legacy_form_id' => array( 'Legacy packaging ID', null, '' ),
             'notes' => array( 'Internal packaging notes', null, '' ),
+            'post_shipping_instructions' => array( 'Customer instructions after shipping', null, '' ),
+            'channel_prices' => array( 'Fixed prices (channel ID/currency=amount; ...)', null, '' ),
         );
     }
     public static function value( \WC_Product $product, string $field ): string {
@@ -62,11 +66,22 @@ final class NativeCatalog {
     public static function fields( \WC_Product $product, ?int $index = null ): void {
         echo '<p class="form-field">Manage name, SKU, prices, images, weight, taxes and stock in the standard WooCommerce fields. Use variations for different pack sizes.</p>';
         foreach ( self::specs() as $field => [ $label, $options, $default ] ) {
+            if ( 'channel_ids' === $field ) {
+                $name = null === $index ? 'kat_product[channel_ids][]' : 'kat_variations[' . $index . '][channel_ids][]';
+                $selected = array_values( array_filter( explode( ',', self::value( $product, $field ) ) ) ); if ( ! $selected ) { $selected = array( 'default' ); }
+                $choices = array( 'default' => 'Default channel / inherit parent', 'none' => 'Not published on any channel' );
+                foreach ( Registry::all( 'channel' ) as $channel ) { if ( $channel['data']['active'] || in_array( (string) $channel['id'], $selected, true ) ) { $choices[ $channel['id'] ] = $channel['data']['name']; } }
+                echo '<p class="form-field"><label>Sales channels</label><select multiple name="' . esc_attr( $name ) . '" aria-label="Sales channels" style="min-width:240px">';
+                foreach ( $choices as $value => $caption ) { echo '<option value="' . esc_attr( $value ) . '" ' . selected( in_array( (string) $value, $selected, true ), true, false ) . '>' . esc_html( $caption ) . '</option>'; }
+                echo '</select><span class="description">Select specific channels, or select only the default/inherit option. Variation publication also requires its parent to be published on that channel.</span></p>'; continue;
+            }
             if ( 'supplier_id' === $field ) { $options = array( '' => '—' ); foreach ( Registry::all( 'supplier' ) as $supplier ) { if ( $supplier['data']['active'] ) { $options[ $supplier['id'] ] = $supplier['data']['name']; } } }
+            if ( 'hs_group' === $field ) { $options = array( '' => 'Unassigned' ); foreach ( Registry::all( 'hs' ) as $rule ) { if ( $rule['data']['active'] ) { $options[ $rule['data']['group'] ] = $rule['data']['group']; } } $existing = self::value( $product, $field ); if ( $existing && ! isset( $options[ $existing ] ) ) { $options[ $existing ] = $existing . ' (classification not configured)'; } }
             $args = array( 'id' => 'kat_' . $field . ( null === $index ? '' : '_' . $index ), 'name' => null === $index ? 'kat_product[' . $field . ']' : 'kat_variations[' . $index . '][' . $field . ']', 'label' => $label, 'value' => self::value( $product, $field ), 'wrapper_class' => null === $index ? '' : 'form-row form-row-full' );
             if ( 'origin_product_id' === $field ) { $args['description'] = 'Optional: the master product shared by bulk stock and packaged products. Variations already use their parent product.'; $args['desc_tip'] = true; }
             if ( 'blocked_countries' === $field ) { $args['description'] = 'Comma-separated ISO country codes, such as FR,DE. Parent product restrictions also apply to variations.'; $args['desc_tip'] = true; }
             if ( 'hs_group' === $field ) { $args['description'] = 'Validate the classification for the destination and applicable dates.'; $args['desc_tip'] = true; }
+            if ( 'channel_ids' === $field ) { $args['description'] = 'Comma-separated channel IDs. Empty: current default channel (variations inherit their parent). Use none to unpublish on all channels. Variations cannot expand parent visibility.'; $args['desc_tip'] = true; }
             if ( null !== $options ) { $args['options'] = $options; woocommerce_wp_select( $args ); }
             else { woocommerce_wp_text_input( $args ); }
         }
@@ -150,6 +165,11 @@ final class NativeCatalog {
         if ( ! is_array( $input ) ) { return; }
         $old = array(); foreach ( self::specs() as $field => $spec ) { $old[ $field ] = $product->get_meta( '_kat_' . $field, true, 'edit' ); }
         try {
+            if ( isset( $input['channel_ids'] ) && is_array( $input['channel_ids'] ) ) {
+                $values = array_values( array_unique( array_map( 'sanitize_text_field', $input['channel_ids'] ) ) );
+                if ( count( $values ) > 1 && array_intersect( $values, array( 'default', 'none' ) ) ) { throw new DomainError( 'Choose specific channels or one default/unpublished option.' ); }
+                $input['channel_ids'] = in_array( 'default', $values, true ) ? '' : ( implode( ',', $values ) ?: 'none' );
+            }
             foreach ( self::specs() as $field => $spec ) { if ( isset( $input[ $field ] ) ) { if ( ! is_scalar( $input[ $field ] ) ) { throw new DomainError( 'Invalid packaging field.' ); } $product->update_meta_data( '_kat_' . $field, sanitize_text_field( wp_unslash( $input[ $field ] ) ) ); } }
             self::guard( $product );
         } catch ( \Throwable $error ) {
@@ -167,6 +187,7 @@ final class NativeCatalog {
         return $data;
     }
     public static function guard( \WC_Product $product ): void {
+        $prices = PriceLists::parse( self::value( $product, 'channel_prices' ) ); $normalized = array(); foreach ( $prices as $key => $amount ) { $normalized[] = $key . '=' . $amount; } $product->update_meta_data( '_kat_channel_prices', implode( ';', $normalized ) );
         foreach ( self::specs() as $field => [ $label, $options, $default ] ) {
             $value = self::value( $product, $field );
             if ( strlen( $value ) > 2000 ) { throw new DomainError( 'Field is too long: ' . $label ); }
@@ -183,6 +204,13 @@ final class NativeCatalog {
         }
         if ( self::value( $product, 'supplier_id' ) ) { Registry::get( Registry::positive_id( self::value( $product, 'supplier_id' ) ), 'supplier' ); }
         if ( self::value( $product, 'volume_ml' ) ) { Database::quantity( self::value( $product, 'volume_ml' ) ); }
+        if ( self::value( $product, 'net_weight_g' ) ) { Database::quantity( self::value( $product, 'net_weight_g' ) ); }
+        $channels = trim( self::value( $product, 'channel_ids' ), ',' );
+        if ( '' !== $channels && 'none' !== $channels ) {
+            $ids = array_unique( array_map( 'trim', explode( ',', $channels ) ) );
+            foreach ( $ids as $id ) { Registry::get( Registry::positive_id( $id ), 'channel' ); }
+            $product->update_meta_data( '_kat_channel_ids', ',' . implode( ',', $ids ) . ',' );
+        }
         $origin = self::value( $product, 'origin_product_id' );
         if ( $origin ) {
             $master = wc_get_product( Registry::positive_id( $origin ) );

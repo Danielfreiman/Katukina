@@ -6,6 +6,13 @@
   },
   "files": [
     {
+      "source": "User attachment: MASTER IMPLEMENTATION PROMPT (2026-10-26)",
+      "destination": "docs/katukina/sources/MASTER-IMPLEMENTATION-2026-10-26.txt",
+      "bytes": 28615,
+      "sha256": "364880b6461a5ed0b7cf2ccca4166a1b3edec6be54435e5ed9b9af674a18b159",
+      "imported_on": "2026-10-26"
+    },
+    {
       "source": "skill.zip:katukina-architecture/SKILL.md",
       "destination": "skills/katukina-architecture/SKILL.md",
       "bytes": 6754,

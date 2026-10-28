@@ -3,6 +3,38 @@ namespace Katukina\Core;
 defined( 'ABSPATH' ) || exit;
 
 final class Finance {
+    public static function precision( \WC_Order $order ): int {
+        $saved = $order->get_meta( '_kat_currency_precision', true, 'edit' );
+        return '' === $saved ? wc_get_price_decimals() : (int) $saved;
+    }
+    public static function to_minor( string $amount, int $precision ): int {
+        if ( $precision < 0 || $precision > 6 || ! preg_match( '/^\d{1,12}(?:\.\d{1,6})?$/D', $amount ) ) { throw new DomainError( 'Invalid monetary amount.' ); }
+        [ $whole, $fraction ] = array_pad( explode( '.', $amount ), 2, '' );
+        if ( strlen( rtrim( $fraction, '0' ) ) > $precision ) { throw new DomainError( 'Amount cannot be represented in this currency precision.' ); }
+        $value = (int) $whole * ( 10 ** $precision ) + (int) str_pad( substr( $fraction, 0, $precision ), $precision, '0' );
+        if ( $value > 999999999999 ) { throw new DomainError( 'Amount exceeds the ledger limit.' ); }
+        return $value;
+    }
+    public static function from_minor( int $amount, int $precision ): string {
+        if ( $precision < 0 || $precision > 6 ) { throw new DomainError( 'Invalid monetary precision.' ); }
+        $digits = str_pad( (string) abs( $amount ), $precision + 1, '0', STR_PAD_LEFT );
+        return ( $amount < 0 ? '-' : '' ) . ( $precision ? substr( $digits, 0, -$precision ) . '.' . substr( $digits, -$precision ) : $digits );
+    }
+    public static function credit_balance( int $customer, string $currency, int $precision ): int {
+        global $wpdb;
+        return (int) $wpdb->get_var( $wpdb->prepare( 'SELECT COALESCE(SUM(amount),0) FROM ' . Database::table( 'money' ) . " WHERE kind='credit' AND customer_id=%d AND currency=%s AND minor_unit=%d", $customer, $currency, $precision ) );
+    }
+    public static function redeem( int $order_id, int $customer ): array {
+        return Database::command( 'credit.redeem', array( 'key' => 'credit-checkout-order-' . $order_id, 'order_id' => $order_id, 'customer_id' => $customer ), static function ( $input ) {
+            $order = wc_get_order( $input['order_id'] );
+            if ( ! $order || ! $input['customer_id'] || $order->get_customer_id() !== $input['customer_id'] || 'katukina_credit' !== $order->get_payment_method() || ! $order->needs_payment() ) { throw new DomainError( 'This order cannot use the customer credit balance.', 409 ); }
+            $precision = self::precision( $order ); $amount = self::to_minor( $order->get_total(), $precision );
+            if ( $amount < 1 || self::credit_balance( $input['customer_id'], $order->get_currency(), $precision ) < $amount ) { throw new DomainError( 'Credit balance is insufficient for this order.', 409 ); }
+            $result = self::record( array( 'kind' => 'credit', 'customer_id' => $input['customer_id'], 'order_id' => $order->get_id(), 'currency' => $order->get_currency(), 'minor_unit' => $precision, 'amount' => (string) -$amount, 'reference' => 'credit-order-' . $order->get_id(), 'reason' => 'Store credit payment in native checkout' ) );
+            $order->payment_complete( 'credit-order-' . $order->get_id() );
+            return $result + array( 'order_id' => $order->get_id() );
+        } );
+    }
     public static function record( array $input ): array {
         global $wpdb;
         $kind = (string) ( $input['kind'] ?? '' ); $currency = strtoupper( $input['currency'] ?? '' );

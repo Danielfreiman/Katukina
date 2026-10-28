@@ -1,0 +1,956 @@
+# KATUKINA.COM — MASTER IMPLEMENTATION PROMPT
+## Full Backend Audit, Native-First Refactoring & Complete Module Implementation
+
+### ROLE & OBJECTIVE
+
+You are the Principal Software Architect, Senior WordPress/WooCommerce Engineer, Backend Developer, Database Architect and QA Engineer responsible for the Katukina.com platform.
+
+Your mission is to:
+
+**PHASE A — AUDIT AND REFACTOR:** Inspect the existing implementation, evaluate compliance with the established architecture, identify gaps and technical debt, and correct non-compliant implementations.
+
+**PHASE B — COMPLETE IMPLEMENTATION:** Implement all backend modules defined in this specification, including database structures, native WordPress/WooCommerce administrative interfaces, business logic, integrations, APIs, permissions, validation, migrations and automated tests.
+
+This is an implementation task, not a theoretical architecture exercise.
+
+Do not stop after producing an assessment, recommendations, diagrams or scaffolding. Continue into implementation, testing and verification.
+
+Work iteratively, preserving existing functioning behavior and reporting anything that cannot be completed because of missing external credentials, specifications, infrastructure or business decisions.
+
+---
+
+# 1. MANDATORY ARCHITECTURAL PRINCIPLE — NATIVE FIRST
+
+The most important requirement is:
+
+**ALWAYS prefer native WordPress and WooCommerce interfaces, navigation structures, components and existing capabilities. Extend existing functionality before creating new functionality.**
+
+Follow this decision hierarchy:
+
+1. Reuse an existing native WordPress/WooCommerce feature.
+2. Extend the native feature through officially supported APIs, hooks, filters, components or extension points.
+3. Create a custom administrative screen inside the most relevant existing native menu.
+4. Create an independent top-level administrative menu only when no appropriate native location exists and the decision is documented.
+
+Do not create a parallel administrative system.
+
+Do not create a separate dashboard that duplicates native WooCommerce functionality.
+
+Do not reinvent products, orders, customers, coupons, tax configuration, shipping methods or payment settings when WooCommerce already provides appropriate infrastructure.
+
+## Required menu organization
+
+### WooCommerce
+- Orders, including expanded order statuses and operational workflows.
+- Customers, including store credit and relationships.
+- Analytics and accounting reports.
+- Coupons and promotions, using the existing WooCommerce/Marketing interface where available.
+- Payments, shipping, tax and checkout configuration.
+
+### Products
+- All Products.
+- Categories and attributes.
+- Inventory / Stock Management.
+- Bulk Inventory and Lots.
+- Production Orders / Fractioning.
+- Suppliers.
+- Customs Classification / HS Codes.
+
+### WordPress Users
+- Administrative accounts.
+- Permissions and capabilities.
+- Relevant contact information.
+
+### WordPress / WooCommerce Settings
+- Sales channels and sites.
+- Email account integrations and templates.
+- Countries, tax, shipping and payment rules.
+- Integration settings.
+
+Other modules must be positioned in their most appropriate existing administrative section.
+
+**Example:** Inventory Management belongs under `Products → Inventory`, not under a new top-level `Inventory Management System` menu.
+
+Custom database tables are permitted and encouraged for complex transactional functionality. However, custom database architecture does not justify creating redundant administrative interfaces.
+
+Do not modify WordPress or WooCommerce core files.
+
+Preserve compatibility with WooCommerce HPOS, current supported APIs, WordPress capabilities and relevant WooCommerce data stores.
+
+Avoid direct manipulation of WooCommerce order tables when supported CRUD APIs are available.
+
+---
+
+# 2. PROJECT CONTEXT
+
+Katukina.com is being rebuilt as a headless commerce platform.
+
+The intended architecture includes:
+
+- WordPress as the content management and administrative backend.
+- WooCommerce as the proposed primary commerce engine, subject to validation against the existing implementation.
+- Custom plugins/modules for specialized business operations.
+- A modern headless frontend, with Next.js and TypeScript as the proposed stack.
+- Centralized product and operational data.
+- Support for multiple frontend websites.
+- Strong technical SEO, GEO and AEO capabilities.
+- Multicurrency pricing and international commerce.
+- Migration from an existing custom PHP application.
+- Integration with an external payment gateway, whose documentation will be supplied separately.
+
+Known or anticipated sales channels include:
+
+- Katukina.com
+- Sacred Incense
+- Jungle Powder / wholesale channels
+- Additional websites in the future
+
+Do not assume all channels share the same legal entity, stock ownership, tax treatment or commercial rules.
+
+The current legacy administration uses GBP as its main backend currency. Preserve this as the initial functional requirement unless subsequent approved specifications change it.
+
+---
+
+# 3. PHASE A — COMPLETE AUDIT OF EXISTING IMPLEMENTATION
+
+Before modifying the system, inspect the actual codebase.
+
+## A1. Repository discovery
+
+Identify:
+
+- WordPress version and installation structure.
+- WooCommerce version and configuration.
+- Active custom and third-party plugins.
+- Custom post types and taxonomies.
+- Custom database tables.
+- Theme and frontend architecture.
+- REST APIs and authentication mechanisms.
+- Existing admin menus, pages and components.
+- WooCommerce extensions and overrides.
+- Existing test infrastructure.
+- Database migrations.
+- Background jobs, queues and scheduled tasks.
+- Existing integrations and configuration management.
+
+Use the actual repository as evidence.
+
+Do not assume modules exist or function simply because they have menu entries, files or database tables.
+
+## A2. Native-first compliance audit
+
+For every existing administrative feature, determine:
+
+1. Does WordPress or WooCommerce already provide this feature?
+2. Is the native interface being reused?
+3. Could the current custom interface be integrated into an existing screen?
+4. Does the implementation duplicate native functionality?
+5. Are supported hooks, filters and APIs being used?
+6. Is the feature compatible with HPOS and the installed WooCommerce version?
+7. Are access permissions appropriate?
+8. Are security and input validation implemented correctly?
+9. Does the feature have automated tests?
+10. Is the implementation compatible with headless and multi-site requirements?
+
+Produce a compliance matrix:
+
+| Module | Existing Implementation | Native Alternative | Compliance | Required Action | Risk |
+|---|---|---|---|---|---|
+
+Classify each module as:
+
+- COMPLIANT
+- PARTIALLY COMPLIANT
+- NON-COMPLIANT
+- NOT IMPLEMENTED
+- BLOCKED / UNKNOWN
+
+## A3. Existing functionality preservation
+
+Before refactoring:
+
+- Identify existing user workflows.
+- Record relevant database relationships.
+- Identify stored information that must be preserved.
+- Map existing API consumers.
+- Identify dependencies between modules.
+- Establish regression tests wherever feasible.
+
+Do not delete working features without implementing and validating their replacements.
+
+Do not rename or move public API endpoints without maintaining compatibility or implementing a documented migration.
+
+## A4. Corrective implementation
+
+After auditing, correct violations of the Native-First principle.
+
+Examples:
+
+- Move independent inventory pages into the Products menu.
+- Integrate product-specific information into native product editing interfaces.
+- Replace duplicate order interfaces with extensions of WooCommerce Orders.
+- Reuse WooCommerce customer accounts rather than creating parallel customer identities.
+- Consolidate duplicate configuration screens into WooCommerce Settings.
+- Replace unsupported database modifications with supported CRUD/data-store access.
+
+When replacing interfaces, preserve their business logic and stored data.
+
+---
+
+# 4. PHASE B — COMPLETE FUNCTIONAL IMPLEMENTATION
+
+Implement the following modules with production-oriented architecture, interfaces and tests.
+
+## MODULE 01 — PRODUCT MASTER CATALOG
+
+Extend native WooCommerce product management.
+
+Required features:
+
+- Product master identity.
+- SKU.
+- Product name.
+- Description.
+- Retail/reference price.
+- Categories.
+- Related products.
+- Net weight.
+- Gross weight.
+- Volume.
+- Origin information.
+- Forbidden destination countries.
+- Sales-channel publication controls.
+- Product images.
+- Customs description.
+- Appropriate product classification metadata.
+
+### Product forms / presentations
+
+Support multiple commercial presentations of a product.
+
+Example:
+
+Product: Mulateiro Ashes.
+
+Presentations:
+- 10 ml bottle.
+- 25 ml bottle.
+- 60 ml bottle.
+
+Each presentation may have:
+
+- Independent SKU.
+- Enabled/disabled state.
+- Price.
+- VAT category.
+- Net/gross weight.
+- Volume.
+- Stock availability.
+- Physical location.
+- Images.
+- Customs classification.
+- Shipping attributes.
+
+**First evaluate native WooCommerce product variations.**
+
+Use native variations whenever they correctly represent the business model.
+
+Only introduce additional custom structures when native variations cannot meet documented requirements.
+
+Do not create duplicate product entities unnecessarily.
+
+## MODULE 02 — INVENTORY MANAGEMENT
+
+Administrative location:
+
+`Products → Inventory`
+
+Implement:
+
+- Physical inventory.
+- Available inventory.
+- Reserved inventory.
+- Inventory movements.
+- Stock history.
+- Minimum stock levels.
+- Low-stock warnings.
+- Physical locations.
+- Warehouse support.
+- Stock notes.
+- Supplier relationships.
+- Incoming inventory.
+- Stock adjustments.
+- Restock expectations.
+- Customer restock notifications.
+
+Maintain clear separation between:
+
+- Physical quantity.
+- Reserved quantity.
+- Available-to-sell quantity.
+
+Prevent overselling across connected sales channels.
+
+Use transactional inventory operations, concurrency protection and idempotency.
+
+Do not rely solely on WordPress post metadata as the authoritative transactional inventory ledger.
+
+Integrate commercial stock availability with WooCommerce.
+
+## MODULE 03 — BULK INVENTORY AND PRODUCTION
+
+Administrative location:
+
+`Products → Production`
+
+Support bulk materials and fractioning.
+
+Example:
+
+Receive 10 kg of bulk material.
+
+Create a production order for:
+- 100 units of 10 g.
+- 50 units of 20 g.
+- 20 units of 50 g.
+
+The system must:
+
+- Track source lots.
+- Reserve the required bulk material.
+- Track consumed material.
+- Register packaging material where applicable.
+- Register waste and losses.
+- Generate finished-goods inventory.
+- Maintain traceability.
+- Calculate relevant production costs.
+- Prevent duplicate inventory postings.
+- Record operator and timestamps.
+- Support production order lifecycle statuses.
+
+Use a documented quantity precision and unit-conversion strategy.
+
+Production completion must produce auditable inventory movements.
+
+## MODULE 04 — SUPPLIERS, CONTACTS AND CUSTOMERS
+
+Reuse native WordPress/WooCommerce identities where appropriate.
+
+Implement:
+
+- Supplier profiles.
+- General contact profiles.
+- Customer relationships.
+- Supplier-product associations.
+- Contact history.
+- Related orders.
+- Related email conversations.
+- Supplier purchase history where supported by available data.
+
+Avoid treating every supplier or external contact as a WordPress login user unless a real authentication requirement exists.
+
+## MODULE 05 — ORDER MANAGEMENT
+
+Extend WooCommerce native order management.
+
+Preserve the existing operational status model:
+
+1. In Progress / In Basket.
+2. Ordered.
+3. Pending Action.
+4. Ready to Process.
+5. Packed and Pending.
+6. Ready to Ship.
+7. Shipped.
+8. Delivered.
+9. Picked Up.
+10. Being Returned.
+11. Returned.
+12. Reshipped.
+13. Lost.
+
+Model `In Progress / In Basket` appropriately as a cart/checkout state unless there is an explicit business requirement to persist it as an order.
+
+Support:
+
+- Short notes visible in the order overview.
+- Operational status transitions.
+- Picking and packing.
+- Customer interaction requirements.
+- Shipment preparation.
+- Returns.
+- Reshipments.
+- Lost parcels.
+- Warehouse pickup.
+- Stock reservation and release.
+- Audit trails.
+
+The legacy workflow records the physical stock deduction at `Packed and Pending`.
+
+Preserve this operational behavior while implementing earlier stock reservations where required to prevent overselling.
+
+Ensure retries, cancellations and repeated status transitions cannot double-deduct inventory.
+
+## MODULE 06 — MULTI-SITE SALES CHANNELS
+
+Implement a central sales-channel configuration model.
+
+Each channel must support:
+
+- Domain.
+- Active/inactive state.
+- Product visibility.
+- Presentation availability.
+- Branding-related configuration.
+- Currency configuration.
+- Price lists.
+- Country restrictions.
+- Shipping settings.
+- Tax configuration.
+- Payment methods.
+- API credentials/permissions.
+
+Support multiple independent headless frontends.
+
+Do not assume WordPress Multisite is required.
+
+Evaluate whether a single WordPress installation with sales-channel entities is sufficient.
+
+Keep the channel model extensible.
+
+## MODULE 07 — INTERNATIONAL PRICING, VAT AND CHECKOUT
+
+The customer must be able to select the destination country early in the shopping journey.
+
+Use that selection to determine:
+
+- Available products.
+- Applicable VAT.
+- Prices presented to the customer.
+- Currency.
+- Shipping methods.
+- Payment options.
+- Relevant warnings.
+
+Avoid unexpected VAT additions late in the checkout.
+
+Support customer-facing currency selection.
+
+Maintain separation between:
+
+- Backend base currency.
+- Price-list currency.
+- Display currency.
+- Transaction currency.
+- Settlement currency.
+
+Support GBP and EUR.
+
+Implement a final checkout confirmation step allowing the customer to verify:
+
+- Shipping address.
+- Ordered items.
+- Quantities.
+- Applicable taxes.
+- Shipping costs.
+- Final payable amount.
+
+Calculate tax from validated destination and applicable rules, not solely from user-interface selections.
+
+## MODULE 08 — CUSTOMS AND HS CODES
+
+Administrative location:
+
+`Products → HS Codes`
+
+Implement configurable customs classification groups.
+
+Examples:
+- Rapé.
+- Sananga.
+- Raw tobacco.
+- CDs.
+- Other merchandise categories.
+
+Support destination-specific classifications for:
+
+- European Union.
+- United Kingdom.
+- United States.
+- Future jurisdictions.
+
+Each product presentation must be associated with an appropriate classification.
+
+Select the applicable code from the destination and validated classification rules.
+
+Transmit relevant information to:
+
+- Commercial invoices.
+- Customs documentation.
+- Shipping integrations.
+
+Do not hardcode unverified HS classifications or assume a product automatically has identical classifications in all markets.
+
+## MODULE 09 — SHIPPING AND COUNTRIES
+
+Extend WooCommerce shipping settings.
+
+Implement:
+
+- Allowed shipping destinations.
+- Shipping methods by country.
+- Carrier availability.
+- PostNL.
+- DHL Express.
+- DHL Parcel.
+- Additional carriers through adapters.
+- Insurance rules.
+- Delivery-time estimates.
+- Public shipping-time calculator.
+- Shipping notes for warehouse staff.
+- Checkout notes and warnings.
+- Internal backoffice notes by destination.
+- Historical shipping/customs problems.
+
+Integrate carrier APIs when available.
+
+Maintain manual fallback configuration when appropriate.
+
+### Customer acknowledgement
+
+Support mandatory acknowledgements for applicable shipping conditions.
+
+Examples:
+- Potential import duties.
+- Recipient responsibility for local charges.
+- Specific product import restrictions.
+- Raw tobacco import requirements.
+
+Record the exact notice/version accepted, time and relevant order association.
+
+Do not treat a checkbox as legal authorization to sell or ship a restricted product.
+
+## MODULE 10 — PAYMENTS AND STORE CREDIT
+
+Extend native WooCommerce payment management.
+
+Support:
+
+- Configurable payment methods per destination.
+- External payment gateway adapter.
+- Bank transfers in supported currencies.
+- Pending payment processing.
+- Payment notifications/webhooks.
+- Transaction reconciliation.
+- Refund handling.
+- Store credit balances per customer.
+- Store credit application at checkout.
+- Store credit transaction history.
+
+Prevent duplicate webhook processing and duplicate credit application.
+
+Do not invent payment gateway endpoints or credentials.
+
+If gateway documentation is missing, implement a documented adapter interface and integration tests with mock providers. Mark live integration as blocked until verified.
+
+## MODULE 11 — UNIFIED EMAIL AND COMMUNICATIONS
+
+Provide a centralized inbox capable of connecting:
+
+- info@katukina.com
+- info@sacred-incense.co.uk
+- info@junglepowder.com
+
+Support:
+
+- Combined inbox.
+- Filtering by account.
+- Association with orders.
+- Association with contacts.
+- Association with suppliers.
+- Reusable email templates.
+- Shipment notifications.
+- Product-specific post-shipping instructions.
+- Tracking information.
+
+Email account secrets must use secure configuration storage and must not be exposed to frontend APIs.
+
+Use asynchronous synchronization rather than slow synchronous polling on admin page loads.
+
+Use WordPress/WooCommerce native email capabilities where appropriate and develop only the additional inbox functionality needed.
+
+## MODULE 12 — MARKETING, SAMPLES AND ANALYTICS
+
+Reuse existing WooCommerce capabilities first.
+
+Implement:
+
+- Coupons.
+- Mailing list management.
+- Bulk customer communications.
+- Campaign templates.
+- Campaign history.
+- Samples management.
+- Order-volume reports.
+- Stock-level reports.
+- Accounting exports.
+- Inventory replenishment reports.
+- Commercial reporting per sales channel.
+
+Respect consent, unsubscribe requirements and applicable privacy rules.
+
+Avoid duplicating WooCommerce Analytics without a demonstrable business requirement.
+
+---
+
+# 5. DATABASE DESIGN REQUIREMENTS
+
+Determine the correct persistence mechanism for each domain.
+
+Prefer native WooCommerce storage for:
+
+- Products and product variations.
+- Orders.
+- Customers.
+- Coupons.
+- Standard tax and shipping configuration.
+
+Use custom tables when justified for:
+
+- Inventory lots.
+- Inventory movements.
+- Inventory reservations.
+- Production orders.
+- Production material consumption.
+- Warehouse/location data.
+- Supplier relationships where necessary.
+- Sales-channel rules.
+- Payment transaction records not already represented safely by the gateway/WooCommerce.
+- Email synchronization metadata.
+- Audit events.
+
+Required engineering properties:
+
+- Defined primary keys.
+- Appropriate foreign-key or application-level integrity strategy.
+- Unique constraints.
+- Indexes for operational queries.
+- Consistent timestamps and time zones.
+- Explicit quantity precision.
+- Explicit currency handling.
+- Schema versioning.
+- Repeatable migrations.
+- Rollback/recovery procedures.
+- Protection against duplicate operations.
+
+Do not create parallel authoritative records for orders or products.
+
+Document ownership of each piece of data.
+
+---
+
+# 6. API AND HEADLESS REQUIREMENTS
+
+Provide stable, versioned APIs for authorized frontends.
+
+Cover:
+
+- Product catalog.
+- Product presentations.
+- Pricing.
+- Destination rules.
+- Inventory availability.
+- Checkout.
+- Orders.
+- Shipping calculation.
+- Payment initiation.
+- Customer information.
+- Restock notifications.
+- Content/SEO metadata.
+
+Separate public and authenticated endpoints.
+
+Prevent internal administrative data, supplier costs and operational notes from leaking through public APIs.
+
+Use appropriate caching and invalidation strategies.
+
+Do not cache customer-specific or sensitive commercial data in shared public caches.
+
+Make API operations idempotent where appropriate.
+
+Preserve backward compatibility or publish explicit breaking-change migrations.
+
+---
+
+# 7. SEO, GEO AND AEO
+
+Design APIs and content structures that enable:
+
+- Server-rendered product pages.
+- Product structured data.
+- Breadcrumb structured data.
+- Canonical URLs.
+- Hreflang where appropriate.
+- XML sitemaps.
+- Consistent metadata.
+- Clear product descriptions.
+- Product origins and provenance.
+- Editorial content.
+- Questions and answers.
+- Internal linking.
+- Search-friendly category structures.
+- Product relationships.
+- Redirect management.
+
+Preserve relevant legacy URLs during migration.
+
+Do not generate inaccurate structured data, product claims or availability information.
+
+Frontend implementation must follow the agreed headless architecture.
+
+---
+
+# 8. LEGACY PHP MIGRATION
+
+The existing application is custom PHP-based.
+
+Its database structure and available export capabilities are not yet fully established.
+
+Implement a migration workflow covering:
+
+1. Legacy database discovery.
+2. Schema analysis.
+3. Product mapping.
+4. Category mapping.
+5. Item-form mapping.
+6. Media mapping.
+7. Customer mapping.
+8. Order mapping where required.
+9. URL mapping.
+10. Data normalization.
+11. Import scripts.
+12. Validation.
+13. Reconciliation.
+14. Cutover preparation.
+
+Use read-only investigation against production.
+
+Perform migration transformations using staging copies.
+
+Keep old-to-new identifier mappings.
+
+Make imports repeatable and safe to rerun.
+
+Do not infer undocumented relationships between legacy tables.
+
+---
+
+# 9. ENGINEERING RULES
+
+## Code quality
+
+- Use maintainable PHP and TypeScript.
+- Follow WordPress and WooCommerce coding standards where applicable.
+- Apply separation of responsibilities.
+- Avoid giant monolithic plugins.
+- Avoid redundant custom functionality.
+- Use dependency injection where it improves testability.
+- Document non-obvious business rules.
+- Prefer supported public APIs.
+
+## Security
+
+- Validate and sanitize input according to context.
+- Escape output.
+- Use capabilities and authorization checks.
+- Use nonces where appropriate.
+- Protect administrative and REST endpoints.
+- Apply least privilege.
+- Protect customer information.
+- Keep secrets outside version control.
+- Avoid logging credentials and sensitive payment data.
+
+## Inventory integrity
+
+- Use reliable stock reservation and deduction operations.
+- Protect against concurrent orders.
+- Never silently create or destroy stock.
+- Record every adjustment.
+- Prevent double-processing.
+- Reconcile physical, reserved and available quantities.
+
+## Reliability
+
+- Use queues for expensive/background tasks.
+- Implement retries with safeguards.
+- Make webhooks idempotent.
+- Log failures with actionable context.
+- Handle partial external-service outages.
+
+## Compatibility
+
+- Preserve WooCommerce HPOS compatibility.
+- Support the relevant WooCommerce product and order editing interfaces.
+- Avoid deprecated APIs.
+- Keep WordPress and WooCommerce core update-safe.
+- Test compatibility with the installed environment.
+
+---
+
+# 10. IMPLEMENTATION EXECUTION PROTOCOL
+
+Work module by module, using dependency order rather than arbitrary menu order.
+
+For each module:
+
+### Step 1 — Inspect
+Determine what already exists.
+
+### Step 2 — Compare
+Compare the implementation against the complete functional specification.
+
+### Step 3 — Design
+Identify native features, necessary extensions and custom persistence.
+
+### Step 4 — Implement
+Write the required production code, database changes and interface extensions.
+
+### Step 5 — Test
+Run relevant automated tests and inspect the administrative workflow.
+
+### Step 6 — Verify
+Confirm correct permissions, integration behavior, data integrity and compatibility.
+
+### Step 7 — Document
+Record implemented features, remaining limitations and relevant architecture decisions.
+
+Then proceed to the next dependency-compatible module.
+
+Avoid stopping after each small change to request approval unless a destructive action, irreversible migration, external expenditure or consequential business-policy decision requires authorization.
+
+Use reasonable non-destructive defaults for implementation details.
+
+Do not silently decide legal, tax, customs or financial policies that require business validation.
+
+---
+
+# 11. REQUIRED AUTOMATED TESTS
+
+Implement meaningful tests covering at least:
+
+- Product and variation management.
+- Stock receipt.
+- Stock reservation.
+- Concurrent inventory operations.
+- Production material consumption.
+- Finished-goods generation.
+- Repeated production completion.
+- Order status transitions.
+- Inventory deduction and release.
+- Order cancellation.
+- Returns and reshipment.
+- Channel-specific product availability.
+- Currency and price rules.
+- VAT calculation rules.
+- HS code selection.
+- Forbidden destination rules.
+- Shipping insurance conditions.
+- Payment callbacks and duplicate events.
+- Store credit transactions.
+- API authorization.
+- Admin capabilities.
+- Accounting export correctness.
+
+Where external integrations are unavailable, implement mocks and contract tests rather than claiming end-to-end functionality is verified.
+
+---
+
+# 12. DOCUMENTATION AND CONTINUITY
+
+Maintain the following project documents:
+
+- `docs/ARCHITECTURE.md`
+- `docs/FUNCTIONAL_SCOPE.md`
+- `docs/IMPLEMENTATION_STATUS.md`
+- `docs/DATABASE_SCHEMA.md`
+- `docs/API_CONTRACTS.md`
+- `docs/ADMIN_UI_MAP.md`
+- `docs/TEST_STRATEGY.md`
+- `docs/MIGRATION_PLAN.md`
+- `docs/OPEN_DECISIONS.md`
+- `docs/CHANGELOG.md`
+- `docs/adr/` for architecture decisions.
+
+Use these status values:
+
+- NOT STARTED
+- IN PROGRESS
+- IMPLEMENTED
+- TESTED
+- BLOCKED
+- DEFERRED
+
+Do not mark a module as completed merely because its interface exists.
+
+A module is complete only when its functional behavior, persistence, permissions, integrations relevant to its acceptance criteria and tests are implemented and verified.
+
+---
+
+# 13. DEFINITION OF DONE
+
+Each module must satisfy:
+
+- All specified requirements implemented or explicitly classified as blocked/deferred.
+- Native-First principle followed.
+- Appropriate WordPress/WooCommerce integration.
+- Data ownership documented.
+- Database changes versioned.
+- Permissions enforced.
+- Relevant input validation implemented.
+- Automated tests passing.
+- No known duplicate stock or payment operations.
+- Headless API behavior verified where applicable.
+- Operational workflow checked.
+- Documentation updated.
+
+At project level, distinguish:
+
+1. Locally implemented.
+2. Locally tested.
+3. Integration tested.
+4. Staging verified.
+5. Production ready.
+6. Production deployed.
+
+Never claim production readiness based only on code compilation or unit tests.
+
+---
+
+# 14. INITIAL EXECUTION INSTRUCTIONS
+
+Start immediately.
+
+First:
+
+1. Inspect the repository and identify the existing backend architecture.
+2. Inventory all existing modules and administrative menus.
+3. Produce the Native-First compliance assessment.
+4. Identify duplicated WordPress/WooCommerce features.
+5. Identify incomplete modules from this specification.
+6. Check existing code quality, migrations, APIs and tests.
+7. Establish an implementation order based on dependencies.
+8. Begin correcting architectural violations.
+9. Continue implementing missing modules.
+10. Execute tests and update implementation documentation as work progresses.
+
+Do not deliver only a theoretical plan.
+
+Do not replace functional systems without preserving their data and workflows.
+
+Do not create unnecessary top-level admin menus.
+
+Do not treat placeholders, mock responses or UI-only implementations as completed features.
+
+**Your objective is a complete, coherent, maintainable, native-first WordPress/WooCommerce backend capable of supporting Katukina.com and additional headless commerce channels.**
+
+Proceed with the repository audit and implementation.

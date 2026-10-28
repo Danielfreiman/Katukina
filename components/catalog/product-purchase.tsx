@@ -12,6 +12,7 @@ import {
 import { plainText } from "@/lib/wordpress/text";
 import { ProductGallery } from "./product-gallery";
 import { AddToCart } from "@/components/commerce/add-to-cart";
+import { SubscriptionForm } from "@/components/commerce/subscription";
 
 export function ProductPurchase({
   product,
@@ -25,6 +26,7 @@ export function ProductPurchase({
   const [selectedId, setSelectedId] = useState(initialVariation);
   const [quantity, setQuantity] = useState("");
   const [pending, setPending] = useState(false);
+  const [attributes, setAttributes] = useState<Record<string, string>>({});
   useEffect(() => {
     const restore = () => {
       setSelectedId(
@@ -32,6 +34,7 @@ export function ProductPurchase({
           0,
       );
       setQuantity("");
+      setAttributes({});
     };
     window.addEventListener("popstate", restore);
     return () => window.removeEventListener("popstate", restore);
@@ -47,6 +50,9 @@ export function ProductPurchase({
     qty <= limits.max &&
     qty % limits.step === 0;
   const available = !!item && canPurchase(item);
+  const choicesReady = (selected?.choices ?? []).every((field) =>
+    field.options.includes(attributes[field.attribute]),
+  );
   const imageList = selected?.images[0]
     ? [selected.images[0], ...product.images]
     : product.images;
@@ -57,6 +63,7 @@ export function ProductPurchase({
   const choose = (id: number) => {
     setSelectedId(id);
     setQuantity("");
+    setAttributes({});
     const url = new URL(window.location.href);
     if (id) url.searchParams.set("variation", String(id));
     else url.searchParams.delete("variation");
@@ -142,13 +149,36 @@ export function ProductPurchase({
                 ))}
               </div>
               {selected && (
-                <button
-                  type="button"
-                  className="swatch-clear"
-                  onClick={() => choose(0)}
-                >
-                  Clear selection
-                </button>
+                <>
+                  {selected.choices?.map((field) => (
+                    <label key={field.attribute}>
+                      {field.label}
+                      <select
+                        value={attributes[field.attribute] || ""}
+                        onChange={(event) =>
+                          setAttributes((prior) => ({
+                            ...prior,
+                            [field.attribute]: event.target.value,
+                          }))
+                        }
+                      >
+                        <option value="">Select…</option>
+                        {field.options.map((value) => (
+                          <option key={value} value={value}>
+                            {value}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
+                  ))}
+                  <button
+                    type="button"
+                    className="swatch-clear"
+                    onClick={() => choose(0)}
+                  >
+                    Clear selection
+                  </button>
+                </>
               )}
               {!variations.length && (
                 <p>No presentations are currently available.</p>
@@ -200,13 +230,18 @@ export function ProductPurchase({
             key={`${item?.id ?? 0}:${qty}`}
             id={item?.id ?? product.id}
             quantity={qty}
-            available={available && validQuantity}
-            simple={!!item}
+            available={available && validQuantity && choicesReady}
+            simple={!!item && choicesReady}
+            variation={Object.entries(attributes).map(([attribute, value]) => ({
+              attribute,
+              value,
+            }))}
             onPendingChange={setPending}
           />
         ) : (
           <p>This product is not available to purchase online.</p>
         )}
+        {item && !item.is_in_stock && <SubscriptionForm productId={item.id} />}
         <p className="purchase-delivery">
           Delivery options are calculated in your <Link href="/cart">bag</Link>{" "}
           for your destination.

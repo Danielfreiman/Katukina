@@ -24,6 +24,7 @@ export function SiteFooter() {
             <Link href="/collections">Collections</Link>
             <Link href="/about">Our story</Link>
             <Link href="/journal">Journal</Link>
+            <Link href="/subscribe">Email updates</Link>
           </div>
           <div>
             <h3>A little guidance</h3>

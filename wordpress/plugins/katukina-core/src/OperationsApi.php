@@ -4,6 +4,9 @@ defined( 'ABSPATH' ) || exit;
 
 final class OperationsApi {
     const ACTIONS = array(
+        'return-stock' => array( 'inventory', Inventory::class, 'receive_return' ), 'issue-sample' => array( 'inventory', Inventory::class, 'issue_sample' ),
+        'plan-production' => array( 'inventory', Production::class, 'plan' ), 'reserve-production' => array( 'inventory', Production::class, 'reserve' ),
+        'complete-production' => array( 'inventory', Production::class, 'complete' ), 'cancel-production' => array( 'inventory', Production::class, 'cancel' ),
         'receive' => array( 'inventory', Inventory::class, 'receive' ), 'adjust' => array( 'inventory', Inventory::class, 'adjust' ),
         'reserve' => array( 'inventory', Inventory::class, 'reserve' ), 'release' => array( 'inventory', Inventory::class, 'release' ),
         'expire' => array( 'inventory', Inventory::class, 'expire' ), 'produce' => array( 'inventory', Inventory::class, 'produce' ),
@@ -91,9 +94,19 @@ final class OperationsApi {
     public static function report( string $type, int $page = 1, int $order_id = 0, int $lot_id = 0 ): array {
         global $wpdb; $page = max( 1, $page ); $offset = ( $page - 1 ) * 100;
         if ( 'stock_levels' === $type ) {
-            $base = 'SELECT form_id,company_id,warehouse_id,SUM(balance) physical,SUM(reserved) reserved,SUM(balance-reserved) available FROM ' . Database::table( 'lots' ) . ' GROUP BY form_id,company_id,warehouse_id';
+            $base = "SELECT form_id,company_id,warehouse_id,SUM(balance) physical,SUM(reserved) reserved,SUM(CASE WHEN COALESCE(JSON_UNQUOTE(JSON_EXTRACT(data,'$.expiry')),'')<>'' AND JSON_UNQUOTE(JSON_EXTRACT(data,'$.expiry'))<DATE_FORMAT(UTC_DATE(),'%Y-%m-%d') THEN 0 ELSE balance-reserved END) available FROM " . Database::table( 'lots' ) . ' GROUP BY form_id,company_id,warehouse_id';
             $rows = $wpdb->get_results( $base . " ORDER BY form_id LIMIT 100 OFFSET $offset", ARRAY_A );
-            foreach ( $rows as &$row ) { $form = Registry::get( (int) $row['form_id'], 'form', false ); $row['sku'] = $form['code']; $row['name'] = $form['data']['name']; $row['unit'] = $form['data']['unit']; $row['low_stock'] = ! empty( $form['data']['low_stock'] ) && (int) $row['available'] <= Database::quantity( $form['data']['low_stock'] ); foreach ( array( 'physical', 'reserved', 'available' ) as $key ) { $row[ $key ] = Database::number( (int) $row[ $key ] ); } }
+            $incoming = Registry::all( 'incoming' );
+            foreach ( $rows as &$row ) {
+                $form = Registry::get( (int) $row['form_id'], 'form', false ); $row['sku'] = $form['code']; $row['name'] = $form['data']['name']; $row['unit'] = $form['data']['unit'];
+                $minimum = ! empty( $form['data']['low_stock'] ) ? Database::quantity( $form['data']['low_stock'] ) : 0;
+                $row['low_stock'] = $minimum > 0 && (int) $row['available'] <= $minimum; $expected = 0; $next = '';
+                foreach ( $incoming as $receipt ) { $data = $receipt['data']; if ( ! $data['active'] || (int) $data['form_id'] !== (int) $row['form_id'] || (int) $data['warehouse_id'] !== (int) $row['warehouse_id'] ) { continue; } $remaining = max( 0, Database::quantity( $data['quantity'] ) - Inventory::incoming_received( (int) $receipt['id'] ) ); $expected += $remaining; if ( $remaining && ( ! $next || $data['expected_at'] < $next ) ) { $next = $data['expected_at']; } }
+                $row['expected'] = Database::number( $expected ); $row['expected_date'] = $next; $row['overdue'] = $next && $next < gmdate( 'Y-m-d' );
+                $row['replenishment_deficit'] = Database::number( max( 0, $minimum - (int) $row['available'] - $expected ) );
+                $row['unavailable'] = Database::number( (int) $row['physical'] - (int) $row['reserved'] - (int) $row['available'] );
+                foreach ( array( 'physical', 'reserved', 'available' ) as $key ) { $row[ $key ] = Database::number( (int) $row[ $key ] ); }
+            }
             return array( 'rows' => $rows, 'total' => (int) $wpdb->get_var( 'SELECT COUNT(*) FROM (' . $base . ') stock' ) );
         }
         if ( 'order_volume' === $type ) {

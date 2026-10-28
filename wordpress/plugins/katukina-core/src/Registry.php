@@ -29,6 +29,9 @@ final class Registry {
             'sample' => array( 'Samples', 'inventory', array( 'name' => $f( 'Reference', 'text', true ), 'form_id' => $f( 'Packaging', 'ref:form', true ), 'contact_id' => $f( 'Recipient', 'ref:contact', true ), 'quantity' => $f( 'Quantity', 'quantity', true ), 'movement_reference' => $f( 'Stock movement reference (record using Adjust stock)' ) ) ),
         );
         $result = array();
+        $groups['channel'][2]['currencies'] = $f( 'Additional fixed-price currencies (GBP,EUR)', 'text' );
+        $groups['incoming'] = array( 'Expected receipts', 'inventory', array( 'name' => $f( 'Purchase reference', 'text', true ), 'form_id' => $f( 'Product / presentation', 'ref:form', true ), 'warehouse_id' => $f( 'Warehouse', 'ref:warehouse', true ), 'supplier_id' => $f( 'Supplier', 'ref:supplier', true ), 'quantity' => $f( 'Expected quantity (product stock unit)', 'quantity', true ), 'expected_at' => $f( 'Expected receipt date', 'date', true ) ) );
+        $groups['hs'][2]['country']['type'] = 'jurisdiction';
         foreach ( $groups as $kind => [ $label, $cap, $fields ] ) {
             $result[ $kind ] = array( 'label' => $label, 'capability' => 'katukina_' . $cap, 'fields' => $fields + array( 'active' => $f( 'Active', 'boolean' ), 'legacy_id' => $f( 'Legacy ID' ), 'notes' => $f( 'Internal notes', 'textarea' ) ) );
         }
@@ -81,7 +84,8 @@ final class Registry {
                     if ( 'country' === $type && count( $codes ) !== 1 ) { throw new DomainError( 'Enter one ISO country code.' ); }
                     foreach ( $codes as $code ) { if ( ! isset( WC()->countries->get_countries()[ $code ] ) ) { throw new DomainError( 'Invalid country: ' . $code ); } }
                     $value = implode( ',', $codes );
-                } elseif ( 'email' === $type ) { if ( ! is_email( $value ) ) { throw new DomainError( 'Invalid email address.' ); } $value = sanitize_email( $value ); }
+                } elseif ( 'jurisdiction' === $type ) { $value = strtoupper( $value ); if ( 'EU' !== $value && ! isset( WC()->countries->get_countries()[ $value ] ) ) { throw new DomainError( 'Select EU or an ISO destination country.' ); } }
+                elseif ( 'email' === $type ) { if ( ! is_email( $value ) ) { throw new DomainError( 'Invalid email address.' ); } $value = sanitize_email( $value ); }
                 elseif ( 'url' === $type ) { if ( ! preg_match( '~^https?://~i', $value ) || ! wp_http_validate_url( $value ) ) { throw new DomainError( 'Enter a valid public HTTP or HTTPS URL.' ); } $value = esc_url_raw( $value ); }
                 elseif ( 'date' === $type ) { $date = \DateTimeImmutable::createFromFormat( '!Y-m-d', $value ); if ( ! $date || $date->format( 'Y-m-d' ) !== $value ) { throw new DomainError( 'Invalid date.' ); } }
                 elseif ( 'rate' === $type ) { if ( ! preg_match( '/^\d{1,3}(\.\d{1,4})?$/D', $value ) || (float) $value > 100 ) { throw new DomainError( 'Invalid tax rate.' ); } }
@@ -112,8 +116,14 @@ final class Registry {
         if ( in_array( $kind, array( 'item', 'form', 'publication', 'tax', 'payment_method' ), true ) ) { throw new DomainError( 'Use WooCommerce products, variations and settings. This separate record type has been discontinued.', 410 ); }
         if ( ! preg_match( '/^[\pL\pN_.:-]{1,100}$/uD', $code ) ) { throw new DomainError( 'Reference code: use letters, numbers, dots, hyphens, colons or underscores.' ); }
         $data = self::validate( $kind, $input['data'] ?? array() );
+        if ( 'channel' === $kind ) { $currencies = array_values( array_unique( array_filter( array_map( 'trim', explode( ',', strtoupper( $data['currencies'] ) ) ) ) ) ); if ( array_diff( $currencies, array( 'GBP', 'EUR' ) ) ) { throw new DomainError( 'Additional currencies must be GBP and/or EUR.' ); } $data['currencies'] = implode( ',', $currencies ); }
         $id = (int) ( $input['id'] ?? 0 ); $now = gmdate( 'Y-m-d H:i:s' );
+        if ( 'hs' === $kind ) { Customs::validate_rule( $data, $id ); }
         $old = $id ? self::get( $id, $kind, false ) : null;
+        if ( $old && 'incoming' === $kind && Inventory::incoming_received( $id ) ) {
+            foreach ( array( 'form_id', 'warehouse_id', 'supplier_id' ) as $field ) { if ( (string) $old['data'][ $field ] !== (string) $data[ $field ] ) { throw new DomainError( 'Expected receipt identity is locked after the first physical receipt.', 409 ); } }
+            if ( Database::quantity( $data['quantity'] ) < Inventory::incoming_received( $id ) ) { throw new DomainError( 'Expected quantity cannot be less than received quantity.', 409 ); }
+        }
         if ( $old && (int) $old['version'] !== (int) ( $input['version'] ?? 0 ) ) { throw new DomainError( 'Another session changed this record. Reload before saving.', 409 ); }
         $identity_fields = match ( $kind ) { 'country' => array( 'channel_id', 'country' ), 'publication' => array( 'form_id', 'channel_id', 'language' ), 'transition' => array( 'from', 'to' ), default => array() };
         if ( $identity_fields ) { foreach ( self::all( $kind ) as $existing ) { if ( (int) $existing['id'] === $id ) { continue; } $same = true; foreach ( $identity_fields as $field ) { if ( (string) $existing['data'][ $field ] !== (string) $data[ $field ] ) { $same = false; break; } } if ( $same ) { throw new DomainError( 'This combination is already configured. Edit the existing record.', 409 ); } } }

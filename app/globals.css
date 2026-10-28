@@ -161,6 +161,10 @@ svg {
   font-size: 10px;
   letter-spacing: 0.05em;
 }
+.destination-selector { display: inline-flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; margin-left: 12px; max-width: 100%; }
+.destination-selector select { max-width: 170px; border: 1px solid var(--line); border-radius: 4px; background: white; color: inherit; padding: 3px; font: inherit; }
+.purchase-actions select { max-width: 100%; padding: 10px; margin: 6px 0 12px; border: 1px solid var(--line); background: white; color: inherit; }
+.purchase-actions > label { display: block; }
 .header-wrap {
   position: relative;
   z-index: 40;

@@ -21,6 +21,11 @@ export type CartItem = {
   };
 };
 export type Cart = {
+  extensions?: {
+    katukina?: {
+      payment_options?: { id: string; title: string; description: string }[];
+    };
+  };
   items: CartItem[];
   items_count: number;
   coupons: { code: string }[];

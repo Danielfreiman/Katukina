@@ -10,6 +10,7 @@ import {
   X,
 } from "lucide-react";
 import { BrandMark } from "./brand-mark";
+import { DestinationSelector } from "@/components/commerce/destination";
 const navigation = [
   ["The shop", "/shop"],
   ["Collections", "/collections"],
@@ -36,7 +37,9 @@ export function SiteHeader() {
       <a className="skip" href="#content">
         Skip to content
       </a>
-      <div className="site-note">A world of nature. A little closer.</div>
+      <div className="site-note">
+        A world of nature. A little closer. <DestinationSelector />
+      </div>
       <header className="header-wrap">
         <div className="site-header shell">
           <Link

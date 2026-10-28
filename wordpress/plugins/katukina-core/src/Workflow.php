@@ -18,7 +18,7 @@ final class Workflow {
     public static function initialize( array $input ): array {
         $id = Registry::positive_id( $input['order_id'] ?? 0 ); $order = wc_get_order( $id );
         $channel = Registry::get( Registry::positive_id( $input['channel_id'] ?? 0 ), 'channel' );
-        if ( ! $order || $order->get_currency() !== $channel['data']['currency'] ) { throw new DomainError( 'Order not found or its currency differs from the channel currency.' ); }
+        if ( ! $order || ! in_array( $order->get_currency(), PriceLists::currencies( $channel ), true ) ) { throw new DomainError( 'Order not found or its currency differs from the channel price lists.' ); }
         Database::reason( $input );
         Database::insert( 'orders', array( 'order_id' => $id, 'channel_id' => $channel['id'], 'state' => 'ordered' ) );
         Database::audit( 'order.assigned', 'order:' . $id, array( 'channel_id' => $channel['id'], 'reason' => Database::reason( $input ) ) );
@@ -30,6 +30,7 @@ final class Workflow {
         if ( (int) $row['version'] !== (int) ( $input['version'] ?? 0 ) ) { throw new DomainError( 'Another session changed this order. Reload before saving.', 409 ); }
         $state = (string) ( $input['state'] ?? $row['state'] ); $reason = Database::reason( $input );
         if ( ! isset( self::STATES[ $state ] ) ) { throw new DomainError( 'Unknown stage.' ); }
+        if ( 'in_basket' === $state ) { throw new DomainError( 'In basket is a cart state, not an operational order stage.' ); }
         if ( $state !== $row['state'] ) {
             $allowed = false;
             foreach ( Registry::all( 'transition' ) as $rule ) { if ( $rule['data']['active'] && $rule['data']['from'] === $row['state'] && $rule['data']['to'] === $state ) { $allowed = true; break; } }

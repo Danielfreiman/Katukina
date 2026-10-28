@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Katukina Core
  * Description: Headless commerce and audited Katukina operations.
- * Version: 0.3.0
+ * Version: 0.4.0
  * Requires Plugins: woocommerce
  * Requires PHP: 8.3
  * License: GPL-2.0-or-later
@@ -25,6 +25,16 @@ require_once __DIR__ . '/src/Commerce.php';
 require_once __DIR__ . '/src/CheckoutRequests.php';
 require_once __DIR__ . '/src/CustomerAccount.php';
 require_once __DIR__ . '/src/Permissions.php';
+require_once __DIR__ . '/src/Channels.php';
+require_once __DIR__ . '/src/PriceLists.php';
+require_once __DIR__ . '/src/Customs.php';
+require_once __DIR__ . '/src/Production.php';
+require_once __DIR__ . '/src/ProductionAdmin.php';
+require_once __DIR__ . '/src/Payments.php';
+require_once __DIR__ . '/src/Reports.php';
+require_once __DIR__ . '/src/Presentations.php';
+require_once __DIR__ . '/src/Communications.php';
+require_once __DIR__ . '/src/Subscriptions.php';
 
 // All WooCommerce order access uses its CRUD APIs, including HPOS.
 add_action( 'before_woocommerce_init', static function () {
@@ -43,3 +53,13 @@ Commerce::register();
 CheckoutRequests::register();
 CustomerAccount::register();
 Permissions::register();
+Channels::register();
+PriceLists::register();
+Inventory::register();
+Customs::register();
+ProductionAdmin::register();
+Payments::register();
+Reports::register();
+Presentations::register();
+Communications::register();
+Subscriptions::register();

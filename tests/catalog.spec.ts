@@ -145,9 +145,21 @@ test("catalog filters, pagination and responsive controls use the public API", a
     "Minimum price cannot exceed",
   );
   await page.goto("/shop?per_page=24&sort=newest");
-  await expect(page.locator(".catalog-results [data-product-id]")).toHaveCount(
-    24,
+  const newestResponse = await request.get(
+    "/wp-json/wc/store/v1/products?orderby=date&order=desc&per_page=24",
   );
+  expect(newestResponse.ok()).toBe(true);
+  const newest = await newestResponse.json();
+  await expect(page.locator(".catalog-results [data-product-id]")).toHaveCount(
+    newest.length,
+  );
+  expect(
+    await page
+      .locator(".catalog-results [data-product-id]")
+      .evaluateAll((nodes) =>
+        nodes.map((node) => Number(node.getAttribute("data-product-id"))),
+      ),
+  ).toEqual(newest.map((product: { id: number }) => product.id));
   await expect(page.getByLabel("Show", { exact: true })).toHaveValue("24");
   await page.goto("/shop?page=9999");
   await expect(page).not.toHaveURL(/page=9999/);
