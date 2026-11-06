@@ -6,6 +6,18 @@
 - **Escolha explícita de fluxo:** imagem de referência antes do código, registrada somente como configuração em `.impeccable/config.json` (`buildPath: "comp"`). Paleta e ativos já aprovados permanecem em seus documentos; não foi criada ou substituída uma direção visual nesta inicialização.
 - Preparado `.impeccable/live/config.json` para `app/layout.tsx`. Detector de CSP retornou `shape: null`, sem sinais; nenhuma política, código de interface, sessão live ou backend foi alterado/iniciado.
 
+## 2026-11-06 — Integração das alterações remotas e locais
+
+- Incorporados os commits remotos `7aa64d3` e `784db73`, com o fluxo WebP e a paleta aprovada. Conflitos de documentação conciliados preservando o histórico da origem e o registro da aplicação/remoção das fotos nesta instalação.
+- Validação do conjunto integrado: typecheck, build, verificador de paleta, cinco testes Node do mapeador de fotos, sintaxe do sincronizador Node e do script PHP de retirada, e teste Playwright da vitrine com limite de 180 segundos aprovados. O teste público passou em 1,3 minuto. Banco, mídias e backups privados permanecem fora do Git.
+
+## 2026-11-06 — Fotos WebP e remoção das antigas
+
+- Pedido explícito de usar somente as fotos do ZIP fornecido: 1.592 mídias nativas atualizadas para WebP, preservando vínculos de 377 produtos e 908 variações. Cache privado atualizado com 1.710 WebP.
+- 11.151 originais/miniaturas anteriores removidos dos uploads após arquivamento privado verificado. Dez URLs antigas amostradas retornaram 404; 1.592 imagens novas conferidas por HTTP/hash.
+- Comparação de dados comerciais aprovada. Uma checagem automática de reservas sem efeito (`expired: 0`) causou a reversão conservadora inicial; evento investigado e preservado, seguida de retomada com as fotos já geradas.
+- Typecheck, sintaxes PHP/JS, revisão visual desktop/mobile e teste Playwright da vitrine aprovados. Fontes, recuperação e limites em [PHOTOS-WEBP-2026-11-06.md](PHOTOS-WEBP-2026-11-06.md).
+
 ## 2026-11-06 — Paleta urucum, verde folha e neutros
 
 - **CONFIRMADO por Danilo:** adotar as cores e aplicações do SVG aberto no VS Code. Fonte copiada sem alteração para `docs/katukina/design/Katukina_Paleta_e_Aplicacoes.svg`; [paleta e regras de uso](PALETTE.md) documentadas e ligadas ao README/índice.
