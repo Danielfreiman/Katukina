@@ -12,6 +12,7 @@ A [auditoria de cobertura funcional de 2026-10-22](FUNCTIONAL-COVERAGE.md) é a 
 
 | Artefato | Conteúdo |
 | --- | --- |
+| [Paleta urucum e verde folha](PALETTE.md) | Fonte SVG aprovada, cores, funções, estados derivados, contraste e manutenção do tema público |
 | [Fotos WebP de 900 × 900 px](CATALOG-WEBP-2026-11-06.md) | Atualização local de todas as mídias do catálogo, correspondência por categoria, backup, validação e reversão |
 | [Privacidade e cookies](PRIVACY-COOKIES.md) | Política, consentimento, inventário, fontes públicas e pendências de GDPR/ePrivacy antes de produção |
 | [Categorias e produtos](CATALOG-UX-BLUEPRINT.md) | Esquema, implementação, contratos, verificações e limites; [wireframe inicial](CATALOG-WIREFRAMES.html) |

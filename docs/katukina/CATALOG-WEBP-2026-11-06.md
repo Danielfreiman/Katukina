@@ -1,5 +1,21 @@
 # Fotos do catálogo em WebP — 2026-11-06
 
+## ZIP para atualizar somente as fotos em outra instalação
+
+Para quem já tem o site e catálogo instalados, enviar `wordpress/backups/katukina-atualizacao-fotos-webp-2026-11-06.zip`. Esse pacote é específico para troca de fotos; o ZIP `katukina-catalog-webp-2026-11-06.zip` mencionado abaixo continua sendo o pacote do catálogo completo para instalação nova.
+
+O ZIP de atualização contém 1.710 WebP, instalador Node, mecanismo PHP local, conferência interna SHA-256 e `LEIA-ME.txt` com comandos de inspeção, aplicação, verificação e reversão. Não contém SQL, credenciais, pedidos nem IDs de anexos desta máquina. O instalador descobre os IDs na instalação receptora por nomes/fontes e hashes, exige cobertura de todas as mídias referenciadas por produtos/variações e bloqueia ambiguidades. Os arquivos de origem e as mídias não relacionadas são preservados. O backup SQL com restauração de teste é criado na máquina receptora antes da troca. O cache de importação anterior dessa máquina não é substituído; não reexecutar importações de mídia de um ZIP JPEG antigo.
+
+Arquivo: 108.877.563 bytes; 1.718 entradas; SHA-256 `f3db27b62c99ea8c64e10e518617fd4ca45c4baab895d0d12e233dace5a7a27a`. O recibo externo `.zip.json` acompanha o pacote. Extração e hashes de todas as entradas foram conferidos. O instalador extraído executou `--inspect` no ambiente local: 1.592 referências cobertas, todas já atualizadas, nenhuma troca realizada. Cinco testes de identificação passaram, incluindo IDs diferentes, cobertura incompleta e hashes ambíguos. Simulação adicional com o inventário antigo completo e IDs deslocados identificou corretamente as 1.592 trocas. Isso não equivale a execução na máquina do destinatário; ele deve rodar a inspeção antes de aplicar.
+
+Gerar novamente em um caminho novo, preservando ZIPs existentes:
+
+```powershell
+python -B scripts/package_photo_update.py --output wordpress/backups/NOVO-NOME.zip
+```
+
+Os comandos para o destinatário estão em [LEIA-ME do pacote](templates/PHOTO-UPDATE-README.txt). Node e Docker do projeto são suficientes no destino; Pillow é usado somente ao gerar o ZIP na origem.
+
 ## Escopo e decisão
 
 **CONFIRMADO pelo responsável:** atualizar as fotos do catálogo local no WordPress/WooCommerce e, por consequência, na vitrine Next.js, usando `Katukina.com/Fotos/Editadas`. Em 2026-11-06, o responsável aprovou priorizar a categoria principal do produto quando cópias com o mesmo nome tiverem conteúdos diferentes. A categoria é obtida da URL de origem registrada em `media.json`; não é inferida pelo tamanho do arquivo ou pela data de modificação.

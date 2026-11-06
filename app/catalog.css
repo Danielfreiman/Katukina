@@ -53,7 +53,7 @@
   flex-shrink: 0;
 }
 .subcategory-grid a:hover {
-  background: #e5edda;
+  background: var(--support-soft);
 }
 .subcategory-grid img {
   object-fit: contain;
@@ -95,8 +95,8 @@
 .purchase-fields input {
   font: inherit;
   color: inherit;
-  border: 1px solid #cbd3c8;
-  background: white;
+  border: 1px solid var(--control-line);
+  background: var(--surface);
   border-radius: 5px;
   padding: 10px;
   width: 100%;
@@ -219,12 +219,12 @@
   border: 1px solid var(--line);
   border-radius: 10px;
   overflow: hidden;
-  background: white;
+  background: var(--surface);
 }
 .product-grid-v2 .product-photo {
   aspect-ratio: 1;
   border-radius: 0;
-  background: #f8f9f6;
+  background: var(--photo-bg);
   padding: 10px;
 }
 .product-grid-v2 .product-photo > img {
@@ -286,15 +286,16 @@
   display: block;
   text-align: center;
   margin: 0 18px 18px;
-  border: 1px solid #d4ded0;
+  border: 1px solid var(--green);
   padding: 9px 5px;
   border-radius: 5px;
   font-size: 12px;
   font-weight: 600;
+  color: var(--green);
 }
 .product-card-action:hover {
   background: var(--green);
-  color: white;
+  color: var(--on-color);
 }
 .product-grid-v2 .purchase-actions {
   margin: 0 18px 12px;
@@ -332,7 +333,7 @@
 }
 .catalog-pagination a[aria-current="page"] {
   background: var(--green);
-  color: white;
+  color: var(--on-color);
   border-color: var(--green);
 }
 .pagination-gap {
@@ -352,13 +353,13 @@
   border-radius: 10px;
   padding: 24px;
   color: var(--ink);
-  background: white;
+  background: var(--surface);
   max-height: 90dvh;
   overscroll-behavior: contain;
 }
 .filter-dialog::backdrop,
 .gallery-dialog::backdrop {
-  background: #17271ecc;
+  background: var(--overlay);
   backdrop-filter: blur(3px);
 }
 .filter-dialog {
@@ -378,7 +379,7 @@
 .dialog-close {
   display: grid;
   place-items: center;
-  background: white;
+  background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 50%;
   width: 40px;
@@ -402,7 +403,7 @@
   aspect-ratio: 1;
   border: 1px solid var(--line);
   border-radius: 12px;
-  background: #f8f9f6;
+  background: var(--photo-bg);
   position: relative;
   display: block;
   padding: 18px;
@@ -424,7 +425,7 @@
   gap: 7px;
   padding: 8px 11px;
   border-radius: 30px;
-  background: #fffffff2;
+  background: var(--surface);
   font-size: 11px;
 }
 .gallery-navigation {
@@ -440,7 +441,7 @@
   display: grid;
   place-items: center;
   border: 1px solid var(--line);
-  background: white;
+  background: var(--surface);
   border-radius: 50%;
   width: 35px;
   height: 35px;
@@ -458,7 +459,7 @@
 .gallery-thumbnails button {
   flex: 0 0 70px;
   border: 1px solid var(--line);
-  background: #f8f9f6;
+  background: var(--photo-bg);
   padding: 4px;
   border-radius: 6px;
   height: 70px;
@@ -566,7 +567,7 @@
   font-weight: 650;
 }
 .stock-unavailable {
-  color: #686359;
+  color: var(--muted);
 }
 .purchase-availability .purchase-sku {
   font-size: 11px;
@@ -577,7 +578,7 @@
 }
 .product-quantity > p {
   font-size: 12px;
-  color: #9c3f25;
+  color: var(--danger);
 }
 .product-purchase-panel .purchase-actions {
   margin: 22px 0 12px;
@@ -691,7 +692,7 @@
     align-items: center;
     gap: 8px;
     border: 1px solid var(--line);
-    background: white;
+    background: var(--surface);
     padding: 10px 18px;
     border-radius: 5px;
     font-size: 12px;
@@ -921,7 +922,7 @@
 }
 .catalog-filter-form .rating-stars,
 .rating-stars {
-  color: #ad7216;
+  color: var(--green);
   letter-spacing: 1px;
 }
 .brand-filter-options {
@@ -962,15 +963,15 @@
 }
 .product-grid-v2 .product-photo {
   position: relative;
-  background: white;
+  background: var(--photo-bg);
 }
 .product-sale-badge {
   position: absolute;
   z-index: 1;
   top: 10px;
   left: 10px;
-  background: #a83e24;
-  color: white;
+  background: var(--primary);
+  color: var(--on-color);
   padding: 4px 8px;
   border-radius: 3px;
   font-size: 11px;
@@ -1042,9 +1043,9 @@
   gap: 9px;
   width: 100%;
   padding: 13px;
-  border: 1px solid #bcc6b7;
+  border: 1px solid var(--control-line);
   border-radius: 6px;
-  background: white;
+  background: var(--surface);
   min-height: 80px;
   overflow-wrap: anywhere;
 }
@@ -1061,7 +1062,7 @@
   font-size: 10px;
 }
 .swatch-unavailable .swatch-content {
-  background: #f8f9f6;
+  background: var(--photo-bg);
   border-style: dashed;
 }
 .presentation-swatch:hover .swatch-content {
@@ -1070,7 +1071,7 @@
 .presentation-swatch input:checked + .swatch-content {
   border: 2px solid var(--green);
   padding: 12px;
-  background: #f0f5e9;
+  background: var(--support-soft);
   box-shadow: 0 0 0 1px var(--green);
 }
 .presentation-swatch input:focus-visible + .swatch-content {

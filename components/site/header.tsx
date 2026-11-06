@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import {
   ArrowRight,
@@ -18,6 +19,11 @@ const navigation = [
   ["Journal", "/journal"],
 ] as const;
 export function SiteHeader() {
+  const pathname = usePathname();
+  const isActive = (href: string) =>
+    pathname === href ||
+    pathname.startsWith(`${href}/`) ||
+    (href === "/shop" && pathname.startsWith("/products/"));
   const [panel, setPanel] = useState<"search" | "menu" | null>(null);
   const searchButton = useRef<HTMLButtonElement>(null);
   const menuButton = useRef<HTMLButtonElement>(null);
@@ -53,7 +59,13 @@ export function SiteHeader() {
           </Link>
           <nav className="desktop-navigation" aria-label="Main navigation">
             {navigation.map(([label, href]) => (
-              <Link key={href} href={href} onClick={() => setPanel(null)}>
+              <Link
+                key={href}
+                href={href}
+                aria-current={pathname === href ? "page" : undefined}
+                data-active={isActive(href)}
+                onClick={() => setPanel(null)}
+              >
                 {label}
               </Link>
             ))}
@@ -119,7 +131,13 @@ export function SiteHeader() {
               ["Shipping & destinations", "/shipping"],
               ["My account", "/account"],
             ].map(([label, href]) => (
-              <Link key={href} href={href} onClick={() => setPanel(null)}>
+              <Link
+                key={href}
+                href={href}
+                aria-current={pathname === href ? "page" : undefined}
+                data-active={isActive(href)}
+                onClick={() => setPanel(null)}
+              >
                 {label}
                 <ArrowRight size={20} />
               </Link>

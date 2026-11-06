@@ -29,11 +29,11 @@
   max-width: 1150px;
   margin: auto;
   padding: 22px;
-  background: white;
+  background: var(--surface);
   color: var(--ink);
-  border: 1px solid #bcc6b7;
+  border: 1px solid var(--control-line);
   border-radius: 10px;
-  box-shadow: 0 8px 35px #17271e26;
+  box-shadow: 0 8px 35px var(--shadow-soft);
   display: flex;
   align-items: center;
   gap: 25px;
@@ -67,7 +67,7 @@
   padding: 12px 15px;
   min-height: 44px;
   border: 1px solid var(--green);
-  background: white;
+  background: var(--surface);
   color: var(--green);
   border-radius: 5px;
   font: inherit;
@@ -85,11 +85,11 @@
   max-height: 90dvh;
   padding: 30px;
   color: var(--ink);
-  background: white;
+  background: var(--surface);
   overscroll-behavior: contain;
 }
 .cookie-dialog::backdrop {
-  background: #17271ecc;
+  background: var(--overlay);
 }
 .cookie-dialog h2 {
   margin: 0 30px 20px 0;
@@ -121,7 +121,7 @@
   display: grid;
   place-items: center;
   border: 1px solid var(--line);
-  background: white;
+  background: var(--surface);
   border-radius: 50%;
   width: 36px;
   height: 36px;

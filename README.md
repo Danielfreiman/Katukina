@@ -1,6 +1,6 @@
 # Katukina — plataforma headless
 
-Site público em Next.js App Router, React e TypeScript, com WordPress + WooCommerce como backend. Rebrand clean em branco, grafite e verde, tipografia Manrope e grafismo original aplicado discretamente. Catálogo, categorias, artigos e páginas publicados no WordPress alimentam o frontend renderizado no servidor.
+Site público em Next.js App Router, React e TypeScript, com WordPress + WooCommerce como backend. Paleta aprovada em urucum, verde folha, branco quente e neutros, tipografia Manrope e grafismo original aplicado discretamente. [Cores, aplicações e referência SVG](docs/katukina/PALETTE.md). Catálogo, categorias, artigos e páginas publicados no WordPress alimentam o frontend renderizado no servidor.
 
 Carrinho, cupons, cálculo de entrega, conta do cliente e checkout local sem cobrança usam APIs WooCommerce/WordPress. A administração usa Products/Variations, Orders, Users, Settings e Analytics nativos. Campos e operações adicionais ampliam essas áreas; não há painel ou catálogo paralelo. Consulte a [cobertura e instruções](docs/katukina/OPERATIONS.md). Sendcloud, HS integrado, publicação por site e outros requisitos ainda têm implementação pendente, conforme a [auditoria funcional](docs/katukina/FUNCTIONAL-COVERAGE.md).
 
@@ -32,6 +32,8 @@ No macOS/Linux, use `npm` em vez de `npm.cmd`. O setup prepara WordPress/WooComm
 Para levar também o catálogo completo (370 produtos, 908 variações, sete rascunhos e preços USD), copie o pacote privado de importação além do clone. [Instruções para outra máquina](docs/katukina/LOCAL-SETUP.md#catálogo-completo-de-2026-10-27). Banco, pedidos e credenciais efetivas não são enviados pelo Git.
 
 As fotos do catálogo local foram atualizadas para WebP de 900 × 900 px em 06/11/2026. O pacote privado atual é `wordpress/backups/katukina-catalog-webp-2026-11-06.zip`. Consulte o [procedimento de mídia e reversão](docs/katukina/CATALOG-WEBP-2026-11-06.md).
+
+Para atualizar **somente as fotos de uma instalação existente**, use `wordpress/backups/katukina-atualizacao-fotos-webp-2026-11-06.zip`: inclui o instalador e `LEIA-ME.txt`, sem reimportação de produtos/preços. [Orientações do pacote](docs/katukina/CATALOG-WEBP-2026-11-06.md#zip-para-atualizar-somente-as-fotos-em-outra-instalação).
 
 Site e administração no mesmo endereço: [site Next.js](http://localhost:3001/), [painel WordPress](http://localhost:3001/wp-admin/) e [Products](http://localhost:3001/wp-admin/edit.php?post_type=product). Após a primeira instalação, com o Docker Desktop aberto:
 

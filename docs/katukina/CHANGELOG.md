@@ -1,5 +1,17 @@
 # Histórico do discovery Katukina
 
+## 2026-11-06 — Paleta urucum, verde folha e neutros
+
+- **CONFIRMADO por Danilo:** adotar as cores e aplicações do SVG aberto no VS Code. Fonte copiada sem alteração para `docs/katukina/design/Katukina_Paleta_e_Aplicacoes.svg`; [paleta e regras de uso](PALETTE.md) documentadas e ligadas ao README/índice.
+- Tema público centralizado em seis cores aprovadas: urucum nas ações principais e destaque da Home, verde folha no apoio/navegação/foco, branco quente predominante, cinzas e carvão nos textos/estrutura. Derivados calculados dos tokens para hover, fundos, erros e sobreposições; branco puro reservado às fotos. Ícone do site alinhado. Mesmos layouts, textos e integrações; sem alteração de tema WordPress ou banco.
+- Links ativos recebem verde e sublinhado, com `aria-current` apenas na URL exata e marcação de seção nas subpáginas. Estados de seleção e formulários usam os novos tokens; botões de consentimento mantêm peso equivalente.
+- `node scripts/check-palette.mjs` verifica fonte, tokens, cores literais e contrastes. Typecheck/build, teste público existente e amostras renderizadas de Home/loja/produto/conta em desktop/celular aprovados. Evidências, alcance da confirmação e aviso preexistente do detector registrados no guia da paleta.
+
+## 2026-11-06 — ZIP de atualização de fotos para outra instalação
+
+- Gerado pacote específico `katukina-atualizacao-fotos-webp-2026-11-06.zip` com 1.710 WebP e instalador de mídia independente dos IDs de anexos da origem. Inclui inspeção, backup SQL com restauração de teste na máquina receptora, aplicação, verificação e reversão; não importa produtos ou preços e preserva arquivos anteriores.
+- ZIP, hashes internos e extração conferidos. Cinco testes de identificação aprovados, simulação do inventário antigo completo com IDs diferentes aprovada e inspeção do instalador extraído confirmou 1.592 referências locais já atualizadas, sem nova troca. [Entrega e instruções](CATALOG-WEBP-2026-11-06.md#zip-para-atualizar-somente-as-fotos-em-outra-instalação). A execução na máquina do destinatário permanece a realizar por ele.
+
 ## 2026-11-06 — Fotos WebP de 900 × 900 px no catálogo local
 
 - **CONFIRMADO pelo responsável:** substituir as fotos com os arquivos de `Fotos/Editadas`, no WordPress e na vitrine. Duplicatas de nome com versões diferentes seguem a categoria principal registrada na origem, conforme aprovação explícita. [Procedimento, evidências e reversão](CATALOG-WEBP-2026-11-06.md).
