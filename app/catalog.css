@@ -516,7 +516,7 @@
 .product-purchase-panel h1 {
   font-size: clamp(30px, 3.5vw, 48px);
   line-height: 1.15;
-  letter-spacing: -0.045em;
+  letter-spacing: -0.035em;
   margin: 12px 0 18px;
 }
 .product-summary {
@@ -1152,4 +1152,15 @@
   .filter-dialog .category-list {
     margin-bottom: 20px;
   }
+}
+
+/* Supporting reading face; product names keep their complete, natural wrap. */
+.product-summary, .product-description-text {
+  font-size: 1rem;
+  line-height: 1.75;
+  max-width: 68ch;
+}
+.product-purchase-panel h1 { overflow-wrap: anywhere; }
+@media (max-width: 600px) {
+  .product-purchase-panel h1 { font-size: clamp(1.75rem, 8vw, 2.25rem); }
 }

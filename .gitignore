@@ -27,3 +27,11 @@ __pycache__/
 *.sql.gz
 .DS_Store
 Thumbs.db
+
+# Local Impeccable preferences and live session state; shared config stays tracked.
+/.impeccable/config.local.json
+/.impeccable/live/*
+!/.impeccable/live/config.json
+
+# Local browser verification artifacts
+/.playwright-cli/

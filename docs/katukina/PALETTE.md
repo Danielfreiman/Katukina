@@ -4,6 +4,8 @@
 
 Fonte preservada, sem alterações: [SVG de referência](design/Katukina_Paleta_e_Aplicacoes.svg). Formato SVG vetorial, prancheta de 1600 × 1450, 8.460 bytes; SHA-256 `f5fbd7c08c6368c7261f637fa7b3ee22d8acfef0ff89cc0a88f764afcbd3ec7a`. O original veio de `GPT Connnnta Sacred/2026-11-06/pr/outputs/` e permanece intacto.
 
+A tipografia vigente usa **Sora como principal e Source Sans 3 como apoio**, conforme aprova??o posterior de Danilo nesta data. Fun??es e integra??o em [TYPOGRAPHY.md](TYPOGRAPHY.md); a troca de fontes n?o altera os tokens crom?ticos abaixo.
+
 ## Cores aprovadas
 
 | Cor | HEX | RGB | Token primitivo | Aplicação |

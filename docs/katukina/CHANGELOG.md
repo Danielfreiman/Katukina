@@ -1,5 +1,11 @@
 # Histórico do discovery Katukina
 
+## 2026-11-06 — Inicialização do contexto de frontend com Impeccable
+
+- **CONFIRMADO por Danilo:** foco no frontend público Katukina; WordPress/WooCommerce e regras comerciais com o parceiro; público prioritário de cliente final internacional no varejo. Criado [PRODUCT.md](../../PRODUCT.md) com contexto durável, recursos existentes, limites e decisões abertas, ligado ao README e índice de discovery.
+- **Escolha explícita de fluxo:** imagem de referência antes do código, registrada somente como configuração em `.impeccable/config.json` (`buildPath: "comp"`). Paleta e ativos já aprovados permanecem em seus documentos; não foi criada ou substituída uma direção visual nesta inicialização.
+- Preparado `.impeccable/live/config.json` para `app/layout.tsx`. Detector de CSP retornou `shape: null`, sem sinais; nenhuma política, código de interface, sessão live ou backend foi alterado/iniciado.
+
 ## 2026-11-06 — Paleta urucum, verde folha e neutros
 
 - **CONFIRMADO por Danilo:** adotar as cores e aplicações do SVG aberto no VS Code. Fonte copiada sem alteração para `docs/katukina/design/Katukina_Paleta_e_Aplicacoes.svg`; [paleta e regras de uso](PALETTE.md) documentadas e ligadas ao README/índice.

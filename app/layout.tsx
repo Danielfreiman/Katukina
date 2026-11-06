@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "./catalog.css";
 import "./privacy.css";
-import "@fontsource-variable/manrope";
+import { Sora, Source_Sans_3 } from "next/font/google";
+
+const sora = Sora({ subsets: ["latin", "latin-ext"], display: "swap", variable: "--font-sora" });
+const sourceSans = Source_Sans_3({ subsets: ["latin", "latin-ext"], display: "swap", variable: "--font-source-sans" });
 import { siteUrl } from "@/lib/config/site";
 import { SiteHeader } from "@/components/site/header";
 import { SiteFooter } from "@/components/site/footer";
@@ -40,7 +43,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en-GB" data-scroll-behavior="smooth">
+    <html lang="en-GB" data-scroll-behavior="smooth" className={`${sora.variable} ${sourceSans.variable}`}>
       <body>
         <CookieConsentProvider>
           <SiteHeader />

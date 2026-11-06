@@ -1,14 +1,22 @@
 # Katukina — plataforma headless
 
-Site público em Next.js App Router, React e TypeScript, com WordPress + WooCommerce como backend. Paleta aprovada em urucum, verde folha, branco quente e neutros, tipografia Manrope e grafismo original aplicado discretamente. [Cores, aplicações e referência SVG](docs/katukina/PALETTE.md). Catálogo, categorias, artigos e páginas publicados no WordPress alimentam o frontend renderizado no servidor.
+Site público em Next.js App Router, React e TypeScript, com WordPress + WooCommerce como backend. Paleta aprovada em urucum, verde folha, branco quente e neutros, tipografia Sora com apoio Source Sans 3 e grafismo original aplicado discretamente. [Cores, aplicações e referência SVG](docs/katukina/PALETTE.md). Catálogo, categorias, artigos e páginas publicados no WordPress alimentam o frontend renderizado no servidor.
 
 Carrinho, cupons, cálculo de entrega, conta do cliente e checkout local sem cobrança usam APIs WooCommerce/WordPress. A administração usa Products/Variations, Orders, Users, Settings e Analytics nativos. Campos e operações adicionais ampliam essas áreas; não há painel ou catálogo paralelo. Consulte a [cobertura e instruções](docs/katukina/OPERATIONS.md). Sendcloud, HS integrado, publicação por site e outros requisitos ainda têm implementação pendente, conforme a [auditoria funcional](docs/katukina/FUNCTIONAL-COVERAGE.md).
 
 ## Diretrizes e discovery
 
+O [contexto do produto](PRODUCT.md) registra o foco desta etapa: frontend público para cliente final internacional de varejo, com backend e regras comerciais sob responsabilidade do parceiro. Decisões visuais aprovadas continuam em seus documentos específicos.
+
 As referências fornecidas em 19/10/2026 foram integradas ao projeto. Consulte o [discovery Katukina](docs/katukina/README.md) para a auditoria local, requisitos rastreáveis, propostas de arquitetura e plano de migração. A [skill Katukina Architecture](skills/katukina-architecture/SKILL.md) orienta o trabalho, com entrada em [AGENTS.md](AGENTS.md).
 
 WordPress + WooCommerce e Next.js como frontend público exclusivo foram confirmados pelo responsável. O [mapa headless](docs/katukina/HEADLESS.md) descreve rotas, contratos, módulos e limites implementados. Infraestrutura remota e topologia multi-site continuam propostas; a ausência do legado limita a migração, sem impedir o desenvolvimento da base nova.
+
+### Impeccable
+
+`PRODUCT.md` é a entrada de contexto de produto. Por escolha de Danilo em 06/11/2026, novas superfícies seguem o fluxo **imagem de referência antes do código**; o padrão está em `.impeccable/config.json` (`buildPath: "comp"`). Uma nova rodada ainda precisa definir a página/fluxo e seu escopo. O `init` não redesenha a interface nem cria uma nova identidade visual.
+
+O alvo de edição visual local está preparado em `.impeccable/live/config.json` para o App Router (`app/layout.tsx`). A detecção de CSP não encontrou política nos arquivos examinados e não exigiu mudança na aplicação. O modo `live` pode ser iniciado quando solicitado, com o frontend em execução; a configuração não injeta scripts nem inicia sessões por si só. Credenciais e estado de sessões ficam fora do Git.
 
 ## Instalar em outro computador
 

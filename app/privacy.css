@@ -219,3 +219,6 @@
     font-size: 12px;
   }
 }
+
+/* Long-form supporting typography, including narrow screens. */
+.policy-page p, .policy-page li { font-size: 1rem; line-height: 1.75; max-width: 68ch; }
