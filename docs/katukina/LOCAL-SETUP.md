@@ -1,5 +1,7 @@
 # Reproduzir o ambiente em outro computador
 
+**Fotos em 2026-11-06:** esta instalação recebeu o ZIP de atualização WebP e teve as fotos antigas removidas dos uploads, conforme o [registro da aplicação e limpeza](PHOTOS-WEBP-2026-11-06.md). Para instalação nova, o pacote completo WebP descrito abaixo já inclui as fotos novas; para um catálogo existente com JPEGs, usar o ZIP de atualização de fotos. A remoção posterior dos arquivos antigos tem procedimento e recuperação próprios no registro da limpeza. `git pull` não transporta mídias nem banco. Não reimportar JPEGs antigos sobre o cache WebP atualizado.
+
 Este procedimento recria o ambiente de **desenvolvimento e teste** a partir do Git: Next.js, WordPress, WooCommerce, plugin Katukina, seis produtos com fotos e configuração fictícia de checkout. Os limites funcionais permanecem na [auditoria de cobertura](FUNCTIONAL-COVERAGE.md).
 
 **Para reproduzir o catálogo desta máquina, o clone e `setup:local` não bastam.** Eles instalam somente seis amostras com as fotos originais. Os 370 produtos, 908 variações e as fotos WebP de 900 × 900 px atualizadas em 06/11/2026 exigem transferir também `katukina-catalog-webp-2026-11-06.zip` e executar a [importação do catálogo completo](#catálogo-completo-de-2026-10-27). `git pull` não sincroniza banco nem biblioteca de mídia entre computadores.

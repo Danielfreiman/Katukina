@@ -1,8 +1,10 @@
 # Importação de produtos Sacred Incense UK
 
+**Atualização de 2026-11-06:** as fotos JPEG e a orientação histórica de mantê-las na biblioteca foram substituídas pelo pedido de usar somente o novo pacote WebP. Consulte [fotos WebP, remoção dos arquivos antigos e recuperação](PHOTOS-WEBP-2026-11-06.md). O cache privado atual usa WebP; os pacotes JPEG citados abaixo são históricos.
+
 ## Atualização completa das fotos em 2026-11-06
 
-As 1.592 mídias usadas pelos 377 produtos (incluindo sete rascunhos) e 908 variações locais receberam os WebP de 900 × 900 px fornecidos em `Fotos/Editadas`. IDs e vínculos preservados, arquivos anteriores retidos e dados comerciais conferidos por hash. Versões diferentes entre categorias seguem a categoria principal registrada na origem do catálogo, por aprovação do responsável. O [guia da atualização](CATALOG-WEBP-2026-11-06.md) registra validações, limites e reversão.
+Na execução da máquina de origem, as 1.592 mídias usadas pelos 377 produtos (incluindo sete rascunhos) e 908 variações receberam os WebP de 900 × 900 px fornecidos em `Fotos/Editadas`. IDs e vínculos preservados, arquivos anteriores retidos naquela etapa e dados comerciais conferidos por hash. Versões diferentes entre categorias seguem a categoria principal registrada na origem do catálogo, por aprovação do responsável. O [guia da atualização](CATALOG-WEBP-2026-11-06.md) registra validações, limites e reversão. A aplicação posterior neste checkout inclui a remoção das antigas descrita no aviso acima.
 
 O pacote privado atual é `katukina-catalog-webp-2026-11-06.zip`, com 1.710 WebP e três manifestos. Ele substitui a recomendação de uso do pacote de 27/10 para novas instalações; os resultados abaixo permanecem como histórico daquela execução.
 

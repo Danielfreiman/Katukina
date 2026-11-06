@@ -1,5 +1,7 @@
 # Fotos do catálogo em WebP — 2026-11-06
 
+**Aplicação posterior na instalação receptora:** o ZIP descrito abaixo foi aplicado com sucesso neste checkout. Por pedido explícito posterior, os arquivos antigos foram arquivados fora dos uploads e removidos, e o cache de importação foi atualizado. Consulte [aplicação, validação e recuperação após a limpeza](PHOTOS-WEBP-2026-11-06.md). As instruções abaixo sobre retenção dos arquivos e rollback direto descrevem o comportamento original do instalador e a execução na máquina de origem; após a limpeza, é necessário repor os arquivos do backup antes de restaurar os metadados.
+
 ## ZIP para atualizar somente as fotos em outra instalação
 
 Para quem já tem o site e catálogo instalados, enviar `wordpress/backups/katukina-atualizacao-fotos-webp-2026-11-06.zip`. Esse pacote é específico para troca de fotos; o ZIP `katukina-catalog-webp-2026-11-06.zip` mencionado abaixo continua sendo o pacote do catálogo completo para instalação nova.
