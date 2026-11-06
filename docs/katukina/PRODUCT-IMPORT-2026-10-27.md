@@ -1,5 +1,11 @@
 # Importação de produtos Sacred Incense UK
 
+## Atualização completa das fotos em 2026-11-06
+
+As 1.592 mídias usadas pelos 377 produtos (incluindo sete rascunhos) e 908 variações locais receberam os WebP de 900 × 900 px fornecidos em `Fotos/Editadas`. IDs e vínculos preservados, arquivos anteriores retidos e dados comerciais conferidos por hash. Versões diferentes entre categorias seguem a categoria principal registrada na origem do catálogo, por aprovação do responsável. O [guia da atualização](CATALOG-WEBP-2026-11-06.md) registra validações, limites e reversão.
+
+O pacote privado atual é `katukina-catalog-webp-2026-11-06.zip`, com 1.710 WebP e três manifestos. Ele substitui a recomendação de uso do pacote de 27/10 para novas instalações; os resultados abaixo permanecem como histórico daquela execução.
+
 ## Fotos editadas fornecidas em 2026-10-27
 
 O responsável forneceu `Editadas.rar` para substituir as fotos correspondentes. Os 65 JPEGs foram associados pelos códigos dos arquivos a 13 produtos: 12 publicados e Muna em rascunho. Atualizadas as capas, galerias e imagens principais das 29 variações existentes; não foi criada uma variação para o rascunho Muna. O arquivo contém 50 conteúdos de imagem distintos, reaproveitados quando capa e apresentação usam exatamente a mesma foto.

@@ -2,7 +2,7 @@
 
 Este procedimento recria o ambiente de **desenvolvimento e teste** a partir do Git: Next.js, WordPress, WooCommerce, plugin Katukina, seis produtos com fotos e configuração fictícia de checkout. Os limites funcionais permanecem na [auditoria de cobertura](FUNCTIONAL-COVERAGE.md).
 
-**Para reproduzir o catálogo desta máquina, o clone e `setup:local` não bastam.** Eles instalam somente seis amostras com as fotos originais. Os 370 produtos, 908 variações e as fotos fornecidas em `Editadas.rar` exigem transferir também `katukina-catalog-edited-2026-10-27.zip` e executar a [importação do catálogo completo](#catálogo-completo-de-2026-10-27). `git pull` não sincroniza banco nem biblioteca de mídia entre computadores.
+**Para reproduzir o catálogo desta máquina, o clone e `setup:local` não bastam.** Eles instalam somente seis amostras com as fotos originais. Os 370 produtos, 908 variações e as fotos WebP de 900 × 900 px atualizadas em 06/11/2026 exigem transferir também `katukina-catalog-webp-2026-11-06.zip` e executar a [importação do catálogo completo](#catálogo-completo-de-2026-10-27). `git pull` não sincroniza banco nem biblioteca de mídia entre computadores.
 
 ## Credenciais públicas de demonstração
 
@@ -86,20 +86,20 @@ Opcional, com Python 3: `python -B -m unittest discover -s scripts/tests -v`. Es
 
 ### Catálogo completo de 2026-10-27
 
-**Fotos atualizadas:** o pacote mais recente é `katukina-catalog-edited-2026-10-27.zip`, em `wordpress/backups/`, acompanhado do recibo `.zip.json`. Ele inclui as fotos fornecidas em `Editadas.rar`. Use esse nome no comando de extração abaixo para reproduzir também essa atualização. [Detalhes das imagens](PRODUCT-IMPORT-2026-10-27.md#fotos-editadas-fornecidas-em-2026-10-27).
+**Fotos atualizadas em 06/11/2026:** o pacote mais recente é `katukina-catalog-webp-2026-11-06.zip`, em `wordpress/backups/`, acompanhado do recibo `.zip.json`. Ele inclui 1.710 WebP de 900 × 900 px fornecidos em `Fotos/Editadas` e substitui a recomendação do pacote JPEG de 27/10. Use esse nome no comando de extração abaixo. [Atualização, validação e reversão das imagens](CATALOG-WEBP-2026-11-06.md).
 
 **Se você já executou somente `setup:local` no outro PC:** continue daqui, sem reinstalar ou apagar o WordPress. Copie o ZIP atualizado e o recibo da máquina de origem por meio privado. Não use o antigo `katukina-catalog.zip`: ele contém as fotos anteriores. Isso é uma diferença de dados importados, não um problema de cache do navegador.
 
-O código de importação acompanha o Git. O catálogo com **370 produtos, 908 variações, sete rascunhos, imagens e preços USD** exige também o pacote privado `katukina-catalog-edited-2026-10-27.zip`. Ele contém os três manifestos de importação e as imagens, incluindo referências comerciais da planilha; não contém contas, senhas, clientes ou pedidos. Não publicar esse pacote no repositório. Para gerar novamente na máquina de origem, a partir do cache que já recebeu as fotos editadas:
+O código de importação acompanha o Git. O catálogo com **370 produtos, 908 variações, sete rascunhos, imagens e preços USD** exige também o pacote privado `katukina-catalog-webp-2026-11-06.zip`. Ele contém os três manifestos de importação e as imagens, incluindo referências comerciais da planilha; não contém contas, senhas, clientes ou pedidos. Não publicar esse pacote no repositório. Para gerar novamente na máquina de origem, a partir do cache que já recebeu os WebP:
 
 ```powershell
-python -B scripts/package_product_catalog.py --output wordpress/backups/katukina-catalog-edited-2026-10-27.zip
+python -B scripts/package_product_catalog.py --output wordpress/backups/katukina-catalog-webp-2026-11-06.zip
 ```
 
 O arquivo e seu recibo SHA-256 ficam em `wordpress/backups/`. Copie ambos para a outra máquina por meio privado. Depois de concluir a **primeira instalação** acima, com Docker em execução, execute na raiz do clone. Ajuste somente o caminho do ZIP. Pare se qualquer comando falhar:
 
 ```powershell
-$catalogZip = "C:\caminho\katukina-catalog-edited-2026-10-27.zip"
+$catalogZip = "C:\caminho\katukina-catalog-webp-2026-11-06.zip"
 $catalogReceipt = Get-Content -Raw -LiteralPath ($catalogZip + ".json") | ConvertFrom-Json
 if ((Get-FileHash -Algorithm SHA256 -LiteralPath $catalogZip).Hash -ne $catalogReceipt.sha256) { throw "O ZIP nao corresponde ao recibo SHA-256." }
 if (Test-Path "wordpress\tools\.imports\sacred-incense-uk") { throw "A pasta de importacao ja existe. Preserve-a antes de extrair o novo pacote." }

@@ -1,5 +1,12 @@
 # Histórico do discovery Katukina
 
+## 2026-11-06 — Fotos WebP de 900 × 900 px no catálogo local
+
+- **CONFIRMADO pelo responsável:** substituir as fotos com os arquivos de `Fotos/Editadas`, no WordPress e na vitrine. Duplicatas de nome com versões diferentes seguem a categoria principal registrada na origem, conforme aprovação explícita. [Procedimento, evidências e reversão](CATALOG-WEBP-2026-11-06.md).
+- Atualizadas 1.592 mídias usadas por 377 produtos e 908 variações, preservando IDs, capas, galerias e imagens de apresentação. Backup SQL com restauração isolada validada, piloto de três mídias aplicado/revertido e arquivos antigos mantidos. Hashes dos dados de catálogo, pedidos e operações permaneceram iguais.
+- Conferidos WebP/dimensões/miniaturas/hashes e HTTP dos 1.592 arquivos; Store API de 370 produtos publicada com novas URLs. Navegador desktop/celular e acesso administrativo conferidos. Typecheck, 19 testes Python e sintaxe dos wrappers aprovados. Limites e timeouts intermediários registrados no guia.
+- Cache privado atualizado para 1.710 WebP e novo ZIP privado verificado, sem sobrescrever o pacote anterior. README e instalação local apontam para a versão atual; nenhuma publicação, alteração de outra instalação ou validação de fidelidade de todas as fotos foi realizada.
+
 ## 2026-10-27 — Fotos diferentes após instalação em outro PC
 
 - **CONFIRMADO pelo responsável:** no outro computador foram executados somente clone e `setup:local`. Esse fluxo instala seis amostras com as fotos originais; o catálogo completo e as imagens editadas exigem o pacote privado, ignorado pelo Git.

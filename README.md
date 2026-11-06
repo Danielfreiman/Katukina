@@ -31,6 +31,8 @@ No macOS/Linux, use `npm` em vez de `npm.cmd`. O setup prepara WordPress/WooComm
 
 Para levar também o catálogo completo (370 produtos, 908 variações, sete rascunhos e preços USD), copie o pacote privado de importação além do clone. [Instruções para outra máquina](docs/katukina/LOCAL-SETUP.md#catálogo-completo-de-2026-10-27). Banco, pedidos e credenciais efetivas não são enviados pelo Git.
 
+As fotos do catálogo local foram atualizadas para WebP de 900 × 900 px em 06/11/2026. O pacote privado atual é `wordpress/backups/katukina-catalog-webp-2026-11-06.zip`. Consulte o [procedimento de mídia e reversão](docs/katukina/CATALOG-WEBP-2026-11-06.md).
+
 Site e administração no mesmo endereço: [site Next.js](http://localhost:3001/), [painel WordPress](http://localhost:3001/wp-admin/) e [Products](http://localhost:3001/wp-admin/edit.php?post_type=product). Após a primeira instalação, com o Docker Desktop aberto:
 
 ```powershell
