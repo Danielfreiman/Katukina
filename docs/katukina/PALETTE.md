@@ -8,11 +8,14 @@ A tipografia vigente usa **Sora como principal e Source Sans 3 como apoio**, con
 
 ## Cores aprovadas
 
+**Inclusão aprovada por Danilo em 06/11/2026:** branco puro (`#FFFFFF`) passa a integrar a paleta do projeto como cor própria. É uma extensão documentada aos seis tons originais; o SVG de referência permanece intacto. Quando Danilo pedir **branco**, usar branco puro; quando pedir **branco quente**, usar `#F7F7F2`. A inclusão não recolore automaticamente áreas do site.
+
 | Cor | HEX | RGB | Token primitivo | Aplicação |
 | --- | --- | --- | --- | --- |
 | Urucum | `#782E26` | 120 / 46 / 38 | `--urucum` | Assinatura, destaque do título da Home, ações principais e promoções |
 | Verde folha | `#526B35` | 82 / 107 / 53 | `--leaf` | Navegação ativa, links de apoio, ícones, ações secundárias, seleção e foco |
-| Branco quente | `#F7F7F2` | 247 / 247 / 242 | `--warm-white` | Fundo predominante e texto sobre urucum/verde |
+| Branco quente | `#F7F7F2` | 247 / 247 / 242 | `--warm-white` | Texto sobre urucum/verde e composição de estados derivados |
+| Branco / branco puro | `#FFFFFF` | 255 / 255 / 255 | `--white` | Fundo geral, superfícies da interface e fundo das fotografias de produto |
 | Cinza claro | `#D3D4CF` | 211 / 212 / 207 | `--light-gray` | Divisórias, bordas estruturais e assinatura decorativa do rodapé |
 | Cinza médio | `#595957` | 89 / 89 / 87 | `--medium-gray` | Descrições, legendas, placeholders e informações secundárias |
 | Carvão | `#292C27` | 41 / 44 / 39 | `--charcoal` | Títulos, preços e conteúdo de leitura |
@@ -23,7 +26,7 @@ A fonte de implementação é o bloco `:root` de `app/globals.css`. `app/catalog
 
 | Papel | Token | Origem |
 | --- | --- | --- |
-| Página e superfícies | `--bg`, `--surface` | Branco quente |
+| Página e superfícies | `--bg`, `--surface` | Branco puro; aplicação global solicitada por Danilo em 06/11/2026 |
 | Texto principal / secundário | `--ink`, `--muted` | Carvão / cinza médio |
 | Ação principal / conteúdo claro | `--primary`, `--on-color` | Urucum / branco quente |
 | Apoio, seleção e foco | `--green` | Verde folha; nome compatível com os componentes existentes |
@@ -34,9 +37,9 @@ A fonte de implementação é o bloco `:root` de `app/globals.css`. `app/catalog
 | Contornos de campos | `--control-line` | 72% cinza médio + 28% branco quente |
 | Mensagens de erro | `--danger`, `--danger-soft` | Urucum; fundo com 7% urucum + 93% branco quente |
 | Sombras e backdrops | `--shadow-soft`, `--overlay`, `--overlay-light` | Carvão com transparência |
-| Área de fotografia | `--photo-bg` | Branco puro `#FFFFFF`, para conservar as fotos de produto fornecidas |
+| Área de fotografia | `--photo-bg` | Alias de `--white`, para conservar as fotos de produto fornecidas |
 
-As misturas usam `color-mix(in srgb, ...)`; são estados e superfícies derivados, não novas cores da marca. O branco puro é funcional para as fotos, e não substitui o branco quente como fundo geral. O preto nas máscaras CSS controla transparência, sem criar uma cor visível adicional.
+As misturas usam `color-mix(in srgb, ...)`; são estados e superfícies derivados, não novas cores da marca. Por orientação de Danilo em 06/11/2026, o branco puro passa a ser o fundo geral e das superfícies em todo o frontend público (`--bg` e `--surface`), incluindo cabeçalho, coleção e cartões. O branco quente permanece disponível como cor da paleta e nos papéis específicos já documentados; fundos de destaque e estados derivados conservam suas funções. O preto nas máscaras CSS controla transparência, sem criar uma cor visível adicional.
 
 ## Critérios de aplicação
 

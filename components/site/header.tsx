@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import {
@@ -10,7 +11,6 @@ import {
   UserRound,
   X,
 } from "lucide-react";
-import { BrandMark } from "./brand-mark";
 import { DestinationSelector } from "@/components/commerce/destination";
 const navigation = [
   ["The shop", "/shop"],
@@ -54,8 +54,15 @@ export function SiteHeader() {
             aria-label="Katukina — home"
             onClick={() => setPanel(null)}
           >
-            <BrandMark />
-            katukina<span className="brand-period">.</span>
+            <Image
+              src="/images/brand/katukina-logo-horizontal.svg"
+              alt="Katukina"
+              width={600}
+              height={120}
+              className="header-logo"
+              loading="eager"
+              unoptimized
+            />
           </Link>
           <nav className="desktop-navigation" aria-label="Main navigation">
             {navigation.map(([label, href]) => (

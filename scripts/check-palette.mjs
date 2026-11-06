@@ -1,18 +1,22 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 
-const palette = {
+const originalPalette = {
   urucum: '#782e26', leaf: '#526b35', 'warm-white': '#f7f7f2',
   'light-gray': '#d3d4cf', 'medium-gray': '#595957', charcoal: '#292c27',
 };
+// Addition explicitly approved by Danilo on 2026-11-06; original SVG stays intact.
+const palette = { ...originalPalette, white: '#ffffff' };
 const source = readFileSync('docs/katukina/design/Katukina_Paleta_e_Aplicacoes.svg', 'utf8');
 const css = readFileSync('app/globals.css', 'utf8');
-for (const [name, hex] of Object.entries(palette)) {
+for (const [name, hex] of Object.entries(originalPalette)) {
   assert(source.toLowerCase().includes(`>${hex}</text>`), `Missing source swatch: ${name}`);
+}
+for (const [name, hex] of Object.entries(palette)) {
   assert(new RegExp(`--${name}:\\s*${hex};`, 'i').test(css), `Token drift: ${name}`);
 }
 const canonical = color => color.length === 4 ? '#' + [...color.slice(1)].map(c => c + c).join('') : color.toLowerCase();
-const allowed = new Set([...Object.values(palette), '#ffffff', '#000000']);
+const allowed = new Set([...Object.values(palette), '#000000']);
 for (const file of ['app/globals.css', 'app/catalog.css', 'app/privacy.css', 'app/icon.svg']) {
   for (const color of readFileSync(file, 'utf8').match(/#[a-f\d]{3,8}\b/gi) || []) assert(allowed.has(canonical(color)), `Unapproved color in ${file}: ${color}`);
 }

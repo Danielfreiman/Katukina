@@ -12,6 +12,7 @@ A [auditoria de cobertura funcional de 2026-10-22](FUNCTIONAL-COVERAGE.md) é a 
 
 | Artefato | Conteúdo |
 | --- | --- |
+| [Assets e logotipo horizontal](ASSETS.md) | Pasta, nome, especificações do SVG e organização dos próximos assets |
 | [Contexto do produto e escopo frontend](../../PRODUCT.md) | Público de varejo internacional, responsabilidades, capacidades, limites e decisões abertas para novas tarefas |
 | [Tipografia Sora e Source Sans 3](TYPOGRAPHY.md) | Funções, carregamento local, escala, responsividade e manutenção |
 | [Fotos WebP de 2026-11-06](PHOTOS-WEBP-2026-11-06.md) | Substituição das fotos do catálogo, remoção das antigas dos uploads, cache privado e recuperação |
