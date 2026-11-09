@@ -3,6 +3,7 @@ import { Flame, Leaf, Shapes } from "lucide-react";
 import { getProducts } from "@/lib/commerce/catalog";
 import { ProductGrid } from "@/components/catalog/product-grid";
 import { BrandMark } from "@/components/site/brand-mark";
+import { HeroCarousel } from "@/components/site/hero-carousel";
 import { siteUrl } from "@/lib/config/site";
 import { plainText } from "@/lib/wordpress/text";
 export const dynamic = "force-dynamic";
@@ -35,7 +36,8 @@ export default async function Home() {
           }).replace(/</g, "\\u003c"),
         }}
       />
-      <section className="hero hero-campaign" aria-labelledby="hero-title">
+      <HeroCarousel labels={["Discover Katukina", "Explore Rapé"]} slides={[
+      <section key="katukina" className="hero hero-campaign" aria-labelledby="hero-title">
         <img
           className="hero-campaign-image"
           src="/images/campaigns/home/katukina-hero.webp"
@@ -69,7 +71,43 @@ export default async function Home() {
             </ul>
           </div>
         </div>
+      </section>,
+      <section key="rape" className="hero hero-campaign" aria-labelledby="hero-rape-title">
+        <img
+          className="hero-campaign-image"
+          src="/images/campaigns/home/katukina-hero-rape.webp"
+          alt=""
+          width={2400}
+          height={1500}
+          loading="lazy"
+        />
+        <div className="shell hero-campaign-layout">
+          <div className="hero-copy">
+            <h2 id="hero-rape-title">
+              Discover Rapé.<br />
+              <span>Explore the varieties.</span>
+            </h2>
+            <p className="hero-description">
+              Get to know our Rapé collection. Explore the varieties, compare
+              sizes and find the details behind each product.
+            </p>
+            <div className="hero-actions">
+              <Link className="button primary" href="/collections/rape">
+                Explore Rapé
+              </Link>
+              <Link className="button secondary" href="/shop">
+                Shop all products
+              </Link>
+            </div>
+            <ul className="hero-highlights" aria-label="Explore the Rapé collection">
+              <li><Leaf aria-hidden="true" /><span><strong>Varieties</strong><small>Find your blend</small></span></li>
+              <li><Shapes aria-hidden="true" /><span><strong>Presentations</strong><small>Compare sizes</small></span></li>
+              <li><Leaf aria-hidden="true" /><span><strong>Product details</strong><small>Take a closer look</small></span></li>
+            </ul>
+          </div>
+        </div>
       </section>
+      ]} />
       <section className="section shell" id="collection">
         <div className="section-heading">
           <div>

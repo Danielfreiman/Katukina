@@ -1,5 +1,16 @@
 # Assets do frontend Katukina
 
+## Carrossel da Home — atualizado em 09/11/2026
+
+- Slide 01: `public/images/campaigns/home/katukina-hero.webp`, imagem atual fornecida por Danilo.
+- Slide 02 (coleção Rapé): `public/images/campaigns/home/katukina-hero-rape.webp`. Cópia provisória da imagem atual; Danilo produzirá a composição definitiva. Nenhuma instrução de placeholder foi incorporada à imagem.
+- Para a nova arte: **2400 × 1500 px**, WebP, sRGB, preferencialmente até 500 KB. Substituir apenas o arquivo do slide 02, mantendo nome e caminho.
+- Cada slide usa a mesma imagem no desktop e no mobile, conforme a decisão mais recente de Danilo. Nenhuma imagem exclusiva mobile foi criada. Desktop: produtos à direita e espaço claro à esquerda. Mobile: prever recorte vertical; texto sobre overlay escuro no topo e produtos na parte inferior. Não incorporar títulos, botões ou ícones na arte.
+- Altura desktop: 825 px; imagem com `object-fit: cover`. Recorte e legibilidade da nova arte precisam de conferência após a entrega.
+- Navegação manual por 01/02, clique e teclado (setas, Home/End); sem troca automática. O conteúdo de Rapé descreve a coleção, sem alegações de saúde ou ofertas inventadas. CTA principal: `/collections/rape`.
+
+Esta atualização substitui as indicações antigas de placeholder neutro e overlay claro no mobile descritas mais abaixo.
+
 ## Logotipo horizontal
 
 Entregue por Danilo em 06/11/2026 como `katukina-logo-horizontal-01.svg`, renomeado para o nome definitivo abaixo sem alterar o conteúdo vetorial. Integrado ao cabeçalho público; o símbolo e a assinatura do rodapé permanecem independentes.

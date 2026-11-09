@@ -1689,6 +1689,41 @@ button.text-link {
 .site-footer { container-type: inline-size; }
 
 /* Home campaign: full-bleed artwork, with HTML copy above it. */
+.hero-carousel { position: relative; }
+.hero-carousel [role="tabpanel"][hidden] { display: none; }
+.hero-carousel-controls {
+  position: absolute;
+  bottom: 16px;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+}
+.hero-carousel-controls [role="tablist"] {
+  display: flex;
+  gap: 8px;
+  width: fit-content;
+  pointer-events: auto;
+}
+.hero-carousel-controls button {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 8px;
+  border: 1px solid var(--charcoal);
+  background: var(--warm-white);
+  color: var(--charcoal);
+  font-size: 13px;
+  font-weight: 650;
+}
+.hero-carousel-controls button:hover,
+.hero-carousel-controls button[aria-selected="true"] {
+  background: var(--charcoal);
+  color: var(--warm-white);
+}
+.hero-carousel-controls button:focus-visible {
+  outline: 2px solid var(--warm-white);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px var(--charcoal);
+}
 .hero-campaign {
   position: relative;
   isolation: isolate;
@@ -1716,7 +1751,8 @@ button.text-link {
 }
 .hero-campaign-layout { padding-block: 72px; }
 .hero-campaign .hero-copy { max-width: 640px; }
-.hero-campaign .hero-copy h1 {
+.hero-campaign .hero-copy h2 span { color: var(--green); }
+.hero-campaign .hero-copy :is(h1, h2) {
   font-size: clamp(2.75rem, 4.3vw, 4.25rem);
   font-weight: 700;
   line-height: 1.16;
@@ -1747,14 +1783,14 @@ button.text-link {
 @media (min-width: 601px) and (max-width: 1100px) {
   .hero-campaign { min-height: 700px; }
   .hero-campaign .hero-copy { max-width: 58%; }
-  .hero-campaign .hero-copy h1 { font-size: clamp(2.4rem, 4.6vw, 3rem); }
+  .hero-campaign .hero-copy :is(h1, h2) { font-size: clamp(2.4rem, 4.6vw, 3rem); }
   .hero-highlights { gap: 20px; margin-top: 36px; }
   .hero-campaign::after { background: linear-gradient(90deg, var(--warm-white) 0%, color-mix(in srgb, var(--warm-white) 92%, transparent) 40%, transparent 85%); }
 }
 @media (max-width: 600px) {
   .hero-campaign { min-height: 790px; align-items: start; }
   .hero-campaign-layout { padding-block: 26px 316px; }
-  .hero-campaign .hero-copy h1 { font-size: clamp(2rem, 7.7vw, 2.85rem); line-height: 1.2; margin-block: 18px; }
+  .hero-campaign .hero-copy :is(h1, h2) { font-size: clamp(2rem, 7.7vw, 2.85rem); line-height: 1.2; margin-block: 18px; }
   .hero-campaign .hero-description { font-size: 15px; max-width: 36ch; margin-bottom: 24px; }
   .hero-actions { gap: 10px; }
   .hero-actions .button { min-height: 48px; padding-inline: 15px; gap: 10px; }
@@ -1766,12 +1802,33 @@ button.text-link {
   .hero-campaign::after {
     background: linear-gradient(
       180deg,
-      var(--warm-white) 0%,
-      color-mix(in srgb, var(--warm-white) 92%, transparent) 25%,
-      color-mix(in srgb, var(--warm-white) 76%, transparent) 40%,
-      color-mix(in srgb, var(--warm-white) 40%, transparent) 52%,
-      color-mix(in srgb, var(--warm-white) 10%, transparent) 63%,
+      color-mix(in srgb, var(--charcoal) 96%, transparent) 0%,
+      color-mix(in srgb, var(--charcoal) 92%, transparent) 25%,
+      color-mix(in srgb, var(--charcoal) 82%, transparent) 40%,
+      color-mix(in srgb, var(--charcoal) 58%, transparent) 52%,
+      color-mix(in srgb, var(--charcoal) 24%, transparent) 63%,
       transparent 72%
     );
+  }
+  .hero-campaign .hero-copy { color: var(--warm-white); }
+  .hero-campaign .hero-copy :is(h1, h2) span,
+  .hero-campaign .hero-highlights svg {
+    color: color-mix(in srgb, var(--leaf) 35%, var(--warm-white));
+  }
+  .hero-campaign .hero-description,
+  .hero-campaign .hero-highlights small {
+    color: color-mix(in srgb, var(--warm-white) 88%, var(--charcoal));
+  }
+  .hero-campaign .button.secondary {
+    color: var(--warm-white);
+    border-color: var(--warm-white);
+    background: color-mix(in srgb, var(--charcoal) 35%, transparent);
+  }
+  .hero-campaign .button.secondary:hover {
+    color: var(--charcoal);
+    background: var(--warm-white);
+  }
+  .hero-campaign :focus-visible {
+    outline-color: var(--warm-white);
   }
 }
