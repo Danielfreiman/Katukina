@@ -1,5 +1,13 @@
 # Histórico do discovery Katukina
 
+## 2026-11-09 — Grade de produtos da Home
+
+- Ajuste posterior solicitado por Danilo: CTAs dos cards em verde folha (`#526B35`), passando para urucum (`#782E26`) no hover e foco por teclado. Estados conferidos no navegador; validação de paleta aprovada.
+
+- Pedido de Danilo: quatro produtos por linha e cards mais modernos com a paleta original. Ajuste restrito à coleção da Home, logo após o hero; consulta ampliada para oito produtos, sem alterar o catálogo nas demais rotas.
+- Quatro colunas acima de 1000 px e duas abaixo; fotografias preservadas em branco, informações em branco quente, categorias verdes, CTA urucum e quinas retas. Bordas verdes em hover/foco e respeito à preferência por movimento reduzido.
+- Validação local: typecheck, verificador de paleta/contraste e detector Impeccable aprovados. Navegador em 1440, 768, 390 e 320 px: oito produtos e imagens carregados, sem overflow horizontal. Capturas em `output/playwright/collection-*.png`. Sem publicação.
+
 ## 2026-11-09 ? Hero panor?mico com composi??o de produtos
 
 - Pedido de Danilo: usar a refer?ncia de hierarquia textual, bot?es e ?cones; imagem feita por ele ocupando todo o hero. Removido o cart?o de produto destacado somente do hero. Cat?logo e integra??es preservados.

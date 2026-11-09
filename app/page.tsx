@@ -8,7 +8,7 @@ import { siteUrl } from "@/lib/config/site";
 import { plainText } from "@/lib/wordpress/text";
 export const dynamic = "force-dynamic";
 export default async function Home() {
-  const catalog = await getProducts({ per_page: 6 }).catch((error: unknown) => {
+  const catalog = await getProducts({ per_page: 8 }).catch((error: unknown) => {
     console.error(
       "Catalogue read failed:",
       error instanceof Error ? error.message : "Unknown error",
@@ -108,7 +108,7 @@ export default async function Home() {
         </div>
       </section>
       ]} />
-      <section className="section shell" id="collection">
+      <section className="section shell home-collection" id="collection">
         <div className="section-heading">
           <div>
             <p className="eyebrow">THE COLLECTION / 01</p>
