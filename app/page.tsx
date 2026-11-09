@@ -72,7 +72,7 @@ export default async function Home() {
           </div>
         </div>
       </section>,
-      <section key="rape" className="hero hero-campaign" aria-labelledby="hero-rape-title">
+      <section key="rape" className="hero hero-campaign hero-campaign-dark" aria-labelledby="hero-rape-title">
         <img
           className="hero-campaign-image"
           src="/images/campaigns/home/katukina-hero-rape.webp"

@@ -1758,6 +1758,34 @@ button.text-link {
   pointer-events: none;
   background: linear-gradient(90deg, var(--warm-white) 0%, color-mix(in srgb, var(--warm-white) 90%, transparent) 33%, transparent 66%);
 }
+@media (min-width: 601px) {
+  .hero-campaign.hero-campaign-dark::after {
+    background: linear-gradient(90deg,
+      color-mix(in srgb, var(--charcoal) 98%, transparent) 0%,
+      color-mix(in srgb, var(--charcoal) 90%, transparent) 40%,
+      color-mix(in srgb, var(--charcoal) 35%, transparent) 70%,
+      color-mix(in srgb, var(--charcoal) 12%, transparent) 100%);
+  }
+  .hero-campaign-dark .hero-copy { color: var(--warm-white); }
+  .hero-campaign.hero-campaign-dark .hero-copy h2 span,
+  .hero-campaign-dark .hero-highlights svg {
+    color: color-mix(in srgb, var(--leaf) 35%, var(--warm-white));
+  }
+  .hero-campaign-dark .hero-description,
+  .hero-campaign-dark .hero-highlights small {
+    color: color-mix(in srgb, var(--warm-white) 88%, var(--charcoal));
+  }
+  .hero-campaign-dark .button.secondary {
+    color: var(--warm-white);
+    border-color: var(--warm-white);
+    background: color-mix(in srgb, var(--charcoal) 35%, transparent);
+  }
+  .hero-campaign-dark .button.secondary:hover {
+    background: var(--warm-white);
+    color: var(--charcoal);
+  }
+  .hero-campaign-dark :focus-visible { outline-color: var(--warm-white); }
+}
 .hero-campaign-layout { padding-block: 72px; }
 .hero-campaign .hero-copy { max-width: 640px; }
 .hero-campaign .hero-copy h2 span { color: var(--green); }
