@@ -2,6 +2,9 @@
 
 ## 2026-11-09 — Grade de produtos da Home
 
+- Cabeçalho recomposto a pedido de Danilo: título centralizado “Explore the collection.” com destaque verde, descrição e acesso à loja abaixo; removida a numeração do cabeçalho. Cards preservados. Navegação inferior em superfície branco quente, com título “Explore by category” e links maiores, sem caixas individuais.
+- Conferência em 1440, 768, 390 e 320 px sem overflow, mantendo quatro colunas no desktop e duas nas telas menores. Typecheck, paleta e detector Impeccable aprovados; capturas `output/playwright/collection-intro-*.png` e `collection-categories-*.png`.
+
 - Ajuste posterior solicitado por Danilo: CTAs dos cards em verde folha (`#526B35`), passando para urucum (`#782E26`) no hover e foco por teclado. Estados conferidos no navegador; validação de paleta aprovada.
 
 - Pedido de Danilo: quatro produtos por linha e cards mais modernos com a paleta original. Ajuste restrito à coleção da Home, logo após o hero; consulta ampliada para oito produtos, sem alterar o catálogo nas demais rotas.

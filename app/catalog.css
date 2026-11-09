@@ -214,6 +214,111 @@
   gap: 28px 20px;
 }
 /* Homepage collection: four products, with the photograph leading each card. */
+.home-collection .collection-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas: "title action" "description action";
+  justify-items: start;
+  text-align: left;
+  gap: 20px 40px;
+  margin-bottom: 48px;
+}
+.collection-intro h2 {
+  grid-area: title;
+  font-size: clamp(32px, 3.8vw, 52px);
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+  margin: 0;
+}
+.collection-intro h2 span {
+  color: var(--green);
+}
+.collection-intro p {
+  grid-area: description;
+  max-width: 54ch;
+  margin: 0;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+.collection-intro .text-link {
+  grid-area: action;
+  align-self: end;
+  justify-self: end;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+}
+.home-collection .collection-paths {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: 24px 40px;
+  align-items: center;
+  margin-top: 48px;
+  padding: 32px;
+  border: 0;
+  background: var(--warm-white);
+}
+.collection-paths h3 {
+  margin: 0;
+  font-size: 22px;
+  line-height: 1.35;
+  letter-spacing: -0.025em;
+  color: var(--green);
+}
+.collection-paths-links {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+}
+.collection-paths-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+  transition: color 180ms ease-out, border-color 180ms ease-out;
+}
+.collection-paths-links a:hover,
+.collection-paths-links a:focus-visible {
+  color: var(--green);
+  border-bottom-color: var(--green);
+}
+@media (max-width: 800px) {
+  .home-collection .collection-paths {
+    grid-template-columns: 1fr;
+    padding: 24px;
+    gap: 16px;
+  }
+  .collection-paths-break {
+    display: none;
+  }
+  .collection-paths-links {
+    justify-content: flex-start;
+    gap: 8px 24px;
+  }
+}
+@media (max-width: 600px) {
+  .home-collection .collection-intro {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "title" "description" "action";
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .collection-intro p {
+    font-size: 16px;
+  }
+  .home-collection .collection-paths {
+    margin-top: 32px;
+    padding: 24px 20px;
+  }
+}
 .home-collection .product-grid-v2 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 32px 20px;

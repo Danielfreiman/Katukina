@@ -109,24 +109,15 @@ export default async function Home() {
       </section>
       ]} />
       <section className="section shell home-collection" id="collection">
-        <div className="section-heading">
-          <div>
-            <p className="eyebrow">THE COLLECTION / 01</p>
-            <h2>
-              Small things.
-              <br />
-              Meaningful moments.
-            </h2>
-          </div>
-          <div className="section-aside">
-            <p>
-              A fresh perspective on incense, botanicals and the objects we
-              surround ourselves with.
-            </p>
-            <Link className="text-link" href="/shop">
-              Discover everything
-            </Link>
-          </div>
+        <div className="collection-intro">
+          <h2>Explore the <span>collection.</span></h2>
+          <p>
+            A fresh perspective on incense, botanicals and the objects we
+            surround ourselves with.
+          </p>
+          <Link className="text-link" href="/shop">
+            Shop all products
+          </Link>
         </div>
         {catalog ? (
           <ProductGrid products={catalog.data} />
@@ -140,14 +131,16 @@ export default async function Home() {
           </div>
         )}
         {categories.length > 0 && (
-          <div className="collection-paths">
-            <span>Follow your curiosity</span>
+          <nav className="collection-paths" aria-label="Product categories">
+            <h3>Explore by<br className="collection-paths-break" /> category</h3>
+            <div className="collection-paths-links">
             {categories.map((category) => (
               <Link key={category.id} href={`/collections/${category.slug}`}>
                 {plainText(category.name)}
               </Link>
             ))}
-          </div>
+            </div>
+          </nav>
         )}
       </section>
       <section className="story-band pattern-surface">
