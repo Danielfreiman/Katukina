@@ -1753,7 +1753,7 @@ button.text-link {
 }
 @media (max-width: 600px) {
   .hero-campaign { min-height: 790px; align-items: start; }
-  .hero-campaign-layout { padding-block: 42px 300px; }
+  .hero-campaign-layout { padding-block: 26px 316px; }
   .hero-campaign .hero-copy h1 { font-size: clamp(2rem, 7.7vw, 2.85rem); line-height: 1.2; margin-block: 18px; }
   .hero-campaign .hero-description { font-size: 15px; max-width: 36ch; margin-bottom: 24px; }
   .hero-actions { gap: 10px; }
@@ -1762,6 +1762,16 @@ button.text-link {
   .hero-highlights svg { width: 22px; height: 22px; }
   .hero-highlights strong { font-size: 12px; }
   .hero-highlights small { font-size: 11px; }
-  .hero-campaign-image { object-position: 78% center; }
-  .hero-campaign::after { background: linear-gradient(180deg, var(--warm-white) 0%, color-mix(in srgb, var(--warm-white) 96%, transparent) 50%, transparent 85%); }
+  .hero-campaign-image { object-position: 79% center; }
+  .hero-campaign::after {
+    background: linear-gradient(
+      180deg,
+      var(--warm-white) 0%,
+      color-mix(in srgb, var(--warm-white) 92%, transparent) 25%,
+      color-mix(in srgb, var(--warm-white) 76%, transparent) 40%,
+      color-mix(in srgb, var(--warm-white) 40%, transparent) 52%,
+      color-mix(in srgb, var(--warm-white) 10%, transparent) 63%,
+      transparent 72%
+    );
+  }
 }
