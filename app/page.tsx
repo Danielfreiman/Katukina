@@ -46,29 +46,26 @@ export default async function Home() {
         />
         <div className="shell hero-campaign-layout">
           <div className="hero-copy">
-            <p className="eyebrow">
-              <span className="status-dot" /> CURIOUS BY NATURE
-            </p>
             <h1 id="hero-title">
-              Find your<br />
-              <span>natural rhythm.</span>
+              Closer to nature.<br />
+              <span>Rooted in tradition.</span>
             </h1>
             <p className="hero-description">
-              A world of botanicals, incense and meaningful objects. For the
-              moments that bring you back to yourself.
+              Explore botanicals, incense, art and objects connected to forest
+              traditions. Find something that speaks to your curiosity.
             </p>
             <div className="hero-actions">
               <Link className="button primary" href="/shop">
-                Shop the collection
+                Shop all products
               </Link>
-              <a className="button secondary" href="#collection">
-                Explore the collection
-              </a>
+              <Link className="button secondary" href="/collections">
+                Browse categories
+              </Link>
             </div>
             <ul className="hero-highlights" aria-label="Discover Katukina">
-              <li><Leaf aria-hidden="true" /><span><strong>Botanicals</strong><small>Curious by nature</small></span></li>
-              <li><Flame aria-hidden="true" /><span><strong>Incense</strong><small>A moment to pause</small></span></li>
-              <li><Shapes aria-hidden="true" /><span><strong>Meaningful objects</strong><small>A closer connection</small></span></li>
+              <li><Leaf aria-hidden="true" /><span><strong>Botanicals</strong><small>A world to explore</small></span></li>
+              <li><Flame aria-hidden="true" /><span><strong>Incense</strong><small>Scent &amp; ritual</small></span></li>
+              <li><Shapes aria-hidden="true" /><span><strong>Art &amp; objects</strong><small>Nature &amp; culture</small></span></li>
             </ul>
           </div>
         </div>
