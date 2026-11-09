@@ -25,7 +25,7 @@ export default async function Journal({
           >
             <h2>{plainText(article.title.rendered)}</h2>
             <p>{plainText(article.excerpt.rendered).slice(0, 180)}</p>
-            <span className="text-link">Read the story →</span>
+            <span className="text-link">Read the story</span>
           </Link>
         ))}
       </div>
@@ -33,9 +33,9 @@ export default async function Journal({
         <p>New stories are on their way. Visit again soon.</p>
       )}
       <nav className="pagination" aria-label="Pagination">
-        {page > 1 && <Link href={`/journal?page=${page - 1}`}>← Previous</Link>}
+        {page > 1 && <Link href={`/journal?page=${page - 1}`}>Previous</Link>}
         {page < articles.pages && (
-          <Link href={`/journal?page=${page + 1}`}>Next →</Link>
+          <Link href={`/journal?page=${page + 1}`}>Next</Link>
         )}
       </nav>
     </main>

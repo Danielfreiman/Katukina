@@ -243,7 +243,7 @@ export async function CatalogPage({
                   href={catalogHref(path, query, { page: query.page - 1 })}
                   aria-label="Previous page"
                 >
-                  ←
+                  Previous
                 </Link>
               )}
               {numbers.map((number, index) => (
@@ -265,7 +265,7 @@ export async function CatalogPage({
                   href={catalogHref(path, query, { page: query.page + 1 })}
                   aria-label="Next page"
                 >
-                  →
+                  Next
                 </Link>
               )}
             </nav>

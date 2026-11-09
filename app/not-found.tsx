@@ -6,7 +6,7 @@ export default function NotFound() {
       <h1>Back to our roots?</h1>
       <p>We could not find this page.</p>
       <Link className="button primary" href="/">
-        Back to home →
+        Back to home
       </Link>
     </main>
   );

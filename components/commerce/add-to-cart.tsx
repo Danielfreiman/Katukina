@@ -93,7 +93,7 @@ export function AddToCart({
       </button>
       <p role="status">
         {message}{" "}
-        {(added || uncertain) && <Link href="/cart">View your bag →</Link>}
+        {(added || uncertain) && <Link href="/cart">View your bag</Link>}
       </p>
     </div>
   );

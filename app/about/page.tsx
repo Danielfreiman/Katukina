@@ -37,7 +37,7 @@ export default function About() {
             rel="noreferrer"
             target="_blank"
           >
-            Read the original stories ↗
+            Read the original stories
           </a>
         </div>
       </section>

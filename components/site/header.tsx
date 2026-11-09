@@ -3,14 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import {
-  ArrowRight,
-  Menu,
-  Search,
-  ShoppingBag,
-  UserRound,
-  X,
-} from "lucide-react";
+import { Menu, Search, ShoppingBag, UserRound, X } from "lucide-react";
 import { DestinationSelector } from "@/components/commerce/destination";
 const navigation = [
   ["The shop", "/shop"],
@@ -122,7 +115,7 @@ export function SiteHeader() {
                 maxLength={100}
               />
               <button className="button primary" aria-label="Search">
-                Search <ArrowRight size={18} />
+                Search
               </button>
             </form>
           </div>
@@ -146,7 +139,6 @@ export function SiteHeader() {
                 onClick={() => setPanel(null)}
               >
                 {label}
-                <ArrowRight size={20} />
               </Link>
             ))}
           </nav>

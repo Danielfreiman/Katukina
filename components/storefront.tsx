@@ -3,8 +3,6 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
-  ArrowUpRight,
-  ArrowRight,
   Search,
   ShoppingBag,
   Menu,
@@ -14,7 +12,6 @@ import {
   Leaf,
   Globe2,
   BookOpen,
-  ChevronDown,
   Sparkles,
 } from "lucide-react";
 import { products, faqs } from "@/lib/content";
@@ -115,7 +112,7 @@ export default function Storefront() {
               }}
             />
             <button aria-label="Search">
-              <ArrowRight size={18} />
+              <Search size={18} />
             </button>
           </form>
           <div className="header-links">
@@ -151,7 +148,7 @@ export default function Storefront() {
             onClick={() => select("All")}
             className="all-categories"
           >
-            <Menu size={16} /> Explore the shop <ChevronDown size={13} />
+            <Menu size={16} /> Explore the shop
           </a>
           <a href="#collection" onClick={() => select("Incense & aromas")}>
             Incense & aromas
@@ -200,10 +197,10 @@ export default function Storefront() {
               to what matters.
             </p>
             <a className="button primary" href="#collection">
-              Explore the collection <ArrowRight size={17} />
+              Explore the collection
             </a>
             <a className="hero-story" href="#origins">
-              Discover our roots <ArrowUpRight size={15} />
+              Discover our roots
             </a>
           </div>
           <div className="hero-caption">
@@ -252,7 +249,7 @@ export default function Storefront() {
               onClick={() => select("All")}
               className="text-link"
             >
-              Explore the selection <ArrowUpRight size={17} />
+              Explore the selection
             </a>
           </div>
           <div className="collection-toolbar">
@@ -283,9 +280,6 @@ export default function Storefront() {
                     sizes="(max-width: 600px) 90vw, (max-width: 900px) 45vw, 400px"
                   />
                   <span className="product-tag">{p.label}</span>
-                  <span className="photo-arrow">
-                    <ArrowUpRight size={18} />
-                  </span>
                 </Link>
                 <div className="product-info">
                   <p className="product-category">{p.category}</p>
@@ -356,7 +350,7 @@ export default function Storefront() {
               rel="noreferrer"
               className="text-link"
             >
-              Read the story on the original website <ArrowUpRight size={17} />
+              Read the story on the original website
             </a>
           </div>
         </section>
@@ -377,7 +371,6 @@ export default function Storefront() {
                 to nature.
               </h3>
               <p>Every discovery begins with knowing where it comes from.</p>
-              <ArrowUpRight />
             </a>
             <a href="#origins" className="journal-card">
               <span className="journal-number">02 / CULTURE & ORIGINS</span>
@@ -387,7 +380,6 @@ export default function Storefront() {
                 Stories worth listening to.
               </h3>
               <p>Honouring knowledge and the people who keep it alive.</p>
-              <ArrowUpRight />
             </a>
             <a href="#collection" className="journal-card">
               <span className="journal-number">03 / EVERYDAY RITUALS</span>
@@ -397,7 +389,6 @@ export default function Storefront() {
                 Find your moment.
               </h3>
               <p>Aromas, textures and small moments of connection.</p>
-              <ArrowUpRight />
             </a>
           </div>
         </section>
@@ -452,7 +443,7 @@ export default function Storefront() {
             <h3>Information</h3>
             <a href="#questions">Frequently asked questions</a>
             <a href="https://katukina.com/" target="_blank" rel="noreferrer">
-              Original website ↗
+              Original website
             </a>
             <span>English · EUR</span>
           </div>
@@ -500,7 +491,7 @@ export default function Storefront() {
                 className="button primary"
                 onClick={() => dialog.current?.close()}
               >
-                Keep exploring <ArrowRight size={16} />
+                Keep exploring
               </button>
             </div>
           ) : (
@@ -556,7 +547,7 @@ export default function Storefront() {
                 className="button primary full"
                 onClick={() => dialog.current?.close()}
               >
-                Keep exploring <ArrowRight size={16} />
+                Keep exploring
               </button>
             </>
           )}

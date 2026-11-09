@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 import { BrandMark } from "./brand-mark";
 export function SiteFooter() {
   return (
@@ -34,7 +33,7 @@ export function SiteFooter() {
             <Link href="/cookies">Cookie policy</Link>
             <Link href="/privacy">Privacy notice</Link>
             <Link href="/shop" className="footer-cta">
-              Find your next discovery <ArrowUpRight size={16} />
+              Find your next discovery
             </Link>
           </div>
         </div>

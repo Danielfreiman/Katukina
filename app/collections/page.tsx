@@ -19,7 +19,7 @@ export default async function Collections() {
             href={`/collections/${category.slug}`}
           >
             <h2>{plainText(category.name)}</h2>
-            <p>{category.count} discoveries →</p>
+            <p>{category.count} discoveries</p>
           </Link>
         ))}
       </div>

@@ -200,9 +200,9 @@ button.text-link {
 }
 .site-note {
   text-align: center;
-  background: var(--soft);
+  background: var(--green);
   padding: 8px 20px;
-  color: var(--muted);
+  color: var(--white);
   font-size: 10px;
   letter-spacing: 0.05em;
 }
@@ -213,7 +213,7 @@ button.text-link {
 .header-wrap {
   position: relative;
   z-index: 40;
-  background: var(--surface);
+  background: var(--white);
   border-bottom: 1px solid var(--line);
 }
 .site-header {
@@ -254,11 +254,26 @@ button.text-link {
 .desktop-navigation {
   display: flex;
   gap: 30px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
 }
 .desktop-navigation a {
   padding-block: 16px;
+}
+.desktop-navigation a,
+.mobile-navigation a {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+  transition: color 180ms ease, text-decoration-color 180ms ease;
+}
+.desktop-navigation a:hover,
+.desktop-navigation a:focus-visible,
+.mobile-navigation a:hover,
+.mobile-navigation a:focus-visible {
+  color: var(--green);
+  text-decoration-color: var(--green);
 }
 .desktop-navigation a[data-active="true"],
 .mobile-navigation a[data-active="true"] {
@@ -268,10 +283,18 @@ button.text-link {
 }
 .header-actions .icon-button {
   color: var(--green);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+.header-actions .icon-button:hover,
+.header-actions .icon-button[aria-expanded="true"] {
+  color: var(--support-hover);
 }
 .header-actions {
   display: flex;
   gap: 7px;
+  border: 1px solid var(--green);
 }
 .icon-button {
   width: 40px;
@@ -434,17 +457,6 @@ button.text-link {
   line-height: 1.35;
   transform: rotate(-12deg);
 }
-.feature-arrow {
-  position: absolute;
-  right: 22px;
-  bottom: 22px;
-  width: 52px;
-  height: 52px;
-  background: var(--surface);
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-}
 .feature-placeholder {
   width: 35%;
   height: 100%;
@@ -542,23 +554,6 @@ button.text-link {
 }
 .product-card-link:hover .product-photo > img {
   transform: scale(1.035);
-}
-.photo-arrow {
-  position: absolute;
-  right: 15px;
-  bottom: 15px;
-  width: 39px;
-  height: 39px;
-  border-radius: 50%;
-  background: var(--surface);
-  display: grid;
-  place-items: center;
-  color: var(--ink);
-  transition: transform 0.2s;
-}
-.product-card-link:hover .photo-arrow {
-  transform: rotate(45deg);
-  background: var(--support-soft);
 }
 .product-info {
   padding: 19px 0 0;
@@ -1202,12 +1197,6 @@ button.text-link {
   .feature-caption > span {
     font-size: 11px;
   }
-  .feature-arrow {
-    width: 39px;
-    height: 39px;
-    bottom: 14px;
-    right: 14px;
-  }
   .hero-bottom > span:last-child {
     gap: 8px;
     font-size: 7px;
@@ -1236,12 +1225,6 @@ button.text-link {
   }
   .product-note {
     font-size: 10px;
-  }
-  .photo-arrow {
-    width: 32px;
-    height: 32px;
-    right: 10px;
-    bottom: 10px;
   }
   .story-layout {
     gap: 40px;
@@ -1408,15 +1391,6 @@ button.text-link {
   .product-note {
     font-size: 10px;
     margin-top: 7px;
-  }
-  .photo-arrow {
-    width: 30px;
-    height: 30px;
-    right: 8px;
-    bottom: 8px;
-  }
-  .photo-arrow svg {
-    width: 17px;
   }
   .collection-paths {
     margin-top: 30px;

@@ -117,7 +117,6 @@ export function ProductGrid({ products }: { products: Product[] }) {
                 {product.type === "variable" && product.is_in_stock
                   ? "Choose options"
                   : "View product"}
-                <span aria-hidden="true"> →</span>
                 <span className="sr-only"> for {productName(product)}</span>
               </Link>
             )}

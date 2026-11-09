@@ -14,7 +14,7 @@ export function ComingSoon({
         <h2>A new experience is taking shape.</h2>
         <p>{children}</p>
         <Link className="button primary" href="/shop">
-          Explore the collection →
+          Explore the collection
         </Link>
       </section>
     </main>

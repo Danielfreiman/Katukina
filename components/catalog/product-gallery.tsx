@@ -1,6 +1,6 @@
 "use client";
 import { useRef, useState } from "react";
-import { ChevronLeft, ChevronRight, Expand, X } from "lucide-react";
+import { Expand, X } from "lucide-react";
 import type { ProductImage } from "@/lib/commerce/product";
 import { plainText } from "@/lib/wordpress/text";
 import { BrandMark } from "@/components/site/brand-mark";
@@ -64,7 +64,7 @@ export function ProductGallery({
               disabled={images.length < 2}
               onClick={() => move(-1)}
             >
-              <ChevronLeft size={18} />
+              Previous
             </button>
             <span aria-live="polite">
               {index + 1} / {images.length}
@@ -75,7 +75,7 @@ export function ProductGallery({
               disabled={images.length < 2}
               onClick={() => move(1)}
             >
-              <ChevronRight size={18} />
+              Next
             </button>
           </div>
           <div className="gallery-thumbnails" aria-label="Image thumbnails">
@@ -127,7 +127,7 @@ export function ProductGallery({
                 disabled={images.length < 2}
                 onClick={() => move(-1)}
               >
-                <ChevronLeft />
+                Previous
               </button>
               <span>
                 {index + 1} / {images.length}
@@ -138,7 +138,7 @@ export function ProductGallery({
                 disabled={images.length < 2}
                 onClick={() => move(1)}
               >
-                <ChevronRight />
+                Next
               </button>
             </div>
           </dialog>

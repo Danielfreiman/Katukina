@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { ArrowDown, ArrowRight, ArrowUpRight } from "lucide-react";
 import { getProducts, productName, productPrice } from "@/lib/commerce/catalog";
 import { ProductGrid } from "@/components/catalog/product-grid";
 import { BrandMark } from "@/components/site/brand-mark";
@@ -57,10 +56,10 @@ export default async function Home() {
               moments that bring you back to yourself.
             </p>
             <Link className="button primary" href="/shop">
-              Explore the collection <ArrowUpRight size={19} />
+              Explore the collection
             </Link>
             <a className="hero-scroll" href="#collection">
-              <ArrowDown size={17} /> A little discovery goes a long way
+              A little discovery goes a long way
             </a>
           </div>
           <div className="hero-feature">
@@ -94,9 +93,6 @@ export default async function Home() {
                 A closer
                 <br />
                 connection.
-              </span>
-              <span className="feature-arrow">
-                <ArrowUpRight size={27} />
               </span>
             </Link>
             <div className="feature-caption">
@@ -140,7 +136,7 @@ export default async function Home() {
               surround ourselves with.
             </p>
             <Link className="text-link" href="/shop">
-              Discover everything <ArrowUpRight size={18} />
+              Discover everything
             </Link>
           </div>
         </div>
@@ -151,7 +147,7 @@ export default async function Home() {
             <h2>The collection is temporarily unavailable.</h2>
             <p>Please try again in a little while.</p>
             <Link className="text-link" href="/shop">
-              Try the collection again <ArrowRight size={18} />
+              Try the collection again
             </Link>
           </div>
         )}
@@ -160,7 +156,7 @@ export default async function Home() {
             <span>Follow your curiosity</span>
             {categories.map((category) => (
               <Link key={category.id} href={`/collections/${category.slug}`}>
-                {plainText(category.name)} <ArrowUpRight size={18} />
+                {plainText(category.name)}
               </Link>
             ))}
           </div>
@@ -189,7 +185,7 @@ export default async function Home() {
               collection.
             </p>
             <Link className="button secondary" href="/about">
-              Our story <ArrowUpRight size={19} />
+              Our story
             </Link>
           </div>
         </div>
@@ -209,7 +205,7 @@ export default async function Home() {
             discoveries their meaning.
           </p>
           <Link className="text-link" href="/journal">
-            Read the journal <ArrowUpRight size={20} />
+            Read the journal
           </Link>
         </div>
       </section>

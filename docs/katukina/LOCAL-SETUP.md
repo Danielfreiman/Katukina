@@ -49,6 +49,12 @@ A repetição preserva cadastros já importados e configurações locais posteri
 
 ## Uso diário e atualização
 
+Na organização local `Katukina.com/website-katukina-2027`, execute os comandos dentro de `website-katukina-2027`. A pasta principal desta máquina também tem um `package.json` de encaminhamento: `npm.cmd run dev`, `wp:start`, `wp:stop`, `wp:status`, `wp:verify` e `typecheck` funcionam nos dois níveis. Esse encaminhamento e a configuração de terminal da pasta principal ficam fora do repositório do site.
+
+Após mover o projeto, `wp:start` converte os caminhos absolutos reconhecidos do Compose existente em caminhos relativos e guarda uma cópia do arquivo anterior no runtime privado. Os volumes do banco mantêm o mesmo nome. Caminhos externos desconhecidos ou destinos ausentes interrompem o comando para evitar criar mounts vazios. O início diário reutiliza o runtime instalado sem consultar versões remotas; `wp:stop` e `wp:status` também usam esse Compose. Para reaplicar mudanças em `.wp-env.json`, versões ou imagens, execute `npm.cmd run wp:start -- --update` com internet e Docker disponíveis. A primeira instalação continua pelo wp-env.
+
+`npm.cmd run dev` usa Webpack na porta 3001, pois o Turbopack não concluiu a primeira compilação após a mudança local de pasta em 09/11/2026. Os scripts usam caminhos relativos; não dependem da unidade `E:` ou `F:`.
+
 Em dois terminais, ou iniciando primeiro o backend:
 
 ```powershell

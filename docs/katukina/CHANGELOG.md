@@ -1,5 +1,17 @@
 # Histórico do discovery Katukina
 
+## 2026-11-09 — Ajustes visuais do header
+
+- Pedido de Danilo: fundo branco no cabeçalho e faixa superior, navegação desktop de 12 para 14 px e ícones da direita com contorno retangular verde de 1 px, cantos retos e fundo transparente. Alteração localizada em `app/globals.css`.
+- Validação local: typecheck aprovado; navegador em 1440, 1024, 801, 375 e 360 px sem overflow horizontal. Busca e menu abrem e fecham com Escape. Capturas desktop/mobile em `output/playwright/header-1440.png` e `header-375.png`.
+
+## 2026-11-09 — Revisão do init e continuidade visual
+
+- Danilo reconfirmou o público de varejo internacional e a divisão de responsabilidades: frontend/direção visual com ele; backend e regras comerciais com o parceiro. Registro atualizado no `PRODUCT.md`.
+- README orienta evolução visual por página/fluxo, com objetivo, critérios de aceite, validação desktop/mobile e registro das decisões. Paleta, tipografia e ativos aprovados permanecem a base; a próxima rodada ainda precisa definir seu alvo e escopo.
+- Corrigida a referência antiga à Manrope no README: `app/layout.tsx` carrega Sora e Source Sans 3 com `next/font/google`, em acordo com `TYPOGRAPHY.md`.
+- Conferidos o contexto do Impeccable, `buildPath: "comp"`, a configuração existente do modo live e os documentos de produto, paleta, tipografia, catálogo e cobertura funcional. Esta revisão alterou somente documentação; não incluiu auditoria visual nem validação de produção.
+
 ## 2026-11-06 — Inicialização do contexto de frontend com Impeccable
 
 - **CONFIRMADO por Danilo:** foco no frontend público Katukina; WordPress/WooCommerce e regras comerciais com o parceiro; público prioritário de cliente final internacional no varejo. Criado [PRODUCT.md](../../PRODUCT.md) com contexto durável, recursos existentes, limites e decisões abertas, ligado ao README e índice de discovery.

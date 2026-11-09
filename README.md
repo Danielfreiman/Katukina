@@ -16,6 +16,8 @@ WordPress + WooCommerce e Next.js como frontend público exclusivo foram confirm
 
 `PRODUCT.md` é a entrada de contexto de produto. Por escolha de Danilo em 06/11/2026, novas superfícies seguem o fluxo **imagem de referência antes do código**; o padrão está em `.impeccable/config.json` (`buildPath: "comp"`). Uma nova rodada ainda precisa definir a página/fluxo e seu escopo. O `init` não redesenha a interface nem cria uma nova identidade visual.
 
+**Revisão do init em 09/11/2026:** público e responsabilidades reconfirmados no `PRODUCT.md`. A documentação existente permite continuar o frontend sem fechar antecipadamente o estilo de todas as páginas. Para evoluir o visual, trabalhar uma página ou fluxo por rodada: definir objetivo e critérios de aceite, desenvolver os ajustes, conferir desktop/mobile e os estados relevantes, e registrar as decisões aprovadas nos documentos correspondentes. Paleta, tipografia e ativos aprovados são a base vigente; mudanças nessa base precisam de decisão explícita de Danilo. Refinamentos locais podem avançar por etapa, preservando os componentes compartilhados e as integrações. As decisões comerciais e de produção ainda abertas não impedem esses refinamentos quando não afetam o fluxo escolhido.
+
 O alvo de edição visual local está preparado em `.impeccable/live/config.json` para o App Router (`app/layout.tsx`). A detecção de CSP não encontrou política nos arquivos examinados e não exigiu mudança na aplicação. O modo `live` pode ser iniciado quando solicitado, com o frontend em execução; a configuração não injeta scripts nem inicia sessões por si só. Credenciais e estado de sessões ficam fora do Git.
 
 ## Instalar em outro computador
@@ -52,6 +54,8 @@ npm.cmd run dev
 
 O Next.js usa explicitamente 3001 porque 3000 já pertence a outro servidor. O backend interno permanece em `127.0.0.1:8888`, com raiz redirecionada ao Next.js. Parar o frontend com Ctrl+C; `npm.cmd run wp:stop` para o backend preservando dados. Versões e configuração no [guia do backend](wordpress/README.md).
 
+Após mudar o checkout de pasta/unidade, `wp:start` adapta os mounts existentes para caminhos relativos e preserva o banco. O desenvolvimento usa Webpack. Veja [uso diário, pasta de execução e atualização do runtime](docs/katukina/LOCAL-SETUP.md#uso-diário-e-atualização).
+
 ## Executar a vitrine
 
 Abra http://localhost:3001. Para verificar o build local: `npm run build` e `npm start`, com o dev parado. Verificação: `npm run typecheck` e `npm test` (Chromium com `npx playwright install chromium`). Os testes de integração exigem WordPress ativo e credenciais locais; criam e removem registros sintéticos temporários. Use os dois lockfiles com `npm ci` para reproduzir as dependências.
@@ -81,7 +85,7 @@ Carrinho, checkout fictício, conta e cotação estão integrados: criam cliente
 - Referência visual e conteúdo institucional: https://katukina.com/
 - Grafismo reutilizado no protótipo: https://katukina.com/upload/images/Katukina/Katukina-BG-all-border.jpg
 - Hero atual: produto publicado no WooCommerce, com imagem da biblioteca local. Fontes e apresentações dos seis exemplos em [SAMPLE_CATALOG.md](docs/katukina/SAMPLE_CATALOG.md).
-- Fonte atual: Manrope variável, hospedada localmente via Fontsource. Cormorant Garamond/Inter pertencem ao protótipo preservado.
+- Fontes atuais: Sora e Source Sans 3, carregadas por `next/font/google` em `app/layout.tsx` e servidas pelo frontend. [Funções e manutenção](docs/katukina/TYPOGRAPHY.md). Manrope e Cormorant Garamond/Inter pertencem a etapas anteriores.
 - Metadata API: https://nextjs.org/docs/app/api-reference/file-conventions/metadata
 
 Assets históricos preservados fora da vitrine ativa: fotografias do catálogo em https://katukina.com/assets/images/items/1871.jpg, https://katukina.com/assets/images/items/1990.jpg e https://katukina.com/assets/images/items/1571.jpg, além da floresta ilustrativa Unsplash `photo-1441974231531-c6227db76b6e`.
