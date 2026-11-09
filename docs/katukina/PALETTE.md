@@ -8,12 +8,18 @@ A tipografia vigente usa **Sora como principal e Source Sans 3 como apoio**, con
 
 ## Cores aprovadas
 
+**Regra visual confirmada por Danilo em 09/11/2026:** o vermelho urucum é exclusivo de CTAs clicáveis de ações importantes. Sua presença deve indicar a ação prioritária. Textos destacados, ênfases em títulos, navegação, ícones e selos informativos usam verde folha. Textos de leitura continuam em carvão/cinza e textos sobre fundos coloridos permanecem claros para preservar o contraste. Esta regra substitui as aplicações anteriores do urucum no título da Home, em promoções, mensagens de erro e elementos decorativos, inclusive as sugestões de uso do SVG original, que permanece preservado como fonte das cores.
+
+- Aplicar urucum ao fundo do CTA principal (`.button.primary`), com texto claro e hover em urucum escurecido. Não usar urucum para links comuns, enfeites, texto estático ou estados selecionados.
+- Destaques editoriais, selos de promoção e favicon usam verde. Mensagens de erro usam carvão e fundo neutro, com mensagem explícita; a cor sozinha não comunica o erro.
+- Fotografias e conteúdo dos produtos preservam suas cores originais. A regra governa a interface, sem recolorir imagens.
+
 **Inclusão aprovada por Danilo em 06/11/2026:** branco puro (`#FFFFFF`) passa a integrar a paleta do projeto como cor própria. É uma extensão documentada aos seis tons originais; o SVG de referência permanece intacto. Quando Danilo pedir **branco**, usar branco puro; quando pedir **branco quente**, usar `#F7F7F2`. A inclusão não recolore automaticamente áreas do site.
 
 | Cor | HEX | RGB | Token primitivo | Aplicação |
 | --- | --- | --- | --- | --- |
-| Urucum | `#782E26` | 120 / 46 / 38 | `--urucum` | Assinatura, destaque do título da Home, ações principais e promoções |
-| Verde folha | `#526B35` | 82 / 107 / 53 | `--leaf` | Navegação ativa, links de apoio, ícones, ações secundárias, seleção e foco |
+| Urucum | `#782E26` | 120 / 46 / 38 | `--urucum` | Exclusivamente CTAs clicáveis de ações importantes |
+| Verde folha | `#526B35` | 82 / 107 / 53 | `--leaf` | Textos destacados, títulos em destaque, navegação, links de apoio, ícones, selos, ações secundárias, seleção e foco |
 | Branco quente | `#F7F7F2` | 247 / 247 / 242 | `--warm-white` | Texto sobre urucum/verde e composição de estados derivados |
 | Branco / branco puro | `#FFFFFF` | 255 / 255 / 255 | `--white` | Fundo geral, superfícies da interface e fundo das fotografias de produto |
 | Cinza claro | `#D3D4CF` | 211 / 212 / 207 | `--light-gray` | Divisórias, bordas estruturais e assinatura decorativa do rodapé |
@@ -35,7 +41,7 @@ A fonte de implementação é o bloco `:root` de `app/globals.css`. `app/catalog
 | Fundo de apoio | `--support-soft` | 10% verde folha + 90% branco quente |
 | Hover principal / apoio | `--primary-hover`, `--support-hover` | 85% da cor de origem + 15% carvão |
 | Contornos de campos | `--control-line` | 72% cinza médio + 28% branco quente |
-| Mensagens de erro | `--danger`, `--danger-soft` | Urucum; fundo com 7% urucum + 93% branco quente |
+| Mensagens de erro | `--danger`, `--danger-soft` | Carvão / fundo neutro suave (`--soft`); comunicar o problema por texto explícito |
 | Sombras e backdrops | `--shadow-soft`, `--overlay`, `--overlay-light` | Carvão com transparência |
 | Área de fotografia | `--photo-bg` | Alias de `--white`, para conservar as fotos de produto fornecidas |
 

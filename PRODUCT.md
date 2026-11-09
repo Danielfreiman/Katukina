@@ -54,8 +54,12 @@ O frontend deve tornar compreensíveis as opções, o preço e a disponibilidade
 
 ## Brand Commitments
 
+- **CTAs confirmado em 09/11/2026:** usar CTAs sem setas. Prefer?ncia expl?cita de Danilo para os pr?ximos ajustes.
+
 - Nome do produto: Katukina. Preservar referências de marca e ativos aprovados por Danilo.
 - A referência cromática aprovada está em [PALETTE.md](docs/katukina/PALETTE.md), com o SVG original preservado. Esse documento e os estilos existentes governam as cores; este registro não os duplica.
+- **Confirmado em 09/11/2026:** verde nos textos destacados e destaques da interface; vermelho urucum exclusivo de CTAs clicáveis de ações importantes. Sua presença sinaliza uma ação prioritária. Detalhes e exceção das fotografias em `PALETTE.md`.
+- **Geometria confirmada em 09/11/2026:** toda a interface pública usa quinas retas (`border-radius: 0`), incluindo CTAs, botões, campos, cartões, imagens, selos e diálogos. Novos componentes devem seguir esse padrão. Preservar os desenhos do logotipo, ícones e fotografias originais.
 - As fotos editadas fornecidas por Danilo são evidência dos produtos. Preservar a identidade de cada produto/apresentação e seus vínculos; não criar detalhes, rótulos ou acessórios fictícios para preencher lacunas.
 - Textos factuais, origem, relações com comunidades e condições comerciais devem ter fonte verificável. Não inventar depoimentos, certificações, benefícios, parcerias ou alegações de produção/homologação.
 

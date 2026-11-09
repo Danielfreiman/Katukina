@@ -35,3 +35,18 @@ Somente `brand/` foi criada nesta etapa. As demais pastas são convenções para
 Mestres AI/PSD, versões de trabalho e exportações descartadas ficam na organização de design do cliente, fora da pasta pública e do Git do site. Os assets existentes permanecem em seus caminhos para preservar URLs. Reorganizar esses arquivos exige inventário das referências e validação própria.
 
 Validação local: logotipo carregado e sem transbordamento nas larguras 1756, 1440, 1100, 900, 801, 800, 390, 375 e 320 px; link para Home, foco visível por teclado e menu mobile conferidos. Evidências em `artifacts/logo-update/` (fora do Git).
+
+
+## Hero panor?mico da Home ? 09/11/2026
+
+Dire??o fornecida por Danilo: imagem ocupando todo o hero, composi??o de produtos feita por ele; texto e ?cones em HTML sobre a imagem, preservando a altura desktop existente (825 px na largura de 1440 px). Refer?ncia de hierarquia: t?tulo compacto em duas linhas, destaque verde, CTA urucum e a??o secund?ria; ?cones de bot?nicos, incensos e objetos sem condi??es comerciais inventadas.
+
+- Pasta: `public/images/campaigns/home/`.
+- Arquivo para substituir: `katukina-hero.webp`.
+- Dimens?es recomendadas: **2400 ? 1500 px**, WebP, sRGB. Meta de peso: at? 500 KB.
+- O arquivo atual ? um placeholder neutro, identificado dentro da pr?pria imagem. Substitu?-lo mantendo nome, formato e caminho atualiza o hero sem altera??o de c?digo.
+- Criar somente a composi??o fotogr?fica, sem t?tulos, bot?es, selos ou ?cones incorporados. Produtos concentrados ? direita (aproximadamente os 45% direitos), deixando a metade esquerda clara e livre para os elementos HTML.
+- A arte cobre toda a se??o com `object-fit: cover`; manter itens importantes afastados das bordas e prever recorte. No mobile, a composi??o usa o lado direito da arte; o texto permanece no topo com prote??o clara gradual. Conferir esse recorte ao entregar a imagem final.
+- Alt vazio: fotografia de ambienta??o decorativa, sem link ou oferta associada. Rever se a imagem final trouxer informa??o exclusiva relevante.
+
+Pr?via local: `http://localhost:3001/`. A arte definitiva e sua aprova??o visual permanecem com Danilo.

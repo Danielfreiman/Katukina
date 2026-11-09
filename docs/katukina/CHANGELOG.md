@@ -1,5 +1,26 @@
 # Histórico do discovery Katukina
 
+## 2026-11-09 ? Hero panor?mico com composi??o de produtos
+
+- Pedido de Danilo: usar a refer?ncia de hierarquia textual, bot?es e ?cones; imagem feita por ele ocupando todo o hero. Removido o cart?o de produto destacado somente do hero. Cat?logo e integra??es preservados.
+- T?tulo em duas linhas com destaque verde, CTA urucum, a??o secund?ria para a cole??o e ?cones Lucide de bot?nicos/incensos/objetos. Altura desktop preservada: 825 px na largura de 1440 px (antes: 824,98 px).
+- Placeholder WebP 2400 ? 1500 px, 11.960 bytes em `public/images/campaigns/home/katukina-hero.webp`. Instru??es de substitui??o/composi??o em `ASSETS.md`; a imagem definitiva ainda ser? produzida por Danilo.
+- Valida??o local: typecheck aprovado; detector Impeccable sem achados. Capturas em 1440, 768, 375 e 320 px sem overflow horizontal e imagem carregada. Evid?ncias em `output/playwright/hero-full-*.png`.
+- Console registrou diverg?ncia de hidrata??o em controles de cookies com atributo inline `caret-color: transparent`, fora do hero; causa n?o investigada nesta altera??o. Recorte e legibilidade da composi??o definitiva ainda precisam de confer?ncia quando entregue.
+
+## 2026-11-09 — Interface com quinas retas
+
+- **CONFIRMADO por Danilo:** CTAs e todos os botões sem arredondamento; o padrão de quinas retas se aplica a toda a interface pública e está registrado em `PRODUCT.md`.
+- Todas as declarações de `border-radius` em `globals.css`, `catalog.css` e `privacy.css` passam a zero, incluindo campos, cartões, fotos, selos, filtros, conta, carrinho, checkout e cookies. Removido o arredondamento do fundo do favicon. Desenhos do logotipo, ícones e fotografias preservados.
+- Validação: typecheck e verificador de paleta/contraste aprovados; Home, loja, conta e carrinho em 1440 e 375 px sem overflow horizontal. Inspeção visual de Home desktop e loja mobile. Controles radio mantêm sua aparência nativa de seleção única; nenhuma regra autoral de arredondamento permanece nos três estilos públicos.
+
+## 2026-11-09 — Urucum exclusivo para CTAs importantes
+
+- **CONFIRMADO por Danilo:** textos destacados e destaques da interface em verde; urucum somente em CTAs clicáveis de ações importantes. Regra registrada em `PALETTE.md` e `PRODUCT.md`, substituindo os usos estáticos anteriores.
+- Ênfase “natural” da Home, assinatura textual, cursor de campos, selos de promoção e favicon passam a verde. Mensagens de erro usam carvão/fundo neutro e preservam o texto explicativo. CTAs principais mantêm urucum e texto claro; fotografias preservadas.
+- Complemento do header aprovado nesta conversa: faixa superior verde com texto branco, um único contorno verde ao redor do grupo de ícones e navegação com hover/foco verde e sublinhado de 2 px.
+- Validação local: typecheck e verificador de paleta/contraste aprovados. Home em 1440 e 375 px sem overflow, destaque verde e CTA urucum confirmados por estilos computados e capturas em `output/playwright/cta-color-rule-*.png`. Tokens de urucum no CSS ficam restritos ao CTA principal e seu hover.
+
 ## 2026-11-09 — Ajustes visuais do header
 
 - Pedido de Danilo: fundo branco no cabeçalho e faixa superior, navegação desktop de 12 para 14 px e ícones da direita com contorno retangular verde de 1 px, cantos retos e fundo transparente. Alteração localizada em `app/globals.css`.

@@ -44,7 +44,7 @@
   gap: 10px;
   padding: 14px;
   background: var(--soft);
-  border-radius: 6px;
+  border-radius: 0;
   font-size: 12px;
   min-width: 0;
 }
@@ -69,7 +69,7 @@
 }
 .catalog-sidebar {
   border: 1px solid var(--line);
-  border-radius: 9px;
+  border-radius: 0;
   padding: 20px;
   position: sticky;
   top: 24px;
@@ -97,7 +97,7 @@
   color: inherit;
   border: 1px solid var(--control-line);
   background: var(--surface);
-  border-radius: 5px;
+  border-radius: 0;
   padding: 10px;
   width: 100%;
   min-width: 0;
@@ -204,7 +204,7 @@
   align-items: center;
   padding: 6px 10px;
   border: 1px solid var(--line);
-  border-radius: 30px;
+  border-radius: 0;
   font-size: 11px;
 }
 .active-filters a:hover {
@@ -217,7 +217,7 @@
   display: flex;
   flex-direction: column;
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: 0;
   overflow: hidden;
   background: var(--surface);
 }
@@ -288,7 +288,7 @@
   margin: 0 18px 18px;
   border: 1px solid var(--green);
   padding: 9px 5px;
-  border-radius: 5px;
+  border-radius: 0;
   font-size: 12px;
   font-weight: 600;
   color: var(--green);
@@ -329,7 +329,7 @@
   padding-inline: 10px;
   height: 36px;
   border: 1px solid var(--line);
-  border-radius: 5px;
+  border-radius: 0;
   font-size: 12px;
 }
 .catalog-pagination a[aria-current="page"] {
@@ -351,7 +351,7 @@
 .filter-dialog,
 .gallery-dialog {
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: 0;
   padding: 24px;
   color: var(--ink);
   background: var(--surface);
@@ -382,7 +382,7 @@
   place-items: center;
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 50%;
+  border-radius: 0;
   width: 40px;
   height: 40px;
 }
@@ -403,7 +403,7 @@
   width: 100%;
   aspect-ratio: 1;
   border: 1px solid var(--line);
-  border-radius: 12px;
+  border-radius: 0;
   background: var(--photo-bg);
   position: relative;
   display: block;
@@ -425,7 +425,7 @@
   align-items: center;
   gap: 7px;
   padding: 8px 11px;
-  border-radius: 30px;
+  border-radius: 0;
   background: var(--surface);
   font-size: 11px;
 }
@@ -443,7 +443,7 @@
   place-items: center;
   border: 1px solid var(--line);
   background: var(--surface);
-  border-radius: 5px;
+  border-radius: 0;
   min-width: 64px;
   padding-inline: 12px;
   height: 35px;
@@ -464,7 +464,7 @@
   border: 1px solid var(--line);
   background: var(--photo-bg);
   padding: 4px;
-  border-radius: 6px;
+  border-radius: 0;
   height: 70px;
 }
 .gallery-thumbnails button[aria-pressed="true"] {
@@ -483,7 +483,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  border-radius: 10px;
+  border-radius: 0;
 }
 .gallery-placeholder svg {
   width: 80px;
@@ -631,7 +631,7 @@
 .product-category-tags a {
   background: var(--soft);
   padding: 5px 10px;
-  border-radius: 4px;
+  border-radius: 0;
   font-size: 11px;
 }
 .related-products {
@@ -697,7 +697,7 @@
     border: 1px solid var(--line);
     background: var(--surface);
     padding: 10px 18px;
-    border-radius: 5px;
+    border-radius: 0;
     font-size: 12px;
   }
   .catalog-results-toolbar {
@@ -956,7 +956,7 @@
 .catalog-quick-filters a {
   padding: 7px 12px;
   border: 1px solid var(--line);
-  border-radius: 20px;
+  border-radius: 0;
 }
 .catalog-quick-filters a:hover,
 .catalog-quick-filters a[aria-current] {
@@ -973,10 +973,10 @@
   z-index: 1;
   top: 10px;
   left: 10px;
-  background: var(--primary);
+  background: var(--green);
   color: var(--on-color);
   padding: 4px 8px;
-  border-radius: 3px;
+  border-radius: 0;
   font-size: 11px;
 }
 .product-grid-v2 .product-price del {
@@ -1047,7 +1047,7 @@
   width: 100%;
   padding: 13px;
   border: 1px solid var(--control-line);
-  border-radius: 6px;
+  border-radius: 0;
   background: var(--surface);
   min-height: 80px;
   overflow-wrap: anywhere;

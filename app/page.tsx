@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { getProducts, productName, productPrice } from "@/lib/commerce/catalog";
+import { Flame, Leaf, Shapes } from "lucide-react";
+import { getProducts } from "@/lib/commerce/catalog";
 import { ProductGrid } from "@/components/catalog/product-grid";
 import { BrandMark } from "@/components/site/brand-mark";
 import { siteUrl } from "@/lib/config/site";
@@ -13,10 +14,6 @@ export default async function Home() {
     );
     return null;
   });
-  const featured =
-    catalog?.data.find(
-      (product) => product.slug === "sacred-incense-harmony",
-    ) || catalog?.data.find((product) => product.images.length);
   const categories = [
     ...new Map(
       catalog?.data
@@ -38,86 +35,42 @@ export default async function Home() {
           }).replace(/</g, "\\u003c"),
         }}
       />
-      <section className="hero pattern-surface" aria-labelledby="hero-title">
-        <div className="shell hero-layout">
+      <section className="hero hero-campaign" aria-labelledby="hero-title">
+        <img
+          className="hero-campaign-image"
+          src="/images/campaigns/home/katukina-hero.webp"
+          alt=""
+          width={2400}
+          height={1500}
+          fetchPriority="high"
+        />
+        <div className="shell hero-campaign-layout">
           <div className="hero-copy">
             <p className="eyebrow">
               <span className="status-dot" /> CURIOUS BY NATURE
             </p>
             <h1 id="hero-title">
-              Find your
-              <br />
-              <span>natural</span>
-              <br />
-              rhythm.
+              Find your<br />
+              <span>natural rhythm.</span>
             </h1>
             <p className="hero-description">
               A world of botanicals, incense and meaningful objects. For the
               moments that bring you back to yourself.
             </p>
-            <Link className="button primary" href="/shop">
-              Explore the collection
-            </Link>
-            <a className="hero-scroll" href="#collection">
-              A little discovery goes a long way
-            </a>
-          </div>
-          <div className="hero-feature">
-            <div className="feature-topline">
-              <span>THE EVERYDAY RITUAL</span>
-              <BrandMark />
+            <div className="hero-actions">
+              <Link className="button primary" href="/shop">
+                Shop the collection
+              </Link>
+              <a className="button secondary" href="#collection">
+                Explore the collection
+              </a>
             </div>
-            <Link
-              className="feature-photo"
-              href={featured ? `/products/${featured.slug}` : "/shop"}
-              aria-label={
-                featured
-                  ? `Discover ${productName(featured)}`
-                  : "Explore the collection"
-              }
-            >
-              {featured?.images[0] ? (
-                <img
-                  src={featured.images[0].src}
-                  alt={
-                    plainText(featured.images[0].alt) || productName(featured)
-                  }
-                  width={680}
-                  height={680}
-                  fetchPriority="high"
-                />
-              ) : (
-                <BrandMark className="feature-placeholder" />
-              )}
-              <span className="feature-badge">
-                A closer
-                <br />
-                connection.
-              </span>
-            </Link>
-            <div className="feature-caption">
-              <div>
-                <span className="eyebrow">A MOMENT TO PAUSE</span>
-                <h2>
-                  {featured
-                    ? productName(featured).replace(
-                        /^Sacred Incense\s*[–-]\s*/,
-                        "",
-                      )
-                    : "Something to discover"}
-                </h2>
-              </div>
-              <span>
-                {featured ? productPrice(featured) : "Explore Katukina"}
-              </span>
-            </div>
+            <ul className="hero-highlights" aria-label="Discover Katukina">
+              <li><Leaf aria-hidden="true" /><span><strong>Botanicals</strong><small>Curious by nature</small></span></li>
+              <li><Flame aria-hidden="true" /><span><strong>Incense</strong><small>A moment to pause</small></span></li>
+              <li><Shapes aria-hidden="true" /><span><strong>Meaningful objects</strong><small>A closer connection</small></span></li>
+            </ul>
           </div>
-        </div>
-        <div className="shell hero-bottom">
-          <span>Rooted in tradition. Open to discovery.</span>
-          <span>
-            BOTANICALS <i /> OBJECTS <i /> CULTURE
-          </span>
         </div>
       </section>
       <section className="section shell" id="collection">
