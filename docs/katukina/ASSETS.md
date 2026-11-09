@@ -7,7 +7,7 @@
 - Para a nova arte: **2400 × 1500 px**, WebP, sRGB, preferencialmente até 500 KB. Substituir apenas o arquivo do slide 02, mantendo nome e caminho.
 - Cada slide usa a mesma imagem no desktop e no mobile, conforme a decisão mais recente de Danilo. Nenhuma imagem exclusiva mobile foi criada. Desktop: produtos à direita e espaço claro à esquerda. Mobile: prever recorte vertical; texto sobre overlay escuro no topo e produtos na parte inferior. Não incorporar títulos, botões ou ícones na arte.
 - Altura desktop: 825 px; imagem com `object-fit: cover`. Recorte e legibilidade da nova arte precisam de conferência após a entrega.
-- Navegação manual por 01/02, clique e teclado (setas, Home/End); sem troca automática. O conteúdo de Rapé descreve a coleção, sem alegações de saúde ou ofertas inventadas. CTA principal: `/collections/rape`.
+- Navegação por indicadores discretos, clique e teclado (setas, Home/End). Troca automática a cada 6 segundos, com controle de pausa/play. Pausa temporária com mouse sobre o hero e ao ocultar a aba; o foco por teclado interrompe a troca até o usuário retomar. Movimento reduzido inicia com reprodução pausada. O conteúdo de Rapé descreve a coleção, sem alegações de saúde ou ofertas inventadas. CTA principal: `/collections/rape`.
 
 Esta atualização substitui as indicações antigas de placeholder neutro e overlay claro no mobile descritas mais abaixo.
 

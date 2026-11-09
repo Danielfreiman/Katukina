@@ -1698,27 +1698,36 @@ button.text-link {
   right: 0;
   pointer-events: none;
 }
-.hero-carousel-controls [role="tablist"] {
+.hero-carousel-toolbar {
   display: flex;
-  gap: 8px;
+  align-items: center;
   width: fit-content;
+  padding: 2px;
+  background: color-mix(in srgb, var(--warm-white) 88%, transparent);
+  border: 1px solid color-mix(in srgb, var(--charcoal) 12%, transparent);
   pointer-events: auto;
 }
+.hero-carousel-controls [role="tablist"] { display: flex; }
 .hero-carousel-controls button {
   min-width: 44px;
   min-height: 44px;
-  padding: 8px;
-  border: 1px solid var(--charcoal);
-  background: var(--warm-white);
+  display: grid;
+  place-items: center;
+  padding: 10px;
+  border: 0;
+  background: transparent;
   color: var(--charcoal);
-  font-size: 13px;
-  font-weight: 650;
 }
-.hero-carousel-controls button:hover,
-.hero-carousel-controls button[aria-selected="true"] {
-  background: var(--charcoal);
-  color: var(--warm-white);
+.hero-slide-indicator {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: currentColor;
+  opacity: 0.35;
 }
+.hero-carousel-controls button[aria-selected="true"] .hero-slide-indicator,
+.hero-carousel-controls button:hover .hero-slide-indicator { opacity: 1; }
+.hero-carousel-controls button:hover { background: color-mix(in srgb, var(--charcoal) 7%, transparent); }
 .hero-carousel-controls button:focus-visible {
   outline: 2px solid var(--warm-white);
   outline-offset: 2px;
