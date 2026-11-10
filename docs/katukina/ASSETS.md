@@ -130,3 +130,42 @@ Os cinco WebP totalmente verdes em `public/images/home/categories/` foram removi
 `exclusive-sale.webp` foi preservado por j? conter uma imagem inserida por Danilo;
 n?o ? mais usado pelos cards. N?o ? necess?rio preparar imagens manuais para a faixa.
 Fotos de produtos usam `object-fit: contain` para preservar sua composi??o no quadrado.
+
+## Camada decorativa sobre a faixa verde de categorias - 10/11/2026
+
+Preparada a pedido de Danilo, sem alterar o alinhamento dos cards.
+
+- Arquivo: `public/images/home/category-band/category-band-overlay.webp`.
+- Export recomendado: **2400 x 800 px**, WebP com alpha, sRGB, ate 400 KB.
+- Placeholder atual: imagem totalmente transparente nessas dimensoes.
+- Substituir o arquivo mantendo nome e caminho ativa a arte sem editar codigo.
+- Aplicacao: camada decorativa sobre o verde, atras do titulo e dos cards, de ponta a ponta da tela.
+- Centralizada, `cover`, sem repeticao, sem filtros e sem opacidade adicional.
+- No mobile, utiliza o recorte central do mesmo arquivo. Evitar elementos essenciais nas bordas e textos incorporados.
+- O fundo verde permanece visivel nas areas transparentes; fotografias e textos HTML permanecem independentes.
+
+## Cards de categorias com arte manual - atualizacao de 10/11/2026
+
+Danilo pediu cards como a referencia enviada, com foto preenchendo o card e faixa
+verde com nome na base, sem arredondamento e sem CTA textual separado.
+Esta decisao substitui o sorteio obrigatorio de fotos: cada categoria aceita uma
+arte manual em `public/images/home/category-cards/<slug>.webp`; somente arquivos
+ausentes continuam usando provisoriamente fotos de produtos do WooCommerce.
+
+- Artes: **960 x 1120 px (6:7)**, WebP, sRGB, preferencialmente ate 200 KB cada.
+- Nomes: `exclusive-sale.webp`, `puer-teas.webp`, `giftshop.webp`,
+  `incense-smudge.webp`, `shamanic-tools.webp`, `rape.webp`.
+- Sem textos na arte; preservar os 20% inferiores para a faixa HTML sobreposta.
+- Arte manual usa `cover`, sem padding; fotos provisorias usam `contain`.
+- Desktop: seis cards em uma linha. Tablet ate 1100 px: duas linhas de tres.
+  Celular ate 600 px: rolagem horizontal com indicacao de gesto.
+- Arquivos podem ser entregues individualmente. Todas as seis artes presentes
+  dispensam as consultas de fotos de categorias ao WooCommerce nesta faixa.
+- Fundo verde com pattern, alinhamento e CTAs dos produtos acima preservados.
+
+### Correcao de enquadramento - 10/11/2026
+
+A pedido de Danilo, a foto passa a ocupar um quadro **quadrado separado acima**
+da faixa do nome, sem sobreposicao. Esta decisao substitui a proporcao 6:7 e a
+reserva inferior anteriores. Exportar as seis artes em **960 x 960 px (1:1)**,
+com os mesmos nomes e caminhos. A faixa verde fica fora da imagem.

@@ -253,7 +253,13 @@
   font-size: 14px;
 }
 /* Home categories: heading above a full-width row of six cards. */
+.home-collection {
+  --category-pattern-size: 100vw auto;
+  --category-pattern-opacity: 0.5;
+}
 .home-collection .collection-paths {
+  position: relative;
+  isolation: isolate;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: 24px;
@@ -261,17 +267,29 @@
   margin-top: 48px;
   padding: 24px 0;
   border: 0;
-  background: var(--warm-white);
+  background: var(--green);
   /* Extend only the background beyond the content shell without adding overflow. */
-  box-shadow: 0 0 0 100vmax var(--warm-white);
+  box-shadow: 0 0 0 100vmax var(--green);
   clip-path: inset(0 -100vmax);
+}
+.home-collection .collection-paths::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset-block: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  background: url("/images/home/category-band/category-band-overlay.webp") center / var(--category-pattern-size) no-repeat;
+  opacity: var(--category-pattern-opacity);
+  pointer-events: none;
 }
 .collection-paths h3 {
   margin: 0;
   font-size: 22px;
   line-height: 1.35;
   letter-spacing: -0.025em;
-  color: var(--green);
+  color: var(--warm-white);
 }
 .collection-paths-links {
   display: grid;
@@ -285,13 +303,36 @@
   flex-direction: column;
   min-width: 0;
   overflow: hidden;
-  background: var(--white);
-  color: var(--ink);
+  border: 1px solid var(--line);
+  background: var(--green);
+  color: var(--warm-white);
+}
+.collection-paths-links .category-photo-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--warm-white);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease-out;
+}
+@media (hover: hover) and (pointer: fine) {
+  .collection-paths-links .category-photo-card:hover::after {
+    opacity: 1;
+  }
+}
+.collection-paths-scroll-hint {
+  display: none;
+  margin: 0;
+  color: var(--warm-white);
+  font-size: 12px;
+  line-height: 1.5;
 }
 .category-photo-frame {
   display: block;
   width: 100%;
   aspect-ratio: 1;
+  flex-shrink: 0;
   overflow: hidden;
   background: var(--white);
 }
@@ -303,43 +344,38 @@
   padding: 8px;
   transition: transform 300ms ease-out;
 }
+.category-photo-artwork {
+  object-fit: cover;
+  padding: 0;
+}
 .category-photo-copy {
-  background: var(--support-soft);
+  background: var(--urucum);
+  border-top: 1px solid color-mix(in srgb, var(--warm-white) 25%, transparent);
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
   flex: 1;
   width: 100%;
-  min-height: 80px;
+  min-height: 44px;
   gap: 4px;
-  padding: 12px;
+  padding: 10px 8px;
 }
 .category-photo-copy h4 {
   margin: 0;
-  color: var(--green);
-  font-size: 15px;
+  color: var(--warm-white);
+  font-size: 14px;
   line-height: 1.2;
   letter-spacing: -0.025em;
   text-wrap: balance;
-}
-.category-photo-cta {
-  display: inline-flex;
-  align-items: center;
-  min-height: 28px;
-  margin-top: auto;
-  color: var(--green);
-  font-size: 11px;
-  font-weight: 600;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  text-decoration-thickness: 1px;
+  text-align: center;
 }
 .category-photo-card:hover .category-photo,
 .category-photo-card:focus-visible .category-photo {
   transform: scale(1.035);
 }
 .collection-paths-links .category-photo-card:focus-visible {
-  outline: 3px solid var(--green);
+  outline: 3px solid var(--warm-white);
   outline-offset: -3px;
 }
 @media (max-width: 1100px) {
@@ -348,14 +384,7 @@
     padding: 20px 0;
   }
   .collection-paths-links {
-    grid-template-columns: repeat(6, minmax(120px, 1fr));
-    justify-content: start;
-    overflow-x: auto;
-    overscroll-behavior-x: contain;
-    scroll-snap-type: x proximity;
-    scrollbar-color: var(--green) var(--warm-white);
-    scrollbar-width: thin;
-    padding-bottom: 8px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
   .category-photo-card {
     scroll-snap-align: start;
@@ -365,6 +394,20 @@
   }
 }
 @media (max-width: 600px) {
+  .collection-paths-links {
+    grid-template-columns: repeat(6, clamp(160px, 45vw, 200px));
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    scrollbar-color: var(--warm-white) var(--green);
+    scrollbar-width: thin;
+    padding-bottom: 8px;
+  }
+  .collection-paths-scroll-hint {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
   .home-collection .collection-paths {
     gap: 12px;
   }
@@ -373,7 +416,8 @@
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .category-photo {
+  .category-photo,
+  .collection-paths-links .category-photo-card::after {
     transition: none;
   }
   .category-photo-card:hover .category-photo,
@@ -450,6 +494,8 @@
 }
 .home-collection .product-card-action,
 .home-collection .product-grid-v2 .purchase-actions .button {
+  position: relative;
+  isolation: isolate;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -462,11 +508,21 @@
   font-weight: 600;
   transition: background-color 200ms ease-out;
 }
+.home-collection .product-card-action::before,
+.home-collection .product-grid-v2 .purchase-actions .button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: url("/images/home/category-band/category-band-overlay.webp") center / var(--category-pattern-size) no-repeat;
+  opacity: var(--category-pattern-opacity);
+  pointer-events: none;
+}
 .home-collection .product-card-action:hover,
 .home-collection .product-card-action:focus-visible,
 .home-collection .product-grid-v2 .purchase-actions .button:hover:not(:disabled),
 .home-collection .product-grid-v2 .purchase-actions .button:focus-visible {
-  background: var(--primary);
+  background-color: var(--primary);
 }
 .home-collection .purchase-actions p:not(:empty) {
   margin: 0;
