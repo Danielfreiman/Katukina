@@ -1,29 +1,21 @@
 import Link from "next/link";
-import { Flame, Leaf, Shapes } from "lucide-react";
 import { getProducts } from "@/lib/commerce/catalog";
 import { ProductGrid } from "@/components/catalog/product-grid";
+import { HomeCategoryStrip } from "@/components/catalog/home-category-strip";
 import { BrandMark } from "@/components/site/brand-mark";
 import { HeroCarousel } from "@/components/site/hero-carousel";
 import { siteUrl } from "@/lib/config/site";
-import { plainText } from "@/lib/wordpress/text";
 export const dynamic = "force-dynamic";
 export default async function Home() {
   const catalog = await getProducts({ per_page: 8 }).catch((error: unknown) => {
-    console.error(
-      "Catalogue read failed:",
+    console.warn(
+      "Catalogue temporarily unavailable:",
       error instanceof Error ? error.message : "Unknown error",
     );
     return null;
   });
-  const categories = [
-    ...new Map(
-      catalog?.data
-        .flatMap((product) => product.categories)
-        .map((category) => [category.id, category]) || [],
-    ).values(),
-  ];
   return (
-    <main id="content">
+    <main id="content" className="home-page">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -36,21 +28,24 @@ export default async function Home() {
           }).replace(/</g, "\\u003c"),
         }}
       />
-      <HeroCarousel labels={["Discover Katukina", "Explore Rapé"]} slides={[
+      <HeroCarousel labels={["Discover Katukina", "Explore Rapé", "Explore incense"]} slides={[
       <section key="katukina" className="hero hero-campaign" aria-labelledby="hero-title">
+        <picture>
+          <source media="(max-width: 600px)" srcSet="/images/home/hero-01/mobile.webp" />
         <img
           className="hero-campaign-image"
-          src="/images/campaigns/home/katukina-hero.webp"
+          src="/images/home/hero-01/desktop.webp"
           alt=""
           width={2400}
           height={1500}
           fetchPriority="high"
         />
+        </picture>
         <div className="shell hero-campaign-layout">
           <div className="hero-copy">
             <h1 id="hero-title">
-              Closer to nature.<br />
-              <span>Rooted in tradition.</span>
+              Tribal Rapé, Mapacho, Kambo, Sananga,{" "}
+              <span>Shamanic Tools &amp; Incenses</span>
             </h1>
             <p className="hero-description">
               Explore botanicals, incense, art and objects connected to forest
@@ -64,23 +59,21 @@ export default async function Home() {
                 Browse categories
               </Link>
             </div>
-            <ul className="hero-highlights" aria-label="Discover Katukina">
-              <li><Leaf aria-hidden="true" /><span><strong>Botanicals</strong><small>A world to explore</small></span></li>
-              <li><Flame aria-hidden="true" /><span><strong>Incense</strong><small>Scent &amp; ritual</small></span></li>
-              <li><Shapes aria-hidden="true" /><span><strong>Art &amp; objects</strong><small>Nature &amp; culture</small></span></li>
-            </ul>
           </div>
         </div>
       </section>,
       <section key="rape" className="hero hero-campaign hero-campaign-dark" aria-labelledby="hero-rape-title">
+        <picture>
+          <source media="(max-width: 600px)" srcSet="/images/home/hero-02/mobile.webp" />
         <img
           className="hero-campaign-image"
-          src="/images/campaigns/home/katukina-hero-rape.webp"
+          src="/images/home/hero-02/desktop.webp"
           alt=""
           width={2400}
           height={1500}
-          loading="lazy"
+          loading="eager"
         />
+        </picture>
         <div className="shell hero-campaign-layout">
           <div className="hero-copy">
             <h2 id="hero-rape-title">
@@ -99,15 +92,44 @@ export default async function Home() {
                 Shop all products
               </Link>
             </div>
-            <ul className="hero-highlights" aria-label="Explore the Rapé collection">
-              <li><Leaf aria-hidden="true" /><span><strong>Varieties</strong><small>Find your blend</small></span></li>
-              <li><Shapes aria-hidden="true" /><span><strong>Presentations</strong><small>Compare sizes</small></span></li>
-              <li><Leaf aria-hidden="true" /><span><strong>Product details</strong><small>Take a closer look</small></span></li>
-            </ul>
+          </div>
+        </div>
+      </section>,
+      <section key="incense" className="hero hero-campaign hero-campaign-dark hero-campaign-incense" aria-labelledby="hero-incense-title">
+        <picture>
+          <source media="(max-width: 600px)" srcSet="/images/home/hero-03/mobile.webp" />
+          <img
+            className="hero-campaign-image"
+            src="/images/home/hero-03/desktop.webp"
+            alt=""
+            width={2400}
+            height={1500}
+            loading="eager"
+          />
+        </picture>
+        <div className="shell hero-campaign-layout">
+          <div className="hero-copy">
+            <h2 id="hero-incense-title">
+              Sticks, herbs &amp; resins.<br />
+              <span>Create your ritual.</span>
+            </h2>
+            <p className="hero-description">
+              Explore incense sticks, herbs and resins, with burners and holders
+              to complete your ritual.
+            </p>
+            <div className="hero-actions">
+              <Link className="button primary" href="/collections/sacred-incense">
+                Explore incense
+              </Link>
+              <Link className="button secondary" href="/collections/tools?q=incense">
+                Incense accessories
+              </Link>
+            </div>
           </div>
         </div>
       </section>
       ]} />
+      <div className="home-collection-background">
       <section className="section shell home-collection" id="collection">
         <div className="collection-intro">
           <h2>Explore the <span>collection.</span></h2>
@@ -130,19 +152,9 @@ export default async function Home() {
             </Link>
           </div>
         )}
-        {categories.length > 0 && (
-          <nav className="collection-paths" aria-label="Product categories">
-            <h3>Explore by<br className="collection-paths-break" /> category</h3>
-            <div className="collection-paths-links">
-            {categories.map((category) => (
-              <Link key={category.id} href={`/collections/${category.slug}`}>
-                {plainText(category.name)}
-              </Link>
-            ))}
-            </div>
-          </nav>
-        )}
+        <HomeCategoryStrip />
       </section>
+      </div>
       <section className="story-band pattern-surface">
         <div className="shell story-layout">
           <div className="story-heading">
@@ -171,6 +183,7 @@ export default async function Home() {
           </div>
         </div>
       </section>
+      <div className="home-journal-background">
       <section className="journal-invite shell">
         <div>
           <p className="eyebrow">THE JOURNAL / 03</p>
@@ -190,6 +203,7 @@ export default async function Home() {
           </Link>
         </div>
       </section>
+      </div>
     </main>
   );
 }

@@ -1,0 +1,1 @@
+﻿async(page)=>{await page.locator('.collection-paths').scrollIntoViewIfNeeded();await page.locator('.collection-paths').screenshot({path:'output/playwright/category-products-390.png'});return {images:await page.locator('.category-photo-frame img').count(),overflow:await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)};}

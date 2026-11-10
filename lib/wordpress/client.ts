@@ -1,6 +1,8 @@
 import "server-only";
 import { cookies } from "next/headers";
 const origin = process.env.WORDPRESS_INTERNAL_URL || "http://127.0.0.1:8888";
+// Local Docker bind mounts can exceed 12 seconds while PHP warms up on Windows.
+const requestTimeout = process.env.NODE_ENV === "development" ? 30000 : 12000;
 export async function wordpressGet<T>(
   path: string,
   query: Record<string, string | number> = {},
@@ -22,7 +24,7 @@ export async function wordpressGet<T>(
       "X-Katukina-Currency": currency,
     },
     cache: "no-store",
-    signal: AbortSignal.timeout(12000),
+    signal: AbortSignal.timeout(requestTimeout),
     redirect: "error",
   });
   if (!response.ok)
