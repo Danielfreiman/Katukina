@@ -91,11 +91,11 @@ final class OperationsApi {
     public static function report_capability( string $type ): string {
         return match ( $type ) { 'lots', 'stock_levels', 'movements', 'reservations', 'production', 'reconciliation' => 'katukina_inventory', 'orders' => 'katukina_orders', 'money', 'credit_balances', 'accounting' => 'katukina_finance', default => 'katukina_reports' };
     }
-    public static function report( string $type, int $page = 1, int $order_id = 0, int $lot_id = 0 ): array {
+    public static function report( string $type, int $page = 1, int $order_id = 0, int $lot_id = 0, int $form_id = 0 ): array {
         global $wpdb; $page = max( 1, $page ); $offset = ( $page - 1 ) * 100;
         if ( 'stock_levels' === $type ) {
-            $base = "SELECT form_id,company_id,warehouse_id,SUM(balance) physical,SUM(reserved) reserved,SUM(CASE WHEN COALESCE(JSON_UNQUOTE(JSON_EXTRACT(data,'$.expiry')),'')<>'' AND JSON_UNQUOTE(JSON_EXTRACT(data,'$.expiry'))<DATE_FORMAT(UTC_DATE(),'%Y-%m-%d') THEN 0 ELSE balance-reserved END) available FROM " . Database::table( 'lots' ) . ' GROUP BY form_id,company_id,warehouse_id';
-            $rows = $wpdb->get_results( $base . " ORDER BY form_id LIMIT 100 OFFSET $offset", ARRAY_A );
+            $base = "SELECT form_id,company_id,warehouse_id,SUM(balance) physical,SUM(reserved) reserved,SUM(CASE WHEN COALESCE(JSON_UNQUOTE(JSON_EXTRACT(data,'$.expiry')),'')<>'' AND JSON_UNQUOTE(JSON_EXTRACT(data,'$.expiry'))<DATE_FORMAT(UTC_DATE(),'%Y-%m-%d') THEN 0 ELSE balance-reserved END) available FROM " . Database::table( 'lots' ) . ( $form_id ? $wpdb->prepare(' WHERE form_id=%d', $form_id) : '' ) . ' GROUP BY form_id,company_id,warehouse_id';
+            $rows = $wpdb->get_results( $base . ' ORDER BY form_id', ARRAY_A );
             $incoming = Registry::all( 'incoming' );
             foreach ( $rows as &$row ) {
                 $form = Registry::get( (int) $row['form_id'], 'form', false ); $row['sku'] = $form['code']; $row['name'] = $form['data']['name']; $row['unit'] = $form['data']['unit'];
@@ -106,8 +106,21 @@ final class OperationsApi {
                 $row['replenishment_deficit'] = Database::number( max( 0, $minimum - (int) $row['available'] - $expected ) );
                 $row['unavailable'] = Database::number( (int) $row['physical'] - (int) $row['reserved'] - (int) $row['available'] );
                 foreach ( array( 'physical', 'reserved', 'available' ) as $key ) { $row[ $key ] = Database::number( (int) $row[ $key ] ); }
+                $row['stock_source']='Lots';
             }
-            return array( 'rows' => $rows, 'total' => (int) $wpdb->get_var( 'SELECT COUNT(*) FROM (' . $base . ') stock' ) );
+            unset($row);
+            // Native-only stock has no warehouse allocation yet. Show it without
+            // inventing ownership or counting a lot-backed quantity a second time.
+            $selected_owner=0;
+            if($form_id){$selected=Registry::get($form_id,'form',false);$p=wc_get_product($selected['data']['product_id']??0);$selected_owner=$p?$p->get_stock_managed_by_id():0;}
+            $native_ids=$wpdb->get_col("SELECT DISTINCT p.ID FROM {$wpdb->posts} p JOIN {$wpdb->postmeta} m ON m.post_id=p.ID AND m.meta_key='_manage_stock' AND m.meta_value='yes' WHERE p.post_type IN ('product','product_variation') AND p.post_status NOT IN ('trash','auto-draft') ORDER BY p.ID");
+            foreach($native_ids as $id){
+                $id=(int)$id;if(($form_id && $id!==$selected_owner)||NativeStock::lots($id)){continue;}$product=wc_get_product($id);if(!$product){continue;}
+                $physical=(int)round((float)$product->get_stock_quantity('edit')*1000);$reserved=(int)round((float)wc_get_held_stock_quantity($product)*1000);$available=max(0,$physical-$reserved);
+                $minimum=(int)round((float)$product->get_low_stock_amount()*1000);
+                $rows[]=array('form_id'=>(int)get_post_meta($id,'_kat_form_record_id',true),'company_id'=>null,'warehouse_id'=>null,'physical'=>Database::number($physical),'reserved'=>Database::number($reserved),'available'=>Database::number($available),'sku'=>$product->get_sku(),'name'=>$product->get_name(),'unit'=>NativeCatalog::value($product,'unit'),'low_stock'=>$minimum>0&&$available<=$minimum,'expected'=>null,'expected_date'=>'','overdue'=>false,'replenishment_deficit'=>Database::number(max(0,$minimum-$available)),'unavailable'=>'0.000','stock_source'=>$product->is_type('variable')?'WooCommerce — shared parent':'WooCommerce — no lots');
+            }
+            return array( 'rows' => array_slice($rows,$offset,100), 'total' => count($rows) );
         }
         if ( 'order_volume' === $type ) {
             $groups = array(); $batch = 1;
@@ -132,6 +145,8 @@ final class OperationsApi {
         }
         if ( ! in_array( $type, array( 'lots', 'movements', 'reservations', 'production', 'money', 'audit' ), true ) ) { throw new DomainError( 'Unknown report.' ); }
         $where = '1=1';
+        if ( $form_id && 'lots' === $type ) { $where .= $wpdb->prepare(' AND form_id=%d', $form_id); }
+        if ( $form_id && in_array($type,array('movements','reservations'),true) ) { $where .= $wpdb->prepare(' AND lot_id IN (SELECT id FROM ' . Database::table('lots') . ' WHERE form_id=%d)', $form_id); }
         if ( $order_id && in_array( $type, array( 'reservations', 'money' ), true ) ) { $where .= $wpdb->prepare( ' AND order_id=%d', $order_id ); }
         if ( $lot_id && in_array( $type, array( 'movements', 'reservations' ), true ) ) { $where .= $wpdb->prepare( ' AND lot_id=%d', $lot_id ); }
         $rows = $wpdb->get_results( 'SELECT * FROM ' . Database::table( $type ) . " WHERE $where ORDER BY id DESC LIMIT 100 OFFSET $offset", ARRAY_A );

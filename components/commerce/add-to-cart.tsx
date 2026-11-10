@@ -86,7 +86,7 @@ export function AddToCart({
         {pending
           ? "Adding…"
           : !simple
-            ? "Choose a presentation"
+            ? "Choose an option"
             : available
               ? "Add to bag"
               : "Currently unavailable"}

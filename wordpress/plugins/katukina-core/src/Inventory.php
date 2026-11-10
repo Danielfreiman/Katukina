@@ -60,8 +60,9 @@ final class Inventory {
         return $row;
     }
     public static function create_lot( array $input ): array {
+        NativeStock::prepare_receipt( $input );
         $form = Registry::get( Registry::positive_id( $input['form_id'] ?? 0 ), 'form' );
-        if ( ! empty( $form['data']['product_id'] ) ) { $product = wc_get_product( $form['data']['product_id'] ); if ( $product && $product->managing_stock() ) { throw new DomainError( 'Disable WooCommerce stock management for this product before enabling the Katukina lot ledger.' ); } }
+        if ( ! empty( $form['data']['product_id'] ) ) { $product = wc_get_product( $form['data']['product_id'] ); }
         if ( empty( $product ) ) { throw new DomainError( 'Select an existing WooCommerce product or variation.' ); }
         $warehouse = Registry::get( Registry::positive_id( $input['warehouse_id'] ?? 0 ), 'warehouse' );
         Registry::get( (int) $warehouse['data']['company_id'], 'company' );
@@ -83,6 +84,7 @@ final class Inventory {
         if ( 'unit' === $form['unit'] && ( $quantity % 1000 !== 0 || $reserved_delta % 1000 !== 0 ) ) { throw new DomainError( 'Stock units must be whole numbers.' ); }
         Database::query( $wpdb->prepare( 'UPDATE ' . Database::table( 'lots' ) . ' SET balance=%d,reserved=%d WHERE id=%d', $balance, $reserved, $lot_id ) );
         Database::insert( 'movements', array( 'lot_id' => $lot_id, 'quantity' => $quantity, 'reserved_delta' => $reserved_delta, 'action' => $action, 'reference' => $reference, 'reason' => $reason, 'actor_id' => get_current_user_id(), 'created_at' => gmdate( 'Y-m-d H:i:s' ) ) );
+        NativeStock::sync( (int) $form['product_id'] );
     }
     public static function receive( array $input ): array {
         $reason = Database::reason( $input ); $quantity = Database::quantity( $input['quantity'] ?? '' );
@@ -138,7 +140,7 @@ final class Inventory {
         $lot = self::lot( Registry::positive_id( $input['lot_id'] ?? 0 ) );
         $form = Registry::get( (int) $lot['form_id'], 'form' )['data'];
         $product = ! empty( $form['product_id'] ) ? wc_get_product( $form['product_id'] ) : null;
-        if ( $product && $product->managing_stock() ) { throw new DomainError( 'This product has two stock authorities. Review WooCommerce stock management before reserving.', 409 ); }
+        if ( $product && NativeStock::amount( $product->get_stock_quantity('edit') ?? 0 ) !== NativeStock::physical($product->get_id()) ) { throw new DomainError( 'WooCommerce stock does not match the lot ledger. Reconcile stock before reserving.', 409 ); }
         if ( 'packaged' !== $form['type'] ) { throw new DomainError( 'Repack bulk stock before reserving it for sale.' ); }
         if ( ! empty( $lot['data']['expiry'] ) && $lot['data']['expiry'] < gmdate( 'Y-m-d' ) ) { throw new DomainError( 'The lot has expired.', 409 ); }
         $order_id = Registry::positive_id( $input['order_id'] ?? 0 ); $order = wc_get_order( $order_id );
@@ -224,7 +226,7 @@ final class Inventory {
         global $wpdb;
         $lots = Database::table( 'lots' ); $moves = Database::table( 'movements' );
         $reservations = Database::table( 'reservations' ); $production = Database::table( 'production_allocations' );
-        return $wpdb->get_results( "SELECT l.id,l.code,l.balance,l.reserved,
+        $errors = $wpdb->get_results( "SELECT l.id,l.code,l.balance,l.reserved,
             COALESCE(m.physical,0) ledger_balance,COALESCE(m.reserved,0) ledger_reserved,
             COALESCE(r.quantity,0)+COALESCE(p.quantity,0) active_reserved
             FROM $lots l
@@ -232,5 +234,6 @@ final class Inventory {
             LEFT JOIN (SELECT lot_id,SUM(quantity) quantity FROM $reservations WHERE state='active' GROUP BY lot_id) r ON r.lot_id=l.id
             LEFT JOIN (SELECT lot_id,SUM(quantity) quantity FROM $production WHERE state='active' GROUP BY lot_id) p ON p.lot_id=l.id
             HAVING balance <> ledger_balance OR reserved <> ledger_reserved OR reserved <> active_reserved OR balance < reserved OR reserved < 0", ARRAY_A );
+        return array_merge($errors,NativeStock::reconcile());
     }
 }

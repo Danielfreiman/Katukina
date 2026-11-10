@@ -5,11 +5,19 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Menu, Search, ShoppingBag, UserRound, X } from "lucide-react";
 import { DestinationSelector } from "@/components/commerce/destination";
+import { ProductSearch } from "./product-search";
 const navigation = [
-  ["The shop", "/shop"],
-  ["Collections", "/collections"],
+  ["All categories", "/shop"],
   ["Our story", "/about"],
-  ["Journal", "/journal"],
+] as const;
+const categoryNavigation = [
+  ["Rapé", "/collections/rape"],
+  ["Kuripe & Tepi", "/collections/kuripe-and-tepi"],
+  ["Sacred Incense", "/collections/sacred-incense"],
+  ["Herbal Teas", "/collections/herbal-teas"],
+  ["Shamanic Tools", "/collections/shamanic-tools"],
+  ["Beauty & Body", "/collections/beauty-and-body"],
+  ["Giftshop", "/collections/giftshop"],
 ] as const;
 export function SiteHeader() {
   const pathname = usePathname();
@@ -57,19 +65,6 @@ export function SiteHeader() {
               unoptimized
             />
           </Link>
-          <nav className="desktop-navigation" aria-label="Main navigation">
-            {navigation.map(([label, href]) => (
-              <Link
-                key={href}
-                href={href}
-                aria-current={pathname === href ? "page" : undefined}
-                data-active={isActive(href)}
-                onClick={() => setPanel(null)}
-              >
-                {label}
-              </Link>
-            ))}
-          </nav>
           <div className="header-actions">
             <button
               ref={searchButton}
@@ -103,21 +98,20 @@ export function SiteHeader() {
             </button>
           </div>
         </div>
+        <div className="header-categories">
+          <nav className="shell category-navigation" aria-label="Main navigation">
+            {[navigation[0], ...categoryNavigation, ...navigation.slice(1)].map(([label, href]) => (
+              <Link key={href} href={href}
+                aria-current={pathname === href ? "page" : undefined}
+                data-active={isActive(href)} onClick={() => setPanel(null)}>
+                {label}
+              </Link>
+            ))}
+          </nav>
+        </div>
         {panel === "search" && (
           <div className="header-panel" id="site-search">
-            <form className="search shell" action="/shop" role="search">
-              <Search size={24} aria-hidden />
-              <input
-                autoFocus
-                name="q"
-                aria-label="Search the collection"
-                placeholder="What would you like to discover?"
-                maxLength={100}
-              />
-              <button className="button primary" aria-label="Search">
-                Search
-              </button>
-            </form>
+            <ProductSearch onNavigate={() => setPanel(null)} />
           </div>
         )}
         {panel === "menu" && (
@@ -127,7 +121,9 @@ export function SiteHeader() {
             aria-label="Mobile navigation"
           >
             {[
-              ...navigation,
+              navigation[0],
+              ...categoryNavigation,
+              ...navigation.slice(1),
               ["Shipping & destinations", "/shipping"],
               ["My account", "/account"],
             ].map(([label, href]) => (

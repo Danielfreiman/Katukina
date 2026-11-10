@@ -86,6 +86,12 @@ final class NativeCatalog {
             else { woocommerce_wp_text_input( $args ); }
         }
         $form_id = (int) $product->get_meta( '_kat_form_record_id' );
+        if ( $product->get_id() && NativeStock::lots($product->get_id()) ) {
+            echo '<input type="hidden" name="kat_stock_expected[' . esc_attr($product->get_id()) . ']" value="' . esc_attr(Database::number(NativeStock::amount($product->get_stock_quantity('edit') ?? 0))) . '"><p class="form-field">Physical stock is linked to lots. For multiple lots, choose which lot receives the difference from your native stock quantity edit. Reservations remain separate.</p>';
+            $lot_options = array(''=>'Select the affected lot (required with multiple lots)');
+            foreach(NativeStock::lots($product->get_id()) as $lot) { $lot_options[$lot['id']]=$lot['code'].' — '.Database::number((int)$lot['balance']).' '.self::value($product,'unit'); }
+            woocommerce_wp_select(array('id'=>'kat_stock_lot_'.$product->get_id(),'name'=>'kat_stock_lot['.$product->get_id().']','label'=>'Stock adjustment lot','value'=>'','options'=>$lot_options,'wrapper_class'=>null===$index?'':'form-row form-row-full'));
+        }
         if ( $form_id ) { echo '<p class="form-field"><a class="button" href="' . esc_url( admin_url( 'edit.php?post_type=product&page=katukina-lots&product_id=' . $product->get_id() ) ) . '">View product lots and repacking</a></p>'; }
         self::imported_source_data( $product );
     }
@@ -194,6 +200,11 @@ final class NativeCatalog {
             if ( $options && ! isset( $options[ $value ] ) ) { throw new DomainError( 'Invalid option: ' . $label ); }
         }
         $identity = self::identity( $product );
+        $stock = $product->get_stock_quantity('edit');
+        if ( 'unit' === $identity['unit'] && null !== $stock && (float)$stock !== floor((float)$stock) ) { throw new DomainError('Stock units must be whole numbers.'); }
+        if ( ! NativeStock::$syncing && $product->is_type('variable') && $product->get_manage_stock('edit') ) {
+            foreach ( $product->get_children() as $child ) { if ( NativeStock::lots($child) ) { throw new DomainError('This product has lot-tracked variations. Edit stock on each variation rather than enabling a shared parent balance.',409); } }
+        }
         if ( 'packaged' === $identity['type'] && 'unit' !== $identity['unit'] ) { throw new DomainError( 'Packaged products use the stock unit: unit.' ); }
         if ( 'bulk' === $identity['type'] && ( 'unit' === $identity['unit'] || $identity['unit'] !== $identity['content_unit'] || '1.000' !== $identity['content_quantity'] ) ) { throw new DomainError( 'Bulk products use g or ml, with content set to 1 in the same unit.' ); }
         foreach ( array( 'origin_country', 'blocked_countries' ) as $field ) {
@@ -218,7 +229,8 @@ final class NativeCatalog {
         }
         // Snapshot written on first receipt, never a second editable product record.
         $frozen = $product->get_id() ? get_post_meta( $product->get_id(), '_kat_lot_identity', true ) : '';
-        if ( is_array( $frozen ) && ( $identity !== $frozen || $product->managing_stock() ) ) { throw new DomainError( 'This product has lot history. Preserve source, unit and content; physical stock is controlled by lots.', 409 ); }
+        if ( is_array( $frozen ) && $identity !== $frozen ) { throw new DomainError( 'This product has lot history. Preserve source, unit and content; physical stock is reconciled with its lots.', 409 ); }
+        if ( is_array($frozen) && !NativeStock::$syncing && array_key_exists('manage_stock',$product->get_changes()) && !$product->get_manage_stock('edit') ) { throw new DomainError('Keep stock management enabled for a lot-tracked product. Adjust its quantity or lots instead.',409); }
         if ( is_array( $frozen ) ) { $product->update_meta_data( '_kat_lot_identity', $frozen ); }
     }
     public static function bind( \WC_Product $product ): void {

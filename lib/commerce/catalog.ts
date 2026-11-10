@@ -118,18 +118,35 @@ export async function getVariations(
       (wildcard && !presentation?.choices.length)
     )
       return [];
+    const typeAndWeight =
+      option.attributes.length === 2 &&
+      option.attributes.every((attribute) =>
+        ["type", "weight"].includes(attribute.name.toLowerCase()),
+      );
     return [
       {
         ...child,
+        optionType: typeAndWeight
+          ? plainText(
+              option.attributes.find((a) => a.name.toLowerCase() === "type")!
+                .value,
+            )
+          : undefined,
+        optionWeight: typeAndWeight
+          ? plainText(
+              option.attributes.find((a) => a.name.toLowerCase() === "weight")!
+                .value,
+            )
+          : undefined,
         choices: wildcard ? presentation!.choices : [],
         optionLabel: wildcard
           ? plainText(presentation!.label)
           : option.attributes
               .map(
                 (attribute) =>
-                  `${option.attributes.length > 1 ? `${plainText(attribute.name)}: ` : ""}${plainText(attribute.value)}`,
+                  `${option.attributes.length > 1 && !typeAndWeight ? `${plainText(attribute.name)}: ` : ""}${plainText(attribute.value)}`,
               )
-              .join(" / "),
+              .join(typeAndWeight ? " · " : " / "),
       },
     ];
   });

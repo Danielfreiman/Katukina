@@ -1,8 +1,8 @@
-﻿"use client";
+"use client";
 import { useId, useRef, useState } from "react";
 import Link from "next/link";
 import { SlidersHorizontal, X, Search } from "lucide-react";
-import { Category, categoryTrail, formatPrice } from "@/lib/commerce/product";
+import { Category, categoryTrail } from "@/lib/commerce/product";
 import type { Brand } from "@/lib/commerce/catalog";
 import {
   CatalogQuery,
@@ -92,17 +92,9 @@ function CategoryLinks({ query, categories, selectedCategory }: Props) {
   );
 }
 function FilterForm(props: Props) {
-  const { path, query, brands, currency, precision, inStock } = props;
+  const { path, query, brands } = props;
   const id = useId();
   const [brandSearch, setBrandSearch] = useState("");
-  const ranges = [
-    { min: "", max: "10" },
-    { min: "10", max: "25" },
-    { min: "25", max: "50" },
-    { min: "50", max: "" },
-  ];
-  const money = (value: string) =>
-    formatPrice(String(Number(value) * 10 ** precision), currency, precision);
   return (
     <>
       <CategoryLinks {...props} />
@@ -112,7 +104,9 @@ function FilterForm(props: Props) {
         ))}
         <label htmlFor={`${id}-search`}>Search products</label>
         <div className="catalog-search-field">
-          <Search size={16} />
+          <button type="submit" aria-label="Search products">
+            <Search size={16} />
+          </button>
           <input
             id={`${id}-search`}
             name="q"
@@ -121,86 +115,6 @@ function FilterForm(props: Props) {
             placeholder="Find a product"
           />
         </div>
-        <details className="filter-section" open>
-          <summary>Popular filters</summary>
-          <label className="stock-checkbox">
-            <input
-              type="checkbox"
-              name="stock"
-              value="instock"
-              defaultChecked={query.stock === "instock"}
-            />
-            In stock <span>({inStock})</span>
-          </label>
-          <label className="stock-checkbox">
-            <input
-              type="checkbox"
-              name="sale"
-              value="yes"
-              defaultChecked={query.sale === "yes"}
-            />
-            On sale
-          </label>
-        </details>
-        <details className="filter-section" open>
-          <summary>Price {currency && `(${currency})`}</summary>
-          {currency && (
-            <nav className="price-range-links" aria-label="Price ranges">
-              {ranges.map((range) => (
-                <Link
-                  key={range.min + range.max}
-                  aria-current={
-                    query.min_price === range.min &&
-                    query.max_price === range.max
-                      ? "true"
-                      : undefined
-                  }
-                  href={catalogHref(path, query, {
-                    min_price: range.min,
-                    max_price: range.max,
-                    page: 1,
-                  })}
-                >
-                  {!range.min
-                    ? `Up to ${money(range.max)}`
-                    : !range.max
-                      ? `${money(range.min)} & above`
-                      : `${money(range.min)} – ${money(range.max)}`}
-                </Link>
-              ))}
-            </nav>
-          )}
-          <div className="price-inputs">
-            <label htmlFor={`${id}-min`}>
-              Min
-              <input
-                id={`${id}-min`}
-                type="number"
-                name="min_price"
-                min="0"
-                max="9999999"
-                step={10 ** -precision}
-                defaultValue={query.min_price}
-                inputMode="decimal"
-                placeholder="Any"
-              />
-            </label>
-            <label htmlFor={`${id}-max`}>
-              Max
-              <input
-                id={`${id}-max`}
-                type="number"
-                name="max_price"
-                min="0"
-                max="9999999"
-                step={10 ** -precision}
-                defaultValue={query.max_price}
-                inputMode="decimal"
-                placeholder="Any"
-              />
-            </label>
-          </div>
-        </details>
         {!!brands.length && (
           <details className="filter-section" open>
             <summary>Brands</summary>
@@ -220,6 +134,9 @@ function FilterForm(props: Props) {
                   type="radio"
                   name="brand"
                   value=""
+                  onChange={(event) =>
+                    event.currentTarget.form?.requestSubmit()
+                  }
                   defaultChecked={!query.brand}
                 />
                 All brands
@@ -238,6 +155,9 @@ function FilterForm(props: Props) {
                     type="radio"
                     name="brand"
                     value={brand.slug}
+                    onChange={(event) =>
+                      event.currentTarget.form?.requestSubmit()
+                    }
                     defaultChecked={query.brand === brand.slug}
                   />
                   {plainText(brand.name)} <span>({brand.count})</span>
@@ -246,40 +166,6 @@ function FilterForm(props: Props) {
             </div>
           </details>
         )}
-        <details className="filter-section" open>
-          <summary>Customer rating</summary>
-          <label className="stock-checkbox">
-            <input
-              type="radio"
-              name="rating"
-              value=""
-              defaultChecked={!query.rating}
-            />
-            All ratings
-          </label>
-          {[5, 4, 3, 2, 1].map((rating) => (
-            <label className="stock-checkbox rating-option" key={rating}>
-              <input
-                type="radio"
-                name="rating"
-                value={rating}
-                defaultChecked={query.rating === String(rating)}
-                aria-label={`${rating} stars & up`}
-              />
-              <span aria-hidden="true" className="rating-stars">
-                {"★".repeat(rating)}
-                {"☆".repeat(5 - rating)}
-              </span>
-              <span>& up</span>
-            </label>
-          ))}
-        </details>
-        <button className="button primary" type="submit">
-          Apply filters
-        </button>
-        <a className="filter-clear" href={path}>
-          Clear all filters
-        </a>
       </form>
     </>
   );

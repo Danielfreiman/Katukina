@@ -8,7 +8,7 @@ test("public pages use Next.js, render SEO and remain responsive", async ({
     .getByRole("button", { name: "Reject optional", exact: true })
     .click();
   await expect(page.getByRole("heading", { level: 1 })).toContainText(
-    "Find your",
+    "Closer to nature.",
   );
   const html = await (await request.get("/")).text();
   expect(html).toContain("application/ld+json");
@@ -63,7 +63,7 @@ test("public pages use Next.js, render SEO and remain responsive", async ({
   ).toBeFocused();
   await page.getByRole("button", { name: "Open search", exact: true }).click();
   await page
-    .getByRole("textbox", { name: "Search the collection" })
+    .getByRole("combobox", { name: "Search the collection" })
     .fill("katukina-no-results");
   await page.getByRole("button", { name: "Search", exact: true }).click();
   await expect(page).toHaveURL(/\/shop\?q=katukina-no-results/);

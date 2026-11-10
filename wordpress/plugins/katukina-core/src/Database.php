@@ -86,7 +86,7 @@ final class Database {
                 catch ( \Throwable $notification_error ) { error_log( 'Katukina post-commit scheduling failed: ' . get_class( $notification_error ) ); }
             }
             return $result;
-        } catch ( \Throwable $error ) { $wpdb->query( 1 === $level ? 'ROLLBACK' : 'ROLLBACK TO SAVEPOINT ' . $savepoint ); self::$depth--; throw $error; }
+        } catch ( \Throwable $error ) { $wpdb->query( 1 === $level ? 'ROLLBACK' : 'ROLLBACK TO SAVEPOINT ' . $savepoint ); self::$depth--; NativeStock::rollback_caches(); throw $error; }
     }
     public static function quantity( mixed $value, bool $signed = false ): int {
         if ( ! is_scalar( $value ) || ! preg_match( $signed ? '/^-?\d{1,9}(\.\d{1,3})?$/D' : '/^\d{1,9}(\.\d{1,3})?$/D', (string) $value ) ) { throw new DomainError( 'Invalid quantity: use a decimal point and up to three decimal places.' ); }

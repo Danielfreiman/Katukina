@@ -96,8 +96,18 @@ final class Channels {
         add_action( 'woocommerce_store_api_validate_add_to_cart', array( self::class, 'validate_product' ) );
         add_action( 'woocommerce_store_api_validate_cart_item', array( self::class, 'validate_product' ) );
         add_filter( 'woocommerce_product_is_in_stock', static function ( $in_stock, $product ) {
-            if ( ! self::$store_request || ! Commerce::tracked_form( $product->get_id() ) ) { return $in_stock; }
-            return self::available( $product->get_id() ) > 0;
+            if ( ! self::$store_request ) { return $in_stock; }
+            if ( Commerce::tracked_form( $product->get_id() ) ) { return self::available( $product->get_id() ) > 0; }
+            if ( $product->is_type('variable') ) {
+                $tracked=false; $available=false; $channel=self::current();
+                foreach($product->get_children() as $id){
+                    $child=wc_get_product($id); if(!$child){continue;}
+                    $tracked = (bool) Commerce::tracked_form($id) || $tracked;
+                    if($channel && self::listed($child,(int)$channel['id']) && $child->is_in_stock()){$available=true;}
+                }
+                if($tracked){return $available;}
+            }
+            return $in_stock;
         }, 20, 2 );
         add_filter( 'woocommerce_store_api_product_quantity_maximum', static function ( $maximum, $product ) {
             return Commerce::tracked_form( $product->get_id() ) ? min( $maximum, intdiv( self::available( $product->get_id() ), 1000 ) ) : $maximum;

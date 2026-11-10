@@ -1,4 +1,25 @@
 # Histórico do discovery Katukina
+## 2026-11-10 — Navegação unificada do header
+
+- Correção solicitada pelo responsável: “The shop” passa a “All categories”, mantendo o destino `/shop`; “Our story” fica na mesma faixa das categorias principais. Removido “Journal” do header desktop e mobile. A primeira linha contém marca e ações, sem navegação institucional separada.
+- Typecheck aprovado; verificação responsiva local da navegação e do comportamento sticky.
+## 2026-11-10 — Busca dinâmica no header
+
+- Pedido do responsável: sugerir produtos enquanto digita. Implementado endpoint público de leitura do catálogo WooCommerce e painel com até seis sugestões, foto, nome, preço e link direto. Consulta a partir de dois caracteres, com espera de 250 ms e cancelamento de requisições anteriores.
+- Mantidos Enter para busca completa e link para todos os resultados. Setas e Enter selecionam sugestões; Escape fecha o painel e devolve o foco. Estados de carregamento, nenhum resultado e indisponibilidade anunciados de forma acessível.
+- Validação executada: typecheck, paleta/contraste e diff-check; dois testes Playwright aprovados cobrindo catálogo real, limite de resultados, celular, teclado, respostas atrasadas, resultado vazio e falha. Captura local: `artifacts/live-search-mobile.png`. Sem publicação.
+
+## 2026-11-10 — Categorias principais no header
+
+- Removido “Collections” da navegação do header a pedido do responsável. Atalhos confirmados contra o catálogo local: Rapé, Kuripe & Tepi, Sacred Incense, Herbal Teas, Shamanic Tools, Beauty & Body e Giftshop. É uma seleção de navegação, sem alterar a taxonomia WooCommerce.
+- Desktop em duas linhas: marca/navegação institucional/ações e faixa de categorias. O header continua sticky; altura e afastamentos acompanham a nova composição. Em larguras menores, categorias entram no menu mobile com rolagem própria e fechamento ao navegar.
+- Typecheck e verificação da paleta aprovados; conferência de links, indicação da categoria ativa, ausência de overflow e comportamento sticky no navegador.
+
+## 2026-11-10 — Header acompanha a rolagem
+
+- Pedido do responsável: manter o header visível durante a rolagem. Aplicado `position: sticky` no topo, com a faixa de destino seguindo o fluxo normal.
+- Ajustados os afastamentos dos filtros, painel de compra e âncoras para respeitar a altura do header no desktop e celular.
+- Validação: typecheck e diff-check aprovados; Edge em 1440 e 390 px confirmou header no topo após rolar 650 px, busca funcional e menu mobile acessível.
 
 ## 2026-11-09 — Grade de produtos da Home
 
@@ -80,6 +101,53 @@
 - Atualizadas 1.592 mídias usadas por 377 produtos e 908 variações, preservando IDs, capas, galerias e imagens de apresentação. Backup SQL com restauração isolada validada, piloto de três mídias aplicado/revertido e arquivos antigos mantidos. Hashes dos dados de catálogo, pedidos e operações permaneceram iguais.
 - Conferidos WebP/dimensões/miniaturas/hashes e HTTP dos 1.592 arquivos; Store API de 370 produtos publicada com novas URLs. Navegador desktop/celular e acesso administrativo conferidos. Typecheck, 19 testes Python e sintaxe dos wrappers aprovados. Limites e timeouts intermediários registrados no guia.
 - Cache privado atualizado para 1.710 WebP e novo ZIP privado verificado, sem sobrescrever o pacote anterior. README e instalação local apontam para a versão atual; nenhuma publicação, alteração de outra instalação ou validação de fidelidade de todas as fotos foi realizada.
+
+## 2026-11-03 — Volume como escolha direta
+
+- **Correção confirmada pelo responsável:** Arapiraca Powder exigia selecionar embalagem e depois um único peso, sem escolha real na segunda etapa. Volumes únicos agora selecionam diretamente a variação: 10 ml, 25 ml, 60 ml. Embalagem e peso são detalhes da seleção.
+- Regra aplicada a 116 produtos / 304 variações do catálogo migrado. Volumes iguais ou descrições com cortes/origens diferentes não são colapsados. IDs e dados do WooCommerce preservados. Auditor global ampliado para identificar esse padrão também nos atributos estruturados.
+- Três testes, TypeScript e Chromium aprovados: Arapiraca, seleção de SKU, peso informativo, Voltar, recarga e mobile.
+
+## 2026-11-03 — Remoção dos filtros rápidos
+
+- **CONFIRMADO pelo responsável:** remover a faixa Quick filters com In stock, On sale e 4 stars & up das páginas de catálogo. Removidos o bloco compartilhado e seus estilos desktop/mobile.
+- TypeScript aprovado; nenhuma referência ao bloco permanece nos componentes ou estilos.
+
+## 2026-11-03 — Revisão global das variações exibidas
+
+- **CONFIRMADO pelo responsável:** simplificar todas as opções exibidas, destacando apenas o que muda. Revisados 370 produtos e 908 variações pela API local; relatório antes/depois e IDs em artifacts/option-display-audit.json.
+- Nos 222 produtos sem Type/Weight, rótulos mais curtos e ordenação natural; 43 compartilham especificações uma única vez. Nos 37 produtos com tipo único, pesos aparecem sem etapa redundante. Dezoito rótulos técnicos de opção única passam a Single option.
+- Beads exibem 25/50/100 beads, mantendo 9 mm e pacote no contexto comum. Materiais, formatos, intensidades, volumes e quantidades diferentes são preservados. Nenhuma alteração no cadastro de origem, preços ou SKUs.
+- Auditoria global, cinco testes, TypeScript e Chromium aprovados. Critérios, exemplos e reprodução: [OPTION-DISPLAY-REVIEW.md](OPTION-DISPLAY-REVIEW.md).
+
+## 2026-11-03 — Seleção de tipo e depois peso na vitrine
+
+- **Correção confirmada pelo responsável:** a separação no backend também deve organizar a escolha pública. Produtos com Type/Weight agora mostram primeiro os tipos e, em seguida, apenas os pesos do tipo escolhido, em ordem crescente.
+- Trocar o tipo limpa a variação anterior. Preço, SKU, imagem, disponibilidade e compra continuam vinculados ao ID real da combinação; URL, recarga, Voltar e limpeza da seleção preservam o estado esperado. Produtos com outros atributos mantêm a seleção anterior.
+- TypeScript e Chromium aprovados: combinações de Emburana bark, preço/SKU, troca de tipo, recarga, Voltar, limpar seleção e largura móvel de 390 px.
+
+## 2026-11-03 — Tipo e peso separados no WooCommerce
+
+- **CONFIRMADO pelo responsável:** separar o tipo do peso no backend. Implementada migração local reversível para atributos nativos Type e Weight, com plano, backup SQL, transação, verificação de identidade e preservação de dados.
+- Aplicada a 148 produtos / 377 variações com peso explícito; 222 produtos fora dos critérios preservados. Mesmos IDs, SKUs, preços USD, imagens e estoque. Vitrine mantém textos compactos.
+- Plano, TypeScript, migração, repetição segura, verificação de preços e teste do editor nativo e vitrine no Chromium aprovados. Reversão não executada. Procedimento e limites: [OPTION-ATTRIBUTES.md](OPTION-ATTRIBUTES.md).
+
+## 2026-11-03 — Nomes resumidos das opções
+
+- **CONFIRMADO pelo responsável:** reduzir redundâncias nas descrições das variações para facilitar a leitura. A vitrine omite o prefixo já informado no nome do produto, padroniza gr para g e remove o sufixo de uma unidade apenas quando há peso ou volume explícito.
+- Formatos, corte fino e embalagens com múltiplas unidades continuam distintos; colisões retornam aos rótulos originais. Dados de origem e IDs não são alterados.
+- TypeScript e verificações de transformação aprovados. Chromium confirmou as 11 opções distintas de Emburana bark e ausência de rolagem horizontal em 390 px.
+
+## 2026-11-03 — Opções de produto em linguagem de consumo
+
+- **CONFIRMADO pelo responsável:** substituir o termo técnico presentation na vitrine. Cards usam 1 option / 2 options; seleção e mensagens de compra usam Choose an option. O atributo vindo do catálogo também recebe esse rótulo quando se chama Presentation.
+- TypeScript e verificação no Chromium da categoria Aromatics e da página de produto aprovados.
+
+## 2026-11-03 — Simplificação dos filtros laterais
+
+- **CONFIRMADO pelo responsável:** remover os blocos mostrados na captura: disponibilidade/promoções, preço e avaliação, com os controles de aplicar e limpar.
+- Removidos na lateral e no diálogo móvel. Busca preservada por Enter ou lupa; marcas, quando disponíveis, aplicam a seleção automaticamente.
+- Validação: TypeScript aprovado e verificação no Chromium confirmou ausência dos blocos em desktop/mobile e busca funcional.
 
 ## 2026-10-27 — Fotos diferentes após instalação em outro PC
 

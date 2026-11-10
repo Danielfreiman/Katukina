@@ -16,6 +16,7 @@ require_once __DIR__ . '/src/NativeAdmin.php';
 require_once __DIR__ . '/src/Database.php';
 require_once __DIR__ . '/src/Registry.php';
 require_once __DIR__ . '/src/NativeCatalog.php';
+require_once __DIR__ . '/src/NativeStock.php';
 require_once __DIR__ . '/src/NativeOrders.php';
 require_once __DIR__ . '/src/Inventory.php';
 require_once __DIR__ . '/src/Workflow.php';
@@ -45,6 +46,7 @@ add_action( 'before_woocommerce_init', static function () {
 Headless::register();
 NativeAdmin::register();
 NativeCatalog::register();
+NativeStock::register();
 NativeOrders::register();
 add_action( 'plugins_loaded', array( Database::class, 'install' ), 20 );
 Workflow::register();

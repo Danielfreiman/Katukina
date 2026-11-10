@@ -172,36 +172,6 @@ export async function CatalogPage({
               query={query}
             />
           </div>
-          <nav className="catalog-quick-filters" aria-label="Quick filters">
-            <span>Quick filters</span>
-            <Link
-              aria-current={query.stock ? "true" : undefined}
-              href={catalogHref(path, query, {
-                stock: query.stock ? "" : "instock",
-                page: 1,
-              })}
-            >
-              In stock
-            </Link>
-            <Link
-              aria-current={query.sale ? "true" : undefined}
-              href={catalogHref(path, query, {
-                sale: query.sale ? "" : "yes",
-                page: 1,
-              })}
-            >
-              On sale
-            </Link>
-            <Link
-              aria-current={query.rating === "4" ? "true" : undefined}
-              href={catalogHref(path, query, {
-                rating: query.rating === "4" ? "" : "4",
-                page: 1,
-              })}
-            >
-              4 stars & up
-            </Link>
-          </nav>
           {errors.length > 0 && (
             <div className="commerce-error" role="alert">
               {errors.join(" ")}

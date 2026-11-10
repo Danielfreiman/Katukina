@@ -1,5 +1,7 @@
 # Reproduzir o ambiente em outro computador
 
+**Estado local mais recente, 2026-11-09:** esta máquina usa as fotos de `Editadas com marca dagua.rar`, com as versões anteriores removidas dos uploads. Consulte [a aplicação e recuperação deste lote](WATERMARK-PHOTOS-2026-11-09.md). As instruções de pacotes de 6 de novembro abaixo são a base histórica de instalação; não devem sobrescrever este lote. A atualização do Git não modifica as fotos nem o banco existentes.
+
 **Fotos em 2026-11-06:** esta instalação recebeu o ZIP de atualização WebP e teve as fotos antigas removidas dos uploads, conforme o [registro da aplicação e limpeza](PHOTOS-WEBP-2026-11-06.md). Para instalação nova, o pacote completo WebP descrito abaixo já inclui as fotos novas; para um catálogo existente com JPEGs, usar o ZIP de atualização de fotos. A remoção posterior dos arquivos antigos tem procedimento e recuperação próprios no registro da limpeza. `git pull` não transporta mídias nem banco. Não reimportar JPEGs antigos sobre o cache WebP atualizado.
 
 Este procedimento recria o ambiente de **desenvolvimento e teste** a partir do Git: Next.js, WordPress, WooCommerce, plugin Katukina, seis produtos com fotos e configuração fictícia de checkout. Os limites funcionais permanecem na [auditoria de cobertura](FUNCTIONAL-COVERAGE.md).

@@ -78,7 +78,8 @@ export function ProductGrid({ products }: { products: Product[] }) {
               )}
               {product.type === "variable" && !!product.variations?.length && (
                 <Link className="product-more-options" href={href}>
-                  + {product.variations.length} {product.variations.length === 1 ? "presentation" : "presentations"}
+                  {product.variations.length}{" "}
+                  {product.variations.length === 1 ? "option" : "options"}
                 </Link>
               )}
               <p className="product-price">

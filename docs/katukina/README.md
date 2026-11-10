@@ -6,6 +6,18 @@ O projeto local contém Next.js e WordPress + WooCommerce em Docker. Site e pain
 
 ## Entregas
 
+Atualização do GitHub em 2026-11-09: [16 commits incorporados, conciliação local e validações](GITHUB-INTEGRATION-2026-11-09.md).
+
+Fotos vigentes: [substituição por imagens com marca d’água e exclusão das versões antigas](WATERMARK-PHOTOS-2026-11-09.md), solicitada em 2026-11-09.
+
+Pacote de fotos recebido em 2026-11-09: [WebP de 6 de novembro, compatibilidade e aplicação local](WEBP-PACKAGE-2026-11-06.md).
+
+Atualizações de 2026-11-04: [recebimento e estoque nativo interligados, busca por SKU e testes](STOCK-INTEGRATION-2026-11-04.md); [pattern sutil nos swatches](SWATCH-PATTERN-2026-11-04.md).
+
+Home redesenhada em 2026-11-04: [paleta urucum, preservação do pattern e validações](HOME-URUCUM-2026-11-04.md).
+
+Atualização de fotos por SKU em 2026-11-04: [fonte, critérios de associação e reprodução local](IMAGE-UPDATE-2026-11-04.md).
+
 Atualização de 2026-10-26: a [expansão do backend e sua matriz de implementação](../IMPLEMENTATION_STATUS.md) documentam o novo pedido de auditoria e implementação nativa. Os documentos anteriores abaixo permanecem como evidência histórica; consulte a matriz nova para cobertura, testes executados e bloqueios atuais.
 
 A [auditoria de cobertura funcional de 2026-10-22](FUNCTIONAL-COVERAGE.md) é a referência para comparar o escopo original com a implementação vigente. Sendcloud, HS automático/invoice/API e publicação seletiva multi-site estão pendentes; cadastros preparatórios não equivalem a essas integrações.

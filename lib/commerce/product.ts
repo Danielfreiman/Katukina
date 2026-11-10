@@ -56,6 +56,8 @@ export type PresentationChoice = {
 };
 export type ProductVariation = Product & {
   optionLabel: string;
+  optionType?: string;
+  optionWeight?: string;
   choices?: PresentationChoice[];
 };
 

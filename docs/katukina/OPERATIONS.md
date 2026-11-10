@@ -2,6 +2,8 @@
 
 Versão 1.1 · 2026-10-19 · Katukina Core 0.3.0.
 
+**Atualização confirmada em 2026-11-04:** [estoque interligado, recebimento e busca no painel — ADR-011](STOCK-INTEGRATION-2026-11-04.md). O pedido de sincronização nos dois sentidos substitui a exigência histórica abaixo de desativar o estoque nativo antes do primeiro lote. Saldo anterior é preservado por transferência explícita; movimentos de lotes atualizam a quantidade WooCommerce e edições nativas ajustam o lote identificado.
+
 Atualização em 2026-10-26: Katukina Core 0.4.0 amplia produção, canais/preços explícitos, alfândega, estoque e comunicação. Consulte a [matriz atual](../IMPLEMENTATION_STATUS.md), o [mapa das telas nativas](../ADMIN_UI_MAP.md) e os [contratos](../API_CONTRACTS.md). O conteúdo abaixo preserva a situação anterior e não deve ser usado para concluir que as novas integrações externas foram homologadas.
 
 **Cobertura revisada em 2026-10-22:** consulte a [auditoria requisito a requisito](FUNCTIONAL-COVERAGE.md). O escopo inicial está incompleto: Sendcloud não instalado, classificação HS automática/invoice/API ausente e publicação seletiva de produtos em múltiplos sites ausente. As extensões administrativas não comprovam integração comercial.

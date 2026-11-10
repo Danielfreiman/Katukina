@@ -4,7 +4,9 @@ if (!defined('WP_CLI') || !WP_CLI || 'local' !== wp_get_environment_type()) {
     throw new RuntimeException('Local CLI only.');
 }
 global $wpdb;
-$root = __DIR__ . '/.imports/edited-images-2026-10-27';
+$batch = $args[1] ?? 'edited-images-2026-10-27';
+if (!preg_match('/^[a-z0-9-]+$/D', $batch)) { WP_CLI::error('Invalid batch directory.'); }
+$root = __DIR__ . '/.imports/' . $batch;
 $manifest = json_decode(file_get_contents($root . '/manifest.json'), true, 512, JSON_THROW_ON_ERROR);
 $mode = $args[0] ?? 'inspect';
 if (!in_array($mode, ['inspect', 'apply', 'verify'], true)) { WP_CLI::error('Use inspect, apply or verify.'); }
@@ -16,7 +18,7 @@ foreach ($manifest['items'] as $key => $item) {
     $parents[$key] = $parent;
 }
 foreach ($manifest['files'] as $row) {
-    $name = basename($row['file']); $path = realpath($root . '/' . $row['file']);
+    $name = $row['name'] ?? basename($row['file']); $path = realpath($root . '/' . $row['file']);
     if (!$path || !str_starts_with($path, realpath($root) . '/') || !preg_match('/^(\d+)(?:-(\d+)_(\d+))?\.jpg$/D', $name, $match)
         || isset($files[$name]) || $match[1] !== (string)$row['item'] || hash_file('sha256', $path) !== $row['sha256']) {
         WP_CLI::error('Invalid or changed source: ' . $name);
@@ -34,9 +36,6 @@ foreach ($manifest['files'] as $row) {
     }
     $files[$name] = $row + ['path' => $path]; $groups[$row['item']][] = $name;
 }
-foreach ($parents as $key => $parent) {
-    if (!isset($files[$key . '.jpg'])) { WP_CLI::error('Missing cover for ' . $key); }
-}
 $snapshot = static function () use ($wpdb) {
     $result = [];
     $result['products'] = $wpdb->get_results("SELECT ID,post_type,post_parent,post_status,post_title,post_content,post_excerpt FROM {$wpdb->posts} WHERE post_type IN ('product','product_variation') ORDER BY ID", ARRAY_A);
@@ -50,13 +49,27 @@ $attachment_name = static function ($id) {
     $edited = get_post_meta($id, '_kat_edited_image_filename', true);
     if ($edited) { return $edited; }
     $url = get_post_meta($id, '_kat_workbook_image_source_url', true);
-    return $url ? basename(wp_parse_url($url, PHP_URL_PATH)) : '';
+    if ($url) { return basename(wp_parse_url($url, PHP_URL_PATH)); }
+    // Portable imports can have an empty source URL. Their original SKU
+    // filename still identifies which approved photo replaces the attachment.
+    $file = basename((string)get_attached_file($id));
+    $file = preg_replace('/-scaled(?=\.[^.]+$)/', '', $file);
+    return preg_match('/^\d+(?:-\d+_\d+)?\.jpg$/iD', $file) ? $file : '';
 };
 $find_attachment = static function ($row) use ($wpdb) {
     return (int)$wpdb->get_var($wpdb->prepare("SELECT p.ID FROM {$wpdb->posts} p JOIN {$wpdb->postmeta} m ON m.post_id=p.ID WHERE p.post_type='attachment' AND m.meta_key='_kat_edited_image_sha256' AND m.meta_value=%s ORDER BY p.ID LIMIT 1", $row['sha256']));
 };
-$verify = static function () use ($files, $parents, $variations, $find_attachment) {
+$verify = static function () use ($files, $parents, $variations, $find_attachment, $attachment_name) {
     $errors = []; $count = 0;
+    foreach ($parents as $product) {
+        $parent = wc_get_product($product->get_id());
+        foreach (array_merge([$parent->get_image_id()], $parent->get_gallery_image_ids()) as $reference) {
+            $name = $attachment_name($reference);
+            if (isset($files[$name]) && (int)$reference !== $find_attachment($files[$name])) {
+                $errors[] = 'Superseded image reference: ' . $parent->get_id() . ' / ' . $name;
+            }
+        }
+    }
     foreach ($files as $name => $row) {
         $id = $find_attachment($row); $path = $id ? wp_get_original_image_path($id) : false;
         if (!$path || !is_file($path) || hash_file('sha256', $path) !== $row['sha256']) { $errors[] = 'Image mismatch: ' . $name; continue; }
@@ -88,7 +101,13 @@ try {
     foreach (array_merge(array_values($parents), array_values($variations)) as $p) {
         $before['images'][$p->get_id()] = ['featured'=>$p->get_image_id('edit'),'gallery'=>$p->get_gallery_image_ids()];
     }
-    if (!file_exists($root . '/before.json')) { file_put_contents($root . '/before.json', wp_json_encode($before, JSON_PRETTY_PRINT)); }
+    $saved_before = file_exists($root . '/before.json')
+        ? json_decode(file_get_contents($root . '/before.json'), true, 512, JSON_THROW_ON_ERROR)
+        : $before;
+    // A later approved source selection may add products to this same batch.
+    // Preserve each product's earliest references, including those added later.
+    $saved_before['images'] += $before['images'];
+    file_put_contents($root . '/before.json', wp_json_encode($saved_before, JSON_PRETTY_PRINT));
     $imported = []; $created = 0;
     foreach ($files as $name => $row) {
         $id = $find_attachment($row);
@@ -108,7 +127,10 @@ try {
         $imported[$name] = $id;
     }
     foreach ($parents as $key => $parent) {
-        $cover = $imported[$key . '.jpg']; $gallery = [];
+        // A parent can use a variation photo as its cover. Replace that exact
+        // filename too, even when the batch has no standalone ITEM.jpg.
+        $old_cover = (int)$parent->get_image_id();
+        $cover = $imported[$key . '.jpg'] ?? $imported[$attachment_name($old_cover)] ?? $old_cover; $gallery = [];
         foreach (array_map('intval', array_merge([$parent->get_image_id()], $parent->get_gallery_image_ids())) as $old_id) {
             if (!$old_id) { continue; }
             $name = $attachment_name($old_id); $replacement = $imported[$name] ?? $old_id;
@@ -119,7 +141,7 @@ try {
         wc_delete_product_transients($parent->get_id());
     }
     foreach ($variations as $sku => $variation) {
-        if (!isset($imported[$sku . '_01.jpg'])) { throw new RuntimeException('Missing variation cover: ' . $sku); }
+        if (!isset($imported[$sku . '_01.jpg'])) { continue; }
         $variation->set_image_id($imported[$sku . '_01.jpg']); $variation->save();
     }
     $report = $verify(); $report['created_attachments'] = $created;

@@ -13,6 +13,8 @@ import { plainText } from "@/lib/wordpress/text";
 import { ProductGallery } from "./product-gallery";
 import { AddToCart } from "@/components/commerce/add-to-cart";
 import { SubscriptionForm } from "@/components/commerce/subscription";
+import { describeOptions } from "@/lib/commerce/option-display";
+import { TypeWeightOptions } from "./type-weight-options";
 
 export function ProductPurchase({
   product,
@@ -24,22 +26,50 @@ export function ProductPurchase({
   initialVariation: number;
 }) {
   const [selectedId, setSelectedId] = useState(initialVariation);
+  const [selectedType, setSelectedType] = useState(
+    variations.find((option) => option.id === initialVariation)?.optionType ??
+      "",
+  );
+  const groupedOptions =
+    variations.length > 0 &&
+    variations.every((option) => option.optionType && option.optionWeight);
   const [quantity, setQuantity] = useState("");
   const [pending, setPending] = useState(false);
   const [attributes, setAttributes] = useState<Record<string, string>>({});
   useEffect(() => {
     const restore = () => {
-      setSelectedId(
-        Number(new URL(window.location.href).searchParams.get("variation")) ||
-          0,
+      const params = new URL(window.location.href).searchParams;
+      const id = Number(params.get("variation")) || 0;
+      const type =
+        variations.find((option) => option.id === id)?.optionType ??
+        params.get("option_type") ??
+        "";
+      setSelectedId(id);
+      setSelectedType(
+        variations.some((option) => option.optionType === type) ? type : "",
       );
       setQuantity("");
       setAttributes({});
     };
+    restore();
     window.addEventListener("popstate", restore);
     return () => window.removeEventListener("popstate", restore);
-  }, []);
+  }, [variations]);
+  const optionDescription = describeOptions(
+    productName(product),
+    variations.map((option) => option.optionLabel),
+  );
+  const optionLabels = optionDescription.labels;
+  const orderedOptions = variations
+    .map((option, index) => ({ option, index }))
+    .sort((a, b) =>
+      optionLabels[a.index].localeCompare(optionLabels[b.index], "en", {
+        numeric: true,
+      }),
+    );
   const selected = variations.find((item) => item.id === selectedId);
+  const selectedLabel =
+    optionLabels[variations.findIndex((item) => item.id === selectedId)];
   const variable = product.type === "variable";
   const item = variable ? selected : product;
   const limits = quantityLimits(item ?? product);
@@ -60,13 +90,18 @@ export function ProductPurchase({
     (image, index) =>
       imageList.findIndex((other) => other.id === image.id) === index,
   );
-  const choose = (id: number) => {
+  const choose = (id: number, type = "") => {
     setSelectedId(id);
+    setSelectedType(
+      variations.find((option) => option.id === id)?.optionType ?? type,
+    );
     setQuantity("");
     setAttributes({});
     const url = new URL(window.location.href);
     if (id) url.searchParams.set("variation", String(id));
     else url.searchParams.delete("variation");
+    if (!id && type) url.searchParams.set("option_type", type);
+    else url.searchParams.delete("option_type");
     window.history.pushState(null, "", url.pathname + url.search);
   };
   const supported = product.type === "simple" || variable;
@@ -98,7 +133,7 @@ export function ProductPurchase({
           <span>
             {product.prices.currency_code}
             {variable && !selected
-              ? " · Select a presentation for its price"
+              ? " · Select an option to see its price"
               : ""}
           </span>
         </div>
@@ -107,50 +142,72 @@ export function ProductPurchase({
           {variable && (
             <fieldset className="presentation-field">
               <legend>
-                {product.attributes?.filter((a) => a.has_variations).length ===
-                1
-                  ? plainText(
-                      product.attributes.find((a) => a.has_variations)!.name,
-                    )
-                  : "Presentation"}
+                {groupedOptions
+                  ? "Choose your option"
+                  : optionDescription.heading !== "Option"
+                    ? optionDescription.heading
+                    : product.attributes?.filter((a) => a.has_variations)
+                          .length === 1
+                      ? plainText(
+                          product.attributes.find((a) => a.has_variations)!
+                            .name,
+                        ).replace(/^presentations?$/i, "Option")
+                      : "Option"}
               </legend>
-              <p className="presentation-selection">
-                {selected?.optionLabel ?? "Choose a presentation"}
-              </p>
-              <div className="presentation-swatches">
-                {variations.map((option) => (
-                  <label
-                    key={option.id}
-                    className={`presentation-swatch${!canPurchase(option) ? " swatch-unavailable" : ""}`}
-                  >
-                    <input
-                      type="radio"
-                      name="presentation"
-                      value={option.id}
-                      checked={selected?.id === option.id}
-                      onChange={() => choose(option.id)}
-                      aria-label={option.optionLabel}
-                      aria-describedby={`presentation-detail-${option.id}`}
-                    />
-                    <span className="swatch-content">
-                      <strong>{option.optionLabel}</strong>
-                      <span id={`presentation-detail-${option.id}`}>
-                        {productPrice(option) || "Price unavailable"}
-                        {!canPurchase(option) && (
-                          <small>
-                            {option.is_in_stock
-                              ? "Unavailable"
-                              : "Out of stock"}
-                          </small>
-                        )}
-                      </span>
-                    </span>
-                  </label>
-                ))}
-              </div>
-              {selected && (
+              {groupedOptions ? (
+                <TypeWeightOptions
+                  options={variations}
+                  type={selectedType}
+                  selectedId={selectedId}
+                  onType={(type) => choose(0, type)}
+                  onWeight={(id) => choose(id)}
+                />
+              ) : (
                 <>
-                  {selected.choices?.map((field) => (
+                  {!!optionDescription.shared.length && (
+                    <p className="option-shared-details">
+                      {optionDescription.shared.join(" · ")}
+                    </p>
+                  )}
+                  <p className="presentation-selection">
+                    {selectedLabel ?? "Choose an option"}
+                  </p>
+                  <div className="presentation-swatches">
+                    {orderedOptions.map(({ option, index }) => (
+                      <label
+                        key={option.id}
+                        className={`presentation-swatch${!canPurchase(option) ? " swatch-unavailable" : ""}`}
+                      >
+                        <input
+                          type="radio"
+                          name="presentation"
+                          value={option.id}
+                          checked={selected?.id === option.id}
+                          onChange={() => choose(option.id)}
+                          aria-label={optionLabels[index]}
+                          aria-describedby={`presentation-detail-${option.id}`}
+                        />
+                        <span className="swatch-content">
+                          <strong>{optionLabels[index]}</strong>
+                          <span id={`presentation-detail-${option.id}`}>
+                            {productPrice(option) || "Price unavailable"}
+                            {!canPurchase(option) && (
+                              <small>
+                                {option.is_in_stock
+                                  ? "Unavailable"
+                                  : "Out of stock"}
+                              </small>
+                            )}
+                          </span>
+                        </span>
+                      </label>
+                    ))}
+                  </div>
+                </>
+              )}
+              {(selected || (groupedOptions && selectedType)) && (
+                <>
+                  {selected?.choices?.map((field) => (
                     <label key={field.attribute}>
                       {field.label}
                       <select
@@ -180,15 +237,13 @@ export function ProductPurchase({
                   </button>
                 </>
               )}
-              {!variations.length && (
-                <p>No presentations are currently available.</p>
-              )}
+              {!variations.length && <p>No options are currently available.</p>}
             </fieldset>
           )}
           <div className="purchase-availability" aria-live="polite">
             <p className={available ? "stock-available" : "stock-unavailable"}>
               {!item
-                ? "Choose a presentation to check availability"
+                ? "Choose an option to check availability"
                 : available
                   ? item.is_on_backorder
                     ? "Available on backorder"
