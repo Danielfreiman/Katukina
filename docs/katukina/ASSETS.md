@@ -113,3 +113,20 @@ Dire??o fornecida por Danilo: imagem ocupando todo o hero, composi??o de produto
 - Alt vazio: fotografia de ambienta??o decorativa, sem link ou oferta associada. Rever se a imagem final trouxer informa??o exclusiva relevante.
 
 Pr?via local: `http://localhost:3001/`. A arte definitiva e sua aprova??o visual permanecem com Danilo.
+
+## Faixa de categorias da home — 10/11/2026
+
+Confirmado por Danilo: uma única faixa compacta com seis cards pequenos lado a lado,
+com foto, overlay, título e CTA discreto sem seta. “Explore by category” permanece
+à esquerda. Em telas menores, a faixa tem rolagem horizontal, preservando a ordem.
+
+Atualiza??o de Danilo na mesma data: as fotos dos seis cards passam a vir de produtos
+da pr?pria categoria no WooCommerce. O servidor sorteia uma imagem por categoria a
+cada novo carregamento da home, entre at? 24 produtos com imagem. O sorteio pode
+repetir uma foto; n?o h? rota??o enquanto a p?gina est? aberta. Falhas de API ou
+categorias sem foto mant?m o link com fallback de imagem indispon?vel.
+
+Os cinco WebP totalmente verdes em `public/images/home/categories/` foram removidos.
+`exclusive-sale.webp` foi preservado por j? conter uma imagem inserida por Danilo;
+n?o ? mais usado pelos cards. N?o ? necess?rio preparar imagens manuais para a faixa.
+Fotos de produtos usam `object-fit: contain` para preservar sua composi??o no quadrado.

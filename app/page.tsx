@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { getProducts } from "@/lib/commerce/catalog";
 import { ProductGrid } from "@/components/catalog/product-grid";
+import { HomeCategoryStrip } from "@/components/catalog/home-category-strip";
 import { BrandMark } from "@/components/site/brand-mark";
 import { HeroCarousel } from "@/components/site/hero-carousel";
 import { siteUrl } from "@/lib/config/site";
-import { plainText } from "@/lib/wordpress/text";
 export const dynamic = "force-dynamic";
 export default async function Home() {
   const catalog = await getProducts({ per_page: 8 }).catch((error: unknown) => {
@@ -14,13 +14,6 @@ export default async function Home() {
     );
     return null;
   });
-  const categories = [
-    ...new Map(
-      catalog?.data
-        .flatMap((product) => product.categories)
-        .map((category) => [category.id, category]) || [],
-    ).values(),
-  ];
   return (
     <main id="content" className="home-page">
       <script
@@ -159,18 +152,7 @@ export default async function Home() {
             </Link>
           </div>
         )}
-        {categories.length > 0 && (
-          <nav className="collection-paths" aria-label="Product categories">
-            <h3>Explore by<br className="collection-paths-break" /> category</h3>
-            <div className="collection-paths-links">
-            {categories.map((category) => (
-              <Link key={category.id} href={`/collections/${category.slug}`}>
-                {plainText(category.name)}
-              </Link>
-            ))}
-            </div>
-          </nav>
-        )}
+        <HomeCategoryStrip />
       </section>
       </div>
       <section className="story-band pattern-surface">
