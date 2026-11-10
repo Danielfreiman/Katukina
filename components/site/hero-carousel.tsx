@@ -44,7 +44,7 @@ export function HeroCarousel({ slides, labels }: { slides: ReactNode[]; labels: 
   }
 
   return (
-    <div className="hero-carousel" role="region" aria-label="Katukina highlights"
+    <div className="hero-carousel" role="region" aria-label="Katukina highlights" data-active-slide={active}
       onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
       onFocusCapture={(event) => {
         if (!(event.target instanceof Element && event.target.closest("[data-rotation-control]"))) setPaused(true);

@@ -102,7 +102,7 @@ export default async function Home() {
           </div>
         </div>
       </section>,
-      <section key="incense" className="hero hero-campaign" aria-labelledby="hero-incense-title">
+      <section key="incense" className="hero hero-campaign hero-campaign-dark hero-campaign-incense" aria-labelledby="hero-incense-title">
         <picture>
           <source media="(max-width: 600px)" srcSet="/images/campaigns/home/katukina-hero-incense-mobile.webp" />
           <img
@@ -117,12 +117,12 @@ export default async function Home() {
         <div className="shell hero-campaign-layout">
           <div className="hero-copy">
             <h2 id="hero-incense-title">
-              Discover incense.<br />
-              <span>Complete the ritual.</span>
+              Sticks, herbs &amp; resins.<br />
+              <span>Create your ritual.</span>
             </h2>
             <p className="hero-description">
-              Explore incense resins and blends, then find burners and holders
-              to complete your setup.
+              Explore incense sticks, herbs and resins, with burners and holders
+              to complete your ritual.
             </p>
             <div className="hero-actions">
               <Link className="button primary" href="/collections/sacred-incense">

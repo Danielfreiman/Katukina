@@ -1709,6 +1709,7 @@ button.text-link {
 }
 .hero-carousel-controls {
   position: absolute;
+  z-index: 2;
   bottom: 16px;
   left: 0;
   right: 0;
@@ -1731,8 +1732,14 @@ button.text-link {
   border: 0;
   background: transparent;
   color: var(--charcoal);
-  opacity: 0.3;
+  opacity: 0.55;
   transition: opacity 0.2s;
+}
+.hero-carousel:not([data-active-slide="0"]) .hero-carousel-controls button {
+  color: var(--warm-white);
+}
+@media (max-width: 600px) {
+  .hero-carousel-controls button { color: var(--warm-white); }
 }
 .hero-carousel-controls button svg { width: 12px; height: 12px; }
 .hero-slide-indicator {
@@ -1740,7 +1747,7 @@ button.text-link {
   width: 14px;
   height: 1px;
   background: currentColor;
-  opacity: 0.35;
+  opacity: 0.5;
 }
 .hero-carousel-controls button[aria-selected="true"] .hero-slide-indicator,
 .hero-carousel-controls button:hover .hero-slide-indicator { opacity: 1; }
@@ -1752,6 +1759,7 @@ button.text-link {
   box-shadow: 0 0 0 4px var(--charcoal);
 }
 .hero-campaign {
+  --hero-overlay: var(--charcoal);
   position: relative;
   isolation: isolate;
   min-height: 825px;
@@ -1759,6 +1767,7 @@ button.text-link {
   align-items: center;
   background: var(--warm-white);
 }
+.hero-campaign-incense { --hero-overlay: #3b2619; }
 .hero-campaign > picture {
   position: absolute;
   inset: 0;
@@ -1784,10 +1793,10 @@ button.text-link {
 @media (min-width: 601px) {
   .hero-campaign.hero-campaign-dark::after {
     background: linear-gradient(90deg,
-      color-mix(in srgb, var(--charcoal) 88%, transparent) 0%,
-      color-mix(in srgb, var(--charcoal) 78%, transparent) 40%,
-      color-mix(in srgb, var(--charcoal) 25%, transparent) 70%,
-      color-mix(in srgb, var(--charcoal) 6%, transparent) 100%);
+      color-mix(in srgb, var(--hero-overlay) 88%, transparent) 0%,
+      color-mix(in srgb, var(--hero-overlay) 78%, transparent) 40%,
+      color-mix(in srgb, var(--hero-overlay) 25%, transparent) 70%,
+      color-mix(in srgb, var(--hero-overlay) 6%, transparent) 100%);
   }
   .hero-campaign-dark .hero-copy { color: var(--warm-white); }
   .hero-campaign.hero-campaign-dark .hero-copy h2 span,
@@ -1862,11 +1871,11 @@ button.text-link {
   .hero-campaign::after {
     background: linear-gradient(
       180deg,
-      color-mix(in srgb, var(--charcoal) 96%, transparent) 0%,
-      color-mix(in srgb, var(--charcoal) 92%, transparent) 25%,
-      color-mix(in srgb, var(--charcoal) 82%, transparent) 40%,
-      color-mix(in srgb, var(--charcoal) 58%, transparent) 52%,
-      color-mix(in srgb, var(--charcoal) 24%, transparent) 63%,
+      color-mix(in srgb, var(--hero-overlay) 96%, transparent) 0%,
+      color-mix(in srgb, var(--hero-overlay) 92%, transparent) 25%,
+      color-mix(in srgb, var(--hero-overlay) 82%, transparent) 40%,
+      color-mix(in srgb, var(--hero-overlay) 58%, transparent) 52%,
+      color-mix(in srgb, var(--hero-overlay) 24%, transparent) 63%,
       transparent 72%
     );
   }

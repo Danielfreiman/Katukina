@@ -23,11 +23,11 @@ No desktop (acima de 600 px), o slide 01 avança para o 02 após 5 segundos. Os 
 
 ### Slide 03: incensos e acessórios — 10/11/2026
 
-- Título: “Discover incense. Complete the ritual.” Texto: “Explore incense resins and blends, then find burners and holders to complete your setup.”
+- Título: “Sticks, herbs & resins. Create your ritual.” Texto: “Explore incense sticks, herbs and resins, with burners and holders to complete your ritual.”
 - Categorias verificadas no banco local: Sacred Incense (14 produtos), Incense Herbs (13), Incense Smudge (20), Incense Sticks (26) e Tools (27). Contagens do snapshot local, sem equivalência com produção.
 - CTA principal “Explore incense”: `/collections/sacred-incense`. CTA secundário “Incense accessories”: `/collections/tools?q=incense`, usando o filtro de busca existente dentro de Tools, sem criar categoria comercial.
 - Desktop: `katukina-hero-incense.webp`, **2400 × 1500 px**. Mobile: `katukina-hero-incense-mobile.webp`, **1200 × 2400 px**. Os dois começam como fundos neutros provisórios, sem fotografia; Danilo fará as imagens. Substituir mantendo os nomes.
-- Mesmo layout claro do slide 01 no desktop, com produtos à direita e espaço livre à esquerda. No mobile, reservar o topo para o texto e concentrar produtos na parte inferior; o overlay escuro existente continua aplicado. Sem títulos, botões ou ícones incorporados à arte.
+- Overlay marrom `#3b2619`, alinhado aos tons da fotografia entregue por Danilo, com texto claro no desktop e mobile. No desktop, produtos à direita e espaço livre à esquerda. No mobile, reservar o topo para o texto e concentrar produtos na parte inferior. Sem títulos, botões ou ícones incorporados à arte.
 
 ## Carrossel da Home — histórico de 09/11/2026
 
