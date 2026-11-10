@@ -1689,8 +1689,24 @@ button.text-link {
 .site-footer { container-type: inline-size; }
 
 /* Home campaign: full-bleed artwork, with HTML copy above it. */
-.hero-carousel { position: relative; }
-.hero-carousel [role="tabpanel"][hidden] { display: none; }
+.hero-carousel { position: relative; display: grid; }
+.hero-carousel > [role="tabpanel"] {
+  grid-area: 1 / 1;
+  min-width: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 900ms ease-in-out, visibility 0s linear 900ms;
+}
+.hero-carousel > [role="tabpanel"][aria-hidden="false"] {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition-delay: 0s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-carousel > [role="tabpanel"] { transition: none; }
+}
 .hero-carousel-controls {
   position: absolute;
   bottom: 16px;
@@ -1702,9 +1718,7 @@ button.text-link {
   display: flex;
   align-items: center;
   width: fit-content;
-  padding: 2px;
-  background: color-mix(in srgb, var(--warm-white) 88%, transparent);
-  border: 1px solid color-mix(in srgb, var(--charcoal) 12%, transparent);
+  padding: 0;
   pointer-events: auto;
 }
 .hero-carousel-controls [role="tablist"] { display: flex; }
@@ -1717,17 +1731,21 @@ button.text-link {
   border: 0;
   background: transparent;
   color: var(--charcoal);
+  opacity: 0.3;
+  transition: opacity 0.2s;
 }
+.hero-carousel-controls button svg { width: 12px; height: 12px; }
 .hero-slide-indicator {
   display: block;
-  width: 18px;
-  height: 2px;
+  width: 14px;
+  height: 1px;
   background: currentColor;
   opacity: 0.35;
 }
 .hero-carousel-controls button[aria-selected="true"] .hero-slide-indicator,
 .hero-carousel-controls button:hover .hero-slide-indicator { opacity: 1; }
-.hero-carousel-controls button:hover { background: color-mix(in srgb, var(--charcoal) 7%, transparent); }
+.hero-carousel-controls button:hover,
+.hero-carousel-controls button:focus-visible { opacity: 0.85; }
 .hero-carousel-controls button:focus-visible {
   outline: 2px solid var(--warm-white);
   outline-offset: 2px;
@@ -1740,6 +1758,11 @@ button.text-link {
   display: grid;
   align-items: center;
   background: var(--warm-white);
+}
+.hero-campaign > picture {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
 }
 .hero-campaign-image {
   position: absolute;
@@ -1761,10 +1784,10 @@ button.text-link {
 @media (min-width: 601px) {
   .hero-campaign.hero-campaign-dark::after {
     background: linear-gradient(90deg,
-      color-mix(in srgb, var(--charcoal) 98%, transparent) 0%,
-      color-mix(in srgb, var(--charcoal) 90%, transparent) 40%,
-      color-mix(in srgb, var(--charcoal) 35%, transparent) 70%,
-      color-mix(in srgb, var(--charcoal) 12%, transparent) 100%);
+      color-mix(in srgb, var(--charcoal) 88%, transparent) 0%,
+      color-mix(in srgb, var(--charcoal) 78%, transparent) 40%,
+      color-mix(in srgb, var(--charcoal) 25%, transparent) 70%,
+      color-mix(in srgb, var(--charcoal) 6%, transparent) 100%);
   }
   .hero-campaign-dark .hero-copy { color: var(--warm-white); }
   .hero-campaign.hero-campaign-dark .hero-copy h2 span,
@@ -1825,8 +1848,8 @@ button.text-link {
   .hero-campaign::after { background: linear-gradient(90deg, var(--warm-white) 0%, color-mix(in srgb, var(--warm-white) 92%, transparent) 40%, transparent 85%); }
 }
 @media (max-width: 600px) {
-  .hero-campaign { min-height: 790px; align-items: start; }
-  .hero-campaign-layout { padding-block: 26px 316px; }
+  .hero-campaign { min-height: 790px; display: block; }
+  .hero-campaign-layout { padding-block: 50px 316px; }
   .hero-campaign .hero-copy :is(h1, h2) { font-size: clamp(2rem, 7.7vw, 2.85rem); line-height: 1.2; margin-block: 18px; }
   .hero-campaign .hero-description { font-size: 15px; max-width: 36ch; margin-bottom: 24px; }
   .hero-actions { gap: 10px; }

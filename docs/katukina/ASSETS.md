@@ -1,6 +1,35 @@
 # Assets do frontend Katukina
 
-## Carrossel da Home — atualizado em 09/11/2026
+## Imagens independentes do hero — 10/11/2026
+
+Por solicitação de Danilo, cada slide agora tem arquivos independentes para desktop e mobile. Esta decisão substitui o uso de uma única imagem por slide descrito no histórico abaixo.
+
+| Slide | Desktop (acima de 600 px) | Mobile (até 600 px) |
+| --- | --- | --- |
+| Discover Katukina | `katukina-hero.webp` | `katukina-hero-mobile.webp` |
+| Explore Rapé | `katukina-hero-rape.webp` | `katukina-hero-rape-mobile.webp` |
+| Explore incense | `katukina-hero-incense.webp` | `katukina-hero-incense-mobile.webp` |
+
+- Pasta de todos os arquivos: `public/images/campaigns/home/`.
+- Desktop: manter **2400 × 1500 px**.
+- Arte mobile recomendada: **1200 × 2400 px** (largura × altura, proporção 1:2), WebP em sRGB, preferencialmente até 500 KB. Os arquivos mobile iniciais são cópias independentes dos originais de 2400 × 1500 px para preservar a aparência até Danilo entregar as artes verticais.
+- Substituir o arquivo correspondente mantendo nome e extensão. O navegador seleciona a arte pelo `<picture>` em `app/page.tsx`, usando o mesmo limite de 600 px do layout mobile.
+- No celular, o hero tem altura mínima de 790 px, podendo crescer com o conteúdo. A imagem cobre a área com recorte conforme a tela; manter elementos importantes afastados das bordas. Concentrar os produtos na metade inferior e reservar a parte superior para o texto HTML e seu overlay escuro. Não incorporar títulos, botões ou ícones na imagem.
+- A separação preserva layout, overlays, textos e controles existentes. Conferir o recorte ao substituir cada arte final.
+
+### Tempo de exibição — 10/11/2026
+
+No desktop (acima de 600 px), o slide 01 avança para o 02 após 5 segundos. Os slides 02 e 03 permanecem por 6 segundos; no mobile, todos permanecem por 6 segundos. A transição usa fade de 900 ms, desativado para movimento reduzido. Slides inativos ficam fora da navegação e da árvore de acessibilidade. Pausa, foco, aba oculta e preferência de movimento reduzido continuam respeitados.
+
+### Slide 03: incensos e acessórios — 10/11/2026
+
+- Título: “Discover incense. Complete the ritual.” Texto: “Explore incense resins and blends, then find burners and holders to complete your setup.”
+- Categorias verificadas no banco local: Sacred Incense (14 produtos), Incense Herbs (13), Incense Smudge (20), Incense Sticks (26) e Tools (27). Contagens do snapshot local, sem equivalência com produção.
+- CTA principal “Explore incense”: `/collections/sacred-incense`. CTA secundário “Incense accessories”: `/collections/tools?q=incense`, usando o filtro de busca existente dentro de Tools, sem criar categoria comercial.
+- Desktop: `katukina-hero-incense.webp`, **2400 × 1500 px**. Mobile: `katukina-hero-incense-mobile.webp`, **1200 × 2400 px**. Os dois começam como fundos neutros provisórios, sem fotografia; Danilo fará as imagens. Substituir mantendo os nomes.
+- Mesmo layout claro do slide 01 no desktop, com produtos à direita e espaço livre à esquerda. No mobile, reservar o topo para o texto e concentrar produtos na parte inferior; o overlay escuro existente continua aplicado. Sem títulos, botões ou ícones incorporados à arte.
+
+## Carrossel da Home — histórico de 09/11/2026
 
 - Slide 01: `public/images/campaigns/home/katukina-hero.webp`, imagem atual fornecida por Danilo.
 - Slide 02 (coleção Rapé): `public/images/campaigns/home/katukina-hero-rape.webp`. Cópia provisória da imagem atual; Danilo produzirá a composição definitiva. Nenhuma instrução de placeholder foi incorporada à imagem.

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Flame, Leaf, Shapes } from "lucide-react";
 import { getProducts } from "@/lib/commerce/catalog";
 import { ProductGrid } from "@/components/catalog/product-grid";
 import { BrandMark } from "@/components/site/brand-mark";
@@ -36,8 +35,10 @@ export default async function Home() {
           }).replace(/</g, "\\u003c"),
         }}
       />
-      <HeroCarousel labels={["Discover Katukina", "Explore Rapé"]} slides={[
+      <HeroCarousel labels={["Discover Katukina", "Explore Rapé", "Explore incense"]} slides={[
       <section key="katukina" className="hero hero-campaign" aria-labelledby="hero-title">
+        <picture>
+          <source media="(max-width: 600px)" srcSet="/images/campaigns/home/katukina-hero-mobile.webp" />
         <img
           className="hero-campaign-image"
           src="/images/campaigns/home/katukina-hero.webp"
@@ -46,6 +47,7 @@ export default async function Home() {
           height={1500}
           fetchPriority="high"
         />
+        </picture>
         <div className="shell hero-campaign-layout">
           <div className="hero-copy">
             <h1 id="hero-title">
@@ -64,23 +66,21 @@ export default async function Home() {
                 Browse categories
               </Link>
             </div>
-            <ul className="hero-highlights" aria-label="Discover Katukina">
-              <li><Leaf aria-hidden="true" /><span><strong>Botanicals</strong><small>A world to explore</small></span></li>
-              <li><Flame aria-hidden="true" /><span><strong>Incense</strong><small>Scent &amp; ritual</small></span></li>
-              <li><Shapes aria-hidden="true" /><span><strong>Art &amp; objects</strong><small>Nature &amp; culture</small></span></li>
-            </ul>
           </div>
         </div>
       </section>,
       <section key="rape" className="hero hero-campaign hero-campaign-dark" aria-labelledby="hero-rape-title">
+        <picture>
+          <source media="(max-width: 600px)" srcSet="/images/campaigns/home/katukina-hero-rape-mobile.webp" />
         <img
           className="hero-campaign-image"
           src="/images/campaigns/home/katukina-hero-rape.webp"
           alt=""
           width={2400}
           height={1500}
-          loading="lazy"
+          loading="eager"
         />
+        </picture>
         <div className="shell hero-campaign-layout">
           <div className="hero-copy">
             <h2 id="hero-rape-title">
@@ -99,11 +99,39 @@ export default async function Home() {
                 Shop all products
               </Link>
             </div>
-            <ul className="hero-highlights" aria-label="Explore the Rapé collection">
-              <li><Leaf aria-hidden="true" /><span><strong>Varieties</strong><small>Find your blend</small></span></li>
-              <li><Shapes aria-hidden="true" /><span><strong>Presentations</strong><small>Compare sizes</small></span></li>
-              <li><Leaf aria-hidden="true" /><span><strong>Product details</strong><small>Take a closer look</small></span></li>
-            </ul>
+          </div>
+        </div>
+      </section>,
+      <section key="incense" className="hero hero-campaign" aria-labelledby="hero-incense-title">
+        <picture>
+          <source media="(max-width: 600px)" srcSet="/images/campaigns/home/katukina-hero-incense-mobile.webp" />
+          <img
+            className="hero-campaign-image"
+            src="/images/campaigns/home/katukina-hero-incense.webp"
+            alt=""
+            width={2400}
+            height={1500}
+            loading="eager"
+          />
+        </picture>
+        <div className="shell hero-campaign-layout">
+          <div className="hero-copy">
+            <h2 id="hero-incense-title">
+              Discover incense.<br />
+              <span>Complete the ritual.</span>
+            </h2>
+            <p className="hero-description">
+              Explore incense resins and blends, then find burners and holders
+              to complete your setup.
+            </p>
+            <div className="hero-actions">
+              <Link className="button primary" href="/collections/sacred-incense">
+                Explore incense
+              </Link>
+              <Link className="button secondary" href="/collections/tools?q=incense">
+                Incense accessories
+              </Link>
+            </div>
           </div>
         </div>
       </section>

@@ -26,7 +26,8 @@ export function HeroCarousel({ slides, labels }: { slides: ReactNode[]; labels: 
 
   useEffect(() => {
     if (paused || hovered || !visible || slides.length < 2) return;
-    const timer = window.setTimeout(() => setActive((index) => (index + 1) % slides.length), 6000);
+    const duration = active === 0 && window.matchMedia("(min-width: 601px)").matches ? 5000 : 6000;
+    const timer = window.setTimeout(() => setActive((index) => (index + 1) % slides.length), duration);
     return () => window.clearTimeout(timer);
   }, [active, paused, hovered, visible, slides.length]);
 
@@ -49,7 +50,8 @@ export function HeroCarousel({ slides, labels }: { slides: ReactNode[]; labels: 
         if (!(event.target instanceof Element && event.target.closest("[data-rotation-control]"))) setPaused(true);
       }}>
       {slides.map((slide, index) => (
-        <div key={index} id={`hero-panel-${index}`} role="tabpanel" aria-labelledby={`hero-tab-${index}`} hidden={active !== index}>
+        <div key={index} id={`hero-panel-${index}`} role="tabpanel" aria-labelledby={`hero-tab-${index}`}
+          aria-hidden={active !== index} inert={active !== index}>
           {slide}
         </div>
       ))}
