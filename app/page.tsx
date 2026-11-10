@@ -2,7 +2,6 @@ import Link from "next/link";
 import { getProducts } from "@/lib/commerce/catalog";
 import { ProductGrid } from "@/components/catalog/product-grid";
 import { HomeCategoryStrip } from "@/components/catalog/home-category-strip";
-import { BrandMark } from "@/components/site/brand-mark";
 import { HeroCarousel } from "@/components/site/hero-carousel";
 import { siteUrl } from "@/lib/config/site";
 export const dynamic = "force-dynamic";
@@ -155,30 +154,24 @@ export default async function Home() {
         <HomeCategoryStrip />
       </section>
       </div>
-      <section className="story-band pattern-surface">
-        <div className="shell story-layout">
-          <div className="story-heading">
-            <p className="eyebrow">BEYOND THE OBJECT / 02</p>
-            <h2>
-              Everything
-              <br />
-              has roots.
-            </h2>
-            <BrandMark />
-          </div>
-          <div className="story-copy">
-            <span className="story-index">[ NATURE + CULTURE ]</span>
+      <section className="collections-banner" aria-labelledby="collections-banner-title">
+        <img
+          className="collections-banner-image"
+          src="/images/home/collections-banner/placeholder.svg"
+          alt=""
+          width={2400}
+          height={900}
+          loading="lazy"
+        />
+        <div className="shell collections-banner-layout">
+          <div className="collections-banner-copy">
+            <h2 id="collections-banner-title">Find your next discovery.</h2>
             <p>
-              Behind every botanical is a place. Behind every tradition, a
-              community. We believe those connections deserve to be part of the
-              story.
+              From botanicals and incense to art and shamanic tools, explore
+              our collections and find what speaks to you.
             </p>
-            <p className="story-small">
-              Get to know the people, places and traditions behind the Katukina
-              collection.
-            </p>
-            <Link className="button secondary" href="/about">
-              Our story
+            <Link className="button" href="/collections">
+              Explore collections
             </Link>
           </div>
         </div>
