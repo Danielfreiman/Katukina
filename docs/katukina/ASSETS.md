@@ -169,3 +169,18 @@ A pedido de Danilo, a foto passa a ocupar um quadro **quadrado separado acima**
 da faixa do nome, sem sobreposicao. Esta decisao substitui a proporcao 6:7 e a
 reserva inferior anteriores. Exportar as seis artes em **960 x 960 px (1:1)**,
 com os mesmos nomes e caminhos. A faixa verde fica fora da imagem.
+
+### Profundidade dos cards da home - 10/11/2026
+
+Pedido de Danilo via Impeccable/layout: modernizar produtos e categorias com
+sombras e volume, preservando a identidade e as quinas retas.
+
+- Sombras suaves com deslocamento em duas camadas; sombra maior no hover/foco.
+- Hover de mouse com elevacao de 6 px e perspectiva discreta de 1 grau.
+- Pressao de clique reduz a elevacao; CTAs recebem relevo interno discreto.
+- Bordas externas substituidas por sombra; separadores internos preservados.
+- Foco de teclado preservado e reforcado visualmente.
+- Movimento reduzido remove inclinacao, elevacao e transicoes dos cards.
+- Mobile mantem sombras estaticas e recebe espaco vertical no trilho para evitar corte.
+- Grids, fotos quadradas, arquivos manuais, urucum e pattern a 50% preservados.
+- Escopo: CSS da home, sem alteracoes em catalogo/API ou regras comerciais.

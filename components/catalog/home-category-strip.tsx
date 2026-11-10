@@ -35,7 +35,7 @@ export async function HomeCategoryStrip() {
 
   return (
     <nav className="collection-paths" aria-labelledby="home-categories-title">
-      <h3 id="home-categories-title">Explore by category</h3>
+      <h3 id="home-categories-title">Explore by <span>category</span></h3>
       <div className="collection-paths-links">
         {cards.map((category) => {
           const image = category.product?.images.find((image) => image.src);
