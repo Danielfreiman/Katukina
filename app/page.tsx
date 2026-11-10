@@ -8,8 +8,8 @@ import { plainText } from "@/lib/wordpress/text";
 export const dynamic = "force-dynamic";
 export default async function Home() {
   const catalog = await getProducts({ per_page: 8 }).catch((error: unknown) => {
-    console.error(
-      "Catalogue read failed:",
+    console.warn(
+      "Catalogue temporarily unavailable:",
       error instanceof Error ? error.message : "Unknown error",
     );
     return null;
@@ -22,7 +22,7 @@ export default async function Home() {
     ).values(),
   ];
   return (
-    <main id="content">
+    <main id="content" className="home-page">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -38,10 +38,10 @@ export default async function Home() {
       <HeroCarousel labels={["Discover Katukina", "Explore Rapé", "Explore incense"]} slides={[
       <section key="katukina" className="hero hero-campaign" aria-labelledby="hero-title">
         <picture>
-          <source media="(max-width: 600px)" srcSet="/images/campaigns/home/katukina-hero-mobile.webp" />
+          <source media="(max-width: 600px)" srcSet="/images/home/hero-01/mobile.webp" />
         <img
           className="hero-campaign-image"
-          src="/images/campaigns/home/katukina-hero.webp"
+          src="/images/home/hero-01/desktop.webp"
           alt=""
           width={2400}
           height={1500}
@@ -51,8 +51,8 @@ export default async function Home() {
         <div className="shell hero-campaign-layout">
           <div className="hero-copy">
             <h1 id="hero-title">
-              Closer to nature.<br />
-              <span>Rooted in tradition.</span>
+              Tribal Rapé, Mapacho, Kambo, Sananga,{" "}
+              <span>Shamanic Tools &amp; Incenses</span>
             </h1>
             <p className="hero-description">
               Explore botanicals, incense, art and objects connected to forest
@@ -71,10 +71,10 @@ export default async function Home() {
       </section>,
       <section key="rape" className="hero hero-campaign hero-campaign-dark" aria-labelledby="hero-rape-title">
         <picture>
-          <source media="(max-width: 600px)" srcSet="/images/campaigns/home/katukina-hero-rape-mobile.webp" />
+          <source media="(max-width: 600px)" srcSet="/images/home/hero-02/mobile.webp" />
         <img
           className="hero-campaign-image"
-          src="/images/campaigns/home/katukina-hero-rape.webp"
+          src="/images/home/hero-02/desktop.webp"
           alt=""
           width={2400}
           height={1500}
@@ -104,10 +104,10 @@ export default async function Home() {
       </section>,
       <section key="incense" className="hero hero-campaign hero-campaign-dark hero-campaign-incense" aria-labelledby="hero-incense-title">
         <picture>
-          <source media="(max-width: 600px)" srcSet="/images/campaigns/home/katukina-hero-incense-mobile.webp" />
+          <source media="(max-width: 600px)" srcSet="/images/home/hero-03/mobile.webp" />
           <img
             className="hero-campaign-image"
-            src="/images/campaigns/home/katukina-hero-incense.webp"
+            src="/images/home/hero-03/desktop.webp"
             alt=""
             width={2400}
             height={1500}
@@ -136,6 +136,7 @@ export default async function Home() {
         </div>
       </section>
       ]} />
+      <div className="home-collection-background">
       <section className="section shell home-collection" id="collection">
         <div className="collection-intro">
           <h2>Explore the <span>collection.</span></h2>
@@ -171,6 +172,7 @@ export default async function Home() {
           </nav>
         )}
       </section>
+      </div>
       <section className="story-band pattern-surface">
         <div className="shell story-layout">
           <div className="story-heading">
@@ -199,6 +201,7 @@ export default async function Home() {
           </div>
         </div>
       </section>
+      <div className="home-journal-background">
       <section className="journal-invite shell">
         <div>
           <p className="eyebrow">THE JOURNAL / 03</p>
@@ -218,6 +221,7 @@ export default async function Home() {
           </Link>
         </div>
       </section>
+      </div>
     </main>
   );
 }

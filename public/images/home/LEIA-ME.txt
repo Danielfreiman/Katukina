@@ -1,0 +1,21 @@
+HOME - ARQUIVOS DE IMAGEM
+
+hero-01 = apresentação Katukina
+hero-02 = Rapé
+hero-03 = incensos e acessórios
+
+Dentro de cada pasta hero:
+  desktop.webp : 2400 x 1500 px
+  mobile.webp  : 1200 x 2400 px
+  WebP, sRGB. Manter os nomes. Não incorporar textos nem botões.
+
+collection/background.webp : 1024 x 1024 px
+journal/background.webp    : 1024 x 1024 px
+  WebP lossless transparente, sRGB, com encaixe nas quatro bordas (seamless).
+  O site repete a imagem no tamanho original salvo no arquivo.
+  As cores e a transparência vêm do próprio WebP, sem filtros ou opacidade extra.
+  1024 x 1024 px é uma recomendação, não um tamanho imposto pelo site.
+  Os dois fundos são independentes e atualmente transparentes.
+
+Basta substituir o arquivo da área desejada mantendo o nome e a extensão.
+Referência completa: docs/katukina/ASSETS.md.

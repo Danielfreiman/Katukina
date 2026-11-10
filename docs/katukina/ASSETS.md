@@ -1,18 +1,41 @@
 # Assets do frontend Katukina
 
+## Pastas da home — organização vigente em 10/11/2026
+
+Cada área tem sua pasta em `public/images/home/`. Os arquivos dos heros foram movidos sem alterar seu conteúdo; os caminhos históricos mais abaixo não são os destinos atuais.
+
+Formato confirmado por Danilo: todas as imagens raster entregues para estas áreas usam **WebP**, incluindo fundos transparentes. Logotipos vetoriais existentes permanecem em SVG.
+
+| Pasta | Arquivo | Arte recomendada |
+| --- | --- | --- |
+| `hero-01/` | `desktop.webp` / `mobile.webp` | 2400 × 1500 / 1200 × 2400 px |
+| `hero-02/` | `desktop.webp` / `mobile.webp` | 2400 × 1500 / 1200 × 2400 px |
+| `hero-03/` | `desktop.webp` / `mobile.webp` | 2400 × 1500 / 1200 × 2400 px |
+| `collection/` | `background.webp` | 1024 × 1024 px, transparente e seamless |
+| `journal/` | `background.webp` | 1024 × 1024 px, transparente e seamless |
+
+## Padrões de fundo da home — 10/11/2026
+
+- Produtos/coleção: `public/images/home/collection/background.webp`. Journal: `public/images/home/journal/background.webp`. As duas áreas podem receber artes independentes.
+- Arte recomendada: **1024 × 1024 px**, WebP lossless em sRGB, com transparência e encaixe nas quatro bordas (seamless). A transparência da arte determina a intensidade do padrão sobre o fundo branco.
+- Repetição nos dois eixos, no tamanho intrínseco do arquivo (`background-size: auto`), no desktop e no mobile. 1024 × 1024 px é apenas uma recomendação de arte. Preservar o WebP exatamente como Danilo salvar: sem reexportação, redimensionamento, filtros ou opacidade adicional. A transparência embutida é composta diretamente sobre o fundo branco.
+- Aplicado ao fundo do conteúdo da home: área da coleção/produtos, seus espaços e margens e convite ao journal. Cards e fotografias mantêm seus fundos sólidos. Hero e faixa institucional mantêm suas superfícies próprias; cabeçalho, rodapé e outras rotas não recebem este padrão.
+- Os arquivos iniciais são totalmente transparentes, preparados para Danilo substituir pelas artes mantendo nome e caminho. Nenhum desenho provisório foi criado; até a entrega, os fundos continuam brancos.
+- Não incorporar textos ou produtos no padrão. Manter contraste suficiente para o conteúdo que fica sobre as áreas transparentes.
+
 ## Imagens independentes do hero — 10/11/2026
 
 Por solicitação de Danilo, cada slide agora tem arquivos independentes para desktop e mobile. Esta decisão substitui o uso de uma única imagem por slide descrito no histórico abaixo.
 
 | Slide | Desktop (acima de 600 px) | Mobile (até 600 px) |
 | --- | --- | --- |
-| Discover Katukina | `katukina-hero.webp` | `katukina-hero-mobile.webp` |
-| Explore Rapé | `katukina-hero-rape.webp` | `katukina-hero-rape-mobile.webp` |
-| Explore incense | `katukina-hero-incense.webp` | `katukina-hero-incense-mobile.webp` |
+| Discover Katukina | `hero-01/desktop.webp` | `hero-01/mobile.webp` |
+| Explore Rapé | `hero-02/desktop.webp` | `hero-02/mobile.webp` |
+| Explore incense | `hero-03/desktop.webp` | `hero-03/mobile.webp` |
 
-- Pasta de todos os arquivos: `public/images/campaigns/home/`.
+- Pasta de todos os arquivos: `public/images/home/`, com uma subpasta por hero.
 - Desktop: manter **2400 × 1500 px**.
-- Arte mobile recomendada: **1200 × 2400 px** (largura × altura, proporção 1:2), WebP em sRGB, preferencialmente até 500 KB. Os arquivos mobile iniciais são cópias independentes dos originais de 2400 × 1500 px para preservar a aparência até Danilo entregar as artes verticais.
+- Arte mobile recomendada: **1200 × 2400 px** (largura × altura, proporção 1:2), WebP em sRGB, preferencialmente até 500 KB. As artes entregues foram preservadas integralmente durante a reorganização.
 - Substituir o arquivo correspondente mantendo nome e extensão. O navegador seleciona a arte pelo `<picture>` em `app/page.tsx`, usando o mesmo limite de 600 px do layout mobile.
 - No celular, o hero tem altura mínima de 790 px, podendo crescer com o conteúdo. A imagem cobre a área com recorte conforme a tela; manter elementos importantes afastados das bordas. Concentrar os produtos na metade inferior e reservar a parte superior para o texto HTML e seu overlay escuro. Não incorporar títulos, botões ou ícones na imagem.
 - A separação preserva layout, overlays, textos e controles existentes. Conferir o recorte ao substituir cada arte final.
@@ -26,7 +49,7 @@ No desktop (acima de 600 px), o slide 01 avança para o 02 após 5 segundos. Os 
 - Título: “Sticks, herbs & resins. Create your ritual.” Texto: “Explore incense sticks, herbs and resins, with burners and holders to complete your ritual.”
 - Categorias verificadas no banco local: Sacred Incense (14 produtos), Incense Herbs (13), Incense Smudge (20), Incense Sticks (26) e Tools (27). Contagens do snapshot local, sem equivalência com produção.
 - CTA principal “Explore incense”: `/collections/sacred-incense`. CTA secundário “Incense accessories”: `/collections/tools?q=incense`, usando o filtro de busca existente dentro de Tools, sem criar categoria comercial.
-- Desktop: `katukina-hero-incense.webp`, **2400 × 1500 px**. Mobile: `katukina-hero-incense-mobile.webp`, **1200 × 2400 px**. Os dois começam como fundos neutros provisórios, sem fotografia; Danilo fará as imagens. Substituir mantendo os nomes.
+- Desktop: `hero-03/desktop.webp`, **2400 × 1500 px**. Mobile: `hero-03/mobile.webp`, **1200 × 2400 px**. As fotografias entregues por Danilo estão aplicadas. Substituir mantendo os nomes.
 - Overlay marrom `#3b2619`, alinhado aos tons da fotografia entregue por Danilo, com texto claro no desktop e mobile. No desktop, produtos à direita e espaço livre à esquerda. No mobile, reservar o topo para o texto e concentrar produtos na parte inferior. Sem títulos, botões ou ícones incorporados à arte.
 
 ## Carrossel da Home — histórico de 09/11/2026
