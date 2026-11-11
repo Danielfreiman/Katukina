@@ -227,7 +227,7 @@ test("native variations, gallery, real cart validation and uncertain responses",
     viewport: { width: 1440, height: 1000 },
   });
   const customer = await context.newPage();
-  const purchase = customer.getByRole("region", { name: "Product options" });
+  const purchase = customer.getByRole("region", { name: "Purchase summary" });
   const errors: string[] = [];
   customer.on("pageerror", (error) => errors.push(error.message));
   async function create(path: string, data: object) {

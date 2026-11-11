@@ -1,4 +1,33 @@
 # Histórico do discovery Katukina
+## 2026-11-11 — PDP integrada à referência
+
+- Aplicada composição de três áreas no desktop: galeria, opções/dados e resumo de compra. Preservados swatches com pattern, tipo/peso/volume, seleção na URL, zoom e regras existentes de preço/estoque/carrinho.
+- Informações e especificações com navegação por âncoras; relacionados alinhados à nova estética. Typecheck, diff-check e cenário Playwright da PDP em cinco larguras aprovados. [Escopo, referência e evidências](PDP-REFERENCE-2026-11-11.md).
+
+## 2026-11-11 — Foto do banner sem a pequena marca
+
+- Ocultada a margem inferior de 12% da foto somente na apresentação do banner, onde fica a pequena marca. Proporção quadrada mantida no desktop e celular para que o recorte acompanhe a imagem. Arquivos originais e fotos das demais áreas preservados.
+- Conferência visual no Edge, typecheck e diff-check aprovados.
+
+## 2026-11-11 — Restauração das cores do banner
+
+- A pedido do responsável, restaurado o visual anterior: fundo verde-claro, texto escuro, chamada verde e botão urucum. Removido o filtro SVG experimental da foto. Esta decisão substitui os ajustes de banner vermelho registrados abaixo; navegação por setas preservada.
+
+## 2026-11-11 — Cores da foto no banner vermelho
+
+- Corrigido o escurecimento causado pelo modo multiply. O banner passa a usar composição normal e filtro SVG que torna pixels próximos do branco transparentes, preservando as cores dos demais pixels. Aplicação exclusiva à foto do banner; arquivos originais do catálogo preservados.
+- Conferência visual no Edge na categoria Essential Oils; typecheck e diff-check aprovados. O filtro é uma remoção por tonalidade, não um recorte semântico: regiões quase brancas do próprio produto também podem perder opacidade.
+
+## 2026-11-11 — Banner de categoria em vermelho escuro
+
+- Pedido confirmado: fundo dos banners de categoria em urucum escuro (`#782e26`), ampliando o uso da cor além dos CTAs nesta área. Texto claro e botão claro com texto urucum. Após ajuste solicitado, removida a caixa clara da foto; composição multiply integra o fundo branco da imagem ao vermelho do banner, sem alterar o arquivo do catálogo.
+- Typecheck e diff-check aprovados.
+
+## 2026-11-11 — Navegação das faixas de categoria
+
+- A pedido do responsável, removidas as barras de rolagem visíveis dos atalhos circulares e da faixa editorial das categorias. Setas circulares seguem o padrão da home, com limites desabilitados, ocultação quando todo o conteúdo cabe e suporte a movimento reduzido. Deslize e links permanecem disponíveis.
+- Controles e regras dos filtros preservados. Typecheck e diff-check aprovados. Playwright confirmou avanço/retorno pelas setas, ausência das barras e regressão de busca, ordenação, paginação e filtros móveis em cinco larguras.
+
 ## 2026-11-11 — Header e footer alinhados à nova estética
 
 - Pedido confirmado: estender ao header e footer os cantos e o tratamento visual da home/categorias, substituindo a restrição anterior de preservação visual dessas áreas.

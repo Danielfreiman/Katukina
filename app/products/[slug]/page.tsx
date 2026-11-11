@@ -14,6 +14,7 @@ import { ProductPurchase } from "@/components/catalog/product-purchase";
 import { ProductGrid } from "@/components/catalog/product-grid";
 import { RecentlyViewed } from "@/components/catalog/recently-viewed";
 import { SearchParams, singleParam } from "@/lib/commerce/catalog-query";
+import "@/app/product-reference.css";
 type Props = {
   params: Promise<{ slug: string }>;
   searchParams: Promise<SearchParams>;
@@ -87,7 +88,7 @@ export default async function ProductPage({ params, searchParams }: Props) {
   return (
     <main
       id="content"
-      className="shell page-content product-page product-page-v2"
+      className="shell page-content product-page product-page-v2 pdp-reference"
     >
       <script
         type="application/ld+json"
@@ -113,12 +114,20 @@ export default async function ProductPage({ params, searchParams }: Props) {
         variations={variations}
         initialVariation={Number(singleParam(query.variation)) || 0}
       />
+      <nav className="pdp-section-navigation" aria-label="Product sections">
+        <a href="#product-description">Product information</a>
+        <a href="#product-specifications">Specifications</a>
+        {!!related?.data.length && (
+          <a href="#related-products">More to discover</a>
+        )}
+      </nav>
       <section className="product-information" aria-label="Product information">
-        <div>
-          <h2>Description</h2>
-          {product.description ? (
+        <div id="product-description">
+          <p className="eyebrow">GET TO KNOW YOUR DISCOVERY</p>
+          <h2>Product information</h2>
+          {product.description || product.short_description ? (
             <p className="product-description-text">
-              {plainText(product.description)}
+              {plainText(product.description || product.short_description)}
             </p>
           ) : (
             <p className="product-description-text">
@@ -126,8 +135,8 @@ export default async function ProductPage({ params, searchParams }: Props) {
             </p>
           )}
         </div>
-        <div>
-          <h2>Product details</h2>
+        <div id="product-specifications">
+          <h2>Specifications</h2>
           <dl className="product-facts">
             <div>
               <dt>Product reference</dt>
@@ -154,7 +163,7 @@ export default async function ProductPage({ params, searchParams }: Props) {
         </div>
       </section>
       {!!related?.data.length && (
-        <section className="related-products">
+        <section className="related-products" id="related-products">
           <div className="related-heading">
             <h2>More to discover</h2>
             <Link

@@ -1,4 +1,60 @@
-﻿/* Category structure only. Filter, sort and query controls retain their existing styles. */
+/* Category structure only. Filter, sort and query controls retain their existing styles. */
+.category-reference .category-rail {
+  position: relative;
+  min-width: 0;
+}
+.category-reference .category-rail nav {
+  scrollbar-width: none;
+  scroll-snap-type: x proximity;
+}
+.category-reference .category-rail nav::-webkit-scrollbar {
+  display: none;
+}
+.category-reference .category-rail nav > a {
+  scroll-snap-align: start;
+}
+.category-reference .category-rail-arrow {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--ink);
+  background: var(--white);
+}
+.category-reference .category-rail-arrow[hidden] {
+  display: none;
+}
+.category-reference .category-rail-arrow:hover {
+  background: var(--support-soft);
+}
+.category-reference .category-rail-arrow:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.category-reference .category-rail-prev {
+  left: -20px;
+}
+.category-reference .category-rail-next {
+  right: -20px;
+}
+@media (max-width: 800px) {
+  .category-reference .category-rail-arrow {
+    width: 32px;
+    height: 32px;
+  }
+  .category-reference .category-rail-prev {
+    left: -12px;
+  }
+  .category-reference .category-rail-next {
+    right: -12px;
+  }
+}
 .category-reference.catalog-page {
   width: calc(100% - 64px);
   max-width: 1600px;
@@ -64,16 +120,19 @@
   font-size: 13px;
 }
 .category-reference .category-campaign-image {
-  width: 240px;
-  height: 180px;
+  width: 180px;
+  height: auto;
+  aspect-ratio: 1;
   object-fit: contain;
   mix-blend-mode: multiply;
+  /* Crop the watermark margin only in the campaign presentation. */
+  clip-path: inset(0 0 12% 0);
 }
 .category-reference .category-discovery {
   display: flex;
   gap: 24px;
   overflow-x: auto;
-  scrollbar-width: thin;
+  scrollbar-width: none;
   padding: 28px 0;
   margin-bottom: 28px;
   border-bottom: 1px solid var(--line);
@@ -212,7 +271,7 @@
   padding-block: 24px;
   margin-top: 40px;
 }
-.category-reference .category-editorial > div {
+.category-reference .category-editorial > div:not(.category-rail) {
   display: flex;
   align-items: center;
   gap: 20px;
@@ -223,7 +282,7 @@
   font-size: 21px;
   margin: 0;
 }
-.category-reference .category-editorial > div > a {
+.category-reference .category-editorial > div:not(.category-rail) > a {
   color: var(--green);
   font-size: 14px;
 }
@@ -273,7 +332,7 @@
   }
   .category-reference .category-campaign-image {
     width: 30%;
-    height: 150px;
+    height: auto;
   }
   .category-reference .category-campaign h2 {
     font-size: 24px;
@@ -316,7 +375,7 @@
   .category-reference .category-editorial nav > a {
     flex: 0 0 75%;
   }
-  .category-reference .category-editorial > div {
+  .category-reference .category-editorial > div:not(.category-rail) {
     align-items: flex-start;
   }
 }

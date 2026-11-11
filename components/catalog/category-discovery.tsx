@@ -4,6 +4,7 @@ import type { Category, Product } from "@/lib/commerce/product";
 import { catalogHref, type CatalogQuery } from "@/lib/commerce/catalog-query";
 import { plainText } from "@/lib/wordpress/text";
 import { CatalogImage } from "./catalog-image";
+import { CategoryRail } from "./category-rail";
 
 export async function CategoryDiscovery({
   category,
@@ -63,9 +64,9 @@ export async function CategoryDiscovery({
         )}
       </section>
       {cards.length > 0 && (
-        <nav
+        <CategoryRail
           className="category-discovery"
-          aria-label={
+          label={
             children.length
               ? "Explore subcategories"
               : "Explore related categories"
@@ -91,7 +92,7 @@ export async function CategoryDiscovery({
               <span>{plainText(item.name)}</span>
             </Link>
           ))}
-        </nav>
+        </CategoryRail>
       )}
     </>
   );

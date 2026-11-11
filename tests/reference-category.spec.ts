@@ -8,6 +8,17 @@ test("category layout keeps search, sorting, pagination and mobile filters worki
     .getByRole("button", { name: "Reject optional", exact: true })
     .click();
   await expect(page.locator(".category-campaign")).toBeVisible();
+  const discovery = page.locator(".category-discovery");
+  const rail = page.locator(".category-rail").filter({ has: discovery });
+  await expect(rail.getByRole("button", { name: /^Previous/ })).toBeDisabled();
+  await rail.getByRole("button", { name: /^Next/ }).click();
+  await expect
+    .poll(() => discovery.evaluate((el) => el.scrollLeft))
+    .toBeGreaterThan(0);
+  await rail.getByRole("button", { name: /^Previous/ }).click();
+  await expect
+    .poll(() => discovery.evaluate((el) => el.scrollLeft))
+    .toBeLessThan(2);
   await expect(page.locator(".catalog-results .product-card")).toHaveCount(12);
   const productName = await page
     .locator(".catalog-results .product-info h3")
@@ -16,6 +27,9 @@ test("category layout keeps search, sorting, pagination and mobile filters worki
   for (const width of [1440, 1024, 768, 390, 320]) {
     await page.setViewportSize({ width, height: 1000 });
     await page.evaluate(() => scrollTo(0, 0));
+    expect(
+      await discovery.evaluate((el) => getComputedStyle(el).scrollbarWidth),
+    ).toBe("none");
     await page
       .locator(".category-reference img")
       .evaluateAll((images) =>
