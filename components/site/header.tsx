@@ -76,15 +76,15 @@ export function SiteHeader() {
             >
               {panel === "search" ? <X size={21} /> : <Search size={21} />}
             </button>
+            <Link className="icon-button" href="/cart" aria-label="Your bag">
+              <ShoppingBag size={21} />
+            </Link>
             <Link
               className="icon-button account-link"
               href="/account"
               aria-label="My account"
             >
               <UserRound size={21} />
-            </Link>
-            <Link className="icon-button" href="/cart" aria-label="Your bag">
-              <ShoppingBag size={21} />
             </Link>
             <button
               ref={menuButton}

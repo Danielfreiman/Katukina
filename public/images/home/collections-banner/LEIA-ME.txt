@@ -1,0 +1,16 @@
+﻿KURIPE & TEPI — IMAGENS LATERAIS
+
+Imagem esquerda (Kuripe): left.webp
+Imagem direita (Tepi): right.webp
+Tamanho recomendado de cada arquivo: 900 x 1100 px.
+Formato: WebP, RGB, perfil sRGB.
+
+Criar apenas a fotografia/composição, sem texto, botões ou margens incorporadas.
+As imagens usam preenchimento com recorte central (cover).
+Manter os produtos principais na região central, com margem de segurança para recortes.
+No desktop: imagem esquerda | painel verde | imagem direita.
+No celular: as duas imagens lado a lado acima do painel verde, com recorte vertical adicional.
+
+Salvar os dois arquivos nesta pasta, mantendo exatamente os nomes acima.
+Depois, atualizar a página inicial em http://localhost:3001/.
+Enquanto os arquivos não existirem, o site usa fotos provisórias do catálogo.

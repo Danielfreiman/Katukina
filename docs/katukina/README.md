@@ -24,6 +24,7 @@ A [auditoria de cobertura funcional de 2026-10-22](FUNCTIONAL-COVERAGE.md) é a 
 
 | Artefato | Conteúdo |
 | --- | --- |
+| [Fotos com marca d'água de 2026-11-10](PHOTOS-WATERMARK-2026-11-10.md) | Fonte, correspondência exata, backup e verificação da atualização local das fotos |
 | [Assets e logotipo horizontal](ASSETS.md) | Pasta, nome, especificações do SVG e organização dos próximos assets |
 | [Contexto do produto e escopo frontend](../../PRODUCT.md) | Público de varejo internacional, responsabilidades, capacidades, limites e decisões abertas para novas tarefas |
 | [Tipografia Sora e Source Sans 3](TYPOGRAPHY.md) | Funções, carregamento local, escala, responsividade e manutenção |

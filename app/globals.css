@@ -18,6 +18,7 @@
   --primary: var(--urucum);
   --primary-hover: color-mix(in srgb, var(--urucum) 85%, var(--charcoal));
   --green: var(--leaf);
+  --green-pattern-opacity: 0.65;
   --support-hover: color-mix(in srgb, var(--leaf) 85%, var(--charcoal));
   --support-soft: color-mix(in srgb, var(--leaf) 10%, var(--warm-white));
   --soft: color-mix(in srgb, var(--light-gray) 22%, var(--warm-white));
@@ -202,9 +203,10 @@ button.text-link {
 }
 .site-note {
   text-align: center;
-  background: var(--green);
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
   padding: 8px 20px;
-  color: var(--white);
+  color: var(--green);
   font-size: 10px;
   letter-spacing: 0.05em;
 }
@@ -217,7 +219,7 @@ button.text-link {
   top: 0;
   z-index: 40;
   background: var(--white);
-  border-bottom: 1px solid var(--line);
+  box-shadow: 0 3px 8px rgb(41 44 39 / 0.1);
 }
 .site-header {
   height: 93px;
@@ -267,14 +269,27 @@ button.text-link {
   padding-block: 16px;
 }
 .header-categories {
+  position: relative;
+  isolation: isolate;
   border-top: 1px solid var(--line);
+  background: var(--green);
+  color: var(--white);
+}
+.header-categories::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: url("/images/home/category-band/category-band-overlay.webp") center / 100vw auto no-repeat;
+  opacity: var(--green-pattern-opacity);
+  pointer-events: none;
 }
 .category-navigation {
   height: 49px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: 0;
   overflow-x: auto;
   scrollbar-width: thin;
   font-family: var(--font-display);
@@ -282,9 +297,12 @@ button.text-link {
   font-weight: 600;
 }
 .category-navigation a {
-  flex-shrink: 0;
-  padding-block: 10px;
+  position: relative;
+  flex: 1 0 auto;
+  padding: 10px 12px;
+  text-align: center;
   white-space: nowrap;
+  text-transform: uppercase;
 }
 .desktop-navigation a,
 .category-navigation a,
@@ -297,19 +315,26 @@ button.text-link {
 }
 .desktop-navigation a:hover,
 .desktop-navigation a:focus-visible,
-.category-navigation a:hover,
-.category-navigation a:focus-visible,
 .mobile-navigation a:hover,
 .mobile-navigation a:focus-visible {
   color: var(--green);
   text-decoration-color: var(--green);
 }
 .desktop-navigation a[data-active="true"],
-.category-navigation a[data-active="true"],
 .mobile-navigation a[data-active="true"] {
   color: var(--green);
   text-decoration: underline;
   text-underline-offset: 6px;
+}
+.category-navigation a:hover,
+.category-navigation a:focus-visible,
+.category-navigation a[data-active="true"] {
+  color: var(--white);
+  text-decoration-color: currentColor;
+  text-decoration-thickness: 1px;
+}
+.category-navigation a:focus-visible {
+  outline-color: var(--white);
 }
 .header-actions .icon-button {
   position: relative;
@@ -728,61 +753,75 @@ button.text-link {
 .collection-paths > a:hover {
   background: var(--soft);
 }
-/* Temporary artwork: public/images/home/collections-banner/placeholder.svg */
+/* Kuripe & Tepi: two photographs framing a centred content panel. */
 .collections-banner {
-  --category-pattern-size: 100vw auto;
-  --category-pattern-opacity: 0.5;
-  position: relative;
-  isolation: isolate;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  min-height: 510px;
   overflow: hidden;
-  background: var(--support-soft);
+  background: var(--white);
 }
 .collections-banner-image {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
+  min-width: 0;
   width: 100%;
   height: 100%;
+  min-height: 510px;
   object-fit: cover;
   object-position: center;
+}
+.collections-banner-image[data-product="true"] {
+  object-fit: contain;
+  padding: 24px;
 }
 .collections-banner-layout {
   display: flex;
   align-items: center;
-  min-height: 510px;
-  padding-block: 80px;
+  justify-content: center;
+  min-width: 0;
+  padding: 56px 28px;
+  background: var(--green);
+  color: var(--white);
 }
 .collections-banner-copy {
-  max-width: 560px;
-  text-align: left;
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
 }
 .collections-banner-copy h2 {
-  max-width: 540px;
-  font-size: clamp(42px, 4.5vw, 68px);
+  margin: 0;
+  color: inherit;
+  font-size: clamp(32px, 3vw, 48px);
   text-wrap: balance;
 }
 .collections-banner-copy p {
-  max-width: 440px;
-  margin-block: 24px 32px;
-  font-size: 20px;
+  max-width: 340px;
+  margin: 20px auto 28px;
+  font-size: 16px;
   line-height: 1.6;
 }
-.collections-banner .button {
-  width: fit-content;
+.collections-banner-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
 }
 @media (max-width: 700px) {
+  .collections-banner {
+    grid-template-columns: 1fr 1fr;
+    min-height: 0;
+  }
   .collections-banner-layout {
-    min-height: 480px;
-    padding-block: 56px;
-  }
-  .collections-banner-copy {
-    max-width: 420px;
-  }
-  .collections-banner-copy p {
-    font-size: 18px;
+    grid-column: 1 / -1;
+    grid-row: 2;
+    padding: 40px 24px;
   }
   .collections-banner-image {
-    object-position: left center;
+    grid-row: 1;
+    min-height: 0;
+    height: 260px;
+  }
+  .collections-banner-image[data-product="true"] {
+    padding: 12px;
   }
 }
 .journal-invite {

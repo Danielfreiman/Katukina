@@ -1,5 +1,14 @@
 # Assets do frontend Katukina
 
+## Banner Kuripe & Tepi — 11/11/2026
+
+- Seção da home entre a coleção e o journal, com CTA para `/collections/kuripe-and-tepi`.
+- Composição atual conforme referência de Danilo: fotografia à esquerda, painel verde central com título e dois botões brancos, fotografia à direita. No celular, fotos lado a lado acima do painel central.
+- Fotos: `public/images/home/collections-banner/left.webp` (Kuripe) e `right.webp` (Tepi). Salvar nesses caminhos e atualizar a página; os arquivos são detectados no servidor.
+- Recomendação: WebP sRGB, **900 × 1100 px** por foto, sem textos incorporados. As artes usam recorte `cover` centralizado; preservar os produtos na região central.
+- Até a entrega das artes, usa fotos reais do catálogo com `contain`. O caminho anterior `background.webp`, se fornecido, continua sendo fallback para as laterais sem arte própria.
+- Botões: coleção Kuripe & Tepi com filtros de busca `?q=kuripe` e `?q=tepi`. Conferir recorte após inserir as fotos definitivas.
+
 ## Pastas da home — organização vigente em 10/11/2026
 
 Cada área tem sua pasta em `public/images/home/`. Os arquivos dos heros foram movidos sem alterar seu conteúdo; os caminhos históricos mais abaixo não são os destinos atuais.

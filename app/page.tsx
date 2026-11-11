@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { existsSync } from "node:fs";
+import path from "node:path";
 import { getProducts } from "@/lib/commerce/catalog";
 import { ProductGrid } from "@/components/catalog/product-grid";
 import { HomeCategoryStrip } from "@/components/catalog/home-category-strip";
@@ -6,6 +8,23 @@ import { HeroCarousel } from "@/components/site/hero-carousel";
 import { siteUrl } from "@/lib/config/site";
 export const dynamic = "force-dynamic";
 export default async function Home() {
+  const bannerArtwork = async (side: string, search: string) => {
+    const base = "images/home/collections-banner";
+    for (const file of [`${side}.webp`, "background.webp"]) {
+      if (existsSync(path.join(process.cwd(), "public", base, file))) {
+        return { src: `/${base}/${file}`, product: false };
+      }
+    }
+    const product = await getProducts({ search, per_page: 1 }).catch(() => null);
+    return {
+      src: product?.data[0]?.images[0]?.src || `/${base}/placeholder.svg`,
+      product: true,
+    };
+  };
+  const [kuripeArtwork, tepiArtwork] = await Promise.all([
+    bannerArtwork("left", "kuripe"),
+    bannerArtwork("right", "tepi"),
+  ]);
   const catalog = await getProducts({ per_page: 8 }).catch((error: unknown) => {
     console.warn(
       "Catalogue temporarily unavailable:",
@@ -157,24 +176,38 @@ export default async function Home() {
       <section className="collections-banner" aria-labelledby="collections-banner-title">
         <img
           className="collections-banner-image"
-          src="/images/home/collections-banner/placeholder.svg"
+          src={kuripeArtwork.src}
+          data-product={kuripeArtwork.product}
           alt=""
-          width={2400}
-          height={900}
+          width={900}
+          height={1100}
           loading="lazy"
         />
-        <div className="shell collections-banner-layout">
+        <div className="collections-banner-layout">
           <div className="collections-banner-copy">
-            <h2 id="collections-banner-title">Find your next discovery.</h2>
+            <h2 id="collections-banner-title">Kuripe &amp; Tepi</h2>
             <p>
-              From botanicals and incense to art and shamanic tools, explore
-              our collections and find what speaks to you.
+              Explore kuripes and tepis in a range of materials and designs.
             </p>
-            <Link className="button" href="/collections">
-              Explore collections
-            </Link>
+            <div className="collections-banner-actions">
+              <Link className="button" href="/collections/kuripe-and-tepi?q=kuripe">
+                Shop Kuripe
+              </Link>
+              <Link className="button" href="/collections/kuripe-and-tepi?q=tepi">
+                Shop Tepi
+              </Link>
+            </div>
           </div>
         </div>
+        <img
+          className="collections-banner-image"
+          src={tepiArtwork.src}
+          data-product={tepiArtwork.product}
+          alt=""
+          width={900}
+          height={1100}
+          loading="lazy"
+        />
       </section>
       <div className="home-journal-background">
       <section className="journal-invite shell">

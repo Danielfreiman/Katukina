@@ -1,0 +1,173 @@
+⨯ TypeError: __webpack_modules__[moduleId] is not a function
+    at ignore-listed frames {
+  digest: '3221697951'
+}
+⨯ TypeError: __webpack_modules__[moduleId] is not a function
+    at ignore-listed frames {
+  digest: '3221697951'
+}
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <DevRootHTTPAccessFallbackBoundary>
+      <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+        <HTTPAccessFallbackErrorBoundary pathname="/shop" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+          <RedirectBoundary>
+            <RedirectErrorBoundary router={{...}}>
+              <Head>
+              <__next_root_layout_boundary__>
+                <SegmentViewNode type="layout" pagePath="layout.tsx">
+                  <SegmentTrieNode>
+                  <link>
+                  <RootLayout>
+                    <html lang="en-GB" data-scroll-behavior="smooth" className="__variable...">
+                      <body>
+                        <CookieConsentProvider>
+                          <SiteHeader>
+                          <OuterLayoutRouter>
+                          <footer>
+                          <div>
+                          <dialog className="cookie-dialog" ref={{current:null}} aria-labelledby="cookie-dia..." ...>
+                            <button>
+                            <h2>
+                            <p>
+                            <section>
+                            <section>
+                              <label className="cookie-toggle">
+                                <input
+                                  type="checkbox"
+                                  checked={false}
+                                  onChange={function onChange}
+-                                 style={{caret-color:"transparent"}}
+                                >
+                                ...
+                              ...
+                            ...
+              ...
+ 
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <DevRootHTTPAccessFallbackBoundary>
+      <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+        <HTTPAccessFallbackErrorBoundary pathname="/shop" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+          <RedirectBoundary>
+            <RedirectErrorBoundary router={{...}}>
+              <Head>
+              <__next_root_layout_boundary__>
+                <SegmentViewNode type="layout" pagePath="layout.tsx">
+                  <SegmentTrieNode>
+                  <link>
+                  <RootLayout>
+                    <html lang="en-GB" data-scroll-behavior="smooth" className="__variable...">
+                      <body>
+                        <CookieConsentProvider>
+                          ...
+                            <CatalogFilters path="/shop" query={{q:"",category:"", ...}} categories={[...]} ...>
+                              <aside className="catalog-si...">
+                                <FilterForm path="/shop" query={{q:"",category:"", ...}} categories={[...]} ...>
+                                  <CategoryLinks>
+                                  <form action="/shop" method="get" className="catalog-fi...">
+                                    <input
+                                      type="hidden"
+                                      name="sort"
+                                      value="name-asc"
+-                                     style={{caret-color:"transparent"}}
+                                    >
+                                    <input
+                                      type="hidden"
+                                      name="per_page"
+                                      value={12}
+-                                     style={{caret-color:"transparent"}}
+                                    >
+                                    <input
+                                      type="hidden"
+                                      name="category"
+                                      value=""
+-                                     style={{caret-color:"transparent"}}
+                                    >
+                                    <label>
+                                    <div className="catalog-se...">
+                                      <button>
+                                      <input
+                                        id="_R_lpbn5rhlb_-search"
+                                        name="q"
+                                        defaultValue=""
+                                        maxLength={100}
+                                        placeholder="Find a product"
+-                                       style={{caret-color:"transparent"}}
+                                      >
+                              <button>
+                              <dialog className="filter-dialog" ref={{current:null}} aria-label="Filter pro...">
+                                <div>
+                                <FilterForm path="/shop" query={{q:"",category:"", ...}} categories={[...]} ...>
+                                  <CategoryLinks>
+                                  <form action="/shop" method="get" className="catalog-fi...">
+                                    <input
+                                      type="hidden"
+                                      name="sort"
+                                      value="name-asc"
+-                                     style={{caret-color:"transparent"}}
+                                    >
+                                    <input
+                                      type="hidden"
+                                      name="per_page"
+                                      value={12}
+-                                     style={{caret-color:"transparent"}}
+                                    >
+                                    <input
+                                      type="hidden"
+                                      name="category"
+                                      value=""
+-                                     style={{caret-color:"transparent"}}
+                                    >
+                                    <label>
+                                    <div className="catalog-se...">
+                                      <button>
+                                      <input
+                                        id="_R_5lpbn5rhlb_-search"
+                                        name="q"
+                                        defaultValue=""
+                                        maxLength={100}
+                                        placeholder="Find a product"
+-                                       style={{caret-color:"transparent"}}
+                                      >
+                          <div>
+                          <dialog className="cookie-dialog" ref={{current:null}} aria-labelledby="cookie-dia..." ...>
+                            <button>
+                            <h2>
+                            <p>
+                            <section>
+                            <section>
+                              <label className="cookie-toggle">
+                                <input
+                                  type="checkbox"
+                                  checked={false}
+                                  onChange={function onChange}
+-                                 style={{caret-color:"transparent"}}
+                                >
+                                ...
+                              ...
+                            ...
+              ...
+ 
