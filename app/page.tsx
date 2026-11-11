@@ -30,6 +30,7 @@ import {
   type HomeProduct,
 } from "@/components/home/reference-widgets";
 import "./reference-home.css";
+import { CategoryCarousel } from "@/components/home/category-carousel";
 export const dynamic = "force-dynamic";
 const departments = [
   { slug: "rape", label: "Rapé", icon: Leaf },
@@ -204,7 +205,7 @@ export default async function Home() {
         aria-labelledby="rh-categories-title"
       >
         <h2 id="rh-categories-title">Shop by category</h2>
-        <div className="rh-category-circles">
+        <CategoryCarousel className="rh-category-circles" label="Main categories">
           {available.map(({ slug, label, icon: Icon }) => (
             <Link key={slug} href={`/collections/${slug}`}>
               <span>
@@ -213,8 +214,8 @@ export default async function Home() {
               {label}
             </Link>
           ))}
-        </div>
-        <nav className="rh-category-chips" aria-label="More categories">
+        </CategoryCarousel>
+        <CategoryCarousel className="rh-category-chips" label="More categories">
           {categories
             .filter(
               (category) =>
@@ -227,7 +228,7 @@ export default async function Home() {
                 {plainText(category.name)}
               </Link>
             ))}
-        </nav>
+        </CategoryCarousel>
       </section>
       <div className="rh-wide">
         <HomeRail

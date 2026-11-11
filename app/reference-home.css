@@ -348,7 +348,29 @@
   display: grid;
   grid-template-columns: repeat(8, minmax(0, 1fr));
   gap: 28px;
-  margin-block: 24px;
+  margin: 0;
+}
+.reference-home .rh-category-carousel {
+  position: relative;
+  margin-top: 24px;
+}
+.reference-home .rh-category-carousel > [role="navigation"] {
+  cursor: grab;
+  overscroll-behavior-x: contain;
+}
+.reference-home .rh-category-carousel > .is-dragging {
+  cursor: grabbing;
+  user-select: none;
+}
+.reference-home .rh-category-carousel > [role="navigation"]:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 4px;
+}
+.reference-home .rh-category-carousel .rh-arrow {
+  top: 50%;
+}
+.reference-home .rh-category-carousel .rh-arrow:disabled {
+  visibility: hidden;
 }
 .reference-home .rh-category-circles a {
   text-align: center;
