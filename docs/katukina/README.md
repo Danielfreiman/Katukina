@@ -6,6 +6,8 @@ O projeto local contém Next.js e WordPress + WooCommerce em Docker. Site e pain
 
 ## Entregas
 
+Categorias em 2026-11-11: [estrutura da referência iHerb com filtros preservados](CATEGORY-REFERENCE-2026-11-11.md).
+
 Atualização do GitHub em 2026-11-09: [16 commits incorporados, conciliação local e validações](GITHUB-INTEGRATION-2026-11-09.md).
 
 Fotos vigentes: [substituição por imagens com marca d’água e exclusão das versões antigas](WATERMARK-PHOTOS-2026-11-09.md), solicitada em 2026-11-09.

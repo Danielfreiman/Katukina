@@ -1,4 +1,9 @@
 # Histórico do discovery Katukina
+## 2026-11-11 — Estrutura das categorias com filtros preservados
+
+- Estendida a referência visual às rotas de categoria: campanha horizontal, atalhos circulares, cards em quatro colunas, faixa de assinatura e conteúdo editorial. Conteúdo e dados da Katukina; header, footer e arquivos dos filtros preservados por comparação de hashes.
+- Typecheck, build e diff-check aprovados. Playwright validou busca, ordenação, paginação, filtros móveis, carregamento das imagens e responsividade em cinco larguras. [Escopo e evidências](CATEGORY-REFERENCE-2026-11-11.md).
+
 ## 2026-11-11 — Reprodução completa da composição da home de referência
 
 - Após liberação manual pelo responsável, inspecionada a home pública do iHerb na sessão redirecionada para Brasil. Reproduzida a sequência de módulos, banners em dupla, categorias circulares, vitrines de seis colunas, abas, banner institucional, conteúdo editorial e faixas de relacionamento, usando conteúdo e dados reais da Katukina.
