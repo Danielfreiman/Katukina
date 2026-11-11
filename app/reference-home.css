@@ -205,8 +205,10 @@
   border-radius: var(--radius-card);
   font-size: var(--text-body);
 }
-.reference-home .rh-guidance-cards svg {
-  color: var(--green);
+.reference-home .rh-guidance-cards img {
+  display: block;
+  width: 29px;
+  height: 29px;
   flex-shrink: 0;
 }
 .reference-home .rh-section-title {
@@ -375,6 +377,11 @@
 .reference-home .rh-category-circles a {
   text-align: center;
   font-size: var(--text-body);
+}
+.reference-home .rh-category-circles img {
+  display: block;
+  width: 56px;
+  height: 56px;
 }
 .reference-home .rh-category-circles a > span {
   aspect-ratio: 1;
@@ -774,7 +781,7 @@
     grid-auto-columns: calc((100% - 32px) / 3);
     gap: 16px;
   }
-  .reference-home .rh-category-circles svg {
+  .reference-home .rh-category-circles img {
     width: 40px;
     height: 40px;
   }

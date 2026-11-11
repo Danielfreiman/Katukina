@@ -2,16 +2,9 @@ import Link from "next/link";
 import {
   Leaf,
   Flame,
-  Coffee,
-  Flower2,
-  Gift,
-  Wind,
-  Droplets,
   TreePine,
   BookOpen,
   Package,
-  Truck,
-  UserRound,
 } from "lucide-react";
 import { getCategories, getProducts } from "@/lib/commerce/catalog";
 import {
@@ -33,14 +26,14 @@ import "./reference-home.css";
 import { CategoryCarousel } from "@/components/home/category-carousel";
 export const dynamic = "force-dynamic";
 const departments = [
-  { slug: "rape", label: "Rapé", icon: Leaf },
-  { slug: "sacred-incense", label: "Sacred Incense", icon: Flame },
-  { slug: "beauty-and-body", label: "Beauty & Body", icon: Flower2 },
-  { slug: "herbal-teas", label: "Herbal Teas", icon: Coffee },
-  { slug: "giftshop", label: "Giftshop", icon: Gift },
-  { slug: "shamanic-tools", label: "Shamanic Tools", icon: TreePine },
-  { slug: "kuripe-and-tepi", label: "Kuripe & Tepi", icon: Wind },
-  { slug: "aromatics", label: "Aromatics", icon: Droplets },
+  { slug: "rape", label: "Rapé", icon: "/images/icons/categories/01-rape.svg" },
+  { slug: "sacred-incense", label: "Sacred Incense", icon: "/images/icons/categories/02-sacred-incense.svg" },
+  { slug: "beauty-and-body", label: "Beauty & Body", icon: "/images/icons/categories/03-beauty-body.svg" },
+  { slug: "herbal-teas", label: "Herbal Teas", icon: "/images/icons/categories/04-herbal-teas.svg" },
+  { slug: "giftshop", label: "Giftshop", icon: "/images/icons/categories/05-giftshop.svg" },
+  { slug: "shamanic-tools", label: "Shamanic Tools", icon: "/images/icons/categories/06-shamanic-tools.svg" },
+  { slug: "kuripe-and-tepi", label: "Kuripe & Tepi", icon: "/images/icons/categories/07-kuripe-tepi.svg" },
+  { slug: "aromatics", label: "Aromatics", icon: "/images/icons/categories/08-aromatics.svg" },
 ];
 function card(product: Product): HomeProduct {
   return {
@@ -73,10 +66,10 @@ async function products(query: Record<string, string | number>) {
 }
 function Guidance() {
   const items = [
-    { icon: BookOpen, title: "Product details", href: "/shop" },
-    { icon: Leaf, title: "Explore botanicals", href: "/collections" },
-    { icon: Truck, title: "Shipping options", href: "/shipping" },
-    { icon: UserRound, title: "Your account", href: "/account" },
+    { icon: "product-details", title: "Product details", href: "/shop" },
+    { icon: "explore-botanicals", title: "Explore botanicals", href: "/collections" },
+    { icon: "shipping-options", title: "Shipping options", href: "/shipping" },
+    { icon: "your-account", title: "Your account", href: "/account" },
   ];
   return (
     <section className="rh-guidance" aria-label="Shopping with Katukina">
@@ -92,9 +85,9 @@ function Guidance() {
           </p>
         </div>
         <div className="rh-guidance-cards">
-          {items.map(({ icon: Icon, title, href }) => (
+          {items.map(({ icon, title, href }) => (
             <Link href={href} key={title}>
-              <Icon size={29} strokeWidth={1.5} />
+              <img src={`/images/icons/guidance/${icon}.svg`} alt="" width={29} height={29} />
               <span>{title}</span>
             </Link>
           ))}
@@ -206,10 +199,10 @@ export default async function Home() {
       >
         <h2 id="rh-categories-title">Shop by category</h2>
         <CategoryCarousel className="rh-category-circles" label="Main categories">
-          {available.map(({ slug, label, icon: Icon }) => (
+          {available.map(({ slug, label, icon }) => (
             <Link key={slug} href={`/collections/${slug}`}>
               <span>
-                <Icon size={56} strokeWidth={1.5} />
+                <img src={icon} alt="" width={56} height={56} draggable={false} />
               </span>
               {label}
             </Link>
