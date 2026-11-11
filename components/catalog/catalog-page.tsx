@@ -18,6 +18,7 @@ import { ProductGrid } from "./product-grid";
 import { CatalogFilters, CatalogSort } from "./catalog-controls";
 import { RecentlyViewed } from "./recently-viewed";
 import { CategoryDiscovery } from "./category-discovery";
+import { CategoryRail } from "./category-rail";
 import "@/app/category-reference.css";
 
 export async function CatalogPage({
@@ -255,7 +256,10 @@ export async function CatalogPage({
                 <h2 id="category-editorial-title">A little more to discover</h2>
                 <Link href="/journal">View the journal</Link>
               </div>
-              <nav aria-label="Collection guidance">
+              <CategoryRail
+                className="category-guidance-track"
+                label="Collection guidance"
+              >
                 {[
                   {
                     href: "/about",
@@ -288,7 +292,7 @@ export async function CatalogPage({
                     <p>{item.copy}</p>
                   </Link>
                 ))}
-              </nav>
+              </CategoryRail>
             </section>
           )}
           {pages > 1 && (

@@ -1,4 +1,9 @@
 # Histórico do discovery Katukina
+## 2026-11-11 — Navegação das faixas de categoria
+
+- A pedido do responsável, removidas as barras de rolagem visíveis dos atalhos circulares e da faixa editorial das categorias. Setas circulares seguem o padrão da home, com limites desabilitados, ocultação quando todo o conteúdo cabe e suporte a movimento reduzido. Deslize e links permanecem disponíveis.
+- Controles e regras dos filtros preservados. Typecheck e diff-check aprovados. Playwright confirmou avanço/retorno pelas setas, ausência das barras e regressão de busca, ordenação, paginação e filtros móveis em cinco larguras.
+
 ## 2026-11-11 — Header e footer alinhados à nova estética
 
 - Pedido confirmado: estender ao header e footer os cantos e o tratamento visual da home/categorias, substituindo a restrição anterior de preservação visual dessas áreas.
