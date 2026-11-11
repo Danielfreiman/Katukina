@@ -299,9 +299,24 @@ button.text-link {
   padding-block: 16px;
 }
 .header-categories {
+  position: relative;
+  isolation: isolate;
   border-top: 1px solid var(--line);
+  background: var(--white);
+}
+.header-categories::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: url("/images/original-background.jpg") center / 600px auto repeat-x;
+  filter: grayscale(1) invert(1);
+  opacity: 0.18;
+  pointer-events: none;
 }
 .category-navigation {
+  position: relative;
+  z-index: 1;
   height: 49px;
   display: flex;
   align-items: center;
