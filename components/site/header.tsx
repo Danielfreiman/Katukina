@@ -3,7 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { Menu, ChevronDown, ShoppingBag, UserRound, X } from "lucide-react";
+import { Menu, ChevronDown, UserRound, X } from "lucide-react";
+import { SideCart } from "@/components/commerce/side-cart";
 import { plainText } from "@/lib/wordpress/text";
 import { DestinationSelector } from "@/components/commerce/destination";
 import { ProductSearch } from "./product-search";
@@ -78,10 +79,7 @@ export function SiteHeader({ categories }: { categories: { id: number; name: str
               <UserRound size={22} strokeWidth={1.5} />
               <span className="header-action-label">Account</span>
             </Link>
-            <Link className="icon-button" href="/cart" aria-label="Your bag">
-              <ShoppingBag size={22} strokeWidth={1.5} />
-              <span className="header-action-label">Bag</span>
-            </Link>
+            <SideCart onOpen={() => setPanel(null)} />
             <button
               ref={menuButton}
               className="icon-button menu-toggle"

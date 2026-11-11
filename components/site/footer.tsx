@@ -4,6 +4,7 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div className="shell footer-top">
         <div className="footer-intro">
+          <img className="footer-full-logo" src="/images/brand/katukina-logo-horizontal.svg" alt="Katukina" width={600} height={120} />
           <h2>
             Stay curious.
             <br />
@@ -35,9 +36,6 @@ export function SiteFooter() {
             </Link>
           </div>
         </div>
-      </div>
-      <div className="shell footer-signature" aria-hidden="true">
-        <img className="footer-full-logo" src="/images/brand/katukina-logo-horizontal.svg" alt="" width={600} height={120} />
       </div>
       <div className="shell footer-bottom">
         <span>© {new Date().getFullYear()} Katukina</span>

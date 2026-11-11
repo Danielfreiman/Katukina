@@ -1,4 +1,23 @@
 # Histórico do discovery Katukina
+## 2026-11-11 — Estoque de teste para todo o catálogo local
+
+- Por solicitação do responsável, disponibilizadas 908 variações com saldo mínimo de 100 unidades para teste, sincronizando 370 produtos pais. Backup privado de banco e estoque anterior preservado.
+- API pública confirmou 370 produtos em estoque; validada adição real, sidecart, quantidade e abertura do checkout, sem finalizar pedido. [Escopo e reversão](TEST-STOCK-2026-11-11.md).
+
+## 2026-11-11 — Restauração do ícone Bag
+
+- A pedido do responsável, restaurado o ícone original de sacola no header e no carrinho lateral. Sidecart e suas funcionalidades preservados; removido o componente de folha sem uso.
+
+## 2026-11-11 — Folha de bananeira e sidecart
+
+- Ícone Bag substituído por folha SVG e abertura de carrinho lateral integrado à sessão WooCommerce, incluindo quantidades, remoção, variações, totais, checkout e acesso à página completa.
+- Abertura também após adição confirmada; reconciliação por leitura em caso de resposta incerta, sem repetir mutações. Typecheck, build, diff-check e dois cenários Playwright aprovados. [Comportamento e evidências](SIDE-CART-2026-11-11.md).
+
+## 2026-11-11 — Cantos dos controles do catálogo
+
+- Pedido confirmado: alinhar os controles ainda quadrados à estética atual. Sort by, Show, busca lateral, campos dos filtros, paginação, filtros ativos e controles do diálogo móvel usam os tokens de raio existentes (8 px).
+- Alteração exclusivamente visual, preservando regras e funcionamento dos filtros. Typecheck e diff-check aprovados; raio de 8 px confirmado no Edge para ordenação, quantidade, busca e paginação.
+
 ## 2026-11-11 — PDP integrada à referência
 
 - Aplicada composição de três áreas no desktop: galeria, opções/dados e resumo de compra. Preservados swatches com pattern, tipo/peso/volume, seleção na URL, zoom e regras existentes de preço/estoque/carrinho.
