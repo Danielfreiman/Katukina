@@ -3,7 +3,7 @@ HOME - ORIENTACAO VIGENTE EM 11/11/2026
 Banners atuais da primeira dobra: banners/
 2400 x 1800 px, 4:3, WebP, sRGB. Mesmo arquivo desktop/celular.
   discover-katukina.webp
-  our-story.webp
+  tepi-kuripe.webp
   sacred-incense.webp
 Guia completo: docs/katukina/BANNERS.md.
 

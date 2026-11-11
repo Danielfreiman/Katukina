@@ -17,12 +17,12 @@ Raiz das exportações publicadas: `website-katukina-2027/public/images/home/ban
 | Campanha | Nome a substituir | Destino do clique | Mestre sugerido |
 | --- | --- | --- | --- |
 | Discover your natural rhythm | `discover-katukina.webp` | `/shop` | `discover-katukina.psd` |
-| Nature. Culture. Connection. | `our-story.webp` | `/about` | `our-story.psd` |
+| Explore Tepi & Kuripe | `tepi-kuripe.webp` | `/collections/kuripe-and-tepi` | `tepi-kuripe.psd` |
 | Explore Sacred Incense | `sacred-incense.webp` | `/collections/sacred-incense` | `sacred-incense.psd` |
 
 As campanhas rodam em sequência; não existe imagem fixa “da esquerda” ou “da direita”. A captura mostra o par 2 e 3. Os títulos e descrições permanecem editáveis no componente, separados das fotos.
 
-Os três caminhos estão ligados ao componente. As imagens iniciais são cópias das que já apareciam, preservando sua aparência; **não são novas artes aprovadas nem foram redimensionadas**. `our-story.webp` foi convertido sem perda a partir de `forest.jpg`. Novas artes 4:3 são produzidas por Danilo. As pastas antigas de hero foram retiradas da área pública e arquivadas em `.local-backups/`, fora do site.
+Os três caminhos estão ligados ao componente. As imagens iniciais são cópias das que já apareciam, preservando sua aparência; **não são novas artes aprovadas nem foram redimensionadas**. A campanha Tepi & Kuripe substituiu Our Story; `tepi-kuripe.webp` mantém provisoriamente a foto anterior até Danilo salvar a nova arte por cima. Novas artes 4:3 são produzidas por Danilo. As pastas antigas de hero foram retiradas da área pública e arquivadas em `.local-backups/`, fora do site.
 
 ## Composição no Photoshop/Illustrator
 
@@ -42,7 +42,7 @@ Katukina.com/Assets Site/Banners/Home/
     Referencias/
     Editaveis/
     Exportacoes/
-  02 Our Story/
+  02 Tepi & Kuripe/
     Referencias/
     Editaveis/
     Exportacoes/
@@ -66,7 +66,7 @@ Katukina.com/Assets Site/Banners/Home/
 URLs diretas para conferir cada imagem:
 
 - `/images/home/banners/discover-katukina.webp`
-- `/images/home/banners/our-story.webp`
+- `/images/home/banners/tepi-kuripe.webp`
 - `/images/home/banners/sacred-incense.webp`
 
 Se o navegador conservar a versão anterior, abrir a URL com `?v=20261111` para diagnosticar cache. Trocar o arquivo local não publica a alteração em produção. Para desfazer, restaurar a exportação anterior com o mesmo nome.

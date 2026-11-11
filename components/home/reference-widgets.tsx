@@ -140,11 +140,11 @@ const campaigns = [
     image: "/images/home/banners/discover-katukina.webp",
   },
   {
-    title: "Nature. Culture. Connection.",
-    text: "Get to know Katukina and our story",
-    href: "/about",
-    cta: "Our story",
-    image: "/images/home/banners/our-story.webp",
+    title: "Explore Tepi & Kuripe",
+    text: "Discover our collection of applicators",
+    href: "/collections/kuripe-and-tepi",
+    cta: "Shop Tepi & Kuripe",
+    image: "/images/home/banners/tepi-kuripe.webp",
   },
   {
     title: "Explore Sacred Incense",

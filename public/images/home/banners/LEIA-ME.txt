@@ -5,7 +5,7 @@ Mesmo arquivo para desktop e celular. Sem texto, botoes ou overlay gravados.
 Reservar o topo esquerdo para texto branco aplicado pelo site.
 
 discover-katukina.webp = Discover your natural rhythm -> /shop
-our-story.webp = Nature. Culture. Connection. -> /about
+tepi-kuripe.webp = Explore Tepi & Kuripe -> /collections/kuripe-and-tepi
 sacred-incense.webp = Explore Sacred Incense -> /collections/sacred-incense
 
 Os quadros nao sao fixos: tres campanhas rodam; duas por vez acima de 1100 px,

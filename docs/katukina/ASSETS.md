@@ -2,7 +2,7 @@
 
 ## Especificação vigente — 11/11/2026
 
-**Para os banners em dupla da home, usar [BANNERS.md](BANNERS.md): 2400 × 1800 px, 4:3, WebP/sRGB, em `public/images/home/banners/`.** Três arquivos independentes: `discover-katukina.webp`, `our-story.webp`, `sacred-incense.webp`. Mesma arte no desktop/celular.
+**Para os banners em dupla da home, usar [BANNERS.md](BANNERS.md): 2400 × 1800 px, 4:3, WebP/sRGB, em `public/images/home/banners/`.** Três arquivos independentes: `discover-katukina.webp`, `tepi-kuripe.webp`, `sacred-incense.webp`. Mesma arte no desktop/celular.
 
 A home atual está em `app/page.tsx` + `components/home/reference-widgets.tsx` + `app/reference-home.css`. Categorias da home usam ícones nesta composição; o banner Kuripe & Tepi e o hero de tela inteira abaixo pertencem à versão anterior. Os fundos `collection/` e `journal/` e as pastas `category-band/`/`category-cards/` são preservados, mas não são pontos de entrega da primeira dobra atual. Não produzir novas artes para áreas históricas sem confirmar a seção ativa.
 

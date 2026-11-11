@@ -59,7 +59,7 @@ Essas pastas existentes foram mantidas nos caminhos originais. A organização a
 | `public/images/home/category-band/`, `category-cards/` | Fundo decorativo ainda referenciado e preparação de cards; não são pastas de banners |
 | `public/images/` (arquivos soltos) | Fotografias e grafismo compartilhados por outras rotas; não renomear sem conferir referências |
 
-`public/` é acessível pelo navegador: retirar o prefixo `public` para obter a URL. Nunca colocar mestres ou documentos privados ali. Para trocar o banner institucional da primeira dobra, usar `banners/our-story.webp`, pois `forest.jpg` é compartilhado.
+`public/` é acessível pelo navegador: retirar o prefixo `public` para obter a URL. Nunca colocar mestres ou documentos privados ali. Para trocar o banner Tepi & Kuripe da primeira dobra, usar `banners/tepi-kuripe.webp`, pois `forest.jpg` é compartilhado.
 
 As pastas antigas `hero-01/`, `hero-02/`, `hero-03/` e `collections-banner/` foram retiradas de `public/images/home/` em 11/11/2026. Uma cópia de segurança ficou em `Katukina.com/.local-backups/banners-antigos-<data-hora>/`, fora do site. O destino único dos banners novos é `public/images/home/banners/`.
 
