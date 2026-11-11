@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { Star, Truck, PackageCheck } from "lucide-react";
 import {
   Product,
   ProductVariation,
@@ -112,7 +113,7 @@ export function ProductPurchase({
         images={images}
         name={productName(product)}
       />
-      <section className="product-purchase-panel" aria-label="Product options">
+      <section className="product-overview" aria-label="Product options">
         <p className="eyebrow">
           {product.categories[0] && (
             <Link href={`/collections/${product.categories[0].slug}`}>
@@ -121,22 +122,18 @@ export function ProductPurchase({
           )}
         </p>
         <h1>{productName(product)}</h1>
+        {!!product.review_count && Number(product.average_rating) > 0 && (
+          <p className="pdp-rating">
+            <Star size={16} aria-hidden />{" "}
+            {Number(product.average_rating).toFixed(1)}{" "}
+            <span>({product.review_count} reviews)</span>
+          </p>
+        )}
         {product.short_description && (
           <p className="product-summary">
             {plainText(product.short_description)}
           </p>
         )}
-        <div className="purchase-price" aria-live="polite">
-          <p data-testid="product-price">
-            {productPrice(item ?? product) || "Price unavailable"}
-          </p>
-          <span>
-            {product.prices.currency_code}
-            {variable && !selected
-              ? " · Select an option to see its price"
-              : ""}
-          </span>
-        </div>
         <fieldset className="purchase-fields" disabled={pending}>
           <legend className="sr-only">Choose your product</legend>
           {variable && (
@@ -240,6 +237,57 @@ export function ProductPurchase({
               {!variations.length && <p>No options are currently available.</p>}
             </fieldset>
           )}
+        </fieldset>
+        <a href="#product-description" className="pdp-details-link">
+          Read product information
+        </a>
+        <div className="pdp-key-details">
+          <h2>At a glance</h2>
+          <dl>
+            <div>
+              <dt>Product reference</dt>
+              <dd>{product.sku || product.id}</dd>
+            </div>
+            {product.categories[0] && (
+              <div>
+                <dt>Collection</dt>
+                <dd>{plainText(product.categories[0].name)}</dd>
+              </div>
+            )}
+            {(product.attributes ?? [])
+              .filter((attribute) => !attribute.has_variations)
+              .slice(0, 4)
+              .map((attribute) => (
+                <div key={attribute.name}>
+                  <dt>{plainText(attribute.name)}</dt>
+                  <dd>
+                    {attribute.terms
+                      .map((term) => plainText(term.name))
+                      .join(", ")}
+                  </dd>
+                </div>
+              ))}
+          </dl>
+        </div>
+      </section>
+      <section className="product-purchase-panel" aria-label="Purchase summary">
+        <p className="eyebrow">YOUR SELECTION</p>
+        <p className="pdp-selection-name">
+          {selectedLabel || productName(product)}
+        </p>
+        <div className="purchase-price" aria-live="polite">
+          <p data-testid="product-price">
+            {productPrice(item ?? product) || "Price unavailable"}
+          </p>
+          <span>
+            {product.prices.currency_code}
+            {variable && !selected
+              ? " · Select an option to see its price"
+              : ""}
+          </span>
+        </div>
+        <fieldset className="purchase-fields" disabled={pending}>
+          <legend className="sr-only">Quantity and availability</legend>
           <div className="purchase-availability" aria-live="polite">
             <p className={available ? "stock-available" : "stock-unavailable"}>
               {!item
@@ -298,9 +346,16 @@ export function ProductPurchase({
         )}
         {item && !item.is_in_stock && <SubscriptionForm productId={item.id} />}
         <p className="purchase-delivery">
-          Delivery options are calculated in your <Link href="/cart">bag</Link>{" "}
-          for your destination.
+          <Truck size={20} aria-hidden />
+          <span>
+            Delivery options are calculated in your{" "}
+            <Link href="/cart">bag</Link> for your destination.
+          </span>
         </p>
+        <Link className="pdp-shipping-link" href="/shipping">
+          <PackageCheck size={20} aria-hidden />
+          <span>Shipping &amp; destinations</span>
+        </Link>
       </section>
     </div>
   );
