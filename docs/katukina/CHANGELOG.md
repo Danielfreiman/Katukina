@@ -1,4 +1,27 @@
 # Histórico do discovery Katukina
+## 2026-11-11 — Reprodução completa da composição da home de referência
+
+- Após liberação manual pelo responsável, inspecionada a home pública do iHerb na sessão redirecionada para Brasil. Reproduzida a sequência de módulos, banners em dupla, categorias circulares, vitrines de seis colunas, abas, banner institucional, conteúdo editorial e faixas de relacionamento, usando conteúdo e dados reais da Katukina.
+- Escopo confirmado: somente home. Header e footer preservados por comparação de hashes. A nova composição substitui o hero anterior de tela inteira. Formas arredondadas da referência limitadas à home. Evidências e correspondências em [HOME-REFERENCE-2026-11-11.md](HOME-REFERENCE-2026-11-11.md).
+- Typecheck, build e diff-check aprovados. Cinco cenários Playwright aprovados no conjunto de execuções: busca real, respostas atrasadas/erros, navegação compartilhada, rotas públicas e home com carrosséis/abas/imagens em 1440, 1024, 768, 390 e 320 px. Corrigida ordenação de produtos para `title` na Store API; imagens lazy fora da tela verificadas com carregamento antecipado somente no teste.
+- Servidor local reiniciado. Sem commit/push nesta tarefa.
+## 2026-11-11 — Ajuste da assinatura no rodapé
+
+- A pedido do responsável, removida a árvore isolada do rodapé e reduzida a logo completa para 80% da largura disponível, centralizada e com proporções preservadas. Asset da árvore mantido para eventual reutilização.
+- Typecheck e diff-check aprovados.
+## 2026-11-11 — Logos no rodapé
+
+- Substituído o losango pela árvore e a assinatura tipográfica pela logo horizontal completa. SVG da árvore extraído do grupo original da logo, preservando geometria e cores.
+- Typecheck aprovado; logos carregadas e rodapé sem overflow em 1440 e 390 px no Edge.
+## 2026-11-11 — Estrutura comercial inspirada no iHerb
+
+- Adaptados os padrões públicos de busca permanente, departamentos e vitrines por categoria à identidade Katukina. Implementação e evidências em [STOREFRONT-STRUCTURE-2026-11-11.md](STOREFRONT-STRUCTURE-2026-11-11.md).
+- Categorias reais no menu expandido e mobile, sugestões AJAX junto ao campo, atalhos de orientação e três vitrines horizontais com cards existentes. Preservados banner de primeira tela, kenê, estoque, preços e fluxos WooCommerce.
+- Validação executada: typecheck e build aprovados; quatro testes Playwright aprovados (busca real, corrida de requisições/erros, menu/vitrines em cinco larguras e rotas públicas). Corrigido overflow causado por elementos posicionados dos cards, ancorando-os ao contêiner de rolagem. Servidor local reiniciado após build.
+## 2026-11-11 — Primeira dobra com altura de tela
+
+- Banner inicial dimensionado por `100svh` menos a altura real da faixa superior e header, acompanhada via ResizeObserver. Todos os slides compartilham a altura; tipografia e padding responsivos mantêm os CTAs visíveis. Altura mínima e rolagem interna preservam acesso ao conteúdo em janelas excepcionalmente baixas.
+- Typecheck aprovado. Edge em 1920×1080, 1440×900, 1366×768, 390×844 e 320×568 confirmou fim do banner no limite da viewport, CTAs visíveis e ausência de overflow horizontal.
 ## 2026-11-11 — Espaçamento do campo de busca
 
 - Adicionado padding horizontal de 16 px e vertical de 14 px ao campo da busca no header, afastando placeholder e texto digitado da borda de foco.

@@ -10,7 +10,7 @@ test("header suggests real products and supports mobile keyboard navigation", as
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/");
   await page.getByRole("button", { name: "Reject optional", exact: true }).click();
-  await page.getByRole("button", { name: "Open search", exact: true }).click();
+
   const input = page.getByRole("combobox", { name: "Search the collection" });
   await input.fill("palo");
   await expect(page.getByRole("listbox").getByRole("option").first()).toBeVisible();
@@ -21,7 +21,7 @@ test("header suggests real products and supports mobile keyboard navigation", as
   await expect(page.getByRole("listbox").getByRole("option").first()).toHaveAttribute("aria-selected", "true");
   await input.press("Enter");
   await expect(page).toHaveURL(new RegExp(`${href}$`));
-  await expect(input).toHaveCount(0);
+  await expect(page.locator(".search-results-panel")).toBeHidden();
 });
 
 test("suggestions discard outdated responses and handle empty/error results", async ({ page }) => {
@@ -34,7 +34,7 @@ test("suggestions discard outdated responses and handle empty/error results", as
   });
   await page.goto("/");
   await page.getByRole("button", { name: "Reject optional", exact: true }).click();
-  await page.getByRole("button", { name: "Open search", exact: true }).click();
+
   const input = page.getByRole("combobox", { name: "Search the collection" });
   const pending = page.waitForRequest("**/api/search/products?q=old");
   await input.fill("old");
@@ -48,5 +48,6 @@ test("suggestions discard outdated responses and handle empty/error results", as
   await input.fill("error");
   await expect(page.locator(".search-status")).toContainText("Suggestions are unavailable");
   await input.press("Escape");
-  await expect(page.getByRole("button", { name: "Open search", exact: true })).toBeFocused();
+  await expect(input).toBeFocused();
+  await expect(page.locator(".search-results-panel")).toBeHidden();
 });

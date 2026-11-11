@@ -9,6 +9,19 @@ export function HeroCarousel({ slides, labels }: { slides: ReactNode[]; labels: 
   const [hovered, setHovered] = useState(false);
   const [visible, setVisible] = useState(true);
   const tabs = useRef<(HTMLButtonElement | null)[]>([]);
+  const carousel = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const chrome = [document.querySelector(".site-note"), document.querySelector(".header-wrap")];
+    const measure = () => {
+      const height = chrome.reduce((total, element) => total + (element?.getBoundingClientRect().height ?? 0), 0);
+      carousel.current?.style.setProperty("--home-chrome-height", `${height}px`);
+    };
+    const observer = new ResizeObserver(measure);
+    chrome.forEach(element => { if (element) observer.observe(element); });
+    measure();
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -44,7 +57,7 @@ export function HeroCarousel({ slides, labels }: { slides: ReactNode[]; labels: 
   }
 
   return (
-    <div className="hero-carousel" role="region" aria-label="Katukina highlights" data-active-slide={active}
+    <div ref={carousel} className="hero-carousel" role="region" aria-label="Katukina highlights" data-active-slide={active}
       onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
       onFocusCapture={(event) => {
         if (!(event.target instanceof Element && event.target.closest("[data-rotation-control]"))) setPaused(true);

@@ -2019,3 +2019,20 @@ button.text-link {
     outline-color: var(--warm-white);
   }
 }
+
+/* First screen includes the announcement, navigation and campaign. */
+.hero-carousel {
+  height: calc(100svh - var(--home-chrome-height, calc(var(--header-height) + 40px)));
+  min-height: 280px;
+}
+.hero-carousel > [role="tabpanel"] { min-height: 0; overflow-y: auto; }
+.hero-carousel .hero-campaign { min-height: 100%; }
+.hero-carousel .hero-campaign-layout { padding-block: clamp(24px, 4svh, 48px) 80px; }
+.hero-carousel .hero-copy :is(h1, h2) {
+  font-size: clamp(2rem, min(4.3vw, 6.6svh), 4.25rem);
+  margin-block: 16px;
+}
+@media (max-width: 600px) {
+  .hero-carousel .hero-copy :is(h1, h2) { font-size: clamp(1.65rem, min(7.7vw, 4.5svh), 2.85rem); }
+  .hero-carousel .hero-campaign-layout { padding-block: 24px 80px; }
+}

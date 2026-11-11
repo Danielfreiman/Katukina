@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "./catalog.css";
 import "./privacy.css";
+import "./storefront.css";
+import { getCategories } from "@/lib/commerce/catalog";
 import { Sora, Source_Sans_3 } from "next/font/google";
 
 const sora = Sora({ subsets: ["latin", "latin-ext"], display: "swap", variable: "--font-sora" });
@@ -39,14 +41,15 @@ export const metadata: Metadata = {
     images: ["/images/original-background.jpg"],
   },
 };
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const categories = await getCategories().catch(() => []);
   return (
     <html lang="en-GB" data-scroll-behavior="smooth" className={`${sora.variable} ${sourceSans.variable}`}>
       <body>
         <CookieConsentProvider>
-          <SiteHeader />
+          <SiteHeader categories={categories.map(({ id, name, slug, count }) => ({ id, name, slug, count }))} />
           {children}
           <SiteFooter />
         </CookieConsentProvider>

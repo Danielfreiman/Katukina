@@ -8,7 +8,8 @@ import { Search } from "lucide-react";
 type Suggestion = { id: number; name: string; href: string; image: string | null; price: string | null };
 type Result = { query: string; status: "loading" | "ready" | "error"; products: Suggestion[] };
 
-export function ProductSearch({ onNavigate }: { onNavigate: () => void }) {
+export function ProductSearch({ onNavigate, inline = false }: { onNavigate: () => void; inline?: boolean }) {
+  const [expanded, setExpanded] = useState(false);
   const [value, setValue] = useState("");
   const [result, setResult] = useState<Result | null>(null);
   const [active, setActive] = useState(-1);
@@ -40,22 +41,26 @@ export function ProductSearch({ onNavigate }: { onNavigate: () => void }) {
   }, [query]);
 
   return (
-    <div className="live-search shell">
+    <div className={inline ? "live-search inline-search" : "live-search shell"}
+      onFocus={() => setExpanded(true)}
+      onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) setExpanded(false); }}
+      onKeyDown={event => { if (event.key === "Escape") { setExpanded(false); setActive(-1); } }}>
       <form className="search" action="/shop" role="search">
         <Search size={24} aria-hidden />
-        <input autoFocus name="q" value={value} maxLength={100} autoComplete="off"
+        <input autoFocus={!inline} name="q" value={value} maxLength={100} autoComplete="off"
           role="combobox" aria-label="Search the collection" aria-autocomplete="list"
-          aria-expanded={products.length > 0} aria-controls={`${id}-results`}
+          aria-expanded={(!inline || expanded) && products.length > 0} aria-controls={`${id}-results`}
           aria-activedescendant={active >= 0 && products[active] ? `${id}-${products[active].id}` : undefined}
-          aria-describedby={`${id}-status`} placeholder="What would you like to discover?"
-          onChange={event => { setValue(event.target.value); setActive(-1); }}
+          aria-describedby={`${id}-status`} placeholder="Search products"
+          onChange={event => { setValue(event.target.value); setActive(-1); setExpanded(true); }}
           onKeyDown={event => {
             if (event.key === "ArrowDown" && products.length) { event.preventDefault(); setActive(index => (index + 1) % products.length); }
             if (event.key === "ArrowUp" && products.length) { event.preventDefault(); setActive(index => index <= 0 ? products.length - 1 : index - 1); }
-            if (event.key === "Enter" && active >= 0 && products[active]) { event.preventDefault(); router.push(products[active].href); onNavigate(); }
+            if (event.key === "Enter" && active >= 0 && products[active]) { event.preventDefault(); router.push(products[active].href); setExpanded(false); onNavigate(); }
           }} />
         <button className="button primary" aria-label="Search">Search</button>
       </form>
+      <div className="search-results-panel" hidden={inline && !expanded}>
       <p className="search-status" id={`${id}-status`} role="status">
         {query.length < 2 ? "Type at least 2 characters to find products."
           : !current || current.status === "loading" ? "Searching…"
@@ -67,14 +72,15 @@ export function ProductSearch({ onNavigate }: { onNavigate: () => void }) {
         {products.map((product, index) => (
           <li key={product.id} role="none">
             <Link href={product.href} role="option" id={`${id}-${product.id}`} aria-selected={active === index}
-              tabIndex={-1} onMouseDown={event => event.preventDefault()} onClick={onNavigate}>
+              tabIndex={-1} onMouseDown={event => event.preventDefault()} onClick={() => { setExpanded(false); onNavigate(); }}>
               {product.image && <img src={product.image} alt="" width={56} height={56} />}
               <span><strong>{product.name}</strong><span>{product.price}</span></span>
             </Link>
           </li>
         ))}
       </ul>
-      {query.length >= 2 && <Link className="search-all text-link" href={`/shop?q=${encodeURIComponent(query)}`} onClick={onNavigate}>View all results for “{query}” →</Link>}
+      {query.length >= 2 && <Link className="search-all text-link" href={`/shop?q=${encodeURIComponent(query)}`} onClick={() => { setExpanded(false); onNavigate(); }}>View all results for “{query}”</Link>}
+      </div>
     </div>
   );
 }
