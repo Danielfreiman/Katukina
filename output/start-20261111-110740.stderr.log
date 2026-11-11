@@ -194,3 +194,7 @@ https://react.dev/link/hydration-mismatch
                             ...
               ...
  
+⨯ TypeError: __webpack_modules__[moduleId] is not a function
+    at ignore-listed frames {
+  digest: '1041947562'
+}

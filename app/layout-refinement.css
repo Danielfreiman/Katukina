@@ -166,19 +166,6 @@ html .reference-home .rh-guidance-cards a {
   gap: 12px;
   line-height: 1.45;
 }
-html .reference-home .rh-product-name {
-  margin: 12px 4px 0;
-  line-height: 1.45;
-  min-height: 4.35em;
-}
-html .reference-home .rh-product-price {
-  margin: 8px 4px 0;
-  font-variant-numeric: tabular-nums;
-}
-html .reference-home .rh-stock,
-html .reference-home .rh-rating {
-  margin-inline: 4px;
-}
 html .reference-home .rh-story {
   margin-block: var(--layout-section) 24px;
 }

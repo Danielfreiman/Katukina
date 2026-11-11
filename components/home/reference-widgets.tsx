@@ -36,25 +36,29 @@ export function HomeCard({ product }: { product: HomeProduct }) {
         )}
         <span className="rh-product-action">View product</span>
       </Link>
-      <Link className="rh-product-name" href={product.href}>
-        {product.name}
-      </Link>
-      {product.reviews > 0 && (
-        <div
-          className="rh-rating"
-          aria-label={`${product.rating} out of 5, ${product.reviews} reviews`}
-        >
-          <Star size={15} aria-hidden />
-          {product.rating.toFixed(1)} <span>({product.reviews})</span>
+      <div className="rh-product-details">
+        <Link className="rh-product-name" href={product.href}>
+          {product.name}
+        </Link>
+        {product.reviews > 0 && (
+          <div
+            className="rh-rating"
+            aria-label={`${product.rating} out of 5, ${product.reviews} reviews`}
+          >
+            <Star size={15} aria-hidden />
+            {product.rating.toFixed(1)} <span>({product.reviews})</span>
+          </div>
+        )}
+        <div className="rh-product-purchase">
+          <p className="rh-product-price">
+            {product.price}
+            {product.regular && <del>{product.regular}</del>}
+          </p>
+          <small className="rh-stock">
+            {product.inStock ? "In stock" : "Out of stock"}
+          </small>
         </div>
-      )}
-      <p className="rh-product-price">
-        {product.price}
-        {product.regular && <del>{product.regular}</del>}
-      </p>
-      <small className="rh-stock">
-        {product.inStock ? "In stock" : "Out of stock"}
-      </small>
+      </div>
     </article>
   );
 }
