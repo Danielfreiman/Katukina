@@ -209,7 +209,9 @@ button.text-link {
   letter-spacing: 0.05em;
 }
 .destination-selector { display: inline-flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; margin-left: 12px; max-width: 100%; }
-.destination-selector select { max-width: 170px; border: 1px solid var(--control-line); border-radius: 0; background: var(--surface); color: inherit; padding: 3px; font: inherit; }
+.destination-selector select { max-width: 170px; border: 1px solid var(--control-line); border-radius: 0; background: var(--surface); color: var(--ink); color-scheme: light; padding: 3px; font: inherit; }
+.destination-selector option { background: var(--surface); color: var(--ink); }
+.destination-selector select:focus-visible { outline: 2px solid var(--white); outline-offset: 3px; }
 .purchase-actions select { max-width: 100%; padding: 10px; margin: 6px 0 12px; border: 1px solid var(--control-line); background: var(--surface); color: inherit; }
 .purchase-actions > label { display: block; }
 .header-wrap {
@@ -313,30 +315,41 @@ button.text-link {
 }
 .header-actions .icon-button {
   position: relative;
-  color: var(--green);
+  color: var(--ink);
   border: 0;
   border-radius: 0;
   background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: auto;
+  min-width: 44px;
+  height: 44px;
+  padding: 0 12px;
+  text-decoration: none;
+  transition: background-color 160ms ease, color 160ms ease;
 }
-.header-actions .icon-button + .icon-button::before {
-  content: "";
-  position: absolute;
-  left: -4px;
-  top: 50%;
-  width: 1px;
-  height: 18px;
-  background: var(--green);
-  transform: translateY(-50%);
-  pointer-events: none;
+.header-action-label { font-size: 13px; font-weight: 500; white-space: nowrap; }
+.header-actions .header-search-trigger {
+  min-width: 220px;
+  justify-content: flex-start;
+  background: var(--warm-white);
+  color: var(--muted);
+  margin-right: 12px;
+  padding-inline: 16px;
 }
 .header-actions .icon-button:hover,
 .header-actions .icon-button[aria-expanded="true"] {
   color: var(--support-hover);
+  background: var(--support-soft);
 }
+.header-actions .icon-button:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
+.header-actions .menu-toggle { display: none; }
 .header-actions {
   display: flex;
-  gap: 7px;
-  border: 1px solid var(--green);
+  align-items: center;
+  gap: 8px;
 }
 .icon-button {
   width: 40px;
@@ -376,7 +389,7 @@ button.text-link {
   border: 0;
   background: none;
   font-size: 22px;
-  padding: 12px 0;
+  padding: 14px 16px;
   color: var(--ink);
 }
 .search input:focus-visible {
@@ -877,6 +890,12 @@ button.text-link {
   padding-bottom: 90px;
   min-height: 65vh;
 }
+.page-content.commerce-page {
+  padding-top: clamp(32px, 4vw, 56px);
+}
+.commerce-page > .eyebrow:first-child {
+  margin-top: 0;
+}
 .page-intro {
   padding: 38px 0 45px;
 }
@@ -1243,9 +1262,11 @@ button.text-link {
   .header-actions {
     gap: 2px;
   }
-  .header-actions .icon-button + .icon-button::before {
-    left: -2px;
-  }
+  .header-actions .header-action-label { display: none; }
+  .header-actions .account-link { display: none; }
+  .header-actions .menu-toggle { display: flex; }
+  .header-actions .icon-button { min-width: 36px; width: 36px; padding: 0; }
+  .header-actions .header-search-trigger { margin-right: 0; background: transparent; }
   .icon-button {
     width: 37px;
   }

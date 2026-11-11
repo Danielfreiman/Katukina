@@ -1,4 +1,19 @@
 # Histórico do discovery Katukina
+## 2026-11-11 — Espaçamento do campo de busca
+
+- Adicionado padding horizontal de 16 px e vertical de 14 px ao campo da busca no header, afastando placeholder e texto digitado da borda de foco.
+## 2026-11-10 — Respiro inicial das páginas de comércio
+
+- Corrigida a ausência de padding superior em conta, sacola, checkout e frete (`page-content commerce-page`). Espaço responsivo entre 32 e 56 px, preservando as páginas com introdução própria.
+- Typecheck aprovado e distâncias conferidas no navegador em desktop e celular.
+## 2026-11-10 — Ações do header modernizadas
+
+- Pedido do responsável: modernizar busca, conta e sacola. Removidas moldura coletiva e divisórias; ícones com traço fino, rótulos no desktop e área de busca em branco quente. Hover e foco usam verde folha. Mobile mantém ações compactas e conta no menu.
+- Typecheck aprovado; conferência local responsiva de navegação e header sticky.
+## 2026-11-10 — Contraste no seletor de destino
+
+- Corrigida a herança de texto branco da faixa verde nos seletores de país/moeda. Campo e opções usam texto carvão sobre branco; foco recebe contorno branco externo e controles nativos usam esquema claro.
+- Typecheck e diff-check aprovados. Conferência das cores computadas no Edge local.
 ## 2026-11-10 — Navegação unificada do header
 
 - Correção solicitada pelo responsável: “The shop” passa a “All categories”, mantendo o destino `/shop`; “Our story” fica na mesma faixa das categorias principais. Removido “Journal” do header desktop e mobile. A primeira linha contém marca e ações, sem navegação institucional separada.

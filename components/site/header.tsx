@@ -68,23 +68,26 @@ export function SiteHeader() {
           <div className="header-actions">
             <button
               ref={searchButton}
-              className="icon-button"
+              className="icon-button header-search-trigger"
               aria-label={panel === "search" ? "Close search" : "Open search"}
               aria-expanded={panel === "search"}
               aria-controls="site-search"
               onClick={() => setPanel(panel === "search" ? null : "search")}
             >
-              {panel === "search" ? <X size={21} /> : <Search size={21} />}
+              {panel === "search" ? <X size={20} strokeWidth={1.5} /> : <Search size={20} strokeWidth={1.5} />}
+              <span className="header-action-label">Search products</span>
             </button>
             <Link
               className="icon-button account-link"
               href="/account"
               aria-label="My account"
             >
-              <UserRound size={21} />
+              <UserRound size={22} strokeWidth={1.5} />
+              <span className="header-action-label">Account</span>
             </Link>
             <Link className="icon-button" href="/cart" aria-label="Your bag">
-              <ShoppingBag size={21} />
+              <ShoppingBag size={22} strokeWidth={1.5} />
+              <span className="header-action-label">Bag</span>
             </Link>
             <button
               ref={menuButton}
