@@ -8,6 +8,7 @@ import {
   formatMoney,
 } from "@/lib/commerce/types";
 import { commerceRequest, Totals } from "./cart";
+import { loadCheckoutContext } from "@/lib/commerce/client";
 const empty: Address = {
   first_name: "",
   last_name: "",
@@ -38,10 +39,7 @@ export function CheckoutView() {
   const requestKey = useRef("");
   useEffect(() => {
     let active = true;
-    Promise.all([
-      commerceRequest<Cart>("cart"),
-      commerceRequest<CommerceConfig>("config"),
-    ])
+    loadCheckoutContext()
       .then(([c, settings]) => {
         // Strict Mode can replay this effect. A discarded request must not
         // replace the customer's edits after the active request finishes.

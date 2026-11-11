@@ -1,6 +1,11 @@
 "use client";
 import { useEffect, useState, useTransition } from "react";
 import { useRouter, usePathname } from "next/navigation";
+import {
+  commerceRequest,
+  invalidateCommerceReads,
+} from "@/lib/commerce/client";
+import type { CommerceConfig } from "@/lib/commerce/types";
 
 export function DestinationSelector() {
   const router = useRouter();
@@ -14,24 +19,23 @@ export function DestinationSelector() {
   const [message, setMessage] = useState("");
   useEffect(() => {
     if (pathname === "/checkout") return;
-    const abort = new AbortController();
-    fetch("/api/commerce/config", {
-      signal: abort.signal,
-      headers: { "X-Katukina-View": "destination" },
-    })
-      .then(async (response) => {
-        if (!response.ok) return;
-        const config = await response.json();
+    let active = true;
+    commerceRequest<CommerceConfig>("config")
+      .then((config) => {
+        if (!active) return;
         setCountries(config.countries || {});
         setCountry(config.destination || "");
         setCurrencies(config.currencies || []);
         setCurrency(config.currency || "");
       })
       .catch(() => {});
-    return () => abort.abort();
+    return () => {
+      active = false;
+    };
   }, [pathname]);
   async function select(value: string) {
     if (!value) return;
+    invalidateCommerceReads();
     setBusy(true);
     setMessage("");
     try {
@@ -62,11 +66,13 @@ export function DestinationSelector() {
     } catch (error) {
       setMessage(error instanceof Error ? error.message : "Please try again.");
     } finally {
+      invalidateCommerceReads();
       setBusy(false);
     }
   }
   if (pathname === "/checkout" || !Object.keys(countries).length) return null;
   async function selectCurrency(value: string) {
+    invalidateCommerceReads();
     setBusy(true);
     setMessage("");
     try {
@@ -84,6 +90,7 @@ export function DestinationSelector() {
     } catch (error) {
       setMessage(error instanceof Error ? error.message : "Please try again.");
     } finally {
+      invalidateCommerceReads();
       setBusy(false);
     }
   }

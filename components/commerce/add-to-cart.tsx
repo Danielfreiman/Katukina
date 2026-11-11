@@ -1,6 +1,7 @@
 "use client";
 import { useRef, useState } from "react";
 import Link from "next/link";
+import { invalidateCommerceReads } from "@/lib/commerce/client";
 export function AddToCart({
   id,
   available,
@@ -32,6 +33,7 @@ export function AddToCart({
     )
       return;
     inFlight.current = true;
+    invalidateCommerceReads();
     setPending(true);
     onPendingChange?.(true);
     setMessage("");
@@ -57,9 +59,12 @@ export function AddToCart({
         return;
       }
       setAdded(true);
+      invalidateCommerceReads();
       setMessage("Added to your bag.");
       window.dispatchEvent(new Event("katukina-cart-updated"));
+      window.dispatchEvent(new CustomEvent("katukina-cart-open", { detail: data }));
     } catch {
+      invalidateCommerceReads();
       setUncertain(true);
       setMessage(
         "We could not confirm the update. Check your bag before adding this item again.",

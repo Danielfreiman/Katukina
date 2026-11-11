@@ -114,18 +114,31 @@ html .editorial-text > h2:first-child {
   margin-top: 0;
 }
 html .footer-top {
-  padding-block: 48px 32px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+  padding-block: 32px;
   gap: 40px;
 }
-html .footer-links {
-  gap: clamp(32px, 5vw, 72px);
+.site-footer .footer-links {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  background: transparent;
 }
 html .footer-links a {
   font-size: var(--text-ui);
   line-height: 1.6;
   padding-block: 4px;
-  margin-bottom: 8px;
+  margin-bottom: 2px;
 }
+.site-footer .footer-links h3 { margin-bottom: 12px; }
+.site-footer .footer-links .footer-cta { margin-top: 12px; padding: 10px 12px; }
+.site-footer .footer-full-logo { width: 240px; max-width: 100%; height: auto; margin: 0 0 20px; }
+.site-footer .footer-intro h2 { font-size: var(--text-subheading); }
+.site-footer .footer-intro p { margin-top: 12px; }
+.site-footer .footer-bottom { padding-block: 12px; }
 html .footer-intro p {
   font-size: var(--text-body);
   line-height: 1.7;
@@ -186,6 +199,7 @@ html .reference-home .rh-subscribe {
 @media (max-width: 800px) {
   html .footer-top {
     gap: 32px;
+    grid-template-columns: minmax(0, 1fr);
   }
   html .footer-links {
     gap: 24px;

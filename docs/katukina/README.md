@@ -8,6 +8,14 @@ O projeto local contém Next.js e WordPress + WooCommerce em Docker. Site e pain
 
 ## Entregas
 
+Navegação do histórico em 2026-11-11: “Recently viewed” usa setas circulares com estados de início/fim e mantém rolagem por toque, links dos produtos e limpeza do histórico. Barra de rolagem visual removida. Validado em navegador a 1440 e 390 px; typecheck aprovado.
+
+Rodapé compacto em 2026-11-11: logo integrada à introdução, links em duas colunas e remoção da assinatura gigante inferior. Conferido em 1440, 800, 390 e 320 px, sem overflow horizontal; altura de 369 px no desktop de 1440 px. Typecheck aprovado.
+
+Fluxo de compra em 2026-11-11: [perfil de desempenho e redução de consultas no carrinho/checkout](COMMERCE-PERFORMANCE-2026-11-11.md).
+
+Carrinho lateral em 2026-11-11: [ícone de folha, sessão WooCommerce e validações](SIDE-CART-2026-11-11.md).
+
 PDP em 2026-11-11: [estrutura iHerb integrada à galeria, opções e compra existentes](PDP-REFERENCE-2026-11-11.md).
 
 Tipografia em 11/11/2026: [sistema e regras](TYPOGRAPHY.md), [inventário por seletor](TYPOGRAPHY-INVENTORY.md) e [revisão com validações](TYPESET-2026-11-11.md).

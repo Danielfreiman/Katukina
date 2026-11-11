@@ -36,14 +36,14 @@ final class Commerce {
                 if ( 'bacs' === $gateway->id ) { $gateway->form_fields['katukina_bank_currencies'] = array( 'title' => 'Verified bank transfer currencies', 'type' => 'multiselect', 'options' => array( 'GBP' => 'GBP', 'EUR' => 'EUR' ), 'description' => 'Enable only currencies supported by the bank accounts and instructions configured in this gateway. No conversion is performed.' ); }
             }
         } );
-        add_action( 'woocommerce_blocks_loaded', static function () { woocommerce_store_api_register_endpoint_data( array( 'endpoint' => \Automattic\WooCommerce\StoreApi\Schemas\V1\CartSchema::IDENTIFIER, 'namespace' => 'katukina', 'schema_type' => ARRAY_A, 'schema_callback' => static fn() => array( 'payment_options' => array( 'type' => 'array', 'readonly' => true, 'items' => array( 'type' => 'object', 'properties' => array( 'id' => array( 'type' => 'string' ), 'title' => array( 'type' => 'string' ), 'description' => array( 'type' => 'string' ) ) ) ) ), 'data_callback' => static function () {
+        add_action( 'woocommerce_blocks_loaded', static function () { woocommerce_store_api_register_endpoint_data( array( 'endpoint' => \Automattic\WooCommerce\StoreApi\Schemas\V1\CartSchema::IDENTIFIER, 'namespace' => 'katukina', 'schema_type' => ARRAY_A, 'schema_callback' => static fn() => array( 'checkout_config' => array( 'type' => 'object', 'readonly' => true, 'additionalProperties' => true ), 'payment_options' => array( 'type' => 'array', 'readonly' => true, 'items' => array( 'type' => 'object', 'properties' => array( 'id' => array( 'type' => 'string' ), 'title' => array( 'type' => 'string' ), 'description' => array( 'type' => 'string' ) ) ) ) ), 'data_callback' => static function () {
             $rows = array();
             foreach ( WC()->payment_gateways()->get_available_payment_gateways() as $gateway ) {
                 // Providers with interactive fields must supply a reviewed headless integration.
                 if ( ! in_array( $gateway->id, apply_filters( 'katukina_headless_gateways', array( 'katukina_local_test', 'katukina_credit', 'bacs' ) ), true ) ) { continue; }
                 $rows[] = array( 'id' => $gateway->id, 'title' => wp_strip_all_tags( $gateway->get_title() ), 'description' => wp_strip_all_tags( $gateway->get_description() ) );
             }
-            return array( 'payment_options' => $rows );
+            return array( 'payment_options' => $rows, 'checkout_config' => self::public_config() );
         } ) ); } );
         add_filter( 'woocommerce_available_payment_gateways', static function ( $gateways ) {
             $channel = self::channel(); $country = WC()->customer ? WC()->customer->get_shipping_country() : Channels::destination();

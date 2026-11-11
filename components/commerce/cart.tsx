@@ -3,28 +3,8 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Cart, CommerceConfig, formatMoney } from "@/lib/commerce/types";
 import { plainText } from "@/lib/wordpress/text";
-export async function commerceRequest<T>(
-  action: string,
-  body?: unknown,
-): Promise<T> {
-  const response = await fetch(`/api/commerce/${action}`, {
-    method: body === undefined ? "GET" : "POST",
-    headers: body === undefined ? {} : { "Content-Type": "application/json" },
-    ...(body === undefined ? {} : { body: JSON.stringify(body) }),
-    cache: "no-store",
-  });
-  const data = await response.json();
-  if (!response.ok)
-    throw new Error(
-      plainText(data.message || "The shop could not complete this request."),
-    );
-  if (Array.isArray(data.items))
-    data.items = data.items.map((item: { name: string }) => ({
-      ...item,
-      name: plainText(item.name),
-    }));
-  return data as T;
-}
+import { commerceRequest, loadCheckoutContext } from "@/lib/commerce/client";
+export { commerceRequest } from "@/lib/commerce/client";
 export function Totals({ cart }: { cart: Cart }) {
   const t = cart.totals;
   const money = (amount: string) =>
@@ -72,10 +52,25 @@ export function CartView() {
   const [country, setCountry] = useState("");
   const [postcode, setPostcode] = useState("");
   useEffect(() => {
-    Promise.all([
-      commerceRequest<Cart>("cart"),
-      commerceRequest<CommerceConfig>("config"),
-    ])
+    let mounted = true;
+    let revision = 0;
+    const refresh = async () => {
+      const current = ++revision;
+      try {
+        const next = await commerceRequest<Cart>("cart");
+        if (mounted && current === revision) setCart(next);
+      } catch {
+        /* Keep the existing cart; the initiating control reports errors. */
+      }
+    };
+    window.addEventListener("katukina-cart-updated", refresh);
+    return () => {
+      mounted = false;
+      window.removeEventListener("katukina-cart-updated", refresh);
+    };
+  }, []);
+  useEffect(() => {
+    loadCheckoutContext()
       .then(([c, settings]) => {
         setCart(c);
         setConfig(settings);
@@ -258,7 +253,11 @@ export function CartView() {
                     </label>
                   ))
                 ) : (
-                  <p>{!postcode || cart.shipping_address.country !== country ? 'Enter your postcode and update the delivery estimate.' : 'No delivery service is available for this address.'}</p>
+                  <p>
+                    {!postcode || cart.shipping_address.country !== country
+                      ? "Enter your postcode and update the delivery estimate."
+                      : "No delivery service is available for this address."}
+                  </p>
                 )}
               </fieldset>
             ))}

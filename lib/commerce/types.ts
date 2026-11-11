@@ -12,7 +12,8 @@ export type CartItem = {
   id: number;
   name: string;
   quantity: number;
-  quantity_limits: { minimum: number; maximum: number };
+  variation?: { attribute: string; value: string }[];
+  quantity_limits: { minimum: number; maximum: number; multiple_of?: number };
   images: { src: string; alt: string }[];
   totals: {
     line_total: string;
@@ -23,6 +24,7 @@ export type CartItem = {
 export type Cart = {
   extensions?: {
     katukina?: {
+      checkout_config?: CommerceConfig;
       payment_options?: { id: string; title: string; description: string }[];
     };
   };
@@ -60,6 +62,8 @@ export type Address = {
   phone?: string;
 };
 export type CommerceConfig = {
+  destination: string;
+  currencies: string[];
   local_checkout: boolean;
   countries: Record<string, string>;
   currency: string;

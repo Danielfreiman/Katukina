@@ -121,6 +121,19 @@
 .price-inputs input {
   margin-top: 6px;
 }
+/* Match the storefront controls without changing filter behavior. */
+.catalog-page .catalog-sort select,
+.catalog-page .catalog-filter-form input:not([type="checkbox"]):not([type="radio"]),
+.catalog-page .catalog-filter-form select,
+.catalog-page .mobile-filters-button,
+.catalog-page .catalog-pagination a,
+.catalog-page .active-filters a,
+.catalog-page .filter-dialog-heading button {
+  border-radius: var(--radius-control);
+}
+.catalog-page .filter-dialog {
+  border-radius: var(--radius-card);
+}
 .catalog-search-field {
   position: relative;
 }
@@ -1528,6 +1541,21 @@
 .recently-viewed .product-card {
   scroll-snap-align: start;
 }
+.product-scroller { position: relative; min-width: 0; }
+.product-scroller .product-grid { scrollbar-width: none; }
+.product-scroller .product-grid::-webkit-scrollbar { display: none; }
+.product-scroller > button {
+  position: absolute; top: 40%; z-index: 2;
+  display: grid; place-items: center; width: 40px; height: 40px;
+  border: 1px solid var(--line); border-radius: 50%;
+  background: var(--white); color: var(--ink);
+}
+.product-scroller > button[hidden] { display: none; }
+.product-scroller > button:disabled { opacity: .4; cursor: default; }
+.product-scroller > button:hover:not(:disabled) { background: var(--support-soft); }
+.product-scroller-prev { left: -16px; }
+.product-scroller-next { right: -16px; }
+.recently-viewed .product-card-action { border-radius: 8px; }
 @media (min-width: 1200px) {
   .catalog-layout {
     grid-template-columns: 230px minmax(0, 1fr);

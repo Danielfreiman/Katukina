@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import type { Product } from "@/lib/commerce/product";
 import { ProductGrid } from "./product-grid";
+import { ProductScroller } from "./product-scroller";
 import { useCookieConsent } from "@/components/privacy/cookie-consent";
 import {
   CONSENT_KEY,
@@ -101,7 +102,9 @@ export function RecentlyViewed({ currentId }: { currentId?: number }) {
           Clear history
         </button>
       </div>
-      <ProductGrid products={products} />
+      <ProductScroller label="recently viewed products">
+        <ProductGrid products={products} />
+      </ProductScroller>
     </section>
   );
 }

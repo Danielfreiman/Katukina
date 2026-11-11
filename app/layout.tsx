@@ -4,6 +4,7 @@ import "./catalog.css";
 import "./privacy.css";
 import "./storefront.css";
 import "./layout-refinement.css";
+import "./side-cart.css";
 import { getCategories } from "@/lib/commerce/catalog";
 import { Sora, Source_Sans_3 } from "next/font/google";
 
