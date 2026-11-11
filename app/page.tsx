@@ -64,38 +64,6 @@ async function products(query: Record<string, string | number>) {
     .then((result) => result.data.map(card))
     .catch(() => []);
 }
-function Guidance() {
-  const items = [
-    { icon: "product-details", title: "Product details", href: "/shop" },
-    { icon: "explore-botanicals", title: "Explore botanicals", href: "/collections" },
-    { icon: "shipping-options", title: "Shipping options", href: "/shipping" },
-    { icon: "your-account", title: "Your account", href: "/account" },
-  ];
-  return (
-    <section className="rh-guidance" aria-label="Shopping with Katukina">
-      <div className="rh-wide rh-guidance-inner">
-        <div>
-          <h2>
-            <Leaf size={23} />
-            Shopping with Katukina
-          </h2>
-          <p>
-            Discover the collection, check product details and plan your
-            delivery. <Link href="/about">Learn more</Link>
-          </p>
-        </div>
-        <div className="rh-guidance-cards">
-          {items.map(({ icon, title, href }) => (
-            <Link href={href} key={title}>
-              <img src={`/images/icons/guidance/${icon}.svg`} alt="" width={29} height={29} />
-              <span>{title}</span>
-            </Link>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 export default async function Home() {
   const categories = await getCategories().catch(() => []);
   const available = departments.filter((item) =>
@@ -180,12 +148,7 @@ export default async function Home() {
       />
       <div className="rh-wide rh-opening">
         <HomeCampaigns />
-        <div className="rh-signin">
-          <p>Make your Katukina experience more personal</p>
-          <Link href="/account">Sign in or create an account</Link>
-        </div>
       </div>
-      <Guidance />
       <div className="rh-wide">
         <HomeRail
           title="Exclusive Sale"
@@ -355,7 +318,6 @@ export default async function Home() {
           <span aria-hidden>+</span>
         </Link>
       </section>
-      <Guidance />
     </main>
   );
 }

@@ -137,22 +137,22 @@ export function HomeRail({
 }
 const campaigns = [
   {
-    title: "Discover your natural rhythm",
-    text: "Botanicals, incense and meaningful objects",
+    title: "Walk the Ancestral Path",
+    text: "Connect with the forest through sacred plants and ritual tools.",
     href: "/shop",
     cta: "Shop now",
     image: "/images/home/banners/discover-katukina.webp",
   },
   {
-    title: "Explore Tepi & Kuripe",
-    text: "Discover our collection of applicators",
+    title: "A Breath of Connection",
+    text: "Tepi & Kuripe for moments of presence and sacred ritual.",
     href: "/collections/kuripe-and-tepi",
     cta: "Shop Tepi & Kuripe",
     image: "/images/home/banners/tepi-kuripe.webp",
   },
   {
-    title: "Explore Sacred Incense",
-    text: "Find your next scent and discover the collection",
+    title: "Let Your Prayers Rise",
+    text: "Sacred woods, resins and incense for your rituals.",
     href: "/collections/sacred-incense",
     cta: "Shop incense",
     image: "/images/home/banners/sacred-incense.webp",

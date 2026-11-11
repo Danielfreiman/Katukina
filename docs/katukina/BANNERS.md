@@ -16,9 +16,9 @@ Raiz das exportações publicadas: `website-katukina-2027/public/images/home/ban
 
 | Campanha | Nome a substituir | Destino do clique | Mestre sugerido |
 | --- | --- | --- | --- |
-| Discover your natural rhythm | `discover-katukina.webp` | `/shop` | `discover-katukina.psd` |
-| Explore Tepi & Kuripe | `tepi-kuripe.webp` | `/collections/kuripe-and-tepi` | `tepi-kuripe.psd` |
-| Explore Sacred Incense | `sacred-incense.webp` | `/collections/sacred-incense` | `sacred-incense.psd` |
+| Walk the Ancestral Path | `discover-katukina.webp` | `/shop` | `discover-katukina.psd` |
+| A Breath of Connection | `tepi-kuripe.webp` | `/collections/kuripe-and-tepi` | `tepi-kuripe.psd` |
+| Let Your Prayers Rise | `sacred-incense.webp` | `/collections/sacred-incense` | `sacred-incense.psd` |
 
 As campanhas rodam em sequência; não existe imagem fixa “da esquerda” ou “da direita”. A captura mostra o par 2 e 3. Os títulos e descrições permanecem editáveis no componente, separados das fotos.
 
