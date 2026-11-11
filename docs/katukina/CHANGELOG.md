@@ -28,6 +28,34 @@
 - A pedido do responsável, removidas as barras de rolagem visíveis dos atalhos circulares e da faixa editorial das categorias. Setas circulares seguem o padrão da home, com limites desabilitados, ocultação quando todo o conteúdo cabe e suporte a movimento reduzido. Deslize e links permanecem disponíveis.
 - Controles e regras dos filtros preservados. Typecheck e diff-check aprovados. Playwright confirmou avanço/retorno pelas setas, ausência das barras e regressão de busca, ordenação, paginação e filtros móveis em cinco larguras.
 
+
+## 2026-11-11 — CTAs dos banners e raio dos botões
+
+- Textos dos banners deixam de ser links; cada campanha recebe CTA próprio no canto inferior esquerdo, preservando seu destino e a navegação do carrossel.
+- Por solicitação de Danilo, botões de ação e CTAs seguem o raio compartilhado de 8 px (`--radius-control`), substituindo a regra histórica de quinas retas para esses elementos. Controles circulares e geometrias específicas do header preservados.
+
+## 2026-11-11 — Sistema tipográfico público
+
+- Sora e Source Sans 3 organizadas por função; pesos 400/600/700 e escala em rem centralizados. Títulos, navegação, controles, metadados, nomes e preços normalizados. Dependências de fontes antigas removidas.
+- Inventário automático de 477 regras, auditor reutilizável e documentação em [TYPOGRAPHY.md](TYPOGRAPHY.md) e [revisão e evidências](TYPESET-2026-11-11.md).
+- Build, typecheck, auditor e matriz desktop/mobile aprovados; corrigidas quebras com texto a 200%, conferidos cookies, menu e fallback. Escopo local, sem publicação.
+## 2026-11-11 — Remoção das pastas antigas de banners
+
+- A pedido de Danilo, retiradas de `public/images/home/` as pastas `hero-01`, `hero-02`, `hero-03` e `collections-banner`. Backup externo: `Katukina.com/.local-backups/banners-antigos-20261111-102206/`.
+- Preservadas as duas fotos usadas em cards da home em `public/images/editorial/objects-with-meaning.webp` e `incense-selection.webp`, com atualização das referências em `app/page.tsx`. Nenhuma referência aos caminhos removidos permanece em `app/`, `components/`, `lib/` ou instruções públicas vigentes.
+- Destino único dos banners novos: `public/images/home/banners/`, com os mesmos três nomes e recomendação de 2400 × 1800 px. Guia, mapa de pastas e inventário atualizados; documentos históricos conservam os caminhos antigos identificados como removidos.
+- Typecheck, diff-check dos arquivos alterados e teste Playwright da home aprovados; imagens e ausência de overflow conferidas em 1440/1024/768/390/320 px. Sem publicação ou mudanças em backend.
+
+## 2026-11-11 — Organização geral e produção dos banners
+
+- Pedido de Danilo: informar tamanhos e destinos das imagens, organizar as pastas e documentar o projeto. Criados [guia geral](../PROJECT_GUIDE.md), [mapa de responsabilidades](../PROJECT_STRUCTURE.md), [inventário de pastas/documentos](../PROJECT_INVENTORY.md) e [especificação dos banners](BANNERS.md). READMEs do projeto/discovery passaram a apontar essas entradas.
+- Conferido no código vigente: campanhas 4:3, duas por vez acima de 1100 px e uma até 1100 px. Recomendação de produção: 2400 × 1800 px, WebP/sRGB, mesma imagem no desktop/mobile, sem texto incorporado.
+- Criados três arquivos independentes em `public/images/home/banners/` e conectados ao componente, preservando as fotografias anteriores. Fontes originais mantidas: cópias WebP de Discover/Incense; floresta convertida de JPEG para WebP sem perda. As imagens de origem têm outras proporções e são provisórias para a entrega definitiva 4:3 de Danilo.
+- Preparadas pastas locais externas `Assets Site/Banners/Home/<campanha>/{Referencias,Editaveis,Exportacoes}` e guias do workspace. São materiais fora do Git do site, com backup próprio. Instruções das pastas da composição anterior marcadas como históricas, sem exclusão das artes.
+- Automação: `node scripts/document-project.mjs` atualiza o inventário; nesta entrega, 73 pastas e 77 documentos de orientação, excluindo dependências/runtime/backups/artefatos e sem ler dados privados.
+- Validação executada: typecheck aprovado; teste Playwright `tests/reference-home.spec.ts` aprovado em 1440/1024/768/390/320 px; links locais dos novos guias/inventário conferidos; três campanhas carregadas e quadros 4:3 confirmados em 1440/390 px; capturas desktop/mobile inspecionadas. Evidências locais em `artifacts/banners-organized-*.png` e `artifacts/banner-documentation-verification.json`.
+- Diff-check dos arquivos deste trabalho aprovado. Diff-check global aponta espaços finais em logs preexistentes de `output/dev-local.stderr.log`, preservados. Nenhuma alteração em backend/dados comerciais; sem commit, push ou publicação. A documentação técnica anterior foi indexada, sem reauditoria integral das integrações ou produção.
+
 ## 2026-11-11 — Header e footer alinhados à nova estética
 
 - Pedido confirmado: estender ao header e footer os cantos e o tratamento visual da home/categorias, substituindo a restrição anterior de preservação visual dessas áreas.

@@ -62,7 +62,7 @@
 }
 .category-reference > .breadcrumbs {
   margin-bottom: 14px;
-  font-size: 12px;
+  font-size: var(--text-meta);
 }
 .category-reference > .catalog-intro {
   padding: 0;
@@ -73,14 +73,14 @@
   display: none;
 }
 .category-reference > .catalog-intro h1 {
-  font-family: var(--font-body);
-  font-size: 28px;
-  font-weight: 600;
-  letter-spacing: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.2vw, 3rem);
+  font-weight: var(--weight-semibold);
+  letter-spacing: -0.025em;
   margin: 0 0 8px;
 }
 .category-reference > .catalog-intro > p:last-child {
-  font-size: 14px;
+  font-size: var(--text-ui);
   max-width: 85ch;
   margin: 0;
 }
@@ -99,25 +99,25 @@
   max-width: 70%;
 }
 .category-reference .category-campaign .eyebrow {
-  font-size: 10px;
+  font-size: var(--text-meta);
   margin: 0 0 6px;
   color: var(--green);
 }
 .category-reference .category-campaign h2 {
-  font-family: var(--font-body);
-  font-size: clamp(24px, 2.5vw, 36px);
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.5vw, 2.25rem);
   line-height: 1.15;
   margin: 0 0 8px;
 }
 .category-reference .category-campaign p:not(.eyebrow) {
-  font-size: 14px;
+  font-size: var(--text-ui);
   margin: 0 0 14px;
 }
 .category-reference .category-campaign .button {
   padding: 8px 22px;
   min-height: 38px;
   border-radius: 24px;
-  font-size: 13px;
+  font-size: var(--text-ui);
 }
 .category-reference .category-campaign-image {
   width: 180px;
@@ -140,7 +140,7 @@
 .category-reference .category-discovery > a {
   flex: 0 0 112px;
   text-align: center;
-  font-size: 13px;
+  font-size: var(--text-ui);
   line-height: 1.5;
   text-decoration: none;
 }
@@ -207,16 +207,17 @@
 }
 .category-reference .catalog-results .product-info h3 {
   order: 1;
-  font-family: var(--font-body);
-  font-size: 16px;
-  font-weight: 400;
+  font-family: var(--font-display);
+  font-size: var(--text-body);
+  font-weight: var(--weight-semibold);
   line-height: 1.5;
   letter-spacing: 0;
   margin: 6px 0 8px;
+  overflow-wrap: anywhere;
 }
 .category-reference .catalog-results .product-more-options {
   order: 0;
-  font-size: 12px;
+  font-size: var(--text-meta);
   margin: 0;
 }
 .category-reference .catalog-results .product-rating {
@@ -224,14 +225,14 @@
 }
 .category-reference .catalog-results .product-price {
   order: 3;
-  font-size: 20px;
-  font-weight: 600;
+  font-size: var(--text-price);
+  font-weight: var(--weight-semibold);
   line-height: 1.4;
   margin: 4px 0;
 }
 .category-reference .catalog-results .product-stock {
   order: 4;
-  font-size: 12px;
+  font-size: var(--text-meta);
 }
 .category-reference .catalog-results .product-card-action {
   margin: 8px 8px 0;
@@ -253,18 +254,18 @@
   background: var(--soft);
 }
 .category-reference .category-subscribe h2 {
-  font-family: var(--font-body);
-  font-size: 20px;
+  font-family: var(--font-display);
+  font-size: var(--text-price);
   margin: 0 0 6px;
 }
 .category-reference .category-subscribe p {
-  font-size: 14px;
+  font-size: var(--text-ui);
   color: var(--muted);
   margin: 0;
 }
 .category-reference .category-subscribe .button {
   border-radius: 5px;
-  font-size: 13px;
+  font-size: var(--text-ui);
 }
 .category-reference .category-editorial {
   border-block: 1px solid var(--line);
@@ -278,13 +279,13 @@
   margin-bottom: 20px;
 }
 .category-reference .category-editorial h2 {
-  font-family: var(--font-body);
-  font-size: 21px;
+  font-family: var(--font-display);
+  font-size: var(--text-card-title);
   margin: 0;
 }
 .category-reference .category-editorial > div:not(.category-rail) > a {
   color: var(--green);
-  font-size: 14px;
+  font-size: var(--text-ui);
 }
 .category-reference .category-editorial nav {
   display: grid;
@@ -303,12 +304,12 @@
   object-fit: cover;
 }
 .category-reference .category-editorial h3 {
-  font-family: var(--font-body);
-  font-size: 16px;
+  font-family: var(--font-display);
+  font-size: var(--text-body);
   margin: 12px 14px 8px;
 }
 .category-reference .category-editorial p {
-  font-size: 13px;
+  font-size: var(--text-ui);
   color: var(--muted);
   margin: 0 14px 16px;
 }
@@ -335,7 +336,7 @@
     height: auto;
   }
   .category-reference .category-campaign h2 {
-    font-size: 24px;
+    font-size: var(--text-card-title);
   }
   .category-reference .category-discovery {
     gap: 16px;
@@ -343,7 +344,7 @@
   }
   .category-reference .category-discovery > a {
     flex-basis: 90px;
-    font-size: 12px;
+    font-size: var(--text-meta);
   }
   .category-reference .category-discovery-photo {
     width: 90px;
@@ -357,10 +358,10 @@
     padding-inline: 2px;
   }
   .category-reference .catalog-results .product-info h3 {
-    font-size: 14px;
+    font-size: var(--text-ui);
   }
   .category-reference .catalog-results .product-price {
-    font-size: 17px;
+    font-size: var(--text-lead);
   }
   .category-reference .category-subscribe {
     flex-direction: column;

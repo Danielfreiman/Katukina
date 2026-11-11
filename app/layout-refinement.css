@@ -1,0 +1,241 @@
+/* Optional presentation pass. Toggle with node scripts/layout-refinement.mjs off|on.
+   Preserve the existing palette, typography, geometry, content and DOM order. */
+:root {
+  --layout-gutter: clamp(20px, 2.25vw, 40px);
+  --layout-section: clamp(32px, 3.4vw, 48px);
+  --layout-group: 24px;
+}
+
+html .shell:not(.header-wrap *),
+html .reference-home .rh-wide {
+  width: calc(100% - var(--layout-gutter) * 2);
+}
+
+html .page-intro {
+  padding-block: 32px 40px;
+}
+html .page-intro nav,
+html .breadcrumbs {
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  line-height: 1.6;
+  font-size: var(--text-meta);
+  overflow-wrap: anywhere;
+}
+html .page-intro nav {
+  margin-bottom: 28px;
+}
+html .page-intro h1,
+html .catalog-intro h1,
+html .commerce-page > h1,
+html .journal-card h2 {
+  text-wrap: balance;
+}
+html .page-intro > p:last-child:not(.eyebrow) {
+  font-size: var(--text-body);
+  line-height: 1.7;
+  max-width: 68ch;
+  margin-top: 16px;
+}
+html .catalog-intro {
+  margin-block: 24px 32px;
+  padding-block: 0;
+}
+html .catalog-intro > p:last-child {
+  max-width: 68ch;
+  font-size: var(--text-body);
+  line-height: 1.65;
+}
+html .catalog-results-toolbar,
+html .shelf-heading {
+  flex-wrap: wrap;
+  gap: 12px 24px;
+}
+html .shelf-heading > div:first-child {
+  min-width: 0;
+  flex: 1 1 260px;
+}
+html .catalog-sort {
+  min-width: 0;
+  flex-wrap: wrap;
+}
+html .catalog-results .product-card {
+  --layout-card-inset: 16px;
+}
+html .catalog-results .product-info {
+  padding: 16px var(--layout-card-inset) 8px;
+}
+html .catalog-results .product-card-action,
+html .catalog-results .purchase-actions {
+  margin-inline: var(--layout-card-inset);
+  margin-bottom: 16px;
+}
+html .catalog-results .product-card-action {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+html .product-purchase-layout {
+  column-gap: clamp(28px, 4vw, 56px);
+}
+html .commerce-layout {
+  column-gap: clamp(28px, 4vw, 56px);
+}
+html .commerce-layout > * {
+  min-width: 0;
+}
+html .commerce-totals,
+html .purchase-price,
+html .product-price {
+  font-variant-numeric: tabular-nums;
+}
+html .journal-card {
+  padding: clamp(24px, 3vw, 36px);
+  gap: 16px;
+}
+html .journal-card h2 {
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  line-height: 1.25;
+}
+html .journal-card p {
+  font-size: var(--text-body);
+  line-height: 1.7;
+}
+html .editorial-text {
+  max-width: 70ch;
+  font-size: var(--text-body);
+  line-height: 1.8;
+}
+html .editorial-text h2 {
+  margin-block: 36px 16px;
+}
+html .editorial-text > h2:first-child {
+  margin-top: 0;
+}
+html .footer-top {
+  padding-block: 48px 32px;
+  gap: 40px;
+}
+html .footer-links {
+  gap: clamp(32px, 5vw, 72px);
+}
+html .footer-links a {
+  font-size: var(--text-ui);
+  line-height: 1.6;
+  padding-block: 4px;
+  margin-bottom: 8px;
+}
+html .footer-intro p {
+  font-size: var(--text-body);
+  line-height: 1.7;
+}
+
+/* Home keeps its wider discovery canvas and its current section sequence. */
+html .reference-home .rh-opening {
+  padding-bottom: var(--layout-section);
+}
+html .reference-home .rh-section-title {
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 20px;
+  margin-bottom: var(--layout-group);
+}
+html .reference-home .rh-rail,
+html .reference-home .rh-categories,
+html .reference-home .rh-tabbed {
+  padding-block: var(--layout-section);
+}
+html .reference-home .rh-guidance-inner {
+  gap: 24px 32px;
+}
+html .reference-home .rh-guidance-cards a {
+  gap: 12px;
+  line-height: 1.45;
+}
+html .reference-home .rh-product-name {
+  margin: 12px 4px 0;
+  line-height: 1.45;
+  min-height: 4.35em;
+}
+html .reference-home .rh-product-price {
+  margin: 8px 4px 0;
+  font-variant-numeric: tabular-nums;
+}
+html .reference-home .rh-stock,
+html .reference-home .rh-rating {
+  margin-inline: 4px;
+}
+html .reference-home .rh-story {
+  margin-block: var(--layout-section) 24px;
+}
+html .reference-home .rh-editorial {
+  padding-block: 8px var(--layout-section);
+}
+html .reference-home .rh-editorial-grid {
+  gap: 20px 16px;
+}
+html .reference-home .rh-editorial-grid > a {
+  line-height: 1.5;
+}
+html .reference-home .rh-subscribe {
+  margin: 32px 0 0;
+  padding: 20px 24px;
+}
+
+@media (max-width: 800px) {
+  html .footer-top {
+    gap: 32px;
+  }
+  html .footer-links {
+    gap: 24px;
+  }
+}
+@media (max-width: 600px) {
+  :root {
+    --layout-section: 32px;
+    --layout-group: 20px;
+  }
+  html .page-intro {
+    padding-block: 24px 32px;
+  }
+  html .page-intro nav {
+    margin-bottom: 24px;
+  }
+  html .catalog-intro {
+    margin-block: 24px;
+  }
+  html .catalog-intro > p:last-child,
+  html .page-intro > p:last-child:not(.eyebrow) {
+    font-size: var(--text-body);
+  }
+  html .catalog-results .product-card {
+    --layout-card-inset: 12px;
+  }
+  html .reference-home .rh-campaign > div {
+    padding: 20px;
+  }
+  html .reference-home .rh-signin {
+    align-items: center;
+  }
+  html .reference-home .rh-signin > a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  html .reference-home .rh-arrow {
+    width: 40px;
+    height: 40px;
+  }
+  html .reference-home .rh-tabs button,
+  html .reference-home .rh-category-chips a {
+    min-height: 44px;
+  }
+  html .reference-home .rh-subscribe {
+    padding: 16px;
+    gap: 16px;
+  }
+  html .footer-top {
+    padding-block: 32px;
+  }
+}

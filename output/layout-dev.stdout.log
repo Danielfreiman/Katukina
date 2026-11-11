@@ -1,0 +1,18 @@
+▲ Next.js 16.4.3 (webpack)
+- Local:         http://127.0.0.1:3001
+- Network:       http://127.0.0.1:3001
+- Environments: .env.local
+✓ Ready in 2.1s
+✓ Running next.config.ts took 137ms
+
+ GET /journal/hello-world 200 in 5.4s (next.js: 1676ms, proxy.ts: 391ms, application-code: 3.3s)
+ GET / 500 in 12.2s (next.js: 2.0s, proxy.ts: 114ms, application-code: 10.1s)
+ GET /pages/our-story 200 in 4.8s (next.js: 1633ms, proxy.ts: 5ms, application-code: 3.2s)
+ GET / 500 in 13.3s (next.js: 2.0s, proxy.ts: 114ms, application-code: 11.1s)
+ GET / 500 in 13.3s (next.js: 2.0s, proxy.ts: 114ms, application-code: 11.1s)
+ GET /api/commerce/config 200 in 8.0s (next.js: 1513ms, proxy.ts: 10ms, application-code: 6.5s)
+ GET /journal/hello-world 200 in 4.3s (next.js: 55ms, proxy.ts: 10ms, application-code: 4.3s)
+ GET /api/commerce/config 200 in 2.2s (next.js: 11ms, proxy.ts: 7ms, application-code: 2.2s)
+ GET /api/commerce/config 200 in 3.5s (next.js: 13ms, proxy.ts: 7ms, application-code: 3.5s)
+ GET /api/commerce/config 200 in 4.9s (next.js: 8ms, proxy.ts: 3ms, application-code: 4.9s)
+ GET /api/commerce/config 200 in 6.6s (next.js: 49ms, proxy.ts: 20ms, application-code: 6.5s)

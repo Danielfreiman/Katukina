@@ -1,3 +1,6 @@
+HISTORICO - composicao anterior da home. Nao e destino dos banners atuais.
+Consultar docs/katukina/BANNERS.md e confirmar uso no codigo antes de produzir.
+
 FAIXA VERDE DE CATEGORIAS - IMAGEM DECORATIVA
 
 Arquivo: category-band-overlay.webp

@@ -3,8 +3,8 @@
 }
 .home-modern .home-kicker {
   color: var(--urucum);
-  font-size: 10px;
-  font-weight: 750;
+  font-size: var(--text-meta);
+  font-weight: var(--weight-bold);
   line-height: 1.6;
   letter-spacing: 0.13em;
 }
@@ -34,9 +34,9 @@
   background: currentColor;
 }
 .home-hero h1 {
-  font-size: clamp(54px, 6.6vw, 94px);
-  font-weight: 550;
-  letter-spacing: -0.075em;
+  font-size: clamp(3.375rem, 6.6vw, 5.875rem);
+  font-weight: var(--weight-semibold);
+  letter-spacing: -0.03em;
   line-height: 1.02;
   margin: 28px 0;
 }
@@ -44,7 +44,7 @@
   color: var(--urucum);
 }
 .home-intro {
-  font-size: 15px;
+  font-size: var(--text-body);
   color: #60665d;
   line-height: 1.85;
 }
@@ -70,15 +70,15 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-size: 12px;
-  font-weight: 650;
+  font-size: var(--text-meta);
+  font-weight: var(--weight-semibold);
   padding-block: 12px;
 }
 .home-scroll {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 10px;
+  font-size: var(--text-meta);
   color: var(--muted);
   margin-top: 42px;
   width: fit-content;
@@ -119,8 +119,8 @@
   height: 35px;
 }
 .home-photo-label > span {
-  font-size: 9px;
-  font-weight: 650;
+  font-size: var(--text-meta);
+  font-weight: var(--weight-semibold);
   line-height: 1.6;
   letter-spacing: 0.14em;
 }
@@ -129,7 +129,7 @@
   bottom: 112px;
   left: 27px;
   color: #fff;
-  font-size: 12px;
+  font-size: var(--text-meta);
   text-shadow: 0 1px 8px #000;
 }
 .home-featured {
@@ -155,12 +155,12 @@
   min-width: 0;
 }
 .home-featured h2 {
-  font-size: 17px;
+  font-size: var(--text-lead);
   letter-spacing: -0.03em;
   margin-block: 6px;
 }
 .home-featured > div > span:last-child {
-  font-size: 11px;
+  font-size: var(--text-meta);
   color: var(--muted);
 }
 .home-featured > svg {
@@ -178,8 +178,8 @@
   padding-block: 21px;
 }
 .home-manifesto span {
-  font-size: 11px;
-  font-weight: 600;
+  font-size: var(--text-meta);
+  font-weight: var(--weight-semibold);
   letter-spacing: 0.045em;
 }
 .home-manifesto svg {
@@ -198,13 +198,13 @@
   margin-bottom: 32px;
 }
 .home-section-heading h2 {
-  font-size: clamp(28px, 3vw, 41px);
+  font-size: clamp(1.75rem, 3vw, 2.5625rem);
   margin-top: 12px;
-  font-weight: 500;
+  font-weight: var(--weight-semibold);
 }
 .home-section-heading .text-link {
   flex-shrink: 0;
-  font-size: 11px;
+  font-size: var(--text-meta);
 }
 .home-collection-grid {
   display: grid;
@@ -232,7 +232,7 @@
   left: 15px;
   background: var(--ivory);
   padding: 4px 10px;
-  font-size: 10px;
+  font-size: var(--text-meta);
 }
 .home-round-arrow {
   position: absolute;
@@ -247,13 +247,13 @@
   color: var(--urucum);
 }
 .home-collection h3 {
-  font-size: 22px;
-  font-weight: 550;
+  font-size: var(--text-card-title);
+  font-weight: var(--weight-semibold);
   margin-top: 20px;
 }
 .home-collection p {
   color: var(--muted);
-  font-size: 12px;
+  font-size: var(--text-meta);
   margin-top: 8px;
 }
 .home-products {
@@ -273,7 +273,7 @@
   mix-blend-mode: multiply;
 }
 .home-modern .product-card h3 {
-  font-size: 16px;
+  font-size: var(--text-body);
 }
 .home-modern .product-card .button {
   border-radius: 2px;
@@ -304,7 +304,7 @@
   position: absolute;
   bottom: 25px;
   left: 30px;
-  font-size: 10px;
+  font-size: var(--text-meta);
   letter-spacing: 0.18em;
   color: white;
 }
@@ -319,17 +319,17 @@
   color: var(--ivory);
 }
 .home-roots-copy h2 {
-  font-size: clamp(50px, 5.7vw, 78px);
+  font-size: clamp(3.125rem, 5.7vw, 4.875rem);
   margin-block: 24px;
   line-height: 1.02;
 }
 .home-roots-copy h2 em {
-  font-weight: 400;
-  font-family: Georgia, serif;
+  font-weight: var(--weight-regular);
+  font-family: var(--font-display);
 }
 .home-roots-copy > p:not(.home-kicker) {
   max-width: 330px;
-  font-size: 13px;
+  font-size: var(--text-ui);
   line-height: 1.9;
 }
 .home-modern .home-light-cta {
@@ -361,11 +361,11 @@
   gap: 50px;
 }
 .home-journal h2 {
-  font-size: 50px;
+  font-size: var(--text-page-large);
   margin-top: 12px;
 }
 .home-journal > p {
-  font-size: 13px;
+  font-size: var(--text-ui);
   color: var(--muted);
   max-width: 340px;
 }
@@ -373,8 +373,8 @@
   display: flex;
   align-items: center;
   gap: 20px;
-  font-size: 11px;
-  font-weight: 650;
+  font-size: var(--text-meta);
+  font-weight: var(--weight-semibold);
 }
 .home-journal-link > svg {
   border: 1px solid #cccfc3;
@@ -396,7 +396,7 @@
     gap: 25px;
   }
   .home-hero h1 {
-    font-size: 65px;
+    font-size: var(--text-display);
   }
   .home-hero-visual {
     height: 500px;
@@ -431,14 +431,14 @@
     padding-block: 24px 10px;
   }
   .home-hero-copy > .home-kicker {
-    font-size: 8px;
+    font-size: var(--text-meta);
   }
   .home-hero h1 {
-    font-size: clamp(51px, 10vw, 74px);
+    font-size: clamp(3.1875rem, 10vw, 4.625rem);
     margin-block: 22px;
   }
   .home-intro {
-    font-size: 13px;
+    font-size: var(--text-ui);
   }
   .home-hero-actions {
     gap: 20px;
@@ -461,10 +461,10 @@
     height: 70px;
   }
   .home-featured h2 {
-    font-size: 15px;
+    font-size: var(--text-body);
   }
   .home-featured .home-kicker {
-    font-size: 8px;
+    font-size: var(--text-meta);
   }
   .home-manifesto > div {
     gap: 12px;
@@ -473,7 +473,7 @@
     justify-content: center;
   }
   .home-manifesto span {
-    font-size: 9px;
+    font-size: var(--text-meta);
   }
   .home-manifesto svg {
     width: 13px;
@@ -509,7 +509,7 @@
     gap: 22px 14px;
   }
   .home-modern .product-card h3 {
-    font-size: 14px;
+    font-size: var(--text-ui);
   }
   .home-roots {
     grid-template-columns: 1fr;
@@ -522,7 +522,7 @@
     padding: 34px 26px;
   }
   .home-roots-copy h2 {
-    font-size: 61px;
+    font-size: var(--text-display);
   }
   .home-journal {
     grid-template-columns: 1fr;
@@ -534,7 +534,7 @@
     justify-content: space-between;
   }
   .home-journal h2 {
-    font-size: 44px;
+    font-size: var(--text-page);
   }
 }
 @media (prefers-reduced-motion: reduce) {

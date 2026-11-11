@@ -1,0 +1,157 @@
+# Inventário de pastas e documentos
+
+Gerado por `node scripts/document-project.mjs`. Não editar manualmente.
+O inventário cobre nomes de pastas de código/conteúdo e documentos de orientação,
+não o conteúdo integral de arquivos, nem dependências, runtime, segredos, backups ou evidências de execução.
+Pastas excluídas: `.git/`, `.next/`, `node_modules/`, `.runtime/`, `backups/`, `.imports/`, `output/`, `artifacts/`, `test-results/`, `playwright-report/`, `.playwright-cli/`, `__pycache__/`, `.impeccable/`.
+Pastas externas de criação/fotos estão no [mapa de responsabilidades](PROJECT_STRUCTURE.md).
+O [guia geral](PROJECT_GUIDE.md) explica o que consultar para cada tarefa.
+
+## Pastas do repositório (70)
+
+- `app/`
+- `app/about/`
+- `app/account/`
+- `app/api/`
+- `app/api/commerce/`
+- `app/api/commerce/[action]/`
+- `app/api/search/`
+- `app/api/search/products/`
+- `app/cart/`
+- `app/checkout/`
+- `app/collections/`
+- `app/collections/[slug]/`
+- `app/cookies/`
+- `app/journal/`
+- `app/journal/[slug]/`
+- `app/pages/`
+- `app/pages/[slug]/`
+- `app/privacy/`
+- `app/products/`
+- `app/products/[slug]/`
+- `app/shipping/`
+- `app/shop/`
+- `app/subscribe/`
+- `components/`
+- `components/catalog/`
+- `components/commerce/`
+- `components/home/`
+- `components/privacy/`
+- `components/site/`
+- `docs/`
+- `docs/adr/`
+- `docs/katukina/`
+- `docs/katukina/design/`
+- `docs/katukina/evidence/`
+- `docs/katukina/history/`
+- `docs/katukina/sources/`
+- `docs/katukina/templates/`
+- `lib/`
+- `lib/commerce/`
+- `lib/config/`
+- `lib/privacy/`
+- `lib/wordpress/`
+- `public/`
+- `public/images/`
+- `public/images/brand/`
+- `public/images/editorial/`
+- `public/images/home/`
+- `public/images/home/banners/`
+- `public/images/home/category-band/`
+- `public/images/home/category-cards/`
+- `public/images/home/collection/`
+- `public/images/home/journal/`
+- `scripts/`
+- `scripts/tests/`
+- `skills/`
+- `skills/katukina-architecture/`
+- `skills/katukina-architecture/agents/`
+- `skills/katukina-architecture/references/`
+- `tests/`
+- `wordpress/`
+- `wordpress/mu-plugins/`
+- `wordpress/plugins/`
+- `wordpress/plugins/katukina-core/`
+- `wordpress/plugins/katukina-core/assets/`
+- `wordpress/plugins/katukina-core/src/`
+- `wordpress/scripts/`
+- `wordpress/scripts/tests/`
+- `wordpress/tools/`
+- `wordpress/tools/fixtures/`
+- `wordpress/tools/fixtures/images/`
+
+## Documentos e instruções (73)
+
+- [AGENTS.md](<../AGENTS.md>)
+- [PRODUCT.md](<../PRODUCT.md>)
+- [README.md](<../README.md>)
+- [docs/ADMIN_UI_MAP.md](<ADMIN_UI_MAP.md>)
+- [docs/API_CONTRACTS.md](<API_CONTRACTS.md>)
+- [docs/ARCHITECTURE.md](<ARCHITECTURE.md>)
+- [docs/CHANGELOG.md](<CHANGELOG.md>)
+- [docs/DATABASE_SCHEMA.md](<DATABASE_SCHEMA.md>)
+- [docs/FUNCTIONAL_SCOPE.md](<FUNCTIONAL_SCOPE.md>)
+- [docs/IMPLEMENTATION_STATUS.md](<IMPLEMENTATION_STATUS.md>)
+- [docs/MIGRATION_PLAN.md](<MIGRATION_PLAN.md>)
+- [docs/OPEN_DECISIONS.md](<OPEN_DECISIONS.md>)
+- [docs/PROJECT_GUIDE.md](<PROJECT_GUIDE.md>)
+- [docs/PROJECT_INVENTORY.md](<PROJECT_INVENTORY.md>)
+- [docs/PROJECT_STRUCTURE.md](<PROJECT_STRUCTURE.md>)
+- [docs/TEST_STRATEGY.md](<TEST_STRATEGY.md>)
+- [docs/adr/ADR-010-native-backend-expansion.md](<adr/ADR-010-native-backend-expansion.md>)
+- [docs/katukina/ARCHITECTURE.md](<katukina/ARCHITECTURE.md>)
+- [docs/katukina/ASSETS.md](<katukina/ASSETS.md>)
+- [docs/katukina/AUDIT.md](<katukina/AUDIT.md>)
+- [docs/katukina/BANNERS.md](<katukina/BANNERS.md>)
+- [docs/katukina/CATALOG-UX-BLUEPRINT.md](<katukina/CATALOG-UX-BLUEPRINT.md>)
+- [docs/katukina/CATALOG-WEBP-2026-11-06.md](<katukina/CATALOG-WEBP-2026-11-06.md>)
+- [docs/katukina/CATEGORY-REFERENCE-2026-11-11.md](<katukina/CATEGORY-REFERENCE-2026-11-11.md>)
+- [docs/katukina/CHANGELOG.md](<katukina/CHANGELOG.md>)
+- [docs/katukina/COLLECTIONS-BANNER.md](<katukina/COLLECTIONS-BANNER.md>)
+- [docs/katukina/FUNCTIONAL-COVERAGE.md](<katukina/FUNCTIONAL-COVERAGE.md>)
+- [docs/katukina/GITHUB-INTEGRATION-2026-11-09.md](<katukina/GITHUB-INTEGRATION-2026-11-09.md>)
+- [docs/katukina/GITHUB-INTEGRATION-2026-11-10.md](<katukina/GITHUB-INTEGRATION-2026-11-10.md>)
+- [docs/katukina/HEADLESS.md](<katukina/HEADLESS.md>)
+- [docs/katukina/HOME-REFERENCE-2026-11-11.md](<katukina/HOME-REFERENCE-2026-11-11.md>)
+- [docs/katukina/HOME-URUCUM-2026-11-04.md](<katukina/HOME-URUCUM-2026-11-04.md>)
+- [docs/katukina/IMAGE-UPDATE-2026-11-04.md](<katukina/IMAGE-UPDATE-2026-11-04.md>)
+- [docs/katukina/LAYOUT-REFINEMENT-2026-11-11.md](<katukina/LAYOUT-REFINEMENT-2026-11-11.md>)
+- [docs/katukina/LOCAL-SETUP.md](<katukina/LOCAL-SETUP.md>)
+- [docs/katukina/MIGRATION.md](<katukina/MIGRATION.md>)
+- [docs/katukina/OPERATIONS.md](<katukina/OPERATIONS.md>)
+- [docs/katukina/OPTION-ATTRIBUTES.md](<katukina/OPTION-ATTRIBUTES.md>)
+- [docs/katukina/OPTION-DISPLAY-REVIEW.md](<katukina/OPTION-DISPLAY-REVIEW.md>)
+- [docs/katukina/PALETTE.md](<katukina/PALETTE.md>)
+- [docs/katukina/PHOTOS-WATERMARK-2026-11-10.md](<katukina/PHOTOS-WATERMARK-2026-11-10.md>)
+- [docs/katukina/PHOTOS-WEBP-2026-11-06.md](<katukina/PHOTOS-WEBP-2026-11-06.md>)
+- [docs/katukina/PRIVACY-COOKIES.md](<katukina/PRIVACY-COOKIES.md>)
+- [docs/katukina/PRODUCT-IMPORT-2026-10-27.md](<katukina/PRODUCT-IMPORT-2026-10-27.md>)
+- [docs/katukina/README.md](<katukina/README.md>)
+- [docs/katukina/REQUIREMENTS.md](<katukina/REQUIREMENTS.md>)
+- [docs/katukina/SAMPLE_CATALOG.md](<katukina/SAMPLE_CATALOG.md>)
+- [docs/katukina/START.md](<katukina/START.md>)
+- [docs/katukina/STOCK-INTEGRATION-2026-11-04.md](<katukina/STOCK-INTEGRATION-2026-11-04.md>)
+- [docs/katukina/STOREFRONT-STRUCTURE-2026-11-11.md](<katukina/STOREFRONT-STRUCTURE-2026-11-11.md>)
+- [docs/katukina/SWATCH-PATTERN-2026-11-04.md](<katukina/SWATCH-PATTERN-2026-11-04.md>)
+- [docs/katukina/TYPOGRAPHY.md](<katukina/TYPOGRAPHY.md>)
+- [docs/katukina/WATERMARK-PHOTOS-2026-11-09.md](<katukina/WATERMARK-PHOTOS-2026-11-09.md>)
+- [docs/katukina/WEBP-PACKAGE-2026-11-06.md](<katukina/WEBP-PACKAGE-2026-11-06.md>)
+- [docs/katukina/history/OPERATIONS-1.0.md](<katukina/history/OPERATIONS-1.0.md>)
+- [docs/katukina/sources/KATUKINA_MASTER_PROMPT.md](<katukina/sources/KATUKINA_MASTER_PROMPT.md>)
+- [docs/katukina/sources/KATUKINA_SKILL.md](<katukina/sources/KATUKINA_SKILL.md>)
+- [docs/katukina/sources/MASTER-IMPLEMENTATION-2026-10-26.txt](<katukina/sources/MASTER-IMPLEMENTATION-2026-10-26.txt>)
+- [docs/katukina/templates/PHOTO-UPDATE-README.txt](<katukina/templates/PHOTO-UPDATE-README.txt>)
+- [public/images/home/LEIA-ME.txt](<../public/images/home/LEIA-ME.txt>)
+- [public/images/home/banners/LEIA-ME.txt](<../public/images/home/banners/LEIA-ME.txt>)
+- [public/images/home/category-band/LEIA-ME.txt](<../public/images/home/category-band/LEIA-ME.txt>)
+- [public/images/home/category-cards/LEIA-ME.txt](<../public/images/home/category-cards/LEIA-ME.txt>)
+- [public/images/home/collection/LEIA-ME.txt](<../public/images/home/collection/LEIA-ME.txt>)
+- [public/images/home/journal/LEIA-ME.txt](<../public/images/home/journal/LEIA-ME.txt>)
+- [skills/katukina-architecture/SKILL.md](<../skills/katukina-architecture/SKILL.md>)
+- [skills/katukina-architecture/references/MASTER_PROMPT.md](<../skills/katukina-architecture/references/MASTER_PROMPT.md>)
+- [skills/katukina-architecture/references/architecture-baseline.md](<../skills/katukina-architecture/references/architecture-baseline.md>)
+- [skills/katukina-architecture/references/functional-scope.md](<../skills/katukina-architecture/references/functional-scope.md>)
+- [skills/katukina-architecture/references/newSiteFunctions-original.txt](<../skills/katukina-architecture/references/newSiteFunctions-original.txt>)
+- [skills/katukina-architecture/references/project-governance.md](<../skills/katukina-architecture/references/project-governance.md>)
+- [wordpress/README.md](<../wordpress/README.md>)
+- [wordpress/plugins/katukina-core/README.md](<../wordpress/plugins/katukina-core/README.md>)

@@ -157,13 +157,13 @@ export default async function Home() {
     {
       title: "Objects with meaning",
       href: "/collections/shamanic-tools",
-      image: "/images/home/hero-02/mobile.webp",
+      image: "/images/editorial/objects-with-meaning.webp",
     },
     { title: "A little discovery", href: "/shop", image: "/images/benzoe.jpg" },
     {
       title: "Find your next scent",
       href: "/collections/aromatics",
-      image: "/images/home/hero-03/mobile.webp",
+      image: "/images/editorial/incense-selection.webp",
     },
   ];
   const stories = [...editorial, ...fallback].slice(0, 6);

@@ -1,5 +1,22 @@
 # Assets do frontend Katukina
 
+## Especificação vigente — 11/11/2026
+
+**Para os banners em dupla da home, usar [BANNERS.md](BANNERS.md): 2400 × 1800 px, 4:3, WebP/sRGB, em `public/images/home/banners/`.** Três arquivos independentes: `discover-katukina.webp`, `our-story.webp`, `sacred-incense.webp`. Mesma arte no desktop/celular.
+
+A home atual está em `app/page.tsx` + `components/home/reference-widgets.tsx` + `app/reference-home.css`. Categorias da home usam ícones nesta composição; o banner Kuripe & Tepi e o hero de tela inteira abaixo pertencem à versão anterior. Os fundos `collection/` e `journal/` e as pastas `category-band/`/`category-cards/` são preservados, mas não são pontos de entrega da primeira dobra atual. Não produzir novas artes para áreas históricas sem confirmar a seção ativa.
+
+Marca em `public/images/brand/`, imagens editoriais compartilhadas em `public/images/` e fotos de produto no WooCommerce permanecem válidas. O título “Somente brand foi criada nesta etapa” mais abaixo descreve a etapa histórica, não o inventário atual.
+
+[Mapa completo de pastas](../PROJECT_STRUCTURE.md) · [Guia geral](../PROJECT_GUIDE.md).
+
+## Histórico preservado
+
+**Limpeza posterior em 11/11/2026:** `hero-01/`, `hero-02/`, `hero-03/` e `collections-banner/` foram retiradas de `public/images/home/`, com backup externo em `.local-backups/`. Duas fotos ainda usadas por cards passaram para `public/images/editorial/`. Os caminhos antigos nas seções históricas abaixo não existem mais como destinos de entrega.
+
+As seções a seguir registram versões anteriores. Em caso de conflito para os banners atuais, prevalece BANNERS.md. As validações listadas são das respectivas etapas, não foram todas repetidas nesta organização.
+
+
 ## Banner Kuripe & Tepi — 11/11/2026
 
 - Seção da home entre a coleção e o journal, com CTA para `/collections/kuripe-and-tepi`.

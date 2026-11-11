@@ -9,11 +9,11 @@
   box-sizing: border-box;
 }
 .reference-home h2 {
-  font-family: var(--font-body);
-  font-size: 22px;
-  font-weight: 600;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.2vw, 2rem);
+  font-weight: var(--weight-semibold);
   line-height: 1.3;
-  letter-spacing: 0;
+  letter-spacing: -0.025em;
   margin: 0;
 }
 .reference-home a {
@@ -43,10 +43,11 @@
   gap: 16px;
 }
 .reference-home .rh-campaign {
+  --campaign-inset: 36px;
   position: relative;
   isolation: isolate;
   aspect-ratio: 4 / 3;
-  border-radius: 16px;
+  border-radius: var(--radius-card);
   overflow: hidden;
   color: var(--white);
 }
@@ -66,15 +67,27 @@
 .reference-home .rh-campaign > div {
   position: relative;
   z-index: 1;
-  padding: 32px 36px;
+  padding: 32px var(--campaign-inset);
+}
+.reference-home .rh-campaign .rh-campaign-cta {
+  position: absolute;
+  z-index: 1;
+  left: var(--campaign-inset);
+  bottom: 32px;
+  max-width: calc(100% - 2 * var(--campaign-inset));
+  text-decoration: none;
+}
+.reference-home .rh-campaign-cta:focus-visible {
+  outline: 2px solid var(--white);
+  outline-offset: 4px;
 }
 .reference-home .rh-campaign h2 {
-  font-size: clamp(24px, 2.7vw, 40px);
-  font-weight: 700;
+  font-size: clamp(1.5rem, 2.7vw, 2.5rem);
+  font-weight: var(--weight-bold);
   line-height: 1.2;
 }
 .reference-home .rh-campaign p {
-  font-size: clamp(18px, 2.1vw, 30px);
+  font-size: clamp(1.125rem, 2.1vw, 1.875rem);
   line-height: 1.35;
   margin: 16px 0 0;
   max-width: 22ch;
@@ -117,7 +130,7 @@
   border-radius: 16px;
   background: var(--overlay);
   color: var(--white);
-  font-size: 12px;
+  font-size: var(--text-meta);
   padding: 2px 8px;
 }
 .reference-home .rh-campaign-counter button {
@@ -133,21 +146,21 @@
   justify-content: space-between;
   gap: 20px;
   background: var(--soft);
-  border-radius: 8px;
+  border-radius: var(--radius-card);
   padding: 16px;
   margin-top: 24px;
 }
 .reference-home .rh-signin p {
   margin: 0;
-  font-size: 15px;
+  font-size: var(--text-body);
 }
 .reference-home .rh-signin > a {
   background: var(--green);
   color: var(--white);
-  border-radius: 5px;
+  border-radius: var(--radius-control);
   padding: 6px 12px;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: var(--text-ui);
+  font-weight: var(--weight-semibold);
   white-space: nowrap;
 }
 .reference-home .rh-guidance {
@@ -165,10 +178,10 @@
   align-items: center;
   gap: 8px;
   color: var(--green);
-  font-size: 24px;
+  font-size: var(--text-card-title);
 }
 .reference-home .rh-guidance p {
-  font-size: 15px;
+  font-size: var(--text-body);
   margin: 10px 0 0;
   line-height: 1.6;
 }
@@ -189,8 +202,8 @@
   min-height: 80px;
   padding: 16px;
   background: var(--white);
-  border-radius: 12px;
-  font-size: 15px;
+  border-radius: var(--radius-card);
+  font-size: var(--text-body);
 }
 .reference-home .rh-guidance-cards svg {
   color: var(--green);
@@ -203,7 +216,7 @@
   margin-bottom: 24px;
 }
 .reference-home .rh-section-title > a {
-  font-size: 15px;
+  font-size: var(--text-body);
   text-decoration: underline;
   color: var(--green);
 }
@@ -239,7 +252,7 @@
   justify-content: center;
   position: relative;
   background: var(--soft);
-  border-radius: 8px;
+  border-radius: var(--radius-card);
   aspect-ratio: 1.2;
   overflow: hidden;
 }
@@ -258,7 +271,7 @@
   padding: 7px;
   color: var(--white);
   background: var(--green);
-  font-size: 14px;
+  font-size: var(--text-ui);
   transform: translateY(100%);
   transition: transform 0.15s;
 }
@@ -267,25 +280,29 @@
   transform: translateY(0);
 }
 .reference-home .rh-product-name {
-  display: -webkit-box;
+  display: block;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  overflow: hidden;
-  font-size: 16px;
+  -webkit-line-clamp: unset;
+  overflow: visible;
+  font-size: var(--text-body);
   line-height: 1.5;
   margin: 10px 10px 0;
   min-height: 72px;
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+  letter-spacing: -0.015em;
+  overflow-wrap: anywhere;
 }
 .reference-home .rh-product-price {
-  font-size: 20px;
-  font-weight: 600;
+  font-size: var(--text-price);
+  font-weight: var(--weight-semibold);
   line-height: 1.3;
   margin: 6px 10px 0;
 }
 .reference-home .rh-product-price del {
   display: inline-block;
-  font-weight: 400;
-  font-size: 12px;
+  font-weight: var(--weight-regular);
+  font-size: var(--text-meta);
   margin-left: 8px;
   color: var(--muted);
 }
@@ -295,13 +312,13 @@
   gap: 4px;
   margin: 4px 10px 0;
   color: var(--green);
-  font-size: 14px;
+  font-size: var(--text-ui);
 }
 .reference-home .rh-stock {
   display: block;
   margin: 4px 10px 0;
   color: var(--muted);
-  font-size: 12px;
+  font-size: var(--text-meta);
 }
 .reference-home .rh-empty {
   color: var(--muted);
@@ -318,7 +335,7 @@
 }
 .reference-home .rh-category-circles a {
   text-align: center;
-  font-size: 15px;
+  font-size: var(--text-body);
 }
 .reference-home .rh-category-circles a > span {
   aspect-ratio: 1;
@@ -340,7 +357,7 @@
   border-radius: 30px;
   background: var(--warm-white);
   padding: 12px 22px;
-  font-size: 15px;
+  font-size: var(--text-body);
 }
 .reference-home .rh-tabbed {
   padding-block: 40px 60px;
@@ -361,13 +378,13 @@
   white-space: nowrap;
   padding: 12px 20px;
   color: var(--ink);
-  font-size: 15px;
+  font-size: var(--text-body);
 }
 .reference-home .rh-tabs button[aria-selected="true"] {
   border-color: var(--green);
   background: var(--support-soft);
   color: var(--green);
-  font-weight: 600;
+  font-weight: var(--weight-semibold);
 }
 .reference-home .rh-tab-products {
   display: grid;
@@ -379,7 +396,7 @@
 }
 .reference-home .rh-story {
   margin-block: 40px 16px;
-  border-radius: 8px;
+  border-radius: var(--radius-card);
   overflow: hidden;
   background: var(--support-soft);
 }
@@ -397,7 +414,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 32px;
+  font-size: var(--text-heading);
 }
 .reference-home .rh-story-banner .rh-section-title > a {
   background: var(--white);
@@ -409,7 +426,7 @@
 }
 .reference-home .rh-story-banner > p {
   max-width: 850px;
-  font-size: 16px;
+  font-size: var(--text-body);
   margin: 12px 0 24px;
 }
 .reference-home .rh-story-features {
@@ -425,8 +442,8 @@
   background: var(--white);
   color: var(--ink);
   padding: 22px;
-  border-radius: 12px;
-  font-size: 16px;
+  border-radius: var(--radius-card);
+  font-size: var(--text-body);
 }
 .reference-home .rh-story-features svg {
   color: var(--green);
@@ -448,8 +465,8 @@
   background: var(--white);
   padding: 15px;
   text-align: center;
-  font-weight: 600;
-  font-size: 15px;
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-body);
 }
 .reference-home .rh-discovery-band {
   background: var(--warm-white)
@@ -464,7 +481,7 @@
   min-width: 0;
   background: var(--white);
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: var(--radius-card);
   padding: 16px;
   scroll-snap-align: start;
 }
@@ -473,7 +490,7 @@
   display: flex;
   align-items: center;
   gap: 7px;
-  font-size: 14px;
+  font-size: var(--text-ui);
 }
 .reference-home .rh-discovery-card svg {
   color: var(--green);
@@ -487,20 +504,22 @@
   margin-bottom: 16px;
 }
 .reference-home .rh-discovery-card strong {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
+  display: block;
+  -webkit-line-clamp: unset;
   -webkit-box-orient: vertical;
-  overflow: hidden;
-  font-size: 15px;
+  overflow: visible;
+  font-size: var(--text-body);
   min-height: 45px;
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: var(--weight-semibold);
+  font-family: var(--font-display);
+  overflow-wrap: anywhere;
 }
 .reference-home .rh-discovery-card a > span {
   display: block;
   margin-top: 8px;
-  font-size: 19px;
-  font-weight: 600;
+  font-size: var(--text-price);
+  font-weight: var(--weight-semibold);
 }
 .reference-home .rh-editorial {
   padding-block: 0 24px;
@@ -513,27 +532,27 @@
 }
 .reference-home .rh-editorial-grid > a {
   text-align: center;
-  font-size: 14px;
+  font-size: var(--text-ui);
   line-height: 1.3;
 }
 .reference-home .rh-editorial-grid img {
   width: 100%;
   aspect-ratio: 1.7;
   object-fit: cover;
-  border-radius: 4px;
+  border-radius: var(--radius-card);
   margin-bottom: 8px;
 }
 .reference-home .rh-editorial-grid .rh-journal-tile {
   min-height: 110px;
   background: var(--green);
   color: var(--white);
-  border-radius: 4px;
+  border-radius: var(--radius-card);
   display: grid;
   align-content: center;
   padding: 12px;
 }
 .reference-home .rh-journal-tile strong {
-  font-size: 27px;
+  font-size: var(--text-subheading);
   line-height: 1.1;
 }
 .reference-home .rh-subscribe {
@@ -543,16 +562,16 @@
   gap: 20px;
   margin: 28px 20px 0;
   padding: 16px 30px;
-  border-radius: 0 16px 16px 0;
+  border-radius: var(--radius-card);
   background: var(--support-soft);
 }
 .reference-home .rh-subscribe small {
   display: block;
   color: var(--green);
-  font-size: 13px;
+  font-size: var(--text-ui);
 }
 .reference-home .rh-subscribe strong {
-  font-size: 18px;
+  font-size: var(--text-lead);
 }
 .reference-home .rh-subscribe > span:last-child {
   background: var(--white);
@@ -588,10 +607,10 @@
     display: none;
   }
   .reference-home .rh-campaign h2 {
-    font-size: 36px;
+    font-size: var(--text-page-small);
   }
   .reference-home .rh-campaign p {
-    font-size: 28px;
+    font-size: var(--text-subheading);
   }
   .reference-home .rh-story-features {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -605,6 +624,14 @@
   }
 }
 @media (max-width: 600px) {
+  .reference-home .rh-campaign {
+    --campaign-inset: 20px;
+    min-height: 300px;
+    aspect-ratio: auto;
+  }
+  .reference-home .rh-campaign .rh-campaign-cta {
+    bottom: 20px;
+  }
   .reference-home .rh-wide {
     width: calc(100% - 32px);
   }
@@ -616,10 +643,10 @@
     padding: 20px;
   }
   .reference-home .rh-campaign h2 {
-    font-size: 27px;
+    font-size: var(--text-subheading);
   }
   .reference-home .rh-campaign p {
-    font-size: 19px;
+    font-size: var(--text-price);
     margin-top: 12px;
   }
   .reference-home .rh-arrow {
@@ -639,10 +666,10 @@
     margin-top: 16px;
   }
   .reference-home .rh-signin p {
-    font-size: 12px;
+    font-size: var(--text-meta);
   }
   .reference-home .rh-signin > a {
-    font-size: 12px;
+    font-size: var(--text-meta);
     white-space: normal;
     flex-shrink: 0;
     max-width: 45%;
@@ -651,10 +678,10 @@
     padding-block: 24px;
   }
   .reference-home .rh-guidance h2 {
-    font-size: 21px;
+    font-size: var(--text-card-title);
   }
   .reference-home .rh-guidance p {
-    font-size: 14px;
+    font-size: var(--text-ui);
   }
   .reference-home .rh-guidance-cards {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -663,7 +690,7 @@
   .reference-home .rh-guidance-cards a {
     padding: 12px;
     min-height: 72px;
-    font-size: 13px;
+    font-size: var(--text-ui);
     gap: 10px;
   }
   .reference-home .rh-section-title {
@@ -673,22 +700,22 @@
     margin-bottom: 20px;
   }
   .reference-home h2 {
-    font-size: 21px;
+    font-size: var(--text-card-title);
   }
   .reference-home .rh-section-title > a {
-    font-size: 13px;
+    font-size: var(--text-ui);
   }
   .reference-home .rh-product-track {
     grid-auto-columns: calc((100% - 12px) / 2);
     gap: 12px;
   }
   .reference-home .rh-product-name {
-    font-size: 14px;
+    font-size: var(--text-ui);
     margin-inline: 4px;
     min-height: 63px;
   }
   .reference-home .rh-product-price {
-    font-size: 17px;
+    font-size: var(--text-lead);
     margin-inline: 4px;
   }
   .reference-home .rh-stock {
@@ -712,14 +739,14 @@
     height: 40px;
   }
   .reference-home .rh-category-circles a {
-    font-size: 13px;
+    font-size: var(--text-ui);
   }
   .reference-home .rh-category-chips {
     gap: 8px;
   }
   .reference-home .rh-category-chips a {
     padding: 8px 16px;
-    font-size: 13px;
+    font-size: var(--text-ui);
   }
   .reference-home .rh-tab-products {
     grid-template-columns: none;
@@ -732,7 +759,7 @@
   }
   .reference-home .rh-tabs button {
     padding: 9px 16px;
-    font-size: 13px;
+    font-size: var(--text-ui);
   }
   .reference-home .rh-tabbed {
     padding-block: 28px;
@@ -741,10 +768,10 @@
     padding: 20px;
   }
   .reference-home .rh-story-banner h2 {
-    font-size: 24px;
+    font-size: var(--text-card-title);
   }
   .reference-home .rh-story-banner > p {
-    font-size: 14px;
+    font-size: var(--text-ui);
   }
   .reference-home .rh-story-features {
     gap: 10px;
@@ -753,7 +780,7 @@
   .reference-home .rh-story-features a {
     padding: 14px 10px;
     gap: 8px;
-    font-size: 13px;
+    font-size: var(--text-ui);
   }
   .reference-home .rh-story-features svg {
     width: 22px;
@@ -765,7 +792,7 @@
   .reference-home .rh-story-circles a {
     flex-basis: 90px;
     height: 90px;
-    font-size: 12px;
+    font-size: var(--text-meta);
   }
   .reference-home .rh-discovery-card {
     padding: 12px;
@@ -774,13 +801,13 @@
     height: 110px;
   }
   .reference-home .rh-discovery-card > p {
-    font-size: 12px;
+    font-size: var(--text-meta);
   }
   .reference-home .rh-discovery-card strong {
-    font-size: 13px;
+    font-size: var(--text-ui);
   }
   .reference-home .rh-discovery-card a > span {
-    font-size: 16px;
+    font-size: var(--text-body);
   }
   .reference-home .rh-editorial-grid {
     display: flex;
@@ -789,7 +816,7 @@
   }
   .reference-home .rh-editorial-grid > a {
     flex: 0 0 125px;
-    font-size: 12px;
+    font-size: var(--text-meta);
   }
   .reference-home .rh-editorial-grid > a:nth-child(3),
   .reference-home .rh-editorial-grid > a:nth-child(7) {
@@ -799,14 +826,14 @@
     min-height: 90px;
   }
   .reference-home .rh-journal-tile strong {
-    font-size: 23px;
+    font-size: var(--text-card-title);
   }
   .reference-home .rh-subscribe {
     margin-inline: 0;
     padding: 16px;
   }
   .reference-home .rh-subscribe strong {
-    font-size: 15px;
+    font-size: var(--text-body);
   }
 }
 @media (prefers-reduced-motion: reduce) {

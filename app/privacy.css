@@ -4,7 +4,7 @@
   align-items: center;
   gap: 16px;
   padding-block: 15px;
-  font-size: 12px;
+  font-size: var(--text-meta);
 }
 .cookie-controls p {
   margin: 0;
@@ -42,10 +42,10 @@
 }
 .cookie-banner h2 {
   margin: 0 0 8px;
-  font-size: 20px;
+  font-size: var(--text-price);
 }
 .cookie-banner p {
-  font-size: 13px;
+  font-size: var(--text-ui);
   line-height: 1.6;
   margin: 5px 0;
 }
@@ -71,8 +71,8 @@
   color: var(--green);
   border-radius: 0;
   font: inherit;
-  font-size: 13px;
-  font-weight: 600;
+  font-size: var(--text-ui);
+  font-weight: var(--weight-semibold);
   cursor: pointer;
 }
 .cookie-actions button:hover {
@@ -93,21 +93,21 @@
 }
 .cookie-dialog h2 {
   margin: 0 30px 20px 0;
-  font-size: 25px;
+  font-size: var(--text-card-title);
 }
 .cookie-dialog h3 {
-  font-size: 15px;
+  font-size: var(--text-body);
   display: flex;
   justify-content: space-between;
   gap: 12px;
 }
 .cookie-dialog h3 span {
-  font-size: 12px;
-  font-weight: 400;
+  font-size: var(--text-meta);
+  font-weight: var(--weight-regular);
   color: var(--muted);
 }
 .cookie-dialog p {
-  font-size: 13px;
+  font-size: var(--text-ui);
   line-height: 1.7;
 }
 .cookie-dialog section {
@@ -131,7 +131,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 15px;
+  font-size: var(--text-body);
   cursor: pointer;
 }
 .cookie-toggle input {
@@ -140,20 +140,21 @@
   accent-color: var(--green);
 }
 .policy-page {
+  overflow-wrap: anywhere;
   max-width: 1000px;
   padding-bottom: 65px;
 }
 .policy-page h1 {
-  font-size: clamp(36px, 5vw, 52px);
+  font-size: clamp(2.25rem, 5vw, 3.25rem);
   margin: 12px 0;
 }
 .policy-page h2 {
-  font-size: 23px;
+  font-size: var(--text-card-title);
   margin-top: 32px;
 }
 .policy-page p,
 .policy-page li {
-  font-size: 14px;
+  font-size: var(--text-ui);
   line-height: 1.8;
 }
 .policy-page a {
@@ -174,13 +175,13 @@
 .policy-page table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 13px;
+  font-size: var(--text-ui);
   line-height: 1.6;
 }
 .policy-page caption {
   text-align: left;
   padding-block: 12px;
-  font-weight: 650;
+  font-weight: var(--weight-semibold);
 }
 .policy-page th,
 .policy-page td {
@@ -216,7 +217,7 @@
     padding: 22px;
   }
   .cookie-banner p {
-    font-size: 12px;
+    font-size: var(--text-meta);
   }
 }
 

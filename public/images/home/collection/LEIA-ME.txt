@@ -1,0 +1,6 @@
+ARQUIVOS PRESERVADOS DE COMPOSICAO ANTERIOR
+
+Nao usar esta pasta para substituir os banners atuais da primeira dobra.
+Destino atual: public/images/home/banners/. Guia: docs/katukina/BANNERS.md.
+Algumas fotos antigas continuam usadas em cards editoriais.
+Nao remover ou alterar sem conferir referencias no codigo.

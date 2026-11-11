@@ -1,3 +1,6 @@
+HISTORICO - composicao anterior da home. Nao e destino dos banners atuais.
+Consultar docs/katukina/BANNERS.md e confirmar uso no codigo antes de produzir.
+
 CATEGORY CARDS - ARTES MANUAIS
 
 Exporte cada imagem com 960 x 960 px (1:1), WebP, sRGB.

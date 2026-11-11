@@ -1,0 +1,3576 @@
+[
+  {
+    "file": "app/catalog.css",
+    "line": 6,
+    "context": "base",
+    "selector": ".catalog-intro",
+    "max-width": "800px"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 10,
+    "context": "base",
+    "selector": ".catalog-intro h1",
+    "font-size": "clamp(2.125rem, 4.5vw, 3.5rem)",
+    "line-height": "1.12",
+    "letter-spacing": "-0.04em"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 16,
+    "context": "base",
+    "selector": ".catalog-intro > p:last-child",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 26,
+    "context": "base",
+    "selector": ".category-browse summary",
+    "font-size": "var(--text-ui)",
+    "font-weight": "var(--weight-semibold)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 41,
+    "context": "base",
+    "selector": ".subcategory-grid a",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 77,
+    "context": "base",
+    "selector": ".catalog-sidebar h2",
+    "font-size": "var(--text-ui)",
+    "letter-spacing": "-0.02em"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 82,
+    "context": "base",
+    "selector": ".catalog-filter-form",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 88,
+    "context": "base",
+    "selector": ".catalog-filter-form > label",
+    "font-weight": "var(--weight-semibold)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 95,
+    "context": "base",
+    "selector": ".catalog-filter-form input,\n.catalog-filter-form select,\n.catalog-sort select,\n.purchase-fields select,\n.purchase-fields input",
+    "font": "inherit"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 112,
+    "context": "base",
+    "selector": ".catalog-filter-form legend",
+    "font-weight": "var(--weight-semibold)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 154,
+    "context": "base",
+    "selector": ".stock-checkbox span",
+    "font-weight": "var(--weight-regular)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 158,
+    "context": "base",
+    "selector": ".catalog-filter-form .button",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 164,
+    "context": "base",
+    "selector": ".filter-clear",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 181,
+    "context": "base",
+    "selector": ".catalog-result-count",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 188,
+    "context": "base",
+    "selector": ".catalog-sort",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 197,
+    "context": "base",
+    "selector": ".catalog-sort select",
+    "max-width": "100%"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 208,
+    "context": "base",
+    "selector": ".active-filters a",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 233,
+    "context": "base",
+    "selector": ".collection-intro h2",
+    "font-size": "clamp(2rem, 3.8vw, 3.25rem)",
+    "line-height": "1.15",
+    "letter-spacing": "-0.035em",
+    "text-wrap": "balance"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 244,
+    "context": "base",
+    "selector": ".collection-intro p",
+    "max-width": "54ch",
+    "font-size": "var(--text-lead)",
+    "line-height": "1.6",
+    "text-wrap": "pretty"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 253,
+    "context": "base",
+    "selector": ".collection-intro .text-link",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 297,
+    "context": "base",
+    "selector": ".collection-paths h3",
+    "font-size": "var(--text-card-title)",
+    "line-height": "1.35",
+    "letter-spacing": "-0.025em"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 340,
+    "context": "base",
+    "selector": ".collection-paths-scroll-hint",
+    "font-size": "var(--text-meta)",
+    "line-height": "1.5"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 381,
+    "context": "base",
+    "selector": ".category-photo-copy h4",
+    "font-size": "var(--text-ui)",
+    "line-height": "1.2",
+    "letter-spacing": "-0.025em",
+    "text-wrap": "balance"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 409,
+    "context": "@media (max-width: 1100px)",
+    "selector": ".collection-paths h3",
+    "font-size": "var(--text-price)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 432,
+    "context": "@media (max-width: 600px)",
+    "selector": ".collection-paths h3",
+    "font-size": "var(--text-lead)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 453,
+    "context": "@media (max-width: 600px)",
+    "selector": ".collection-intro p",
+    "font-size": "var(--text-body)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 499,
+    "context": "base",
+    "selector": ".home-collection .product-grid-v2 .product-category",
+    "font-size": "var(--text-meta)",
+    "font-weight": "var(--weight-semibold)",
+    "letter-spacing": "0.06em"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 505,
+    "context": "base",
+    "selector": ".home-collection .product-grid-v2 .product-info h3",
+    "font-size": "var(--text-lead)",
+    "line-height": "1.4"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 515,
+    "context": "base",
+    "selector": ".home-collection .product-grid-v2 .product-price",
+    "font-size": "var(--text-lead)",
+    "font-variant-numeric": "tabular-nums"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 521,
+    "context": "base",
+    "selector": ".home-collection .product-stock",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 530,
+    "context": "base",
+    "selector": ".home-collection .product-card-action,\n.home-collection .product-grid-v2 .purchase-actions .button",
+    "font-size": "var(--text-ui)",
+    "font-weight": "var(--weight-semibold)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 566,
+    "context": "base",
+    "selector": ".collections-banner .button",
+    "max-width": "180px",
+    "font-size": "var(--text-ui)",
+    "font-weight": "var(--weight-semibold)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 598,
+    "context": "@media (max-width: 600px)",
+    "selector": ".home-collection .product-grid-v2 .product-category",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 601,
+    "context": "@media (max-width: 600px)",
+    "selector": ".home-collection .product-grid-v2 .product-info h3",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 604,
+    "context": "@media (max-width: 600px)",
+    "selector": ".home-collection .product-grid-v2 .product-price",
+    "font-size": "var(--text-body)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 645,
+    "context": "base",
+    "selector": ".catalog-image-placeholder",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 671,
+    "context": "base",
+    "selector": ".product-grid-v2 .product-info h3",
+    "font-size": "var(--text-body)",
+    "line-height": "1.45",
+    "letter-spacing": "-0.025em"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 681,
+    "context": "base",
+    "selector": ".product-grid-v2 .product-category",
+    "line-height": "1.5"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 685,
+    "context": "base",
+    "selector": ".product-grid-v2 .product-price",
+    "font-size": "var(--text-price)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 690,
+    "context": "base",
+    "selector": ".product-stock",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 695,
+    "context": "base",
+    "selector": ".product-card-action",
+    "font-size": "var(--text-meta)",
+    "font-weight": "var(--weight-semibold)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 713,
+    "context": "base",
+    "selector": ".product-grid-v2 .purchase-actions .button",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 735,
+    "context": "base",
+    "selector": ".catalog-pagination a",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 753,
+    "context": "base",
+    "selector": ".catalog-range",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 785,
+    "context": "base",
+    "selector": ".filter-dialog-heading h2",
+    "font-size": "var(--text-card-title)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 830,
+    "context": "base",
+    "selector": ".gallery-expand",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 842,
+    "context": "base",
+    "selector": ".gallery-navigation",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 851,
+    "context": "base",
+    "selector": ".gallery-navigation button",
+    "font": "inherit"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 901,
+    "context": "base",
+    "selector": ".gallery-placeholder p",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 929,
+    "context": "base",
+    "selector": ".product-purchase-panel h1",
+    "font-size": "clamp(1.875rem, 3.5vw, 3rem)",
+    "line-height": "1.15",
+    "letter-spacing": "-0.035em"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 935,
+    "context": "base",
+    "selector": ".product-summary",
+    "font-size": "var(--text-body)",
+    "line-height": "1.7",
+    "max-width": "68ch"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 947,
+    "context": "base",
+    "selector": ".purchase-price > p",
+    "font-size": "var(--text-subheading)",
+    "letter-spacing": "-0.03em",
+    "font-weight": "var(--weight-semibold)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 953,
+    "context": "base",
+    "selector": ".purchase-price > span",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 963,
+    "context": "base",
+    "selector": ".purchase-fields label",
+    "font-size": "var(--text-ui)",
+    "font-weight": "var(--weight-semibold)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 969,
+    "context": "base",
+    "selector": ".purchase-fields select",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 976,
+    "context": "base",
+    "selector": ".purchase-availability p",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 980,
+    "context": "base",
+    "selector": ".stock-available",
+    "font-weight": "var(--weight-semibold)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 987,
+    "context": "base",
+    "selector": ".purchase-availability .purchase-sku",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 994,
+    "context": "base",
+    "selector": ".product-quantity > p",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 1005,
+    "context": "base",
+    "selector": ".purchase-delivery",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 1023,
+    "context": "base",
+    "selector": ".product-information h2,\n.related-heading h2",
+    "font-size": "var(--text-card-title)",
+    "letter-spacing": "-0.03em"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 1028,
+    "context": "base",
+    "selector": ".product-description-text",
+    "font-size": "var(--text-ui)",
+    "line-height": "1.9"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 1043,
+    "context": "base",
+    "selector": ".product-category-tags a",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 1105,
+    "context": "@media (max-width: 850px)",
+    "selector": ".mobile-filters-button",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 1134,
+    "context": "@media (max-width: 850px)",
+    "selector": ".product-purchase-panel h1",
+    "font-size": "var(--text-page-small)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 1142,
+    "context": "@media (max-width: 600px)",
+    "selector": ".catalog-intro h1",
+    "font-size": "var(--text-page-small)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 1145,
+    "context": "@media (max-width: 600px)",
+    "selector": ".catalog-intro > p:last-child",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 1152,
+    "context": "@media (max-width: 600px)",
+    "selector": ".subcategory-grid a",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 1156,
+    "context": "@media (max-width: 600px)",
+    "selector": ".catalog-sort",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 1161,
+    "context": "@media (max-width: 600px)",
+    "selector": ".catalog-sort select",
+    "max-width": "160px"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 1164,
+    "context": "@media (max-width: 600px)",
+    "selector": ".catalog-result-count",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 1176,
+    "context": "@media (max-width: 600px)",
+    "selector": ".product-grid-v2 .product-info h3",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 1180,
+    "context": "@media (max-width: 600px)",
+    "selector": ".product-grid-v2 .product-price",
+    "font-size": "var(--text-lead)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 1183,
+    "context": "@media (max-width: 600px)",
+    "selector": ".product-grid-v2 .product-category",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 1186,
+    "context": "@media (max-width: 600px)",
+    "selector": ".product-card-action",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 1206,
+    "context": "@media (max-width: 600px)",
+    "selector": ".product-page-v2 .breadcrumbs",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 1213,
+    "context": "@media (max-width: 600px)",
+    "selector": ".purchase-price > p",
+    "font-size": "var(--text-card-title)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 1235,
+    "context": "base",
+    "selector": ".catalog-intro h1",
+    "font-size": "clamp(1.875rem, 3.2vw, 2.75rem)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 1246,
+    "context": "base",
+    "selector": ".category-list",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 1252,
+    "context": "base",
+    "selector": ".category-list h2",
+    "font-size": "var(--text-body)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 1261,
+    "context": "base",
+    "selector": ".category-list a",
+    "line-height": "1.4"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 1273,
+    "context": "base",
+    "selector": ".category-list a[aria-current=\"page\"]",
+    "font-weight": "var(--weight-bold)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 1277,
+    "context": "base",
+    "selector": ".category-count",
+    "font-size": "var(--text-meta)",
+    "font-weight": "var(--weight-regular)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 1288,
+    "context": "base",
+    "selector": ".category-list .category-ancestor",
+    "font-weight": "var(--weight-semibold)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 1292,
+    "context": "base",
+    "selector": ".filter-show-more,\n.swatch-clear",
+    "font": "inherit",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 1307,
+    "context": "base",
+    "selector": ".filter-section summary",
+    "font-weight": "var(--weight-semibold)",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 1326,
+    "context": "base",
+    "selector": ".catalog-filter-form .stock-checkbox",
+    "font-weight": "var(--weight-regular)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 1339,
+    "context": "base",
+    "selector": ".catalog-filter-form .rating-stars,\n.rating-stars",
+    "letter-spacing": "1px"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 1358,
+    "context": "base",
+    "selector": ".product-sale-badge",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 1369,
+    "context": "base",
+    "selector": ".product-grid-v2 .product-price del",
+    "font-weight": "var(--weight-regular)",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 1374,
+    "context": "base",
+    "selector": ".product-rating",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 1381,
+    "context": "base",
+    "selector": ".product-more-options",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 1396,
+    "context": "base",
+    "selector": ".presentation-field > legend",
+    "font-size": "var(--text-ui)",
+    "font-weight": "var(--weight-semibold)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 1401,
+    "context": "base",
+    "selector": ".presentation-selection",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 1411,
+    "context": "base",
+    "selector": ".option-shared-details",
+    "font-size": "var(--text-ui)",
+    "line-height": "1.6"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 1435,
+    "context": "base",
+    "selector": ".purchase-fields .presentation-swatch",
+    "font-size": "var(--text-ui)",
+    "font-weight": "var(--weight-regular)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 1481,
+    "context": "base",
+    "selector": ".swatch-content strong",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 1484,
+    "context": "base",
+    "selector": ".swatch-content > span",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 1487,
+    "context": "base",
+    "selector": ".swatch-content small",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 1543,
+    "context": "@media (min-width: 1200px)",
+    "selector": ".catalog-results .product-info h3",
+    "font-size": "var(--text-body)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 1580,
+    "context": "base",
+    "selector": ".product-summary, .product-description-text",
+    "font-size": "1rem",
+    "line-height": "1.75",
+    "max-width": "68ch"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 1587,
+    "context": "@media (max-width: 600px)",
+    "selector": ".product-purchase-panel h1",
+    "font-size": "clamp(1.75rem, 8vw, 2.25rem)"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 1591,
+    "context": "base",
+    "selector": ".product-price, .purchase-price, .commerce-totals",
+    "font-variant-numeric": "tabular-nums"
+  },
+  {
+    "file": "app/catalog.css",
+    "line": 1592,
+    "context": "base",
+    "selector": ".catalog-sort, .catalog-sort select, .catalog-result-count, .product-card-action",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/category-reference.css",
+    "line": 2,
+    "context": "base",
+    "selector": ".category-reference.catalog-page",
+    "max-width": "1600px"
+  },
+  {
+    "file": "app/category-reference.css",
+    "line": 7,
+    "context": "base",
+    "selector": ".category-reference > .breadcrumbs",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/category-reference.css",
+    "line": 11,
+    "context": "base",
+    "selector": ".category-reference > .catalog-intro",
+    "max-width": "none"
+  },
+  {
+    "file": "app/category-reference.css",
+    "line": 19,
+    "context": "base",
+    "selector": ".category-reference > .catalog-intro h1",
+    "font-family": "var(--font-display)",
+    "font-size": "clamp(2rem, 3.2vw, 3rem)",
+    "font-weight": "var(--weight-semibold)",
+    "letter-spacing": "-0.025em"
+  },
+  {
+    "file": "app/category-reference.css",
+    "line": 26,
+    "context": "base",
+    "selector": ".category-reference > .catalog-intro > p:last-child",
+    "font-size": "var(--text-ui)",
+    "max-width": "85ch"
+  },
+  {
+    "file": "app/category-reference.css",
+    "line": 42,
+    "context": "base",
+    "selector": ".category-reference .category-campaign > div",
+    "max-width": "70%"
+  },
+  {
+    "file": "app/category-reference.css",
+    "line": 45,
+    "context": "base",
+    "selector": ".category-reference .category-campaign .eyebrow",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/category-reference.css",
+    "line": 50,
+    "context": "base",
+    "selector": ".category-reference .category-campaign h2",
+    "font-family": "var(--font-display)",
+    "font-size": "clamp(1.5rem, 2.5vw, 2.25rem)",
+    "line-height": "1.15"
+  },
+  {
+    "file": "app/category-reference.css",
+    "line": 56,
+    "context": "base",
+    "selector": ".category-reference .category-campaign p:not(.eyebrow)",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/category-reference.css",
+    "line": 60,
+    "context": "base",
+    "selector": ".category-reference .category-campaign .button",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/category-reference.css",
+    "line": 81,
+    "context": "base",
+    "selector": ".category-reference .category-discovery > a",
+    "font-size": "var(--text-ui)",
+    "line-height": "1.5"
+  },
+  {
+    "file": "app/category-reference.css",
+    "line": 149,
+    "context": "base",
+    "selector": ".category-reference .catalog-results .product-info h3",
+    "font-family": "var(--font-display)",
+    "font-size": "var(--text-body)",
+    "font-weight": "var(--weight-semibold)",
+    "line-height": "1.5",
+    "letter-spacing": "0"
+  },
+  {
+    "file": "app/category-reference.css",
+    "line": 159,
+    "context": "base",
+    "selector": ".category-reference .catalog-results .product-more-options",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/category-reference.css",
+    "line": 167,
+    "context": "base",
+    "selector": ".category-reference .catalog-results .product-price",
+    "font-size": "var(--text-price)",
+    "font-weight": "var(--weight-semibold)",
+    "line-height": "1.4"
+  },
+  {
+    "file": "app/category-reference.css",
+    "line": 174,
+    "context": "base",
+    "selector": ".category-reference .catalog-results .product-stock",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/category-reference.css",
+    "line": 197,
+    "context": "base",
+    "selector": ".category-reference .category-subscribe h2",
+    "font-family": "var(--font-display)",
+    "font-size": "var(--text-price)"
+  },
+  {
+    "file": "app/category-reference.css",
+    "line": 202,
+    "context": "base",
+    "selector": ".category-reference .category-subscribe p",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/category-reference.css",
+    "line": 207,
+    "context": "base",
+    "selector": ".category-reference .category-subscribe .button",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/category-reference.css",
+    "line": 222,
+    "context": "base",
+    "selector": ".category-reference .category-editorial h2",
+    "font-family": "var(--font-display)",
+    "font-size": "var(--text-card-title)"
+  },
+  {
+    "file": "app/category-reference.css",
+    "line": 227,
+    "context": "base",
+    "selector": ".category-reference .category-editorial > div > a",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/category-reference.css",
+    "line": 247,
+    "context": "base",
+    "selector": ".category-reference .category-editorial h3",
+    "font-family": "var(--font-display)",
+    "font-size": "var(--text-body)"
+  },
+  {
+    "file": "app/category-reference.css",
+    "line": 252,
+    "context": "base",
+    "selector": ".category-reference .category-editorial p",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/category-reference.css",
+    "line": 279,
+    "context": "@media (max-width: 800px)",
+    "selector": ".category-reference .category-campaign h2",
+    "font-size": "var(--text-card-title)"
+  },
+  {
+    "file": "app/category-reference.css",
+    "line": 286,
+    "context": "@media (max-width: 800px)",
+    "selector": ".category-reference .category-discovery > a",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/category-reference.css",
+    "line": 301,
+    "context": "@media (max-width: 800px)",
+    "selector": ".category-reference .catalog-results .product-info h3",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/category-reference.css",
+    "line": 304,
+    "context": "@media (max-width: 800px)",
+    "selector": ".category-reference .catalog-results .product-price",
+    "font-size": "var(--text-lead)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 65,
+    "context": "base",
+    "selector": "body",
+    "font": "400 1rem/1.65 var(--font-body)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 77,
+    "context": "base",
+    "selector": "button,\ninput,\nselect,\ntextarea",
+    "font": "inherit"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 121,
+    "context": "base",
+    "selector": "h1,\nh2,\nh3,\nh4,\nh5,\nh6",
+    "font-family": "var(--font-display)",
+    "font-weight": "var(--weight-semibold)",
+    "line-height": "1.2",
+    "letter-spacing": "-0.025em",
+    "text-wrap": "balance"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 129,
+    "context": "base",
+    "selector": "h2",
+    "font-size": "clamp(2rem, 4vw, 3.375rem)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 132,
+    "context": "base",
+    "selector": "img",
+    "max-width": "100%"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 147,
+    "context": "base",
+    "selector": ".shell",
+    "max-width": "1280px"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 152,
+    "context": "base",
+    "selector": ".eyebrow",
+    "font-size": "var(--text-meta)",
+    "font-weight": "var(--weight-bold)",
+    "letter-spacing": "0.15em",
+    "line-height": "1.5"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 167,
+    "context": "base",
+    "selector": ".button",
+    "font-size": "var(--text-ui)",
+    "font-weight": "var(--weight-semibold)",
+    "line-height": "1.45"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 198,
+    "context": "base",
+    "selector": ".text-link",
+    "font-size": "var(--text-ui)",
+    "font-weight": "var(--weight-semibold)",
+    "line-height": "1.45"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 231,
+    "context": "base",
+    "selector": ".site-note",
+    "font-size": "var(--text-meta)",
+    "letter-spacing": "0.05em"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 240,
+    "context": "base",
+    "selector": ".destination-selector",
+    "max-width": "100%"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 241,
+    "context": "base",
+    "selector": ".destination-selector select",
+    "max-width": "170px",
+    "font": "inherit"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 244,
+    "context": "base",
+    "selector": ".purchase-actions select",
+    "max-width": "100%"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 260,
+    "context": "base",
+    "selector": ".wordmark",
+    "font-size": "var(--text-page-small)",
+    "font-weight": "var(--weight-bold)",
+    "letter-spacing": "-0.04em",
+    "line-height": "1"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 291,
+    "context": "base",
+    "selector": ".desktop-navigation",
+    "font-size": "var(--text-ui)",
+    "font-weight": "var(--weight-semibold)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 303,
+    "context": "base",
+    "selector": ".category-navigation",
+    "font-family": "var(--font-display)",
+    "font-size": "var(--text-ui)",
+    "font-weight": "var(--weight-semibold)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 362,
+    "context": "base",
+    "selector": ".header-action-label",
+    "font-size": "var(--text-ui)",
+    "font-weight": "var(--weight-semibold)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 415,
+    "context": "base",
+    "selector": ".search input",
+    "font-size": "var(--text-card-title)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 433,
+    "context": "base",
+    "selector": ".search-status",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 472,
+    "context": "base",
+    "selector": ".search-suggestions strong",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 473,
+    "context": "base",
+    "selector": ".search-suggestions span span",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 479,
+    "context": "@media (max-width: 600px)",
+    "selector": ".live-search .search input",
+    "font-size": "var(--text-body)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 493,
+    "context": "base",
+    "selector": ".mobile-navigation a",
+    "font-size": "var(--text-lead)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 526,
+    "context": "base",
+    "selector": ".hero-copy h1",
+    "font-size": "clamp(4.25rem, 7.7vw, 6.875rem)",
+    "line-height": "0.99",
+    "letter-spacing": "-0.035em"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 535,
+    "context": "base",
+    "selector": ".hero-description",
+    "max-width": "345px",
+    "font-size": "var(--text-ui)",
+    "line-height": "1.85"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 542,
+    "context": "base",
+    "selector": ".hero-scroll",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 554,
+    "context": "base",
+    "selector": ".feature-topline",
+    "font-size": "var(--text-meta)",
+    "letter-spacing": "0.15em",
+    "font-weight": "var(--weight-bold)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 584,
+    "context": "base",
+    "selector": ".feature-badge",
+    "font-weight": "var(--weight-semibold)",
+    "font-size": "var(--text-ui)",
+    "line-height": "1.35"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 614,
+    "context": "base",
+    "selector": ".feature-caption .eyebrow",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 617,
+    "context": "base",
+    "selector": ".feature-caption h2",
+    "font-size": "var(--text-card-title)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 621,
+    "context": "base",
+    "selector": ".feature-caption > span",
+    "font-size": "var(--text-ui)",
+    "font-weight": "var(--weight-semibold)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 625,
+    "context": "base",
+    "selector": ".hero-bottom",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 634,
+    "context": "base",
+    "selector": ".hero-bottom > span:last-child",
+    "font-size": "var(--text-meta)",
+    "letter-spacing": "0.12em"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 660,
+    "context": "base",
+    "selector": ".section-heading h2",
+    "font-size": "clamp(2rem, 4vw, 3.3125rem)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 663,
+    "context": "base",
+    "selector": ".section-aside",
+    "max-width": "300px"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 666,
+    "context": "base",
+    "selector": ".section-aside p",
+    "font-size": "var(--text-ui)",
+    "line-height": "1.8"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 702,
+    "context": "base",
+    "selector": ".product-category",
+    "font-size": "var(--text-meta)",
+    "letter-spacing": "0.09em",
+    "font-weight": "var(--weight-semibold)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 716,
+    "context": "base",
+    "selector": ".product-title-row h3",
+    "font-size": "var(--text-price)",
+    "letter-spacing": "-0.04em",
+    "line-height": "1.25"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 721,
+    "context": "base",
+    "selector": ".product-price",
+    "font-size": "var(--text-meta)",
+    "font-weight": "var(--weight-semibold)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 726,
+    "context": "base",
+    "selector": ".product-note",
+    "font-size": "var(--text-meta)",
+    "line-height": "1.8"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 756,
+    "context": "base",
+    "selector": ".collection-paths > span",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 761,
+    "context": "base",
+    "selector": ".collection-paths > a",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 802,
+    "context": "base",
+    "selector": ".collections-banner-copy",
+    "max-width": "420px"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 807,
+    "context": "base",
+    "selector": ".collections-banner-copy h2",
+    "font-size": "clamp(2rem, 3vw, 3rem)",
+    "text-wrap": "balance"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 813,
+    "context": "base",
+    "selector": ".collections-banner-copy p",
+    "max-width": "340px",
+    "font-size": "var(--text-body)",
+    "line-height": "1.6"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 854,
+    "context": "base",
+    "selector": ".journal-invite > div:last-child",
+    "max-width": "340px"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 858,
+    "context": "base",
+    "selector": ".journal-invite > div > p:not(.eyebrow)",
+    "font-size": "var(--text-ui)",
+    "line-height": "1.9"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 879,
+    "context": "base",
+    "selector": ".footer-intro h2",
+    "font-size": "var(--text-heading)",
+    "letter-spacing": "-0.035em"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 883,
+    "context": "base",
+    "selector": ".footer-intro p",
+    "font-size": "var(--text-meta)",
+    "line-height": "1.9"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 895,
+    "context": "base",
+    "selector": ".footer-links h3",
+    "font-size": "var(--text-meta)",
+    "font-weight": "var(--weight-bold)",
+    "letter-spacing": "0.04em"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 903,
+    "context": "base",
+    "selector": ".footer-links a",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 908,
+    "context": "base",
+    "selector": ".footer-links .footer-cta",
+    "font-weight": "var(--weight-semibold)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 915,
+    "context": "base",
+    "selector": ".footer-signature",
+    "font-size": "clamp(3rem, 18cqw, 16.25rem)",
+    "font-weight": "var(--weight-semibold)",
+    "line-height": "1.05",
+    "letter-spacing": "-0.035em"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 923,
+    "context": "base",
+    "selector": ".footer-bottom",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 946,
+    "context": "base",
+    "selector": ".page-intro nav,\n.breadcrumbs",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 961,
+    "context": "base",
+    "selector": ".page-intro h1",
+    "font-size": "clamp(2.5rem, 5.5vw, 4.75rem)",
+    "max-width": "1000px",
+    "letter-spacing": "-0.035em",
+    "line-height": "1.12"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 967,
+    "context": "base",
+    "selector": ".page-intro > p:last-child:not(.eyebrow)",
+    "font-size": "var(--text-ui)",
+    "max-width": "650px"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 978,
+    "context": "base",
+    "selector": ".category-links a",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 998,
+    "context": "base",
+    "selector": ".catalog-count",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1003,
+    "context": "base",
+    "selector": ".pagination",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1025,
+    "context": "base",
+    "selector": ".no-results h2",
+    "font-size": "var(--text-heading)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1028,
+    "context": "base",
+    "selector": ".no-results p",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1055,
+    "context": "base",
+    "selector": ".journal-card h2",
+    "font-size": "var(--text-heading)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1058,
+    "context": "base",
+    "selector": ".journal-card p",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1062,
+    "context": "base",
+    "selector": ".editorial-text",
+    "max-width": "760px",
+    "line-height": "1.9",
+    "font-size": "var(--text-body)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1072,
+    "context": "base",
+    "selector": ".editorial-text h2",
+    "font-size": "clamp(1.5rem, 2.5vw, 2rem)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1081,
+    "context": "base",
+    "selector": ".service-message h2",
+    "font-size": "var(--text-heading)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1084,
+    "context": "base",
+    "selector": ".service-message p",
+    "max-width": "640px"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1089,
+    "context": "base",
+    "selector": ".muted",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1098,
+    "context": "base",
+    "selector": ".empty-page h1",
+    "font-size": "clamp(2.5rem, 5vw, 4.375rem)",
+    "max-width": "800px"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1133,
+    "context": "base",
+    "selector": ".detail-copy h1",
+    "font-size": "clamp(2rem, 3.6vw, 3.0625rem)",
+    "letter-spacing": "-0.035em"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1138,
+    "context": "base",
+    "selector": ".detail-copy .editorial-text",
+    "font-size": "var(--text-ui)",
+    "line-height": "1.85"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1143,
+    "context": "base",
+    "selector": ".detail-price",
+    "font-size": "var(--text-subheading)",
+    "font-weight": "var(--weight-semibold)",
+    "letter-spacing": "-0.035em"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1149,
+    "context": "base",
+    "selector": ".availability-note",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1165,
+    "context": "base",
+    "selector": ".product-facts > div",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1187,
+    "context": "base",
+    "selector": ".product-description h2",
+    "font-size": "var(--text-subheading)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1190,
+    "context": "base",
+    "selector": ".product-description p",
+    "font-size": "var(--text-ui)",
+    "line-height": "1.95"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1214,
+    "context": "base",
+    "selector": ".origins-art p",
+    "font-size": "var(--text-page)",
+    "line-height": "1.15",
+    "letter-spacing": "-0.035em"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1219,
+    "context": "base",
+    "selector": ".ornament",
+    "font-size": "var(--text-page)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1223,
+    "context": "base",
+    "selector": ".origins-copy h2",
+    "font-size": "var(--text-heading)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1226,
+    "context": "base",
+    "selector": ".origins-copy h2 em",
+    "font-style": "normal"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1230,
+    "context": "base",
+    "selector": ".origins-copy p",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1256,
+    "context": "@media (max-width: 1100px)",
+    "selector": ".hero-copy h1",
+    "font-size": "var(--text-display-large)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1285,
+    "context": "@media (max-width: 800px)",
+    "selector": ".wordmark",
+    "font-size": "var(--text-heading)",
+    "letter-spacing": "-0.04em"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1316,
+    "context": "@media (max-width: 800px)",
+    "selector": ".site-note",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1327,
+    "context": "@media (max-width: 800px)",
+    "selector": ".search input",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1330,
+    "context": "@media (max-width: 800px)",
+    "selector": ".search .button",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1341,
+    "context": "@media (max-width: 800px)",
+    "selector": ".hero-copy h1",
+    "font-size": "var(--text-display)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1344,
+    "context": "@media (max-width: 800px)",
+    "selector": ".hero-description",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1347,
+    "context": "@media (max-width: 800px)",
+    "selector": ".hero-copy .button",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1352,
+    "context": "@media (max-width: 800px)",
+    "selector": ".hero-scroll",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1356,
+    "context": "@media (max-width: 800px)",
+    "selector": ".feature-badge",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1366,
+    "context": "@media (max-width: 800px)",
+    "selector": ".feature-topline",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1369,
+    "context": "@media (max-width: 800px)",
+    "selector": ".feature-caption h2",
+    "font-size": "var(--text-card-title)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1372,
+    "context": "@media (max-width: 800px)",
+    "selector": ".feature-caption > span",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1375,
+    "context": "@media (max-width: 800px)",
+    "selector": ".hero-bottom > span:last-child",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1386,
+    "context": "@media (max-width: 800px)",
+    "selector": ".section-aside",
+    "max-width": "230px"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1389,
+    "context": "@media (max-width: 800px)",
+    "selector": ".section-aside p",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1395,
+    "context": "@media (max-width: 800px)",
+    "selector": ".product-title-row h3",
+    "font-size": "var(--text-lead)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1398,
+    "context": "@media (max-width: 800px)",
+    "selector": ".product-price",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1401,
+    "context": "@media (max-width: 800px)",
+    "selector": ".product-note",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1414,
+    "context": "@media (max-width: 800px)",
+    "selector": ".footer-intro h2",
+    "font-size": "var(--text-subheading)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1417,
+    "context": "@media (max-width: 800px)",
+    "selector": ".footer-links a",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1436,
+    "context": "@media (max-width: 800px)",
+    "selector": ".origins-art p",
+    "font-size": "var(--text-heading)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1439,
+    "context": "@media (max-width: 800px)",
+    "selector": ".origins-copy h2",
+    "font-size": "var(--text-subheading)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1449,
+    "context": "@media (max-width: 600px)",
+    "selector": ".hero-copy h1",
+    "font-size": "clamp(4.0625rem, 17vw, 5.75rem)",
+    "line-height": "1.02"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1454,
+    "context": "@media (max-width: 600px)",
+    "selector": ".hero-description",
+    "font-size": "var(--text-ui)",
+    "max-width": "310px"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1459,
+    "context": "@media (max-width: 600px)",
+    "selector": ".hero-copy .button",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1476,
+    "context": "@media (max-width: 600px)",
+    "selector": ".feature-caption h2",
+    "font-size": "var(--text-card-title)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1479,
+    "context": "@media (max-width: 600px)",
+    "selector": ".feature-badge",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1486,
+    "context": "@media (max-width: 600px)",
+    "selector": ".hero-bottom",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1500,
+    "context": "@media (max-width: 600px)",
+    "selector": ".section-heading h2",
+    "font-size": "var(--text-page-small)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1506,
+    "context": "@media (max-width: 600px)",
+    "selector": ".section-aside",
+    "max-width": "100%"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1514,
+    "context": "@media (max-width: 600px)",
+    "selector": ".section-aside p",
+    "max-width": "230px",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1519,
+    "context": "@media (max-width: 600px)",
+    "selector": ".section-aside .text-link",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1542,
+    "context": "@media (max-width: 600px)",
+    "selector": ".product-title-row h3",
+    "font-size": "var(--text-lead)",
+    "line-height": "1.3"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1546,
+    "context": "@media (max-width: 600px)",
+    "selector": ".product-price",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1551,
+    "context": "@media (max-width: 600px)",
+    "selector": ".product-category",
+    "font-size": "var(--text-meta)",
+    "letter-spacing": "0.06em",
+    "line-height": "1.5"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1556,
+    "context": "@media (max-width: 600px)",
+    "selector": ".product-note",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1569,
+    "context": "@media (max-width: 600px)",
+    "selector": ".collection-paths > a",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1579,
+    "context": "@media (max-width: 600px)",
+    "selector": ".journal-invite h2",
+    "font-size": "var(--text-page-small)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1583,
+    "context": "@media (max-width: 600px)",
+    "selector": ".journal-invite > div:last-child",
+    "max-width": "340px"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1587,
+    "context": "@media (max-width: 600px)",
+    "selector": ".journal-invite > div > p:not(.eyebrow)",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1595,
+    "context": "@media (max-width: 600px)",
+    "selector": ".footer-intro h2",
+    "font-size": "var(--text-heading)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1606,
+    "context": "@media (max-width: 600px)",
+    "selector": ".footer-links h3",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1610,
+    "context": "@media (max-width: 600px)",
+    "selector": ".footer-links a",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1613,
+    "context": "@media (max-width: 600px)",
+    "selector": ".footer-links .footer-cta",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1617,
+    "context": "@media (max-width: 600px)",
+    "selector": ".footer-signature",
+    "font-size": "18cqw",
+    "letter-spacing": "-0.035em"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1622,
+    "context": "@media (max-width: 600px)",
+    "selector": ".footer-bottom",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1634,
+    "context": "@media (max-width: 600px)",
+    "selector": ".page-intro nav",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1639,
+    "context": "@media (max-width: 600px)",
+    "selector": ".page-intro h1",
+    "font-size": "var(--text-page-large)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1642,
+    "context": "@media (max-width: 600px)",
+    "selector": ".page-intro > p:last-child:not(.eyebrow)",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1659,
+    "context": "@media (max-width: 600px)",
+    "selector": ".category-links a",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1663,
+    "context": "@media (max-width: 600px)",
+    "selector": ".catalog-count",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1674,
+    "context": "@media (max-width: 600px)",
+    "selector": ".journal-card h2",
+    "font-size": "var(--text-heading)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1677,
+    "context": "@media (max-width: 600px)",
+    "selector": ".product-page .breadcrumbs",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1689,
+    "context": "@media (max-width: 600px)",
+    "selector": ".detail-copy h1",
+    "font-size": "var(--text-page-small)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1693,
+    "context": "@media (max-width: 600px)",
+    "selector": ".detail-price",
+    "font-size": "var(--text-subheading)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1697,
+    "context": "@media (max-width: 600px)",
+    "selector": ".detail-copy .editorial-text",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1706,
+    "context": "@media (max-width: 600px)",
+    "selector": ".product-description p",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1709,
+    "context": "@media (max-width: 600px)",
+    "selector": ".product-description h2",
+    "font-size": "var(--text-card-title)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1717,
+    "context": "@media (max-width: 600px)",
+    "selector": ".origins-art p",
+    "font-size": "var(--text-page)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1720,
+    "context": "@media (max-width: 600px)",
+    "selector": ".origins-copy h2",
+    "font-size": "var(--text-heading)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1723,
+    "context": "@media (max-width: 600px)",
+    "selector": ".service-message h2",
+    "font-size": "var(--text-subheading)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1726,
+    "context": "@media (max-width: 600px)",
+    "selector": ".service-message p",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1732,
+    "context": "@media (max-width: 600px)",
+    "selector": ".no-results h2",
+    "font-size": "var(--text-card-title)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1740,
+    "context": "@media (max-width: 360px)",
+    "selector": ".wordmark",
+    "font-size": "var(--text-heading)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1749,
+    "context": "@media (max-width: 360px)",
+    "selector": ".hero-copy h1",
+    "font-size": "var(--text-display)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1758,
+    "context": "@media (max-width: 360px)",
+    "selector": ".product-title-row h3",
+    "font-size": "var(--text-body)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1774,
+    "context": "base",
+    "selector": ".commerce-page>h1",
+    "font-size": "clamp(2.25rem,5vw,3.875rem)",
+    "letter-spacing": "-.04em"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1774,
+    "context": "base",
+    "selector": ".commerce-notice",
+    "line-height": "1.6",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1774,
+    "context": "base",
+    "selector": ".commerce-error",
+    "line-height": "1.5"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1774,
+    "context": "base",
+    "selector": ".commerce-summary>h2,.commerce-form>h2",
+    "font-size": "var(--text-card-title)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1774,
+    "context": "base",
+    "selector": ".cart-line h2",
+    "font-size": "var(--text-lead)",
+    "line-height": "1.5"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1774,
+    "context": "base",
+    "selector": ".cart-line p",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1774,
+    "context": "base",
+    "selector": ".commerce-totals>div",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1774,
+    "context": "base",
+    "selector": ".commerce-grand-total",
+    "font-weight": "var(--weight-bold)",
+    "font-size": "var(--text-lead)!important"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1774,
+    "context": "base",
+    "selector": ".commerce-form label",
+    "font-size": "var(--text-ui)",
+    "font-weight": "var(--weight-semibold)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1774,
+    "context": "base",
+    "selector": ".commerce-form input,.commerce-form select,.coupon-form input",
+    "font": "inherit"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1774,
+    "context": "base",
+    "selector": ".commerce-check",
+    "font-size": "var(--text-ui)",
+    "line-height": "1.5"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1774,
+    "context": "base",
+    "selector": ".shipping-options",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1774,
+    "context": "base",
+    "selector": ".shipping-options legend",
+    "font-weight": "var(--weight-bold)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1774,
+    "context": "base",
+    "selector": ".shipping-options label",
+    "line-height": "1.5"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1774,
+    "context": "base",
+    "selector": ".checkout-line",
+    "font-size": "var(--text-ui)",
+    "line-height": "1.6"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1774,
+    "context": "base",
+    "selector": ".commerce-caption,.reviewed-address",
+    "font-size": "var(--text-meta)",
+    "line-height": "1.6"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1774,
+    "context": "base",
+    "selector": ".commerce-empty,.commerce-success",
+    "max-width": "650px"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1774,
+    "context": "base",
+    "selector": ".commerce-success h2",
+    "font-size": "var(--text-heading)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1774,
+    "context": "base",
+    "selector": ".commerce-success p",
+    "line-height": "1.7"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1774,
+    "context": "base",
+    "selector": ".purchase-actions p",
+    "font-size": "var(--text-ui)",
+    "line-height": "1.6"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1774,
+    "context": "base",
+    "selector": ".account-form",
+    "max-width": "440px"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1774,
+    "context": "base",
+    "selector": ".account-orders article",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1774,
+    "context": "base",
+    "selector": ".commerce-layout .text-link",
+    "font": "inherit",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1774,
+    "context": "base",
+    "selector": ".commerce-summary>p",
+    "line-height": "1.6",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1779,
+    "context": "base",
+    "selector": ".wordmark, .footer-signature, .button, .text-link,\n.desktop-navigation, .mobile-navigation",
+    "font-family": "var(--font-display)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1782,
+    "context": "base",
+    "selector": ".hero-copy h1",
+    "font-size": "clamp(4rem, 7vw, 6rem)",
+    "text-wrap": "balance"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1783,
+    "context": "base",
+    "selector": ".hero-description, .editorial-text, .detail-copy .editorial-text",
+    "font-size": "1rem",
+    "line-height": "1.75",
+    "max-width": "68ch"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1788,
+    "context": "base",
+    "selector": ".commerce-form input, .commerce-form select, .coupon-form input",
+    "font-family": "var(--font-body)",
+    "font-size": "1rem"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1793,
+    "context": "@media (min-width: 801px) and (max-width: 1100px)",
+    "selector": ".hero-copy h1",
+    "font-size": "clamp(3.5rem, 6.8vw, 4.75rem)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1796,
+    "context": "@media (max-width: 600px)",
+    "selector": ".hero-copy h1",
+    "font-size": "clamp(3rem, 13.5vw, 5rem)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1797,
+    "context": "@media (max-width: 600px)",
+    "selector": ".footer-signature",
+    "font-size": "18cqw"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1944,
+    "context": "base",
+    "selector": ".hero-campaign .hero-copy",
+    "max-width": "640px"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1946,
+    "context": "base",
+    "selector": ".hero-campaign .hero-copy :is(h1, h2)",
+    "font-size": "clamp(2.75rem, 4.3vw, 4.25rem)",
+    "font-weight": "var(--weight-bold)",
+    "line-height": "1.16",
+    "letter-spacing": "-0.035em",
+    "text-wrap": "initial"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1954,
+    "context": "base",
+    "selector": ".hero-campaign .hero-description",
+    "max-width": "440px",
+    "font-size": "1rem",
+    "line-height": "1.75"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1972,
+    "context": "base",
+    "selector": ".hero-highlights strong",
+    "font-size": "var(--text-ui)",
+    "font-weight": "var(--weight-semibold)",
+    "line-height": "1.5"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1973,
+    "context": "base",
+    "selector": ".hero-highlights small",
+    "font-size": "var(--text-meta)",
+    "line-height": "1.5"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1976,
+    "context": "@media (min-width: 601px) and (max-width: 1100px)",
+    "selector": ".hero-campaign .hero-copy",
+    "max-width": "58%"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1977,
+    "context": "@media (min-width: 601px) and (max-width: 1100px)",
+    "selector": ".hero-campaign .hero-copy :is(h1, h2)",
+    "font-size": "clamp(2.4rem, 4.6vw, 3rem)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1984,
+    "context": "@media (max-width: 600px)",
+    "selector": ".hero-campaign .hero-copy :is(h1, h2)",
+    "font-size": "clamp(2rem, 7.7vw, 2.85rem)",
+    "line-height": "1.2"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1985,
+    "context": "@media (max-width: 600px)",
+    "selector": ".hero-campaign .hero-description",
+    "font-size": "var(--text-body)",
+    "max-width": "36ch"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1990,
+    "context": "@media (max-width: 600px)",
+    "selector": ".hero-highlights strong",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 1991,
+    "context": "@media (max-width: 600px)",
+    "selector": ".hero-highlights small",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 2035,
+    "context": "base",
+    "selector": ".hero-carousel .hero-copy :is(h1, h2)",
+    "font-size": "clamp(2rem, min(4.3vw, 6.6svh), 4.25rem)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 2040,
+    "context": "@media (max-width: 600px)",
+    "selector": ".hero-carousel .hero-copy :is(h1, h2)",
+    "font-size": "clamp(1.65rem, min(7.7vw, 4.5svh), 2.85rem)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 2045,
+    "context": "base",
+    "selector": "h1",
+    "font-size": "clamp(2rem, 3.5vw, 3rem)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 2046,
+    "context": "base",
+    "selector": "h3",
+    "font-size": "var(--text-card-title)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 2047,
+    "context": "base",
+    "selector": "h4",
+    "font-size": "var(--text-lead)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 2048,
+    "context": "base",
+    "selector": "h5, h6",
+    "font-size": "var(--text-body)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 2049,
+    "context": "base",
+    "selector": "strong, b",
+    "font-weight": "var(--weight-bold)"
+  },
+  {
+    "file": "app/globals.css",
+    "line": 2050,
+    "context": "base",
+    "selector": "h1 em, h2 em, h3 em",
+    "font-style": "normal",
+    "font-weight": "var(--weight-bold)"
+  },
+  {
+    "file": "app/home.css",
+    "line": 4,
+    "context": "base",
+    "selector": ".home-modern .home-kicker",
+    "font-size": "var(--text-meta)",
+    "font-weight": "var(--weight-bold)",
+    "line-height": "1.6",
+    "letter-spacing": "0.13em"
+  },
+  {
+    "file": "app/home.css",
+    "line": 36,
+    "context": "base",
+    "selector": ".home-hero h1",
+    "font-size": "clamp(3.375rem, 6.6vw, 5.875rem)",
+    "font-weight": "var(--weight-semibold)",
+    "letter-spacing": "-0.03em",
+    "line-height": "1.02"
+  },
+  {
+    "file": "app/home.css",
+    "line": 46,
+    "context": "base",
+    "selector": ".home-intro",
+    "font-size": "var(--text-body)",
+    "line-height": "1.85"
+  },
+  {
+    "file": "app/home.css",
+    "line": 69,
+    "context": "base",
+    "selector": ".home-story-link",
+    "font-size": "var(--text-meta)",
+    "font-weight": "var(--weight-semibold)"
+  },
+  {
+    "file": "app/home.css",
+    "line": 77,
+    "context": "base",
+    "selector": ".home-scroll",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/home.css",
+    "line": 121,
+    "context": "base",
+    "selector": ".home-photo-label > span",
+    "font-size": "var(--text-meta)",
+    "font-weight": "var(--weight-semibold)",
+    "line-height": "1.6",
+    "letter-spacing": "0.14em"
+  },
+  {
+    "file": "app/home.css",
+    "line": 127,
+    "context": "base",
+    "selector": ".home-photo-caption",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/home.css",
+    "line": 157,
+    "context": "base",
+    "selector": ".home-featured h2",
+    "font-size": "var(--text-lead)",
+    "letter-spacing": "-0.03em"
+  },
+  {
+    "file": "app/home.css",
+    "line": 162,
+    "context": "base",
+    "selector": ".home-featured > div > span:last-child",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/home.css",
+    "line": 180,
+    "context": "base",
+    "selector": ".home-manifesto span",
+    "font-size": "var(--text-meta)",
+    "font-weight": "var(--weight-semibold)",
+    "letter-spacing": "0.045em"
+  },
+  {
+    "file": "app/home.css",
+    "line": 200,
+    "context": "base",
+    "selector": ".home-section-heading h2",
+    "font-size": "clamp(1.75rem, 3vw, 2.5625rem)",
+    "font-weight": "var(--weight-semibold)"
+  },
+  {
+    "file": "app/home.css",
+    "line": 205,
+    "context": "base",
+    "selector": ".home-section-heading .text-link",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/home.css",
+    "line": 229,
+    "context": "base",
+    "selector": ".home-collection-image > span:first-of-type",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/home.css",
+    "line": 249,
+    "context": "base",
+    "selector": ".home-collection h3",
+    "font-size": "var(--text-card-title)",
+    "font-weight": "var(--weight-semibold)"
+  },
+  {
+    "file": "app/home.css",
+    "line": 254,
+    "context": "base",
+    "selector": ".home-collection p",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/home.css",
+    "line": 275,
+    "context": "base",
+    "selector": ".home-modern .product-card h3",
+    "font-size": "var(--text-body)"
+  },
+  {
+    "file": "app/home.css",
+    "line": 303,
+    "context": "base",
+    "selector": ".home-roots-art > span",
+    "font-size": "var(--text-meta)",
+    "letter-spacing": "0.18em"
+  },
+  {
+    "file": "app/home.css",
+    "line": 321,
+    "context": "base",
+    "selector": ".home-roots-copy h2",
+    "font-size": "clamp(3.125rem, 5.7vw, 4.875rem)",
+    "line-height": "1.02"
+  },
+  {
+    "file": "app/home.css",
+    "line": 326,
+    "context": "base",
+    "selector": ".home-roots-copy h2 em",
+    "font-weight": "var(--weight-regular)",
+    "font-family": "var(--font-display)"
+  },
+  {
+    "file": "app/home.css",
+    "line": 330,
+    "context": "base",
+    "selector": ".home-roots-copy > p:not(.home-kicker)",
+    "max-width": "330px",
+    "font-size": "var(--text-ui)",
+    "line-height": "1.9"
+  },
+  {
+    "file": "app/home.css",
+    "line": 363,
+    "context": "base",
+    "selector": ".home-journal h2",
+    "font-size": "var(--text-page-large)"
+  },
+  {
+    "file": "app/home.css",
+    "line": 367,
+    "context": "base",
+    "selector": ".home-journal > p",
+    "font-size": "var(--text-ui)",
+    "max-width": "340px"
+  },
+  {
+    "file": "app/home.css",
+    "line": 372,
+    "context": "base",
+    "selector": ".home-journal-link",
+    "font-size": "var(--text-meta)",
+    "font-weight": "var(--weight-semibold)"
+  },
+  {
+    "file": "app/home.css",
+    "line": 398,
+    "context": "@media (max-width: 1050px)",
+    "selector": ".home-hero h1",
+    "font-size": "var(--text-display)"
+  },
+  {
+    "file": "app/home.css",
+    "line": 433,
+    "context": "@media (max-width: 760px)",
+    "selector": ".home-hero-copy > .home-kicker",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/home.css",
+    "line": 436,
+    "context": "@media (max-width: 760px)",
+    "selector": ".home-hero h1",
+    "font-size": "clamp(3.1875rem, 10vw, 4.625rem)"
+  },
+  {
+    "file": "app/home.css",
+    "line": 440,
+    "context": "@media (max-width: 760px)",
+    "selector": ".home-intro",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/home.css",
+    "line": 463,
+    "context": "@media (max-width: 760px)",
+    "selector": ".home-featured h2",
+    "font-size": "var(--text-body)"
+  },
+  {
+    "file": "app/home.css",
+    "line": 466,
+    "context": "@media (max-width: 760px)",
+    "selector": ".home-featured .home-kicker",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/home.css",
+    "line": 475,
+    "context": "@media (max-width: 760px)",
+    "selector": ".home-manifesto span",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/home.css",
+    "line": 511,
+    "context": "@media (max-width: 760px)",
+    "selector": ".home-modern .product-card h3",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/home.css",
+    "line": 524,
+    "context": "@media (max-width: 760px)",
+    "selector": ".home-roots-copy h2",
+    "font-size": "var(--text-display)"
+  },
+  {
+    "file": "app/home.css",
+    "line": 536,
+    "context": "@media (max-width: 760px)",
+    "selector": ".home-journal h2",
+    "font-size": "var(--text-page)"
+  },
+  {
+    "file": "app/layout-refinement.css",
+    "line": 18,
+    "context": "base",
+    "selector": "html .page-intro nav,\nhtml .breadcrumbs",
+    "line-height": "1.6",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/layout-refinement.css",
+    "line": 31,
+    "context": "base",
+    "selector": "html .page-intro h1,\nhtml .catalog-intro h1,\nhtml .commerce-page > h1,\nhtml .journal-card h2",
+    "text-wrap": "balance"
+  },
+  {
+    "file": "app/layout-refinement.css",
+    "line": 34,
+    "context": "base",
+    "selector": "html .page-intro > p:last-child:not(.eyebrow)",
+    "font-size": "var(--text-body)",
+    "line-height": "1.7",
+    "max-width": "68ch"
+  },
+  {
+    "file": "app/layout-refinement.css",
+    "line": 44,
+    "context": "base",
+    "selector": "html .catalog-intro > p:last-child",
+    "max-width": "68ch",
+    "font-size": "var(--text-body)",
+    "line-height": "1.65"
+  },
+  {
+    "file": "app/layout-refinement.css",
+    "line": 90,
+    "context": "base",
+    "selector": "html .commerce-totals,\nhtml .purchase-price,\nhtml .product-price",
+    "font-variant-numeric": "tabular-nums"
+  },
+  {
+    "file": "app/layout-refinement.css",
+    "line": 97,
+    "context": "base",
+    "selector": "html .journal-card h2",
+    "font-size": "clamp(1.5rem, 2.6vw, 2rem)",
+    "line-height": "1.25"
+  },
+  {
+    "file": "app/layout-refinement.css",
+    "line": 101,
+    "context": "base",
+    "selector": "html .journal-card p",
+    "font-size": "var(--text-body)",
+    "line-height": "1.7"
+  },
+  {
+    "file": "app/layout-refinement.css",
+    "line": 105,
+    "context": "base",
+    "selector": "html .editorial-text",
+    "max-width": "70ch",
+    "font-size": "var(--text-body)",
+    "line-height": "1.8"
+  },
+  {
+    "file": "app/layout-refinement.css",
+    "line": 123,
+    "context": "base",
+    "selector": "html .footer-links a",
+    "font-size": "var(--text-ui)",
+    "line-height": "1.6"
+  },
+  {
+    "file": "app/layout-refinement.css",
+    "line": 129,
+    "context": "base",
+    "selector": "html .footer-intro p",
+    "font-size": "var(--text-body)",
+    "line-height": "1.7"
+  },
+  {
+    "file": "app/layout-refinement.css",
+    "line": 152,
+    "context": "base",
+    "selector": "html .reference-home .rh-guidance-cards a",
+    "line-height": "1.45"
+  },
+  {
+    "file": "app/layout-refinement.css",
+    "line": 156,
+    "context": "base",
+    "selector": "html .reference-home .rh-product-name",
+    "line-height": "1.45"
+  },
+  {
+    "file": "app/layout-refinement.css",
+    "line": 161,
+    "context": "base",
+    "selector": "html .reference-home .rh-product-price",
+    "font-variant-numeric": "tabular-nums"
+  },
+  {
+    "file": "app/layout-refinement.css",
+    "line": 178,
+    "context": "base",
+    "selector": "html .reference-home .rh-editorial-grid > a",
+    "line-height": "1.5"
+  },
+  {
+    "file": "app/layout-refinement.css",
+    "line": 209,
+    "context": "@media (max-width: 600px)",
+    "selector": "html .catalog-intro > p:last-child,\n  html .page-intro > p:last-child:not(.eyebrow)",
+    "font-size": "var(--text-body)"
+  },
+  {
+    "file": "app/privacy.css",
+    "line": 1,
+    "context": "base",
+    "selector": ".cookie-controls",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/privacy.css",
+    "line": 13,
+    "context": "base",
+    "selector": ".cookie-settings-link",
+    "font": "inherit"
+  },
+  {
+    "file": "app/privacy.css",
+    "line": 23,
+    "context": "base",
+    "selector": ".cookie-banner",
+    "max-width": "1150px"
+  },
+  {
+    "file": "app/privacy.css",
+    "line": 43,
+    "context": "base",
+    "selector": ".cookie-banner h2",
+    "font-size": "var(--text-price)"
+  },
+  {
+    "file": "app/privacy.css",
+    "line": 47,
+    "context": "base",
+    "selector": ".cookie-banner p",
+    "font-size": "var(--text-ui)",
+    "line-height": "1.6"
+  },
+  {
+    "file": "app/privacy.css",
+    "line": 65,
+    "context": "base",
+    "selector": ".cookie-actions button",
+    "font": "inherit",
+    "font-size": "var(--text-ui)",
+    "font-weight": "var(--weight-semibold)"
+  },
+  {
+    "file": "app/privacy.css",
+    "line": 94,
+    "context": "base",
+    "selector": ".cookie-dialog h2",
+    "font-size": "var(--text-card-title)"
+  },
+  {
+    "file": "app/privacy.css",
+    "line": 98,
+    "context": "base",
+    "selector": ".cookie-dialog h3",
+    "font-size": "var(--text-body)"
+  },
+  {
+    "file": "app/privacy.css",
+    "line": 104,
+    "context": "base",
+    "selector": ".cookie-dialog h3 span",
+    "font-size": "var(--text-meta)",
+    "font-weight": "var(--weight-regular)"
+  },
+  {
+    "file": "app/privacy.css",
+    "line": 109,
+    "context": "base",
+    "selector": ".cookie-dialog p",
+    "font-size": "var(--text-ui)",
+    "line-height": "1.7"
+  },
+  {
+    "file": "app/privacy.css",
+    "line": 130,
+    "context": "base",
+    "selector": ".cookie-toggle",
+    "font-size": "var(--text-body)"
+  },
+  {
+    "file": "app/privacy.css",
+    "line": 142,
+    "context": "base",
+    "selector": ".policy-page",
+    "max-width": "1000px"
+  },
+  {
+    "file": "app/privacy.css",
+    "line": 147,
+    "context": "base",
+    "selector": ".policy-page h1",
+    "font-size": "clamp(2.25rem, 5vw, 3.25rem)"
+  },
+  {
+    "file": "app/privacy.css",
+    "line": 151,
+    "context": "base",
+    "selector": ".policy-page h2",
+    "font-size": "var(--text-card-title)"
+  },
+  {
+    "file": "app/privacy.css",
+    "line": 156,
+    "context": "base",
+    "selector": ".policy-page p,\n.policy-page li",
+    "font-size": "var(--text-ui)",
+    "line-height": "1.8"
+  },
+  {
+    "file": "app/privacy.css",
+    "line": 175,
+    "context": "base",
+    "selector": ".policy-page table",
+    "font-size": "var(--text-ui)",
+    "line-height": "1.6"
+  },
+  {
+    "file": "app/privacy.css",
+    "line": 181,
+    "context": "base",
+    "selector": ".policy-page caption",
+    "font-weight": "var(--weight-semibold)"
+  },
+  {
+    "file": "app/privacy.css",
+    "line": 219,
+    "context": "@media (max-width: 700px)",
+    "selector": ".cookie-banner p",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/privacy.css",
+    "line": 225,
+    "context": "base",
+    "selector": ".policy-page p, .policy-page li",
+    "font-size": "1rem",
+    "line-height": "1.75",
+    "max-width": "68ch"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 3,
+    "context": "base",
+    "selector": ".reference-home",
+    "font-family": "var(--font-body)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 11,
+    "context": "base",
+    "selector": ".reference-home h2",
+    "font-family": "var(--font-display)",
+    "font-size": "clamp(1.5rem, 2.2vw, 2rem)",
+    "font-weight": "var(--weight-semibold)",
+    "line-height": "1.3",
+    "letter-spacing": "-0.025em"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 28,
+    "context": "base",
+    "selector": ".reference-home .rh-wide",
+    "max-width": "1600px"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 71,
+    "context": "base",
+    "selector": ".reference-home .rh-campaign h2",
+    "font-size": "clamp(1.5rem, 2.7vw, 2.5rem)",
+    "font-weight": "var(--weight-bold)",
+    "line-height": "1.2"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 76,
+    "context": "base",
+    "selector": ".reference-home .rh-campaign p",
+    "font-size": "clamp(1.125rem, 2.1vw, 1.875rem)",
+    "line-height": "1.35",
+    "max-width": "22ch"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 109,
+    "context": "base",
+    "selector": ".reference-home .rh-campaign-counter",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 140,
+    "context": "base",
+    "selector": ".reference-home .rh-signin p",
+    "font-size": "var(--text-body)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 144,
+    "context": "base",
+    "selector": ".reference-home .rh-signin > a",
+    "font-size": "var(--text-ui)",
+    "font-weight": "var(--weight-semibold)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 163,
+    "context": "base",
+    "selector": ".reference-home .rh-guidance h2",
+    "font-size": "var(--text-card-title)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 170,
+    "context": "base",
+    "selector": ".reference-home .rh-guidance p",
+    "font-size": "var(--text-body)",
+    "line-height": "1.6"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 184,
+    "context": "base",
+    "selector": ".reference-home .rh-guidance-cards a",
+    "font-size": "var(--text-body)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 205,
+    "context": "base",
+    "selector": ".reference-home .rh-section-title > a",
+    "font-size": "var(--text-body)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 253,
+    "context": "base",
+    "selector": ".reference-home .rh-product-action",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 269,
+    "context": "base",
+    "selector": ".reference-home .rh-product-name",
+    "font-size": "var(--text-body)",
+    "line-height": "1.5",
+    "font-family": "var(--font-display)",
+    "font-weight": "var(--weight-semibold)",
+    "letter-spacing": "-0.015em"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 283,
+    "context": "base",
+    "selector": ".reference-home .rh-product-price",
+    "font-size": "var(--text-price)",
+    "font-weight": "var(--weight-semibold)",
+    "line-height": "1.3"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 289,
+    "context": "base",
+    "selector": ".reference-home .rh-product-price del",
+    "font-weight": "var(--weight-regular)",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 296,
+    "context": "base",
+    "selector": ".reference-home .rh-rating",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 304,
+    "context": "base",
+    "selector": ".reference-home .rh-stock",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 323,
+    "context": "base",
+    "selector": ".reference-home .rh-category-circles a",
+    "font-size": "var(--text-body)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 342,
+    "context": "base",
+    "selector": ".reference-home .rh-category-chips a",
+    "font-size": "var(--text-body)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 361,
+    "context": "base",
+    "selector": ".reference-home .rh-tabs button",
+    "font-size": "var(--text-body)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 370,
+    "context": "base",
+    "selector": ".reference-home .rh-tabs button[aria-selected=\"true\"]",
+    "font-weight": "var(--weight-semibold)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 400,
+    "context": "base",
+    "selector": ".reference-home .rh-story-banner h2",
+    "font-size": "var(--text-heading)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 414,
+    "context": "base",
+    "selector": ".reference-home .rh-story-banner > p",
+    "max-width": "850px",
+    "font-size": "var(--text-body)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 425,
+    "context": "base",
+    "selector": ".reference-home .rh-story-features a",
+    "font-size": "var(--text-body)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 446,
+    "context": "base",
+    "selector": ".reference-home .rh-story-circles a",
+    "font-weight": "var(--weight-semibold)",
+    "font-size": "var(--text-body)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 475,
+    "context": "base",
+    "selector": ".reference-home .rh-discovery-card > p",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 493,
+    "context": "base",
+    "selector": ".reference-home .rh-discovery-card strong",
+    "font-size": "var(--text-body)",
+    "line-height": "1.5",
+    "font-weight": "var(--weight-semibold)",
+    "font-family": "var(--font-display)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 505,
+    "context": "base",
+    "selector": ".reference-home .rh-discovery-card a > span",
+    "font-size": "var(--text-price)",
+    "font-weight": "var(--weight-semibold)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 520,
+    "context": "base",
+    "selector": ".reference-home .rh-editorial-grid > a",
+    "font-size": "var(--text-ui)",
+    "line-height": "1.3"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 541,
+    "context": "base",
+    "selector": ".reference-home .rh-journal-tile strong",
+    "font-size": "var(--text-subheading)",
+    "line-height": "1.1"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 555,
+    "context": "base",
+    "selector": ".reference-home .rh-subscribe small",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 560,
+    "context": "base",
+    "selector": ".reference-home .rh-subscribe strong",
+    "font-size": "var(--text-lead)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 596,
+    "context": "@media (max-width: 1100px)",
+    "selector": ".reference-home .rh-campaign h2",
+    "font-size": "var(--text-page-small)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 599,
+    "context": "@media (max-width: 1100px)",
+    "selector": ".reference-home .rh-campaign p",
+    "font-size": "var(--text-subheading)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 624,
+    "context": "@media (max-width: 600px)",
+    "selector": ".reference-home .rh-campaign h2",
+    "font-size": "var(--text-subheading)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 627,
+    "context": "@media (max-width: 600px)",
+    "selector": ".reference-home .rh-campaign p",
+    "font-size": "var(--text-price)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 647,
+    "context": "@media (max-width: 600px)",
+    "selector": ".reference-home .rh-signin p",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 650,
+    "context": "@media (max-width: 600px)",
+    "selector": ".reference-home .rh-signin > a",
+    "font-size": "var(--text-meta)",
+    "max-width": "45%"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 659,
+    "context": "@media (max-width: 600px)",
+    "selector": ".reference-home .rh-guidance h2",
+    "font-size": "var(--text-card-title)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 662,
+    "context": "@media (max-width: 600px)",
+    "selector": ".reference-home .rh-guidance p",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 669,
+    "context": "@media (max-width: 600px)",
+    "selector": ".reference-home .rh-guidance-cards a",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 681,
+    "context": "@media (max-width: 600px)",
+    "selector": ".reference-home h2",
+    "font-size": "var(--text-card-title)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 684,
+    "context": "@media (max-width: 600px)",
+    "selector": ".reference-home .rh-section-title > a",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 691,
+    "context": "@media (max-width: 600px)",
+    "selector": ".reference-home .rh-product-name",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 696,
+    "context": "@media (max-width: 600px)",
+    "selector": ".reference-home .rh-product-price",
+    "font-size": "var(--text-lead)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 720,
+    "context": "@media (max-width: 600px)",
+    "selector": ".reference-home .rh-category-circles a",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 726,
+    "context": "@media (max-width: 600px)",
+    "selector": ".reference-home .rh-category-chips a",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 739,
+    "context": "@media (max-width: 600px)",
+    "selector": ".reference-home .rh-tabs button",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 749,
+    "context": "@media (max-width: 600px)",
+    "selector": ".reference-home .rh-story-banner h2",
+    "font-size": "var(--text-card-title)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 752,
+    "context": "@media (max-width: 600px)",
+    "selector": ".reference-home .rh-story-banner > p",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 759,
+    "context": "@media (max-width: 600px)",
+    "selector": ".reference-home .rh-story-features a",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 771,
+    "context": "@media (max-width: 600px)",
+    "selector": ".reference-home .rh-story-circles a",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 782,
+    "context": "@media (max-width: 600px)",
+    "selector": ".reference-home .rh-discovery-card > p",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 785,
+    "context": "@media (max-width: 600px)",
+    "selector": ".reference-home .rh-discovery-card strong",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 788,
+    "context": "@media (max-width: 600px)",
+    "selector": ".reference-home .rh-discovery-card a > span",
+    "font-size": "var(--text-body)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 796,
+    "context": "@media (max-width: 600px)",
+    "selector": ".reference-home .rh-editorial-grid > a",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 807,
+    "context": "@media (max-width: 600px)",
+    "selector": ".reference-home .rh-journal-tile strong",
+    "font-size": "var(--text-card-title)"
+  },
+  {
+    "file": "app/reference-home.css",
+    "line": 814,
+    "context": "@media (max-width: 600px)",
+    "selector": ".reference-home .rh-subscribe strong",
+    "font-size": "var(--text-body)"
+  },
+  {
+    "file": "app/storefront.css",
+    "line": 2,
+    "context": "base",
+    "selector": ".site-footer .footer-signature",
+    "font-size": "0",
+    "line-height": "0"
+  },
+  {
+    "file": "app/storefront.css",
+    "line": 6,
+    "context": "base",
+    "selector": ".header-search-slot",
+    "max-width": "650px"
+  },
+  {
+    "file": "app/storefront.css",
+    "line": 10,
+    "context": "base",
+    "selector": ".inline-search .search input",
+    "font-size": "var(--text-body)",
+    "line-height": "1.5"
+  },
+  {
+    "file": "app/storefront.css",
+    "line": 11,
+    "context": "base",
+    "selector": ".inline-search .search .button",
+    "font-size": "var(--text-ui)",
+    "line-height": "1.5"
+  },
+  {
+    "file": "app/storefront.css",
+    "line": 25,
+    "context": "base",
+    "selector": ".header-wrap .category-navigation",
+    "font-family": "var(--font-display)",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/storefront.css",
+    "line": 37,
+    "context": "base",
+    "selector": ".site-footer .footer-intro h2",
+    "font-weight": "var(--weight-semibold)",
+    "letter-spacing": "-.025em",
+    "font-family": "var(--font-display)"
+  },
+  {
+    "file": "app/storefront.css",
+    "line": 39,
+    "context": "base",
+    "selector": ".site-footer .footer-intro p",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/storefront.css",
+    "line": 41,
+    "context": "base",
+    "selector": ".site-footer .footer-links h3",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/storefront.css",
+    "line": 42,
+    "context": "base",
+    "selector": ".site-footer .footer-links a",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/storefront.css",
+    "line": 47,
+    "context": "base",
+    "selector": ".departments-trigger",
+    "font": "inherit",
+    "font-weight": "var(--weight-semibold)"
+  },
+  {
+    "file": "app/storefront.css",
+    "line": 51,
+    "context": "base",
+    "selector": ".departments-intro h2",
+    "font-size": "var(--text-card-title)"
+  },
+  {
+    "file": "app/storefront.css",
+    "line": 52,
+    "context": "base",
+    "selector": ".departments-intro p",
+    "font-size": "var(--text-ui)",
+    "line-height": "1.6"
+  },
+  {
+    "file": "app/storefront.css",
+    "line": 55,
+    "context": "base",
+    "selector": ".departments-grid a",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/storefront.css",
+    "line": 57,
+    "context": "base",
+    "selector": ".departments-grid span",
+    "font-size": "var(--text-meta)"
+  },
+  {
+    "file": "app/storefront.css",
+    "line": 62,
+    "context": "base",
+    "selector": ".shopping-guidance strong",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/storefront.css",
+    "line": 63,
+    "context": "base",
+    "selector": ".shopping-guidance span",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/storefront.css",
+    "line": 72,
+    "context": "base",
+    "selector": ".shelf-heading h2",
+    "font-size": "clamp(1.375rem,2.2vw,1.875rem)",
+    "letter-spacing": "-.03em"
+  },
+  {
+    "file": "app/storefront.css",
+    "line": 73,
+    "context": "base",
+    "selector": ".shelf-heading p",
+    "font-size": "var(--text-body)"
+  },
+  {
+    "file": "app/storefront.css",
+    "line": 75,
+    "context": "base",
+    "selector": ".shelf-actions a",
+    "font-size": "var(--text-ui)"
+  },
+  {
+    "file": "app/storefront.css",
+    "line": 92,
+    "context": "@media (max-width: 800px)",
+    "selector": ".header-search-slot",
+    "max-width": "none"
+  },
+  {
+    "file": "app/storefront.css",
+    "line": 94,
+    "context": "@media (max-width: 800px)",
+    "selector": ".inline-search .search input",
+    "font-size": "var(--text-body)"
+  },
+  {
+    "file": "app/storefront.css",
+    "line": 99,
+    "context": "@media (max-width: 800px)",
+    "selector": ".shelf-heading p",
+    "font-size": "var(--text-ui)"
+  }
+]

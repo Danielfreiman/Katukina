@@ -1,0 +1,106 @@
+[
+  {
+    "state": "privacy text 200%",
+    "width": 320,
+    "overflow": false,
+    "footerColumns": "232px"
+  },
+  {
+    "state": "cookie preferences",
+    "width": 390,
+    "box": {
+      "x": 19,
+      "y": 89.390625,
+      "width": 352,
+      "height": 721.203125
+    },
+    "font": {
+      "size": "24px",
+      "family": "Sora, \"Sora Fallback\", Arial, sans-serif"
+    }
+  },
+  {
+    "state": "mobile menu",
+    "visible": true,
+    "overflow": false
+  },
+  {
+    "state": "font files unavailable",
+    "overflow": false,
+    "fonts": [
+      {
+        "family": "Sora",
+        "status": "error"
+      },
+      {
+        "family": "Sora",
+        "status": "error"
+      },
+      {
+        "family": "Sora Fallback",
+        "status": "unloaded"
+      },
+      {
+        "family": "Source Sans 3",
+        "status": "unloaded"
+      },
+      {
+        "family": "Source Sans 3",
+        "status": "unloaded"
+      },
+      {
+        "family": "Source Sans 3",
+        "status": "unloaded"
+      },
+      {
+        "family": "Source Sans 3",
+        "status": "unloaded"
+      },
+      {
+        "family": "Source Sans 3",
+        "status": "unloaded"
+      },
+      {
+        "family": "Source Sans 3",
+        "status": "unloaded"
+      },
+      {
+        "family": "Source Sans 3",
+        "status": "unloaded"
+      },
+      {
+        "family": "Source Sans 3",
+        "status": "unloaded"
+      },
+      {
+        "family": "Source Sans 3",
+        "status": "unloaded"
+      },
+      {
+        "family": "Source Sans 3",
+        "status": "unloaded"
+      },
+      {
+        "family": "Source Sans 3",
+        "status": "unloaded"
+      },
+      {
+        "family": "Source Sans 3",
+        "status": "unloaded"
+      },
+      {
+        "family": "Source Sans 3",
+        "status": "error"
+      },
+      {
+        "family": "Source Sans 3",
+        "status": "error"
+      },
+      {
+        "family": "Source Sans 3 Fallback",
+        "status": "loaded"
+      }
+    ],
+    "visibleTitle": true
+  }
+]

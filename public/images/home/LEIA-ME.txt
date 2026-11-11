@@ -1,21 +1,20 @@
-HOME - ARQUIVOS DE IMAGEM
+HOME - ORIENTACAO VIGENTE EM 11/11/2026
 
-hero-01 = apresentação Katukina
-hero-02 = Rapé
-hero-03 = incensos e acessórios
+Banners atuais da primeira dobra: banners/
+2400 x 1800 px, 4:3, WebP, sRGB. Mesmo arquivo desktop/celular.
+  discover-katukina.webp
+  our-story.webp
+  sacred-incense.webp
+Guia completo: docs/katukina/BANNERS.md.
 
-Dentro de cada pasta hero:
-  desktop.webp : 2400 x 1500 px
-  mobile.webp  : 1200 x 2400 px
-  WebP, sRGB. Manter os nomes. Não incorporar textos nem botões.
+Pastas antigas hero-01/, hero-02/, hero-03/ e collections-banner/ removidas.
+Backup fora do site em Katukina.com/.local-backups/banners-antigos-<data-hora>/.
+Fotos ainda usadas nos cards editoriais estao em public/images/editorial/.
 
-collection/background.webp : 1024 x 1024 px
-journal/background.webp    : 1024 x 1024 px
-  WebP lossless transparente, sRGB, com encaixe nas quatro bordas (seamless).
-  O site repete a imagem no tamanho original salvo no arquivo.
-  As cores e a transparência vêm do próprio WebP, sem filtros ou opacidade extra.
-  1024 x 1024 px é uma recomendação, não um tamanho imposto pelo site.
-  Os dois fundos são independentes e atualmente transparentes.
+collection/, journal/, category-band/, category-cards/:
+preparacao de secoes anteriores, preservada como historico.
+Confirmar o uso atual no codigo antes de produzir artes para essas pastas.
+A home vigente usa icones nas categorias e forest.jpg no banner institucional.
 
-Basta substituir o arquivo da área desejada mantendo o nome e a extensão.
-Referência completa: docs/katukina/ASSETS.md.
+Mestres: Katukina.com/Assets Site/Banners/Home/ (fora da pasta publica).
+Nunca colocar PSD, AI, documentos privados ou backups em public/.

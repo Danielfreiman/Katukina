@@ -1,0 +1,20 @@
+BANNERS ATUAIS DA HOME - 11/11/2026
+
+Produzir: 2400 x 1800 px (4:3), WebP, sRGB. Meta: ate 500 KB por imagem.
+Mesmo arquivo para desktop e celular. Sem texto, botoes ou overlay gravados.
+Reservar o topo esquerdo para texto branco aplicado pelo site.
+
+discover-katukina.webp = Discover your natural rhythm -> /shop
+our-story.webp = Nature. Culture. Connection. -> /about
+sacred-incense.webp = Explore Sacred Incense -> /collections/sacred-incense
+
+Os quadros nao sao fixos: tres campanhas rodam; duas por vez acima de 1100 px,
+uma por vez ate 1100 px. Sempre 4:3, com recorte cover centralizado.
+
+Arquivos iniciais preservam as fotos ja exibidas e suas dimensoes de origem;
+Danilo ainda produz as artes definitivas em 4:3.
+
+Mestres: Katukina.com/Assets Site/Banners/Home/<campanha>/Editaveis/
+Exportar em Exportacoes/ e copiar o aprovado para esta pasta, com o nome exato.
+Atualizar o site local com Ctrl+F5 e conferir desktop/celular.
+Guia completo: docs/katukina/BANNERS.md (na raiz do repositorio).

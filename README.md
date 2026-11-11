@@ -1,5 +1,11 @@
 # Katukina — plataforma headless
 
+## Organização e produção visual
+
+[Guia geral do projeto](docs/PROJECT_GUIDE.md) · [Mapa de pastas](docs/PROJECT_STRUCTURE.md) · [Inventário automático](docs/PROJECT_INVENTORY.md) · **[Banners atuais: tamanhos, nomes e pastas](docs/katukina/BANNERS.md)**.
+
+Primeira dobra vigente: três campanhas 4:3, artes recomendadas de **2400 × 1800 px**, em `public/images/home/banners/`. Mestres fora do repositório em `../Assets Site/Banners/Home/`. As descrições de hero de etapas anteriores abaixo são históricas; para esta área, prevalece o guia de banners.
+
 Site público em Next.js App Router, React e TypeScript, com WordPress + WooCommerce como backend. Paleta aprovada em urucum, verde folha, branco quente e neutros, tipografia Sora com apoio Source Sans 3 e grafismo original aplicado discretamente. [Cores, aplicações e referência SVG](docs/katukina/PALETTE.md). Catálogo, categorias, artigos e páginas publicados no WordPress alimentam o frontend renderizado no servidor.
 
 Carrinho, cupons, cálculo de entrega, conta do cliente e checkout local sem cobrança usam APIs WooCommerce/WordPress. A administração usa Products/Variations, Orders, Users, Settings e Analytics nativos. Campos e operações adicionais ampliam essas áreas; não há painel ou catálogo paralelo. Consulte a [cobertura e instruções](docs/katukina/OPERATIONS.md). Sendcloud, HS integrado, publicação por site e outros requisitos ainda têm implementação pendente, conforme a [auditoria funcional](docs/katukina/FUNCTIONAL-COVERAGE.md).
@@ -85,7 +91,7 @@ Carrinho, checkout fictício, conta e cotação estão integrados: criam cliente
 - Referência visual e conteúdo institucional: https://katukina.com/
 - Grafismo reutilizado no protótipo: https://katukina.com/upload/images/Katukina/Katukina-BG-all-border.jpg
 - Hero atual: produto publicado no WooCommerce, com imagem da biblioteca local. Fontes e apresentações dos seis exemplos em [SAMPLE_CATALOG.md](docs/katukina/SAMPLE_CATALOG.md).
-- Fontes atuais: Sora e Source Sans 3, carregadas por `next/font/google` em `app/layout.tsx` e servidas pelo frontend. [Funções e manutenção](docs/katukina/TYPOGRAPHY.md). Manrope e Cormorant Garamond/Inter pertencem a etapas anteriores.
+- Fontes atuais: Sora e Source Sans 3, carregadas por `next/font/google` em `app/layout.tsx` e servidas pelo frontend. [Funções e manutenção](docs/katukina/TYPOGRAPHY.md). Escala e pesos centralizados; dependências antigas removidas. [Inventário por seletor](docs/katukina/TYPOGRAPHY-INVENTORY.md). Verificação: `node scripts/audit-typography.mjs --write`.
 - Metadata API: https://nextjs.org/docs/app/api-reference/file-conventions/metadata
 
 Assets históricos preservados fora da vitrine ativa: fotografias do catálogo em https://katukina.com/assets/images/items/1871.jpg, https://katukina.com/assets/images/items/1990.jpg e https://katukina.com/assets/images/items/1571.jpg, além da floresta ilustrativa Unsplash `photo-1441974231531-c6227db76b6e`.

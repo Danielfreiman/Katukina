@@ -1,0 +1,266 @@
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <DevRootHTTPAccessFallbackBoundary>
+      <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+        <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} forbidden={undefined} ...>
+          <RedirectBoundary>
+            <RedirectErrorBoundary router={{...}}>
+              <Head>
+              <__next_root_layout_boundary__>
+                <SegmentViewNode type="layout" pagePath="layout.tsx">
+                  <SegmentTrieNode>
+                  <link>
+                  <RootLayout>
+                    <html lang="en-GB" data-scroll-behavior="smooth" className="__variable...">
+                      <body>
+                        <CookieConsentProvider>
+                          <SiteHeader>
+                          <OuterLayoutRouter>
+                          <footer>
+                          <div>
+                          <dialog className="cookie-dialog" ref={{current:null}} aria-labelledby="cookie-dia..." ...>
+                            <button>
+                            <h2>
+                            <p>
+                            <section>
+                            <section>
+                              <label className="cookie-toggle">
+                                <input
+                                  type="checkbox"
+                                  checked={false}
+                                  onChange={function onChange}
+-                                 style={{caret-color:"transparent"}}
+                                >
+                                ...
+                              ...
+                            ...
+              ...
+ 
+[browser] ./app/layout-refinement.css
+Module not found: Can't resolve 'E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\layout-refinement.css'
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./app/layout-refinement.css
+Module not found: Module not found: Can't resolve 'E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\layout-refinement.css'
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./app/layout-refinement.css
+Module not found: Can't resolve 'E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\layout-refinement.css'
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./app/layout-refinement.css
+Module not found: Module not found: Can't resolve 'E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\layout-refinement.css'
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./app/layout-refinement.css
+Module not found: Can't resolve 'E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\layout-refinement.css'
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./app/layout-refinement.css
+Module not found: Module not found: Can't resolve 'E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\layout-refinement.css'
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./app/layout-refinement.css
+Module not found: Can't resolve 'E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\layout-refinement.css'
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./app/layout-refinement.css
+Module not found: Module not found: Can't resolve 'E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\layout-refinement.css'
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./app/layout-refinement.css
+Error: ENOENT: no such file or directory, open 'E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\layout-refinement.css'
+
+Import trace for requested module:
+./app/layout-refinement.css
+./app/layout.tsx 
+[browser] ./app/layout-refinement.css
+Error: ENOENT: no such file or directory, open 'E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\layout-refinement.css'
+
+Import trace for requested module:
+./app/layout-refinement.css
+./app/layout.tsx 
+[browser] ./app/layout-refinement.css
+Error: ENOENT: no such file or directory, open 'E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\layout-refinement.css'
+
+Import trace for requested module:
+./app/layout-refinement.css
+./app/layout.tsx 
+[browser] ./app/layout-refinement.css
+Error: ENOENT: no such file or directory, open 'E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\layout-refinement.css'
+
+Import trace for requested module:
+./app/layout-refinement.css
+./app/layout.tsx 
+⨯ ./app/layout-refinement.css
+Module not found: Can't resolve 'E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\layout-refinement.css'
+
+https://nextjs.org/docs/messages/module-not-found
+[browser] ./app/layout-refinement.css
+Module not found: Can't resolve 'E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\layout-refinement.css'
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./app/layout-refinement.css
+Module not found: Module not found: Can't resolve 'E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\layout-refinement.css'
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./app/layout-refinement.css
+Module not found: Can't resolve 'E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\layout-refinement.css'
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./app/layout-refinement.css
+Module not found: Module not found: Can't resolve 'E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\layout-refinement.css'
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./app/layout-refinement.css
+Module not found: Can't resolve 'E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\layout-refinement.css'
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./app/layout-refinement.css
+Module not found: Module not found: Can't resolve 'E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\layout-refinement.css'
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./app/layout-refinement.css
+Module not found: Can't resolve 'E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\layout-refinement.css'
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./app/layout-refinement.css
+Module not found: Module not found: Can't resolve 'E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\layout-refinement.css'
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./app/layout-refinement.css
+Module not found: Can't resolve 'E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\layout-refinement.css'
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./app/layout-refinement.css
+Module not found: Module not found: Can't resolve 'E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\layout-refinement.css'
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./app/layout-refinement.css
+Module not found: Can't resolve 'E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\layout-refinement.css'
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./app/layout-refinement.css
+Module not found: Module not found: Can't resolve 'E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\layout-refinement.css'
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./app/layout-refinement.css
+Module not found: Can't resolve 'E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\layout-refinement.css'
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./app/layout-refinement.css
+Module not found: Module not found: Can't resolve 'E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\layout-refinement.css'
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./app/layout-refinement.css
+Module not found: Can't resolve 'E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\layout-refinement.css'
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./app/layout-refinement.css
+Module not found: Module not found: Can't resolve 'E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\layout-refinement.css'
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./app/layout.tsx:6:1
+Module not found: Can't resolve './layout-refinement.css'
+  4 | import "./privacy.css";
+  5 | import "./storefront.css";
+> 6 | import "./layout-refinement.css";
+    | ^
+  7 | import { getCategories } from "@/lib/commerce/catalog";
+  8 | import { Sora, Source_Sans_3 } from "next/font/google";
+  9 |
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./app/layout.tsx:6:1
+Module not found: Can't resolve './layout-refinement.css'
+  4 | import "./privacy.css";
+  5 | import "./storefront.css";
+> 6 | import "./layout-refinement.css";
+    | ^
+  7 | import { getCategories } from "@/lib/commerce/catalog";
+  8 | import { Sora, Source_Sans_3 } from "next/font/google";
+  9 |
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./app/layout.tsx:6:1
+Module not found: Can't resolve './layout-refinement.css'
+  4 | import "./privacy.css";
+  5 | import "./storefront.css";
+> 6 | import "./layout-refinement.css";
+    | ^
+  7 | import { getCategories } from "@/lib/commerce/catalog";
+  8 | import { Sora, Source_Sans_3 } from "next/font/google";
+  9 |
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./app/layout.tsx:6:1
+Module not found: Can't resolve './layout-refinement.css'
+  4 | import "./privacy.css";
+  5 | import "./storefront.css";
+> 6 | import "./layout-refinement.css";
+    | ^
+  7 | import { getCategories } from "@/lib/commerce/catalog";
+  8 | import { Sora, Source_Sans_3 } from "next/font/google";
+  9 |
+
+https://nextjs.org/docs/messages/module-not-found 
+⨯ ./app/layout.tsx:6:1
+Module not found: Can't resolve './layout-refinement.css'
+  4 | import "./privacy.css";
+  5 | import "./storefront.css";
+> 6 | import "./layout-refinement.css";
+    | ^
+  7 | import { getCategories } from "@/lib/commerce/catalog";
+  8 | import { Sora, Source_Sans_3 } from "next/font/google";
+  9 |
+
+https://nextjs.org/docs/messages/module-not-found
+⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\.next\dev\cache\webpack\client-development-fallback\0.pack.gz_' -> 'E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\.next\dev\cache\webpack\client-development-fallback\0.pack.gz'
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\.next\dev\cache\webpack\client-development-fallback\0.pack.gz_' -> 'E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\.next\dev\cache\webpack\client-development-fallback\0.pack.gz'
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\.next\dev\cache\webpack\client-development-fallback\0.pack.gz_' -> 'E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\.next\dev\cache\webpack\client-development-fallback\0.pack.gz'
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\.next\dev\cache\webpack\client-development-fallback\0.pack.gz_' -> 'E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\.next\dev\cache\webpack\client-development-fallback\0.pack.gz'
+[browser] Uncaught Error: Module not found: Can't resolve './layout-refinement.css'
+  4 | import "./privacy.css";
+  5 | import "./storefront.css";
+> 6 | import "./layout-refinement.css";
+    | ^
+  7 | import { getCategories } from "@/lib/commerce/catalog";
+  8 | import { Sora, Source_Sans_3 } from "next/font/google";
+  9 |
+
+https://nextjs.org/docs/messages/module-not-found
+
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\.next\dev\cache\webpack\client-development-fallback\0.pack.gz_' -> 'E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\.next\dev\cache\webpack\client-development-fallback\0.pack.gz'
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\.next\dev\cache\webpack\client-development-fallback\0.pack.gz_' -> 'E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\.next\dev\cache\webpack\client-development-fallback\0.pack.gz'
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\.next\dev\cache\webpack\client-development-fallback\0.pack.gz_' -> 'E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\.next\dev\cache\webpack\client-development-fallback\0.pack.gz'
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\.next\dev\cache\webpack\client-development-fallback\0.pack.gz_' -> 'E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\.next\dev\cache\webpack\client-development-fallback\0.pack.gz'
+⨯ TypeError: __webpack_modules__[moduleId] is not a function
+    at ignore-listed frames {
+  digest: '2962228650'
+}
+⨯ TypeError: __webpack_modules__[moduleId] is not a function
+    at ignore-listed frames {
+  digest: '2962228650'
+}
+⨯ TypeError: __webpack_modules__[moduleId] is not a function
+    at ignore-listed frames {
+  digest: '2962228650'
+}

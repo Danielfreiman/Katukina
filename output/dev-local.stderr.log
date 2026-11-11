@@ -171,3 +171,2446 @@ https://react.dev/link/hydration-mismatch
                             ...
               ...
  
+[browser] ./components/site/header.tsx
+Error:   x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:91:1]
+ 88 |               <UserRound size={22} strokeWidth={1.5} />
+ 89 |               <span className="header-action-label">Account</span>
+ 90 |             </Link>
+ 91 | <<<<<<< HEAD
+    :  ^^
+ 92 | =======
+ 93 |             <Link className="icon-button" href="/cart" aria-label="Your bag">
+ 93 |               <ShoppingBag size={22} strokeWidth={1.5} />
+    `----
+  x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:91:1]
+ 88 |               <UserRound size={22} strokeWidth={1.5} />
+ 89 |               <span className="header-action-label">Account</span>
+ 90 |             </Link>
+ 91 | <<<<<<< HEAD
+    :    ^^
+ 92 | =======
+ 93 |             <Link className="icon-button" href="/cart" aria-label="Your bag">
+ 93 |               <ShoppingBag size={22} strokeWidth={1.5} />
+    `----
+  x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:91:1]
+ 88 |               <UserRound size={22} strokeWidth={1.5} />
+ 89 |               <span className="header-action-label">Account</span>
+ 90 |             </Link>
+ 91 | <<<<<<< HEAD
+    :      ^^
+ 92 | =======
+ 93 |             <Link className="icon-button" href="/cart" aria-label="Your bag">
+ 93 |               <ShoppingBag size={22} strokeWidth={1.5} />
+    `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./components/site/header.tsx 
+[browser] ./components/site/header.tsx
+Error:   x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:91:1]
+ 88 |               <UserRound size={22} strokeWidth={1.5} />
+ 89 |               <span className="header-action-label">Account</span>
+ 90 |             </Link>
+ 91 | <<<<<<< HEAD
+    :  ^^
+ 92 | =======
+ 93 |             <Link className="icon-button" href="/cart" aria-label="Your bag">
+ 93 |               <ShoppingBag size={22} strokeWidth={1.5} />
+    `----
+  x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:91:1]
+ 88 |               <UserRound size={22} strokeWidth={1.5} />
+ 89 |               <span className="header-action-label">Account</span>
+ 90 |             </Link>
+ 91 | <<<<<<< HEAD
+    :    ^^
+ 92 | =======
+ 93 |             <Link className="icon-button" href="/cart" aria-label="Your bag">
+ 93 |               <ShoppingBag size={22} strokeWidth={1.5} />
+    `----
+  x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:91:1]
+ 88 |               <UserRound size={22} strokeWidth={1.5} />
+ 89 |               <span className="header-action-label">Account</span>
+ 90 |             </Link>
+ 91 | <<<<<<< HEAD
+    :      ^^
+ 92 | =======
+ 93 |             <Link className="icon-button" href="/cart" aria-label="Your bag">
+ 93 |               <ShoppingBag size={22} strokeWidth={1.5} />
+    `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./components/site/header.tsx 
+[browser] ./components/site/header.tsx
+Error:   x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:91:1]
+ 88 |               <UserRound size={22} strokeWidth={1.5} />
+ 89 |               <span className="header-action-label">Account</span>
+ 90 |             </Link>
+ 91 | <<<<<<< HEAD
+    :  ^^
+ 92 | =======
+ 93 |             <Link className="icon-button" href="/cart" aria-label="Your bag">
+ 93 |               <ShoppingBag size={22} strokeWidth={1.5} />
+    `----
+  x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:91:1]
+ 88 |               <UserRound size={22} strokeWidth={1.5} />
+ 89 |               <span className="header-action-label">Account</span>
+ 90 |             </Link>
+ 91 | <<<<<<< HEAD
+    :    ^^
+ 92 | =======
+ 93 |             <Link className="icon-button" href="/cart" aria-label="Your bag">
+ 93 |               <ShoppingBag size={22} strokeWidth={1.5} />
+    `----
+  x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:91:1]
+ 88 |               <UserRound size={22} strokeWidth={1.5} />
+ 89 |               <span className="header-action-label">Account</span>
+ 90 |             </Link>
+ 91 | <<<<<<< HEAD
+    :      ^^
+ 92 | =======
+ 93 |             <Link className="icon-button" href="/cart" aria-label="Your bag">
+ 93 |               <ShoppingBag size={22} strokeWidth={1.5} />
+    `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./components/site/header.tsx
+./app/layout.tsx 
+[browser] ./components/site/header.tsx
+Error:   x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:91:1]
+ 88 |               <UserRound size={22} strokeWidth={1.5} />
+ 89 |               <span className="header-action-label">Account</span>
+ 90 |             </Link>
+ 91 | <<<<<<< HEAD
+    :  ^^
+ 92 | =======
+ 93 |             <Link className="icon-button" href="/cart" aria-label="Your bag">
+ 93 |               <ShoppingBag size={22} strokeWidth={1.5} />
+    `----
+  x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:91:1]
+ 88 |               <UserRound size={22} strokeWidth={1.5} />
+ 89 |               <span className="header-action-label">Account</span>
+ 90 |             </Link>
+ 91 | <<<<<<< HEAD
+    :    ^^
+ 92 | =======
+ 93 |             <Link className="icon-button" href="/cart" aria-label="Your bag">
+ 93 |               <ShoppingBag size={22} strokeWidth={1.5} />
+    `----
+  x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:91:1]
+ 88 |               <UserRound size={22} strokeWidth={1.5} />
+ 89 |               <span className="header-action-label">Account</span>
+ 90 |             </Link>
+ 91 | <<<<<<< HEAD
+    :      ^^
+ 92 | =======
+ 93 |             <Link className="icon-button" href="/cart" aria-label="Your bag">
+ 93 |               <ShoppingBag size={22} strokeWidth={1.5} />
+    `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./components/site/header.tsx
+./app/layout.tsx 
+⨯ ./components/site/header.tsx
+Error:   x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:91:1]
+ 88 |               <UserRound size={22} strokeWidth={1.5} />
+ 89 |               <span className="header-action-label">Account</span>
+ 90 |             </Link>
+ 91 | <<<<<<< HEAD
+    :  ^^
+ 92 | =======
+ 93 |             <Link className="icon-button" href="/cart" aria-label="Your bag">
+ 93 |               <ShoppingBag size={22} strokeWidth={1.5} />
+    `----
+  x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:91:1]
+ 88 |               <UserRound size={22} strokeWidth={1.5} />
+ 89 |               <span className="header-action-label">Account</span>
+ 90 |             </Link>
+ 91 | <<<<<<< HEAD
+    :    ^^
+ 92 | =======
+ 93 |             <Link className="icon-button" href="/cart" aria-label="Your bag">
+ 93 |               <ShoppingBag size={22} strokeWidth={1.5} />
+    `----
+  x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:91:1]
+ 88 |               <UserRound size={22} strokeWidth={1.5} />
+ 89 |               <span className="header-action-label">Account</span>
+ 90 |             </Link>
+ 91 | <<<<<<< HEAD
+    :      ^^
+ 92 | =======
+ 93 |             <Link className="icon-button" href="/cart" aria-label="Your bag">
+ 93 |               <ShoppingBag size={22} strokeWidth={1.5} />
+    `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./components/site/header.tsx
+./app/layout.tsx
+[browser] ./components/site/header.tsx
+Error:   x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:91:1]
+ 88 |               <UserRound size={22} strokeWidth={1.5} />
+ 89 |               <span className="header-action-label">Account</span>
+ 90 |             </Link>
+ 91 | <<<<<<< HEAD
+    :  ^^
+ 92 | =======
+ 93 |             <Link className="icon-button" href="/cart" aria-label="Your bag">
+ 93 |               <ShoppingBag size={22} strokeWidth={1.5} />
+    `----
+  x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:91:1]
+ 88 |               <UserRound size={22} strokeWidth={1.5} />
+ 89 |               <span className="header-action-label">Account</span>
+ 90 |             </Link>
+ 91 | <<<<<<< HEAD
+    :    ^^
+ 92 | =======
+ 93 |             <Link className="icon-button" href="/cart" aria-label="Your bag">
+ 93 |               <ShoppingBag size={22} strokeWidth={1.5} />
+    `----
+  x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:91:1]
+ 88 |               <UserRound size={22} strokeWidth={1.5} />
+ 89 |               <span className="header-action-label">Account</span>
+ 90 |             </Link>
+ 91 | <<<<<<< HEAD
+    :      ^^
+ 92 | =======
+ 93 |             <Link className="icon-button" href="/cart" aria-label="Your bag">
+ 93 |               <ShoppingBag size={22} strokeWidth={1.5} />
+    `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./components/site/header.tsx
+./app/layout.tsx 
+[browser] ./components/site/header.tsx
+Error:   x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:91:1]
+ 88 |               <UserRound size={22} strokeWidth={1.5} />
+ 89 |               <span className="header-action-label">Account</span>
+ 90 |             </Link>
+ 91 | <<<<<<< HEAD
+    :  ^^
+ 92 | =======
+ 93 |             <Link className="icon-button" href="/cart" aria-label="Your bag">
+ 93 |               <ShoppingBag size={22} strokeWidth={1.5} />
+    `----
+  x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:91:1]
+ 88 |               <UserRound size={22} strokeWidth={1.5} />
+ 89 |               <span className="header-action-label">Account</span>
+ 90 |             </Link>
+ 91 | <<<<<<< HEAD
+    :    ^^
+ 92 | =======
+ 93 |             <Link className="icon-button" href="/cart" aria-label="Your bag">
+ 93 |               <ShoppingBag size={22} strokeWidth={1.5} />
+    `----
+  x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:91:1]
+ 88 |               <UserRound size={22} strokeWidth={1.5} />
+ 89 |               <span className="header-action-label">Account</span>
+ 90 |             </Link>
+ 91 | <<<<<<< HEAD
+    :      ^^
+ 92 | =======
+ 93 |             <Link className="icon-button" href="/cart" aria-label="Your bag">
+ 93 |               <ShoppingBag size={22} strokeWidth={1.5} />
+    `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./components/site/header.tsx
+./app/layout.tsx 
+⨯ ./components/site/header.tsx
+Error:   x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:91:1]
+ 88 |               <UserRound size={22} strokeWidth={1.5} />
+ 89 |               <span className="header-action-label">Account</span>
+ 90 |             </Link>
+ 91 | <<<<<<< HEAD
+    :  ^^
+ 92 | =======
+ 93 |             <Link className="icon-button" href="/cart" aria-label="Your bag">
+ 93 |               <ShoppingBag size={22} strokeWidth={1.5} />
+    `----
+  x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:91:1]
+ 88 |               <UserRound size={22} strokeWidth={1.5} />
+ 89 |               <span className="header-action-label">Account</span>
+ 90 |             </Link>
+ 91 | <<<<<<< HEAD
+    :    ^^
+ 92 | =======
+ 93 |             <Link className="icon-button" href="/cart" aria-label="Your bag">
+ 93 |               <ShoppingBag size={22} strokeWidth={1.5} />
+    `----
+  x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:91:1]
+ 88 |               <UserRound size={22} strokeWidth={1.5} />
+ 89 |               <span className="header-action-label">Account</span>
+ 90 |             </Link>
+ 91 | <<<<<<< HEAD
+    :      ^^
+ 92 | =======
+ 93 |             <Link className="icon-button" href="/cart" aria-label="Your bag">
+ 93 |               <ShoppingBag size={22} strokeWidth={1.5} />
+    `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./components/site/header.tsx
+./app/layout.tsx
+[browser] Uncaught ModuleBuildError: Module build failed (from ./node_modules/next/dist/build/webpack/loaders/next-swc-loader.js):
+Error:   x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:91:1]
+ 88 |               <UserRound size={22} strokeWidth={1.5} />
+ 89 |               <span className="header-action-label">Account</span>
+ 90 |             </Link>
+ 91 | <<<<<<< HEAD
+    :  ^^
+ 92 | =======
+ 93 |             <Link className="icon-button" href="/cart" aria-label="Your bag">
+ 93 |               <ShoppingBag size={22} strokeWidth={1.5} />
+    `----
+  x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:91:1]
+ 88 |               <UserRound size={22} strokeWidth={1.5} />
+ 89 |               <span className="header-action-label">Account</span>
+ 90 |             </Link>
+ 91 | <<<<<<< HEAD
+    :    ^^
+ 92 | =======
+ 93 |             <Link className="icon-button" href="/cart" aria-label="Your bag">
+ 93 |               <ShoppingBag size={22} strokeWidth={1.5} />
+    `----
+  x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:91:1]
+ 88 |               <UserRound size={22} strokeWidth={1.5} />
+ 89 |               <span className="header-action-label">Account</span>
+ 90 |             </Link>
+ 91 | <<<<<<< HEAD
+    :      ^^
+ 92 | =======
+ 93 |             <Link className="icon-button" href="/cart" aria-label="Your bag">
+ 93 |               <ShoppingBag size={22} strokeWidth={1.5} />
+    `----
+
+
+Caused by:
+    Syntax Error
+[browser] ./components/site/header.tsx
+Error:   x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:91:1]
+ 88 |               <UserRound size={22} strokeWidth={1.5} />
+ 89 |               <span className="header-action-label">Account</span>
+ 90 |             </Link>
+ 91 | <<<<<<< HEAD
+    :  ^^
+ 92 | =======
+ 93 |             <Link className="icon-button" href="/cart" aria-label="Your bag">
+ 93 |               <ShoppingBag size={22} strokeWidth={1.5} />
+    `----
+  x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:91:1]
+ 88 |               <UserRound size={22} strokeWidth={1.5} />
+ 89 |               <span className="header-action-label">Account</span>
+ 90 |             </Link>
+ 91 | <<<<<<< HEAD
+    :    ^^
+ 92 | =======
+ 93 |             <Link className="icon-button" href="/cart" aria-label="Your bag">
+ 93 |               <ShoppingBag size={22} strokeWidth={1.5} />
+    `----
+  x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:91:1]
+ 88 |               <UserRound size={22} strokeWidth={1.5} />
+ 89 |               <span className="header-action-label">Account</span>
+ 90 |             </Link>
+ 91 | <<<<<<< HEAD
+    :      ^^
+ 92 | =======
+ 93 |             <Link className="icon-button" href="/cart" aria-label="Your bag">
+ 93 |               <ShoppingBag size={22} strokeWidth={1.5} />
+    `----
+
+Caused by:
+    Syntax Error 
+[browser] Uncaught ModuleBuildError: Module build failed (from ./node_modules/next/dist/build/webpack/loaders/next-swc-loader.js):
+Error:   x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:91:1]
+ 88 |               <UserRound size={22} strokeWidth={1.5} />
+ 89 |               <span className="header-action-label">Account</span>
+ 90 |             </Link>
+ 91 | <<<<<<< HEAD
+    :  ^^
+ 92 | =======
+ 93 |             <Link className="icon-button" href="/cart" aria-label="Your bag">
+ 93 |               <ShoppingBag size={22} strokeWidth={1.5} />
+    `----
+  x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:91:1]
+ 88 |               <UserRound size={22} strokeWidth={1.5} />
+ 89 |               <span className="header-action-label">Account</span>
+ 90 |             </Link>
+ 91 | <<<<<<< HEAD
+    :    ^^
+ 92 | =======
+ 93 |             <Link className="icon-button" href="/cart" aria-label="Your bag">
+ 93 |               <ShoppingBag size={22} strokeWidth={1.5} />
+    `----
+  x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:91:1]
+ 88 |               <UserRound size={22} strokeWidth={1.5} />
+ 89 |               <span className="header-action-label">Account</span>
+ 90 |             </Link>
+ 91 | <<<<<<< HEAD
+    :      ^^
+ 92 | =======
+ 93 |             <Link className="icon-button" href="/cart" aria-label="Your bag">
+ 93 |               <ShoppingBag size={22} strokeWidth={1.5} />
+    `----
+
+
+Caused by:
+    Syntax Error
+[browser] ./components/site/header.tsx
+Error:   x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:91:1]
+ 88 |               <UserRound size={22} strokeWidth={1.5} />
+ 89 |               <span className="header-action-label">Account</span>
+ 90 |             </Link>
+ 91 | <<<<<<< HEAD
+    :  ^^
+ 92 | =======
+ 93 |             <Link className="icon-button" href="/cart" aria-label="Your bag">
+ 93 |               <ShoppingBag size={22} strokeWidth={1.5} />
+    `----
+  x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:91:1]
+ 88 |               <UserRound size={22} strokeWidth={1.5} />
+ 89 |               <span className="header-action-label">Account</span>
+ 90 |             </Link>
+ 91 | <<<<<<< HEAD
+    :    ^^
+ 92 | =======
+ 93 |             <Link className="icon-button" href="/cart" aria-label="Your bag">
+ 93 |               <ShoppingBag size={22} strokeWidth={1.5} />
+    `----
+  x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:91:1]
+ 88 |               <UserRound size={22} strokeWidth={1.5} />
+ 89 |               <span className="header-action-label">Account</span>
+ 90 |             </Link>
+ 91 | <<<<<<< HEAD
+    :      ^^
+ 92 | =======
+ 93 |             <Link className="icon-button" href="/cart" aria-label="Your bag">
+ 93 |               <ShoppingBag size={22} strokeWidth={1.5} />
+    `----
+
+Caused by:
+    Syntax Error 
+[browser] ./components/site/header.tsx
+Error:   x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:91:1]
+ 88 |               <UserRound size={22} strokeWidth={1.5} />
+ 89 |               <span className="header-action-label">Account</span>
+ 90 |             </Link>
+ 91 | <<<<<<< HEAD
+    :  ^^
+ 92 | =======
+ 93 |             <Link className="icon-button" href="/cart" aria-label="Your bag">
+ 93 |               <ShoppingBag size={22} strokeWidth={1.5} />
+    `----
+  x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:91:1]
+ 88 |               <UserRound size={22} strokeWidth={1.5} />
+ 89 |               <span className="header-action-label">Account</span>
+ 90 |             </Link>
+ 91 | <<<<<<< HEAD
+    :    ^^
+ 92 | =======
+ 93 |             <Link className="icon-button" href="/cart" aria-label="Your bag">
+ 93 |               <ShoppingBag size={22} strokeWidth={1.5} />
+    `----
+  x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:91:1]
+ 88 |               <UserRound size={22} strokeWidth={1.5} />
+ 89 |               <span className="header-action-label">Account</span>
+ 90 |             </Link>
+ 91 | <<<<<<< HEAD
+    :      ^^
+ 92 | =======
+ 93 |             <Link className="icon-button" href="/cart" aria-label="Your bag">
+ 93 |               <ShoppingBag size={22} strokeWidth={1.5} />
+    `----
+
+Caused by:
+    Syntax Error 
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\.next\dev\cache\webpack\client-development-fallback\0.pack.gz_' -> 'E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\.next\dev\cache\webpack\client-development-fallback\0.pack.gz'
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[browser] ./app/page.tsx
+Error:   x Merge conflict marker encountered.
+   ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:2:1]
+ 1 | import Link from "next/link";
+ 2 | <<<<<<< HEAD
+   : ^^^^^^^
+ 3 | import { existsSync } from "node:fs";
+ 4 | import path from "node:path";
+ 4 | import { getProducts } from "@/lib/commerce/catalog";
+   `----
+  x Merge conflict marker encountered.
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:9:1]
+  6 | import { ProductGrid } from "@/components/catalog/product-grid";
+  7 | import { HomeCategoryStrip } from "@/components/catalog/home-category-strip";
+  8 | import { HeroCarousel } from "@/components/site/hero-carousel";
+  9 | =======
+    : ^^^^^^^
+ 10 | import {
+ 11 |   Leaf,
+ 11 |   Flame,
+    `----
+  x Merge conflict marker encountered.
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:33:1]
+ 30 | } from "@/lib/commerce/product";
+ 31 | import { plainText } from "@/lib/wordpress/text";
+ 32 | import { getArticles } from "@/lib/wordpress/content";
+ 33 | >>>>>>> origin/main
+    : ^^^^^^^
+ 34 | import { siteUrl } from "@/lib/config/site";
+ 35 | import {
+ 35 |   HomeCampaigns,
+    `----
+  x Merge conflict marker encountered.
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:43:1]
+ 40 | } from "@/components/home/reference-widgets";
+ 41 | import "./reference-home.css";
+ 42 | export const dynamic = "force-dynamic";
+ 43 | <<<<<<< HEAD
+    : ^^^^^^^
+ 44 | export default async function Home() {
+ 45 |   const bannerArtwork = async (side: string, search: string) => {
+ 45 |     const base = "images/home/collections-banner";
+    `----
+  x Merge conflict marker encountered.
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:69:1]
+ 66 |     );
+ 67 |     return null;
+ 68 |   });
+ 69 | =======
+    : ^^^^^^^
+ 70 | const departments = [
+ 71 |   { slug: "rape", label: "Rapé", icon: Leaf },
+ 71 |   { slug: "sacred-incense", label: "Sacred Incense", icon: Flame },
+    `----
+  x Merge conflict marker encountered.
+     ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:116:1]
+ 113 |     { icon: Truck, title: "Shipping options", href: "/shipping" },
+ 114 |     { icon: UserRound, title: "Your account", href: "/account" },
+ 115 |   ];
+ 116 | >>>>>>> origin/main
+     : ^^^^^^^
+ 117 |   return (
+ 118 |     <section className="rh-guidance" aria-label="Shopping with Katukina">
+ 118 |       <div className="rh-wide rh-guidance-inner">
+     `----
+  x 'import', and 'export' cannot be used outside of module code
+     ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:142:1]
+ 139 |     </section>
+ 140 |   );
+ 141 | }
+ 142 | export default async function Home() {
+     : ^^^^^^
+ 143 |   const categories = await getCategories().catch(() => []);
+ 144 |   const available = departments.filter((item) =>
+ 144 |     categories.some((category) => category.slug === item.slug),
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/page.tsx 
+[browser] ./components/site/header.tsx
+Error:   x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:73:1]
+ 70 |             <ProductSearch inline onNavigate={() => setPanel(null)} />
+ 71 |           </div>
+ 72 |           <div className="header-actions">
+ 73 | <<<<<<< HEAD
+    :  ^^
+ 74 |             <button
+ 75 |               ref={searchButton}
+ 75 |               className="icon-button header-search-trigger"
+    `----
+  x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:73:1]
+ 70 |             <ProductSearch inline onNavigate={() => setPanel(null)} />
+ 71 |           </div>
+ 72 |           <div className="header-actions">
+ 73 | <<<<<<< HEAD
+    :    ^^
+ 74 |             <button
+ 75 |               ref={searchButton}
+ 75 |               className="icon-button header-search-trigger"
+    `----
+  x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:73:1]
+ 70 |             <ProductSearch inline onNavigate={() => setPanel(null)} />
+ 71 |           </div>
+ 72 |           <div className="header-actions">
+ 73 | <<<<<<< HEAD
+    :      ^^
+ 74 |             <button
+ 75 |               ref={searchButton}
+ 75 |               className="icon-button header-search-trigger"
+    `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./components/site/header.tsx
+./app/layout.tsx 
+[browser] ./app/page.tsx
+Error:   x Merge conflict marker encountered.
+   ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:2:1]
+ 1 | import Link from "next/link";
+ 2 | <<<<<<< HEAD
+   : ^^^^^^^
+ 3 | import { existsSync } from "node:fs";
+ 4 | import path from "node:path";
+ 4 | import { getProducts } from "@/lib/commerce/catalog";
+   `----
+  x Merge conflict marker encountered.
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:9:1]
+  6 | import { ProductGrid } from "@/components/catalog/product-grid";
+  7 | import { HomeCategoryStrip } from "@/components/catalog/home-category-strip";
+  8 | import { HeroCarousel } from "@/components/site/hero-carousel";
+  9 | =======
+    : ^^^^^^^
+ 10 | import {
+ 11 |   Leaf,
+ 11 |   Flame,
+    `----
+  x Merge conflict marker encountered.
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:33:1]
+ 30 | } from "@/lib/commerce/product";
+ 31 | import { plainText } from "@/lib/wordpress/text";
+ 32 | import { getArticles } from "@/lib/wordpress/content";
+ 33 | >>>>>>> origin/main
+    : ^^^^^^^
+ 34 | import { siteUrl } from "@/lib/config/site";
+ 35 | import {
+ 35 |   HomeCampaigns,
+    `----
+  x Merge conflict marker encountered.
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:43:1]
+ 40 | } from "@/components/home/reference-widgets";
+ 41 | import "./reference-home.css";
+ 42 | export const dynamic = "force-dynamic";
+ 43 | <<<<<<< HEAD
+    : ^^^^^^^
+ 44 | export default async function Home() {
+ 45 |   const bannerArtwork = async (side: string, search: string) => {
+ 45 |     const base = "images/home/collections-banner";
+    `----
+  x Merge conflict marker encountered.
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:69:1]
+ 66 |     );
+ 67 |     return null;
+ 68 |   });
+ 69 | =======
+    : ^^^^^^^
+ 70 | const departments = [
+ 71 |   { slug: "rape", label: "Rapé", icon: Leaf },
+ 71 |   { slug: "sacred-incense", label: "Sacred Incense", icon: Flame },
+    `----
+  x Merge conflict marker encountered.
+     ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:116:1]
+ 113 |     { icon: Truck, title: "Shipping options", href: "/shipping" },
+ 114 |     { icon: UserRound, title: "Your account", href: "/account" },
+ 115 |   ];
+ 116 | >>>>>>> origin/main
+     : ^^^^^^^
+ 117 |   return (
+ 118 |     <section className="rh-guidance" aria-label="Shopping with Katukina">
+ 118 |       <div className="rh-wide rh-guidance-inner">
+     `----
+  x 'import', and 'export' cannot be used outside of module code
+     ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:142:1]
+ 139 |     </section>
+ 140 |   );
+ 141 | }
+ 142 | export default async function Home() {
+     : ^^^^^^
+ 143 |   const categories = await getCategories().catch(() => []);
+ 144 |   const available = departments.filter((item) =>
+ 144 |     categories.some((category) => category.slug === item.slug),
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/page.tsx 
+[browser] ./components/site/header.tsx
+Error:   x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:73:1]
+ 70 |             <ProductSearch inline onNavigate={() => setPanel(null)} />
+ 71 |           </div>
+ 72 |           <div className="header-actions">
+ 73 | <<<<<<< HEAD
+    :  ^^
+ 74 |             <button
+ 75 |               ref={searchButton}
+ 75 |               className="icon-button header-search-trigger"
+    `----
+  x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:73:1]
+ 70 |             <ProductSearch inline onNavigate={() => setPanel(null)} />
+ 71 |           </div>
+ 72 |           <div className="header-actions">
+ 73 | <<<<<<< HEAD
+    :    ^^
+ 74 |             <button
+ 75 |               ref={searchButton}
+ 75 |               className="icon-button header-search-trigger"
+    `----
+  x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:73:1]
+ 70 |             <ProductSearch inline onNavigate={() => setPanel(null)} />
+ 71 |           </div>
+ 72 |           <div className="header-actions">
+ 73 | <<<<<<< HEAD
+    :      ^^
+ 74 |             <button
+ 75 |               ref={searchButton}
+ 75 |               className="icon-button header-search-trigger"
+    `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./components/site/header.tsx
+./app/layout.tsx 
+⨯ ./app/page.tsx
+Error:   x Merge conflict marker encountered.
+   ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:2:1]
+ 1 | import Link from "next/link";
+ 2 | <<<<<<< HEAD
+   : ^^^^^^^
+ 3 | import { existsSync } from "node:fs";
+ 4 | import path from "node:path";
+ 4 | import { getProducts } from "@/lib/commerce/catalog";
+   `----
+  x Merge conflict marker encountered.
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:9:1]
+  6 | import { ProductGrid } from "@/components/catalog/product-grid";
+  7 | import { HomeCategoryStrip } from "@/components/catalog/home-category-strip";
+  8 | import { HeroCarousel } from "@/components/site/hero-carousel";
+  9 | =======
+    : ^^^^^^^
+ 10 | import {
+ 11 |   Leaf,
+ 11 |   Flame,
+    `----
+  x Merge conflict marker encountered.
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:33:1]
+ 30 | } from "@/lib/commerce/product";
+ 31 | import { plainText } from "@/lib/wordpress/text";
+ 32 | import { getArticles } from "@/lib/wordpress/content";
+ 33 | >>>>>>> origin/main
+    : ^^^^^^^
+ 34 | import { siteUrl } from "@/lib/config/site";
+ 35 | import {
+ 35 |   HomeCampaigns,
+    `----
+  x Merge conflict marker encountered.
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:43:1]
+ 40 | } from "@/components/home/reference-widgets";
+ 41 | import "./reference-home.css";
+ 42 | export const dynamic = "force-dynamic";
+ 43 | <<<<<<< HEAD
+    : ^^^^^^^
+ 44 | export default async function Home() {
+ 45 |   const bannerArtwork = async (side: string, search: string) => {
+ 45 |     const base = "images/home/collections-banner";
+    `----
+  x Merge conflict marker encountered.
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:69:1]
+ 66 |     );
+ 67 |     return null;
+ 68 |   });
+ 69 | =======
+    : ^^^^^^^
+ 70 | const departments = [
+ 71 |   { slug: "rape", label: "Rapé", icon: Leaf },
+ 71 |   { slug: "sacred-incense", label: "Sacred Incense", icon: Flame },
+    `----
+  x Merge conflict marker encountered.
+     ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:116:1]
+ 113 |     { icon: Truck, title: "Shipping options", href: "/shipping" },
+ 114 |     { icon: UserRound, title: "Your account", href: "/account" },
+ 115 |   ];
+ 116 | >>>>>>> origin/main
+     : ^^^^^^^
+ 117 |   return (
+ 118 |     <section className="rh-guidance" aria-label="Shopping with Katukina">
+ 118 |       <div className="rh-wide rh-guidance-inner">
+     `----
+  x 'import', and 'export' cannot be used outside of module code
+     ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:142:1]
+ 139 |     </section>
+ 140 |   );
+ 141 | }
+ 142 | export default async function Home() {
+     : ^^^^^^
+ 143 |   const categories = await getCategories().catch(() => []);
+ 144 |   const available = departments.filter((item) =>
+ 144 |     categories.some((category) => category.slug === item.slug),
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/page.tsx
+[browser] ./app/page.tsx
+Error:   x Merge conflict marker encountered.
+   ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:2:1]
+ 1 | import Link from "next/link";
+ 2 | <<<<<<< HEAD
+   : ^^^^^^^
+ 3 | import { existsSync } from "node:fs";
+ 4 | import path from "node:path";
+ 4 | import { getProducts } from "@/lib/commerce/catalog";
+   `----
+  x Merge conflict marker encountered.
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:9:1]
+  6 | import { ProductGrid } from "@/components/catalog/product-grid";
+  7 | import { HomeCategoryStrip } from "@/components/catalog/home-category-strip";
+  8 | import { HeroCarousel } from "@/components/site/hero-carousel";
+  9 | =======
+    : ^^^^^^^
+ 10 | import {
+ 11 |   Leaf,
+ 11 |   Flame,
+    `----
+  x Merge conflict marker encountered.
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:33:1]
+ 30 | } from "@/lib/commerce/product";
+ 31 | import { plainText } from "@/lib/wordpress/text";
+ 32 | import { getArticles } from "@/lib/wordpress/content";
+ 33 | >>>>>>> origin/main
+    : ^^^^^^^
+ 34 | import { siteUrl } from "@/lib/config/site";
+ 35 | import {
+ 35 |   HomeCampaigns,
+    `----
+  x Merge conflict marker encountered.
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:43:1]
+ 40 | } from "@/components/home/reference-widgets";
+ 41 | import "./reference-home.css";
+ 42 | export const dynamic = "force-dynamic";
+ 43 | <<<<<<< HEAD
+    : ^^^^^^^
+ 44 | export default async function Home() {
+ 45 |   const bannerArtwork = async (side: string, search: string) => {
+ 45 |     const base = "images/home/collections-banner";
+    `----
+  x Merge conflict marker encountered.
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:69:1]
+ 66 |     );
+ 67 |     return null;
+ 68 |   });
+ 69 | =======
+    : ^^^^^^^
+ 70 | const departments = [
+ 71 |   { slug: "rape", label: "Rapé", icon: Leaf },
+ 71 |   { slug: "sacred-incense", label: "Sacred Incense", icon: Flame },
+    `----
+  x Merge conflict marker encountered.
+     ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:116:1]
+ 113 |     { icon: Truck, title: "Shipping options", href: "/shipping" },
+ 114 |     { icon: UserRound, title: "Your account", href: "/account" },
+ 115 |   ];
+ 116 | >>>>>>> origin/main
+     : ^^^^^^^
+ 117 |   return (
+ 118 |     <section className="rh-guidance" aria-label="Shopping with Katukina">
+ 118 |       <div className="rh-wide rh-guidance-inner">
+     `----
+  x 'import', and 'export' cannot be used outside of module code
+     ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:142:1]
+ 139 |     </section>
+ 140 |   );
+ 141 | }
+ 142 | export default async function Home() {
+     : ^^^^^^
+ 143 |   const categories = await getCategories().catch(() => []);
+ 144 |   const available = departments.filter((item) =>
+ 144 |     categories.some((category) => category.slug === item.slug),
+     `----
+
+Caused by:
+    Syntax Error 
+[browser] ./components/site/header.tsx
+Error:   x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:73:1]
+ 70 |             <ProductSearch inline onNavigate={() => setPanel(null)} />
+ 71 |           </div>
+ 72 |           <div className="header-actions">
+ 73 | <<<<<<< HEAD
+    :  ^^
+ 74 |             <button
+ 75 |               ref={searchButton}
+ 75 |               className="icon-button header-search-trigger"
+    `----
+  x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:73:1]
+ 70 |             <ProductSearch inline onNavigate={() => setPanel(null)} />
+ 71 |           </div>
+ 72 |           <div className="header-actions">
+ 73 | <<<<<<< HEAD
+    :    ^^
+ 74 |             <button
+ 75 |               ref={searchButton}
+ 75 |               className="icon-button header-search-trigger"
+    `----
+  x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:73:1]
+ 70 |             <ProductSearch inline onNavigate={() => setPanel(null)} />
+ 71 |           </div>
+ 72 |           <div className="header-actions">
+ 73 | <<<<<<< HEAD
+    :      ^^
+ 74 |             <button
+ 75 |               ref={searchButton}
+ 75 |               className="icon-button header-search-trigger"
+    `----
+
+Caused by:
+    Syntax Error 
+[browser] ./app/page.tsx
+Error:   x Merge conflict marker encountered.
+   ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:2:1]
+ 1 | import Link from "next/link";
+ 2 | <<<<<<< HEAD
+   : ^^^^^^^
+ 3 | import { existsSync } from "node:fs";
+ 4 | import path from "node:path";
+ 4 | import { getProducts } from "@/lib/commerce/catalog";
+   `----
+  x Merge conflict marker encountered.
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:9:1]
+  6 | import { ProductGrid } from "@/components/catalog/product-grid";
+  7 | import { HomeCategoryStrip } from "@/components/catalog/home-category-strip";
+  8 | import { HeroCarousel } from "@/components/site/hero-carousel";
+  9 | =======
+    : ^^^^^^^
+ 10 | import {
+ 11 |   Leaf,
+ 11 |   Flame,
+    `----
+  x Merge conflict marker encountered.
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:33:1]
+ 30 | } from "@/lib/commerce/product";
+ 31 | import { plainText } from "@/lib/wordpress/text";
+ 32 | import { getArticles } from "@/lib/wordpress/content";
+ 33 | >>>>>>> origin/main
+    : ^^^^^^^
+ 34 | import { siteUrl } from "@/lib/config/site";
+ 35 | import {
+ 35 |   HomeCampaigns,
+    `----
+  x Merge conflict marker encountered.
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:43:1]
+ 40 | } from "@/components/home/reference-widgets";
+ 41 | import "./reference-home.css";
+ 42 | export const dynamic = "force-dynamic";
+ 43 | <<<<<<< HEAD
+    : ^^^^^^^
+ 44 | export default async function Home() {
+ 45 |   const bannerArtwork = async (side: string, search: string) => {
+ 45 |     const base = "images/home/collections-banner";
+    `----
+  x Merge conflict marker encountered.
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:69:1]
+ 66 |     );
+ 67 |     return null;
+ 68 |   });
+ 69 | =======
+    : ^^^^^^^
+ 70 | const departments = [
+ 71 |   { slug: "rape", label: "Rapé", icon: Leaf },
+ 71 |   { slug: "sacred-incense", label: "Sacred Incense", icon: Flame },
+    `----
+  x Merge conflict marker encountered.
+     ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:116:1]
+ 113 |     { icon: Truck, title: "Shipping options", href: "/shipping" },
+ 114 |     { icon: UserRound, title: "Your account", href: "/account" },
+ 115 |   ];
+ 116 | >>>>>>> origin/main
+     : ^^^^^^^
+ 117 |   return (
+ 118 |     <section className="rh-guidance" aria-label="Shopping with Katukina">
+ 118 |       <div className="rh-wide rh-guidance-inner">
+     `----
+  x 'import', and 'export' cannot be used outside of module code
+     ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:142:1]
+ 139 |     </section>
+ 140 |   );
+ 141 | }
+ 142 | export default async function Home() {
+     : ^^^^^^
+ 143 |   const categories = await getCategories().catch(() => []);
+ 144 |   const available = departments.filter((item) =>
+ 144 |     categories.some((category) => category.slug === item.slug),
+     `----
+
+Caused by:
+    Syntax Error 
+[browser] ./components/site/header.tsx
+Error:   x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:73:1]
+ 70 |             <ProductSearch inline onNavigate={() => setPanel(null)} />
+ 71 |           </div>
+ 72 |           <div className="header-actions">
+ 73 | <<<<<<< HEAD
+    :  ^^
+ 74 |             <button
+ 75 |               ref={searchButton}
+ 75 |               className="icon-button header-search-trigger"
+    `----
+  x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:73:1]
+ 70 |             <ProductSearch inline onNavigate={() => setPanel(null)} />
+ 71 |           </div>
+ 72 |           <div className="header-actions">
+ 73 | <<<<<<< HEAD
+    :    ^^
+ 74 |             <button
+ 75 |               ref={searchButton}
+ 75 |               className="icon-button header-search-trigger"
+    `----
+  x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:73:1]
+ 70 |             <ProductSearch inline onNavigate={() => setPanel(null)} />
+ 71 |           </div>
+ 72 |           <div className="header-actions">
+ 73 | <<<<<<< HEAD
+    :      ^^
+ 74 |             <button
+ 75 |               ref={searchButton}
+ 75 |               className="icon-button header-search-trigger"
+    `----
+
+Caused by:
+    Syntax Error 
+[browser] Uncaught ModuleBuildError: Module build failed (from ./node_modules/next/dist/build/webpack/loaders/next-swc-loader.js):
+Error:   x Merge conflict marker encountered.
+   ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:2:1]
+ 1 | import Link from "next/link";
+ 2 | <<<<<<< HEAD
+   : ^^^^^^^
+ 3 | import { existsSync } from "node:fs";
+ 4 | import path from "node:path";
+ 4 | import { getProducts } from "@/lib/commerce/catalog";
+   `----
+  x Merge conflict marker encountered.
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:9:1]
+  6 | import { ProductGrid } from "@/components/catalog/product-grid";
+  7 | import { HomeCategoryStrip } from "@/components/catalog/home-category-strip";
+  8 | import { HeroCarousel } from "@/components/site/hero-carousel";
+  9 | =======
+    : ^^^^^^^
+ 10 | import {
+ 11 |   Leaf,
+ 11 |   Flame,
+    `----
+  x Merge conflict marker encountered.
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:33:1]
+ 30 | } from "@/lib/commerce/product";
+ 31 | import { plainText } from "@/lib/wordpress/text";
+ 32 | import { getArticles } from "@/lib/wordpress/content";
+ 33 | >>>>>>> origin/main
+    : ^^^^^^^
+ 34 | import { siteUrl } from "@/lib/config/site";
+ 35 | import {
+ 35 |   HomeCampaigns,
+    `----
+  x Merge conflict marker encountered.
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:43:1]
+ 40 | } from "@/components/home/reference-widgets";
+ 41 | import "./reference-home.css";
+ 42 | export const dynamic = "force-dynamic";
+ 43 | <<<<<<< HEAD
+    : ^^^^^^^
+ 44 | export default async function Home() {
+ 45 |   const bannerArtwork = async (side: string, search: string) => {
+ 45 |     const base = "images/home/collections-banner";
+    `----
+  x Merge conflict marker encountered.
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:69:1]
+ 66 |     );
+ 67 |     return null;
+ 68 |   });
+ 69 | =======
+    : ^^^^^^^
+ 70 | const departments = [
+ 71 |   { slug: "rape", label: "Rapé", icon: Leaf },
+ 71 |   { slug: "sacred-incense", label: "Sacred Incense", icon: Flame },
+    `----
+  x Merge conflict marker encountered.
+     ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:116:1]
+ 113 |     { icon: Truck, title: "Shipping options", href: "/shipping" },
+ 114 |     { icon: UserRound, title: "Your account", href: "/account" },
+ 115 |   ];
+ 116 | >>>>>>> origin/main
+     : ^^^^^^^
+ 117 |   return (
+ 118 |     <section className="rh-guidance" aria-label="Shopping with Katukina">
+ 118 |       <div className="rh-wide rh-guidance-inner">
+     `----
+  x 'import', and 'export' cannot be used outside of module code
+     ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:142:1]
+ 139 |     </section>
+ 140 |   );
+ 141 | }
+ 142 | export default async function Home() {
+     : ^^^^^^
+ 143 |   const categories = await getCategories().catch(() => []);
+ 144 |   const available = departments.filter((item) =>
+ 144 |     categories.some((category) => category.slug === item.slug),
+     `----
+
+
+Caused by:
+    Syntax Error
+[browser] Uncaught ModuleBuildError: Module build failed (from ./node_modules/next/dist/build/webpack/loaders/next-swc-loader.js):
+Error:   x Merge conflict marker encountered.
+   ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:2:1]
+ 1 | import Link from "next/link";
+ 2 | <<<<<<< HEAD
+   : ^^^^^^^
+ 3 | import { existsSync } from "node:fs";
+ 4 | import path from "node:path";
+ 4 | import { getProducts } from "@/lib/commerce/catalog";
+   `----
+  x Merge conflict marker encountered.
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:9:1]
+  6 | import { ProductGrid } from "@/components/catalog/product-grid";
+  7 | import { HomeCategoryStrip } from "@/components/catalog/home-category-strip";
+  8 | import { HeroCarousel } from "@/components/site/hero-carousel";
+  9 | =======
+    : ^^^^^^^
+ 10 | import {
+ 11 |   Leaf,
+ 11 |   Flame,
+    `----
+  x Merge conflict marker encountered.
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:33:1]
+ 30 | } from "@/lib/commerce/product";
+ 31 | import { plainText } from "@/lib/wordpress/text";
+ 32 | import { getArticles } from "@/lib/wordpress/content";
+ 33 | >>>>>>> origin/main
+    : ^^^^^^^
+ 34 | import { siteUrl } from "@/lib/config/site";
+ 35 | import {
+ 35 |   HomeCampaigns,
+    `----
+  x Merge conflict marker encountered.
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:43:1]
+ 40 | } from "@/components/home/reference-widgets";
+ 41 | import "./reference-home.css";
+ 42 | export const dynamic = "force-dynamic";
+ 43 | <<<<<<< HEAD
+    : ^^^^^^^
+ 44 | export default async function Home() {
+ 45 |   const bannerArtwork = async (side: string, search: string) => {
+ 45 |     const base = "images/home/collections-banner";
+    `----
+  x Merge conflict marker encountered.
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:69:1]
+ 66 |     );
+ 67 |     return null;
+ 68 |   });
+ 69 | =======
+    : ^^^^^^^
+ 70 | const departments = [
+ 71 |   { slug: "rape", label: "Rapé", icon: Leaf },
+ 71 |   { slug: "sacred-incense", label: "Sacred Incense", icon: Flame },
+    `----
+  x Merge conflict marker encountered.
+     ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:116:1]
+ 113 |     { icon: Truck, title: "Shipping options", href: "/shipping" },
+ 114 |     { icon: UserRound, title: "Your account", href: "/account" },
+ 115 |   ];
+ 116 | >>>>>>> origin/main
+     : ^^^^^^^
+ 117 |   return (
+ 118 |     <section className="rh-guidance" aria-label="Shopping with Katukina">
+ 118 |       <div className="rh-wide rh-guidance-inner">
+     `----
+  x 'import', and 'export' cannot be used outside of module code
+     ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:142:1]
+ 139 |     </section>
+ 140 |   );
+ 141 | }
+ 142 | export default async function Home() {
+     : ^^^^^^
+ 143 |   const categories = await getCategories().catch(() => []);
+ 144 |   const available = departments.filter((item) =>
+ 144 |     categories.some((category) => category.slug === item.slug),
+     `----
+
+
+Caused by:
+    Syntax Error
+[browser] ./app/page.tsx
+Error:   x Merge conflict marker encountered.
+   ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:2:1]
+ 1 | import Link from "next/link";
+ 2 | <<<<<<< HEAD
+   : ^^^^^^^
+ 3 | import { existsSync } from "node:fs";
+ 4 | import path from "node:path";
+ 4 | import { getProducts } from "@/lib/commerce/catalog";
+   `----
+  x Merge conflict marker encountered.
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:9:1]
+  6 | import { ProductGrid } from "@/components/catalog/product-grid";
+  7 | import { HomeCategoryStrip } from "@/components/catalog/home-category-strip";
+  8 | import { HeroCarousel } from "@/components/site/hero-carousel";
+  9 | =======
+    : ^^^^^^^
+ 10 | import {
+ 11 |   Leaf,
+ 11 |   Flame,
+    `----
+  x Merge conflict marker encountered.
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:33:1]
+ 30 | } from "@/lib/commerce/product";
+ 31 | import { plainText } from "@/lib/wordpress/text";
+ 32 | import { getArticles } from "@/lib/wordpress/content";
+ 33 | >>>>>>> origin/main
+    : ^^^^^^^
+ 34 | import { siteUrl } from "@/lib/config/site";
+ 35 | import {
+ 35 |   HomeCampaigns,
+    `----
+  x Merge conflict marker encountered.
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:43:1]
+ 40 | } from "@/components/home/reference-widgets";
+ 41 | import "./reference-home.css";
+ 42 | export const dynamic = "force-dynamic";
+ 43 | <<<<<<< HEAD
+    : ^^^^^^^
+ 44 | export default async function Home() {
+ 45 |   const bannerArtwork = async (side: string, search: string) => {
+ 45 |     const base = "images/home/collections-banner";
+    `----
+  x Merge conflict marker encountered.
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:69:1]
+ 66 |     );
+ 67 |     return null;
+ 68 |   });
+ 69 | =======
+    : ^^^^^^^
+ 70 | const departments = [
+ 71 |   { slug: "rape", label: "Rapé", icon: Leaf },
+ 71 |   { slug: "sacred-incense", label: "Sacred Incense", icon: Flame },
+    `----
+  x Merge conflict marker encountered.
+     ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:116:1]
+ 113 |     { icon: Truck, title: "Shipping options", href: "/shipping" },
+ 114 |     { icon: UserRound, title: "Your account", href: "/account" },
+ 115 |   ];
+ 116 | >>>>>>> origin/main
+     : ^^^^^^^
+ 117 |   return (
+ 118 |     <section className="rh-guidance" aria-label="Shopping with Katukina">
+ 118 |       <div className="rh-wide rh-guidance-inner">
+     `----
+  x 'import', and 'export' cannot be used outside of module code
+     ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:142:1]
+ 139 |     </section>
+ 140 |   );
+ 141 | }
+ 142 | export default async function Home() {
+     : ^^^^^^
+ 143 |   const categories = await getCategories().catch(() => []);
+ 144 |   const available = departments.filter((item) =>
+ 144 |     categories.some((category) => category.slug === item.slug),
+     `----
+
+Caused by:
+    Syntax Error 
+[browser] ./components/site/header.tsx
+Error:   x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:73:1]
+ 70 |             <ProductSearch inline onNavigate={() => setPanel(null)} />
+ 71 |           </div>
+ 72 |           <div className="header-actions">
+ 73 | <<<<<<< HEAD
+    :  ^^
+ 74 |             <button
+ 75 |               ref={searchButton}
+ 75 |               className="icon-button header-search-trigger"
+    `----
+  x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:73:1]
+ 70 |             <ProductSearch inline onNavigate={() => setPanel(null)} />
+ 71 |           </div>
+ 72 |           <div className="header-actions">
+ 73 | <<<<<<< HEAD
+    :    ^^
+ 74 |             <button
+ 75 |               ref={searchButton}
+ 75 |               className="icon-button header-search-trigger"
+    `----
+  x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:73:1]
+ 70 |             <ProductSearch inline onNavigate={() => setPanel(null)} />
+ 71 |           </div>
+ 72 |           <div className="header-actions">
+ 73 | <<<<<<< HEAD
+    :      ^^
+ 74 |             <button
+ 75 |               ref={searchButton}
+ 75 |               className="icon-button header-search-trigger"
+    `----
+
+Caused by:
+    Syntax Error 
+[browser] Uncaught ModuleBuildError: Module build failed (from ./node_modules/next/dist/build/webpack/loaders/next-swc-loader.js):
+Error:   x Merge conflict marker encountered.
+   ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:2:1]
+ 1 | import Link from "next/link";
+ 2 | <<<<<<< HEAD
+   : ^^^^^^^
+ 3 | import { existsSync } from "node:fs";
+ 4 | import path from "node:path";
+ 4 | import { getProducts } from "@/lib/commerce/catalog";
+   `----
+  x Merge conflict marker encountered.
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:9:1]
+  6 | import { ProductGrid } from "@/components/catalog/product-grid";
+  7 | import { HomeCategoryStrip } from "@/components/catalog/home-category-strip";
+  8 | import { HeroCarousel } from "@/components/site/hero-carousel";
+  9 | =======
+    : ^^^^^^^
+ 10 | import {
+ 11 |   Leaf,
+ 11 |   Flame,
+    `----
+  x Merge conflict marker encountered.
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:33:1]
+ 30 | } from "@/lib/commerce/product";
+ 31 | import { plainText } from "@/lib/wordpress/text";
+ 32 | import { getArticles } from "@/lib/wordpress/content";
+ 33 | >>>>>>> origin/main
+    : ^^^^^^^
+ 34 | import { siteUrl } from "@/lib/config/site";
+ 35 | import {
+ 35 |   HomeCampaigns,
+    `----
+  x Merge conflict marker encountered.
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:43:1]
+ 40 | } from "@/components/home/reference-widgets";
+ 41 | import "./reference-home.css";
+ 42 | export const dynamic = "force-dynamic";
+ 43 | <<<<<<< HEAD
+    : ^^^^^^^
+ 44 | export default async function Home() {
+ 45 |   const bannerArtwork = async (side: string, search: string) => {
+ 45 |     const base = "images/home/collections-banner";
+    `----
+  x Merge conflict marker encountered.
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:69:1]
+ 66 |     );
+ 67 |     return null;
+ 68 |   });
+ 69 | =======
+    : ^^^^^^^
+ 70 | const departments = [
+ 71 |   { slug: "rape", label: "Rapé", icon: Leaf },
+ 71 |   { slug: "sacred-incense", label: "Sacred Incense", icon: Flame },
+    `----
+  x Merge conflict marker encountered.
+     ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:116:1]
+ 113 |     { icon: Truck, title: "Shipping options", href: "/shipping" },
+ 114 |     { icon: UserRound, title: "Your account", href: "/account" },
+ 115 |   ];
+ 116 | >>>>>>> origin/main
+     : ^^^^^^^
+ 117 |   return (
+ 118 |     <section className="rh-guidance" aria-label="Shopping with Katukina">
+ 118 |       <div className="rh-wide rh-guidance-inner">
+     `----
+  x 'import', and 'export' cannot be used outside of module code
+     ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:142:1]
+ 139 |     </section>
+ 140 |   );
+ 141 | }
+ 142 | export default async function Home() {
+     : ^^^^^^
+ 143 |   const categories = await getCategories().catch(() => []);
+ 144 |   const available = departments.filter((item) =>
+ 144 |     categories.some((category) => category.slug === item.slug),
+     `----
+
+
+Caused by:
+    Syntax Error
+[browser] ./app/page.tsx
+Error:   x Merge conflict marker encountered.
+   ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:2:1]
+ 1 | import Link from "next/link";
+ 2 | <<<<<<< HEAD
+   : ^^^^^^^
+ 3 | import { existsSync } from "node:fs";
+ 4 | import path from "node:path";
+ 4 | import { getProducts } from "@/lib/commerce/catalog";
+   `----
+  x Merge conflict marker encountered.
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:9:1]
+  6 | import { ProductGrid } from "@/components/catalog/product-grid";
+  7 | import { HomeCategoryStrip } from "@/components/catalog/home-category-strip";
+  8 | import { HeroCarousel } from "@/components/site/hero-carousel";
+  9 | =======
+    : ^^^^^^^
+ 10 | import {
+ 11 |   Leaf,
+ 11 |   Flame,
+    `----
+  x Merge conflict marker encountered.
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:33:1]
+ 30 | } from "@/lib/commerce/product";
+ 31 | import { plainText } from "@/lib/wordpress/text";
+ 32 | import { getArticles } from "@/lib/wordpress/content";
+ 33 | >>>>>>> origin/main
+    : ^^^^^^^
+ 34 | import { siteUrl } from "@/lib/config/site";
+ 35 | import {
+ 35 |   HomeCampaigns,
+    `----
+  x Merge conflict marker encountered.
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:43:1]
+ 40 | } from "@/components/home/reference-widgets";
+ 41 | import "./reference-home.css";
+ 42 | export const dynamic = "force-dynamic";
+ 43 | <<<<<<< HEAD
+    : ^^^^^^^
+ 44 | export default async function Home() {
+ 45 |   const bannerArtwork = async (side: string, search: string) => {
+ 45 |     const base = "images/home/collections-banner";
+    `----
+  x Merge conflict marker encountered.
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:69:1]
+ 66 |     );
+ 67 |     return null;
+ 68 |   });
+ 69 | =======
+    : ^^^^^^^
+ 70 | const departments = [
+ 71 |   { slug: "rape", label: "Rapé", icon: Leaf },
+ 71 |   { slug: "sacred-incense", label: "Sacred Incense", icon: Flame },
+    `----
+  x Merge conflict marker encountered.
+     ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:116:1]
+ 113 |     { icon: Truck, title: "Shipping options", href: "/shipping" },
+ 114 |     { icon: UserRound, title: "Your account", href: "/account" },
+ 115 |   ];
+ 116 | >>>>>>> origin/main
+     : ^^^^^^^
+ 117 |   return (
+ 118 |     <section className="rh-guidance" aria-label="Shopping with Katukina">
+ 118 |       <div className="rh-wide rh-guidance-inner">
+     `----
+  x 'import', and 'export' cannot be used outside of module code
+     ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\app\page.tsx:142:1]
+ 139 |     </section>
+ 140 |   );
+ 141 | }
+ 142 | export default async function Home() {
+     : ^^^^^^
+ 143 |   const categories = await getCategories().catch(() => []);
+ 144 |   const available = departments.filter((item) =>
+ 144 |     categories.some((category) => category.slug === item.slug),
+     `----
+
+Caused by:
+    Syntax Error 
+[browser] ./components/site/header.tsx
+Error:   x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:73:1]
+ 70 |             <ProductSearch inline onNavigate={() => setPanel(null)} />
+ 71 |           </div>
+ 72 |           <div className="header-actions">
+ 73 | <<<<<<< HEAD
+    :  ^^
+ 74 |             <button
+ 75 |               ref={searchButton}
+ 75 |               className="icon-button header-search-trigger"
+    `----
+  x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:73:1]
+ 70 |             <ProductSearch inline onNavigate={() => setPanel(null)} />
+ 71 |           </div>
+ 72 |           <div className="header-actions">
+ 73 | <<<<<<< HEAD
+    :    ^^
+ 74 |             <button
+ 75 |               ref={searchButton}
+ 75 |               className="icon-button header-search-trigger"
+    `----
+  x Expression expected
+    ,-[E:\BRAIN\002 - Gravina Design Studio\06 CLIENTES PROJETOS\06.01 Pagnier Projetos\Katukina.com\website-katukina-2027\components\site\header.tsx:73:1]
+ 70 |             <ProductSearch inline onNavigate={() => setPanel(null)} />
+ 71 |           </div>
+ 72 |           <div className="header-actions">
+ 73 | <<<<<<< HEAD
+    :      ^^
+ 74 |             <button
+ 75 |               ref={searchButton}
+ 75 |               className="icon-button header-search-trigger"
+    `----
+
+Caused by:
+    Syntax Error 
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <DevRootHTTPAccessFallbackBoundary>
+      <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+        <HTTPAccessFallbackErrorBoundary pathname="/shop" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+          <RedirectBoundary>
+            <RedirectErrorBoundary router={{...}}>
+              <Head>
+              <__next_root_layout_boundary__>
+                <SegmentViewNode type="layout" pagePath="layout.tsx">
+                  <SegmentTrieNode>
+                  <link>
+                  <RootLayout>
+                    <html lang="en-GB" data-scroll-behavior="smooth" className="__variable...">
+                      <body>
+                        <CookieConsentProvider>
+                          ...
+                            <ProductSearch inline={true} onNavigate={function onNavigate}>
+                              <div className="live-searc..." onFocus={function onFocus} onBlur={function onBlur} ...>
+                                <form className="search" action="/shop" role="search">
+                                  <Search>
+                                  <input
+                                    autoFocus={false}
+                                    name="q"
+                                    value=""
+                                    maxLength={100}
+                                    autoComplete="off"
+                                    role="combobox"
+                                    aria-label="Search the collection"
+                                    aria-autocomplete="list"
+                                    aria-expanded={false}
+                                    aria-controls="_R_4b9lb_-results"
+                                    aria-activedescendant={undefined}
+                                    aria-describedby="_R_4b9lb_-status"
+                                    placeholder="Search products"
+                                    onChange={function onChange}
+                                    onKeyDown={function onKeyDown}
+-                                   style={{caret-color:"transparent"}}
+                                  >
+                                  ...
+                                ...
+                          ...
+                            <CatalogFilters path="/shop" query={{q:"",category:"", ...}} categories={[...]} ...>
+                              <aside className="catalog-si...">
+                                <FilterForm path="/shop" query={{q:"",category:"", ...}} categories={[...]} ...>
+                                  <CategoryLinks>
+                                  <form action="/shop" method="get" className="catalog-fi...">
+                                    <input
+                                      type="hidden"
+                                      name="sort"
+                                      value="name-asc"
+-                                     style={{caret-color:"transparent"}}
+                                    >
+                                    <input
+                                      type="hidden"
+                                      name="per_page"
+                                      value={12}
+-                                     style={{caret-color:"transparent"}}
+                                    >
+                                    <input
+                                      type="hidden"
+                                      name="category"
+                                      value=""
+-                                     style={{caret-color:"transparent"}}
+                                    >
+                                    <label>
+                                    <div className="catalog-se...">
+                                      <button>
+                                      <input
+                                        id="_R_lpbn5rhlb_-search"
+                                        name="q"
+                                        defaultValue=""
+                                        maxLength={100}
+                                        placeholder="Find a product"
+-                                       style={{caret-color:"transparent"}}
+                                      >
+                              <button>
+                              <dialog className="filter-dialog" ref={{current:null}} aria-label="Filter pro...">
+                                <div>
+                                <FilterForm path="/shop" query={{q:"",category:"", ...}} categories={[...]} ...>
+                                  <CategoryLinks>
+                                  <form action="/shop" method="get" className="catalog-fi...">
+                                    <input
+                                      type="hidden"
+                                      name="sort"
+                                      value="name-asc"
+-                                     style={{caret-color:"transparent"}}
+                                    >
+                                    <input
+                                      type="hidden"
+                                      name="per_page"
+                                      value={12}
+-                                     style={{caret-color:"transparent"}}
+                                    >
+                                    <input
+                                      type="hidden"
+                                      name="category"
+                                      value=""
+-                                     style={{caret-color:"transparent"}}
+                                    >
+                                    <label>
+                                    <div className="catalog-se...">
+                                      <button>
+                                      <input
+                                        id="_R_5lpbn5rhlb_-search"
+                                        name="q"
+                                        defaultValue=""
+                                        maxLength={100}
+                                        placeholder="Find a product"
+-                                       style={{caret-color:"transparent"}}
+                                      >
+                          ...
+                          <div>
+                          <dialog className="cookie-dialog" ref={{current:null}} aria-labelledby="cookie-dia..." ...>
+                            <button>
+                            <h2>
+                            <p>
+                            <section>
+                            <section>
+                              <label className="cookie-toggle">
+                                <input
+                                  type="checkbox"
+                                  checked={false}
+                                  onChange={function onChange}
+-                                 style={{caret-color:"transparent"}}
+                                >
+                                ...
+                              ...
+                            ...
+              ...
+ 
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <DevRootHTTPAccessFallbackBoundary>
+      <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+        <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} forbidden={undefined} ...>
+          <RedirectBoundary>
+            <RedirectErrorBoundary router={{...}}>
+              <Head>
+              <__next_root_layout_boundary__>
+                <SegmentViewNode type="layout" pagePath="layout.tsx">
+                  <SegmentTrieNode>
+                  <link>
+                  <RootLayout>
+                    <html lang="en-GB" data-scroll-behavior="smooth" className="__variable...">
+                      <body>
+                        <CookieConsentProvider>
+                          <SiteHeader>
+                          <OuterLayoutRouter>
+                          <footer>
+                          <div>
+                          <dialog className="cookie-dialog" ref={{current:null}} aria-labelledby="cookie-dia..." ...>
+                            <button>
+                            <h2>
+                            <p>
+                            <section>
+                            <section>
+                              <label className="cookie-toggle">
+                                <input
+                                  type="checkbox"
+                                  checked={false}
+                                  onChange={function onChange}
+-                                 style={{caret-color:"transparent"}}
+                                >
+                                ...
+                              ...
+                            ...
+              ...
+ 
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <DevRootHTTPAccessFallbackBoundary>
+      <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+        <HTTPAccessFallbackErrorBoundary pathname="/shop" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+          <RedirectBoundary>
+            <RedirectErrorBoundary router={{...}}>
+              <Head>
+              <__next_root_layout_boundary__>
+                <SegmentViewNode type="layout" pagePath="layout.tsx">
+                  <SegmentTrieNode>
+                  <link>
+                  <RootLayout>
+                    <html lang="en-GB" data-scroll-behavior="smooth" className="__variable...">
+                      <body>
+                        <CookieConsentProvider>
+                          ...
+                            <ProductSearch inline={true} onNavigate={function onNavigate}>
+                              <div className="live-searc..." onFocus={function onFocus} onBlur={function onBlur} ...>
+                                <form className="search" action="/shop" role="search">
+                                  <Search>
+                                  <input
+                                    autoFocus={false}
+                                    name="q"
+                                    value=""
+                                    maxLength={100}
+                                    autoComplete="off"
+                                    role="combobox"
+                                    aria-label="Search the collection"
+                                    aria-autocomplete="list"
+                                    aria-expanded={false}
+                                    aria-controls="_R_4b9lb_-results"
+                                    aria-activedescendant={undefined}
+                                    aria-describedby="_R_4b9lb_-status"
+                                    placeholder="Search products"
+                                    onChange={function onChange}
+                                    onKeyDown={function onKeyDown}
+-                                   style={{caret-color:"transparent"}}
+                                  >
+                                  ...
+                                ...
+                          ...
+                            <CatalogFilters path="/shop" query={{q:"",category:"", ...}} categories={[...]} ...>
+                              <aside className="catalog-si...">
+                                <FilterForm path="/shop" query={{q:"",category:"", ...}} categories={[...]} ...>
+                                  <CategoryLinks>
+                                  <form action="/shop" method="get" className="catalog-fi...">
+                                    <input
+                                      type="hidden"
+                                      name="sort"
+                                      value="name-asc"
+-                                     style={{caret-color:"transparent"}}
+                                    >
+                                    <input
+                                      type="hidden"
+                                      name="per_page"
+                                      value={12}
+-                                     style={{caret-color:"transparent"}}
+                                    >
+                                    <input
+                                      type="hidden"
+                                      name="category"
+                                      value=""
+-                                     style={{caret-color:"transparent"}}
+                                    >
+                                    <label>
+                                    <div className="catalog-se...">
+                                      <button>
+                                      <input
+                                        id="_R_lpbn5rhlb_-search"
+                                        name="q"
+                                        defaultValue=""
+                                        maxLength={100}
+                                        placeholder="Find a product"
+-                                       style={{caret-color:"transparent"}}
+                                      >
+                              <button>
+                              <dialog className="filter-dialog" ref={{current:null}} aria-label="Filter pro...">
+                                <div>
+                                <FilterForm path="/shop" query={{q:"",category:"", ...}} categories={[...]} ...>
+                                  <CategoryLinks>
+                                  <form action="/shop" method="get" className="catalog-fi...">
+                                    <input
+                                      type="hidden"
+                                      name="sort"
+                                      value="name-asc"
+-                                     style={{caret-color:"transparent"}}
+                                    >
+                                    <input
+                                      type="hidden"
+                                      name="per_page"
+                                      value={12}
+-                                     style={{caret-color:"transparent"}}
+                                    >
+                                    <input
+                                      type="hidden"
+                                      name="category"
+                                      value=""
+-                                     style={{caret-color:"transparent"}}
+                                    >
+                                    <label>
+                                    <div className="catalog-se...">
+                                      <button>
+                                      <input
+                                        id="_R_5lpbn5rhlb_-search"
+                                        name="q"
+                                        defaultValue=""
+                                        maxLength={100}
+                                        placeholder="Find a product"
+-                                       style={{caret-color:"transparent"}}
+                                      >
+                          ...
+                          <div>
+                          <dialog className="cookie-dialog" ref={{current:null}} aria-labelledby="cookie-dia..." ...>
+                            <button>
+                            <h2>
+                            <p>
+                            <section>
+                            <section>
+                              <label className="cookie-toggle">
+                                <input
+                                  type="checkbox"
+                                  checked={false}
+                                  onChange={function onChange}
+-                                 style={{caret-color:"transparent"}}
+                                >
+                                ...
+                              ...
+                            ...
+              ...
+ 
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <DevRootHTTPAccessFallbackBoundary>
+      <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+        <HTTPAccessFallbackErrorBoundary pathname="/collections" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+          <RedirectBoundary>
+            <RedirectErrorBoundary router={{...}}>
+              <Head>
+              <__next_root_layout_boundary__>
+                <SegmentViewNode type="layout" pagePath="layout.tsx">
+                  <SegmentTrieNode>
+                  <link>
+                  <RootLayout>
+                    <html lang="en-GB" data-scroll-behavior="smooth" className="__variable...">
+                      <body>
+                        <CookieConsentProvider>
+                          <SiteHeader>
+                          <OuterLayoutRouter>
+                          <footer>
+                          <div>
+                          <dialog className="cookie-dialog" ref={{current:null}} aria-labelledby="cookie-dia..." ...>
+                            <button>
+                            <h2>
+                            <p>
+                            <section>
+                            <section>
+                              <label className="cookie-toggle">
+                                <input
+                                  type="checkbox"
+                                  checked={false}
+                                  onChange={function onChange}
+-                                 style={{caret-color:"transparent"}}
+                                >
+                                ...
+                              ...
+                            ...
+              ...
+ 
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <DevRootHTTPAccessFallbackBoundary>
+      <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+        <HTTPAccessFallbackErrorBoundary pathname="/collectio..." notFound={<NotAllowedRootHTTPFallbackError>} ...>
+          <RedirectBoundary>
+            <RedirectErrorBoundary router={{...}}>
+              <Head>
+              <__next_root_layout_boundary__>
+                <SegmentViewNode type="layout" pagePath="layout.tsx">
+                  <SegmentTrieNode>
+                  <link>
+                  <RootLayout>
+                    <html lang="en-GB" data-scroll-behavior="smooth" className="__variable...">
+                      <body>
+                        <CookieConsentProvider>
+                          <SiteHeader>
+                          <OuterLayoutRouter>
+                          <footer>
+                          <div>
+                          <dialog className="cookie-dialog" ref={{current:null}} aria-labelledby="cookie-dia..." ...>
+                            <button>
+                            <h2>
+                            <p>
+                            <section>
+                            <section>
+                              <label className="cookie-toggle">
+                                <input
+                                  type="checkbox"
+                                  checked={false}
+                                  onChange={function onChange}
+-                                 style={{caret-color:"transparent"}}
+                                >
+                                ...
+                              ...
+                            ...
+              ...
+ 
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <DevRootHTTPAccessFallbackBoundary>
+      <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+        <HTTPAccessFallbackErrorBoundary pathname="/about" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+          <RedirectBoundary>
+            <RedirectErrorBoundary router={{...}}>
+              <Head>
+              <__next_root_layout_boundary__>
+                <SegmentViewNode type="layout" pagePath="layout.tsx">
+                  <SegmentTrieNode>
+                  <link>
+                  <RootLayout>
+                    <html lang="en-GB" data-scroll-behavior="smooth" className="__variable...">
+                      <body>
+                        <CookieConsentProvider>
+                          <SiteHeader>
+                          <OuterLayoutRouter>
+                          <footer>
+                          <div>
+                          <dialog className="cookie-dialog" ref={{current:null}} aria-labelledby="cookie-dia..." ...>
+                            <button>
+                            <h2>
+                            <p>
+                            <section>
+                            <section>
+                              <label className="cookie-toggle">
+                                <input
+                                  type="checkbox"
+                                  checked={false}
+                                  onChange={function onChange}
+-                                 style={{caret-color:"transparent"}}
+                                >
+                                ...
+                              ...
+                            ...
+              ...
+ 
+⨯ TypeError: __webpack_modules__[moduleId] is not a function
+    at ignore-listed frames {
+  digest: '860779530'
+}
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <DevRootHTTPAccessFallbackBoundary>
+      <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+        <HTTPAccessFallbackErrorBoundary pathname="/journal" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+          <RedirectBoundary>
+            <RedirectErrorBoundary router={{...}}>
+              <Head>
+              <__next_root_layout_boundary__>
+                <SegmentViewNode type="layout" pagePath="layout.tsx">
+                  <SegmentTrieNode>
+                  <link>
+                  <RootLayout>
+                    <html lang="en-GB" data-scroll-behavior="smooth" className="__variable...">
+                      <body>
+                        <CookieConsentProvider>
+                          <SiteHeader>
+                          <OuterLayoutRouter>
+                          <footer>
+                          <div>
+                          <dialog className="cookie-dialog" ref={{current:null}} aria-labelledby="cookie-dia..." ...>
+                            <button>
+                            <h2>
+                            <p>
+                            <section>
+                            <section>
+                              <label className="cookie-toggle">
+                                <input
+                                  type="checkbox"
+                                  checked={false}
+                                  onChange={function onChange}
+-                                 style={{caret-color:"transparent"}}
+                                >
+                                ...
+                              ...
+                            ...
+              ...
+ 
+⨯ TypeError: __webpack_modules__[moduleId] is not a function
+    at ignore-listed frames {
+  digest: '860779530'
+}
+⨯ TypeError: __webpack_modules__[moduleId] is not a function
+    at ignore-listed frames {
+  digest: '860779530'
+}
+⨯ TypeError: __webpack_modules__[moduleId] is not a function
+    at ignore-listed frames {
+  digest: '860779530'
+}
+⨯ TypeError: __webpack_modules__[moduleId] is not a function
+    at ignore-listed frames {
+  digest: '860779530'
+}
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <DevRootHTTPAccessFallbackBoundary>
+      <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+        <HTTPAccessFallbackErrorBoundary pathname="/privacy" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+          <RedirectBoundary>
+            <RedirectErrorBoundary router={{...}}>
+              <Head>
+              <__next_root_layout_boundary__>
+                <SegmentViewNode type="layout" pagePath="layout.tsx">
+                  <SegmentTrieNode>
+                  <link>
+                  <RootLayout>
+                    <html lang="en-GB" data-scroll-behavior="smooth" className="__variable...">
+                      <body>
+                        <CookieConsentProvider>
+                          <SiteHeader>
+                          <OuterLayoutRouter>
+                          <footer>
+                          <div>
+                          <dialog className="cookie-dialog" ref={{current:null}} aria-labelledby="cookie-dia..." ...>
+                            <button>
+                            <h2>
+                            <p>
+                            <section>
+                            <section>
+                              <label className="cookie-toggle">
+                                <input
+                                  type="checkbox"
+                                  checked={false}
+                                  onChange={function onChange}
+-                                 style={{caret-color:"transparent"}}
+                                >
+                                ...
+                              ...
+                            ...
+              ...
+ 
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <DevRootHTTPAccessFallbackBoundary>
+      <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+        <HTTPAccessFallbackErrorBoundary pathname="/cookies" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+          <RedirectBoundary>
+            <RedirectErrorBoundary router={{...}}>
+              <Head>
+              <__next_root_layout_boundary__>
+                <SegmentViewNode type="layout" pagePath="layout.tsx">
+                  <SegmentTrieNode>
+                  <link>
+                  <RootLayout>
+                    <html lang="en-GB" data-scroll-behavior="smooth" className="__variable...">
+                      <body>
+                        <CookieConsentProvider>
+                          ...
+                            <ProductSearch inline={true} onNavigate={function onNavigate}>
+                              <div className="live-searc..." onFocus={function onFocus} onBlur={function onBlur} ...>
+                                <form className="search" action="/shop" role="search">
+                                  <Search>
+                                  <input
+                                    autoFocus={false}
+                                    name="q"
+                                    value=""
+                                    maxLength={100}
+                                    autoComplete="off"
+                                    role="combobox"
+                                    aria-label="Search the collection"
+                                    aria-autocomplete="list"
+                                    aria-expanded={false}
+                                    aria-controls="_R_4b9lb_-results"
+                                    aria-activedescendant={undefined}
+                                    aria-describedby="_R_4b9lb_-status"
+                                    placeholder="Search products"
+                                    onChange={function onChange}
+                                    onKeyDown={function onKeyDown}
+-                                   style={{caret-color:"transparent"}}
+                                  >
+                                  ...
+                                ...
+                          <div>
+                          <dialog className="cookie-dialog" ref={{current:null}} aria-labelledby="cookie-dia..." ...>
+                            <button>
+                            <h2>
+                            <p>
+                            <section>
+                            <section>
+                              <label className="cookie-toggle">
+                                <input
+                                  type="checkbox"
+                                  checked={false}
+                                  onChange={function onChange}
+-                                 style={{caret-color:"transparent"}}
+                                >
+                                ...
+                              ...
+                            ...
+              ...
+ 
+⨯ TypeError: __webpack_modules__[moduleId] is not a function
+    at ignore-listed frames {
+  digest: '860779530'
+}
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <DevRootHTTPAccessFallbackBoundary>
+      <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+        <HTTPAccessFallbackErrorBoundary pathname="/cart" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+          <RedirectBoundary>
+            <RedirectErrorBoundary router={{...}}>
+              <Head>
+              <__next_root_layout_boundary__>
+                <SegmentViewNode type="layout" pagePath="layout.tsx">
+                  <SegmentTrieNode>
+                  <link>
+                  <RootLayout>
+                    <html lang="en-GB" data-scroll-behavior="smooth" className="__variable...">
+                      <body>
+                        <CookieConsentProvider>
+                          ...
+                            <ProductSearch inline={true} onNavigate={function onNavigate}>
+                              <div className="live-searc..." onFocus={function onFocus} onBlur={function onBlur} ...>
+                                <form className="search" action="/shop" role="search">
+                                  <Search>
+                                  <input
+                                    autoFocus={false}
+                                    name="q"
+                                    value=""
+                                    maxLength={100}
+                                    autoComplete="off"
+                                    role="combobox"
+                                    aria-label="Search the collection"
+                                    aria-autocomplete="list"
+                                    aria-expanded={false}
+                                    aria-controls="_R_4b9lb_-results"
+                                    aria-activedescendant={undefined}
+                                    aria-describedby="_R_4b9lb_-status"
+                                    placeholder="Search products"
+                                    onChange={function onChange}
+                                    onKeyDown={function onKeyDown}
+-                                   style={{caret-color:"transparent"}}
+                                  >
+                                  ...
+                                ...
+                          <div>
+                          <dialog className="cookie-dialog" ref={{current:null}} aria-labelledby="cookie-dia..." ...>
+                            <button>
+                            <h2>
+                            <p>
+                            <section>
+                            <section>
+                              <label className="cookie-toggle">
+                                <input
+                                  type="checkbox"
+                                  checked={false}
+                                  onChange={function onChange}
+-                                 style={{caret-color:"transparent"}}
+                                >
+                                ...
+                              ...
+                            ...
+              ...
+ 
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <DevRootHTTPAccessFallbackBoundary>
+      <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+        <HTTPAccessFallbackErrorBoundary pathname="/checkout" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+          <RedirectBoundary>
+            <RedirectErrorBoundary router={{...}}>
+              <Head>
+              <__next_root_layout_boundary__>
+                <SegmentViewNode type="layout" pagePath="layout.tsx">
+                  <SegmentTrieNode>
+                  <link>
+                  <RootLayout>
+                    <html lang="en-GB" data-scroll-behavior="smooth" className="__variable...">
+                      <body>
+                        <CookieConsentProvider>
+                          ...
+                            <ProductSearch inline={true} onNavigate={function onNavigate}>
+                              <div className="live-searc..." onFocus={function onFocus} onBlur={function onBlur} ...>
+                                <form className="search" action="/shop" role="search">
+                                  <Search>
+                                  <input
+                                    autoFocus={false}
+                                    name="q"
+                                    value=""
+                                    maxLength={100}
+                                    autoComplete="off"
+                                    role="combobox"
+                                    aria-label="Search the collection"
+                                    aria-autocomplete="list"
+                                    aria-expanded={false}
+                                    aria-controls="_R_4b9lb_-results"
+                                    aria-activedescendant={undefined}
+                                    aria-describedby="_R_4b9lb_-status"
+                                    placeholder="Search products"
+                                    onChange={function onChange}
+                                    onKeyDown={function onKeyDown}
+-                                   style={{caret-color:"transparent"}}
+                                  >
+                                  ...
+                                ...
+                          <div>
+                          <dialog className="cookie-dialog" ref={{current:null}} aria-labelledby="cookie-dia..." ...>
+                            <button>
+                            <h2>
+                            <p>
+                            <section>
+                            <section>
+                              <label className="cookie-toggle">
+                                <input
+                                  type="checkbox"
+                                  checked={false}
+                                  onChange={function onChange}
+-                                 style={{caret-color:"transparent"}}
+                                >
+                                ...
+                              ...
+                            ...
+              ...
+ 
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <DevRootHTTPAccessFallbackBoundary>
+      <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+        <HTTPAccessFallbackErrorBoundary pathname="/account" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+          <RedirectBoundary>
+            <RedirectErrorBoundary router={{...}}>
+              <Head>
+              <__next_root_layout_boundary__>
+                <SegmentViewNode type="layout" pagePath="layout.tsx">
+                  <SegmentTrieNode>
+                  <link>
+                  <RootLayout>
+                    <html lang="en-GB" data-scroll-behavior="smooth" className="__variable...">
+                      <body>
+                        <CookieConsentProvider>
+                          <SiteHeader>
+                          <OuterLayoutRouter>
+                          <footer>
+                          <div>
+                          <dialog className="cookie-dialog" ref={{current:null}} aria-labelledby="cookie-dia..." ...>
+                            <button>
+                            <h2>
+                            <p>
+                            <section>
+                            <section>
+                              <label className="cookie-toggle">
+                                <input
+                                  type="checkbox"
+                                  checked={false}
+                                  onChange={function onChange}
+-                                 style={{caret-color:"transparent"}}
+                                >
+                                ...
+                              ...
+                            ...
+              ...
+ 
+⨯ TypeError: __webpack_modules__[moduleId] is not a function
+    at ignore-listed frames {
+  digest: '860779530'
+}
+⨯ TypeError: __webpack_modules__[moduleId] is not a function
+    at ignore-listed frames {
+  digest: '860779530'
+}
+⨯ TypeError: __webpack_modules__[moduleId] is not a function
+    at ignore-listed frames {
+  digest: '860779530'
+}
+⨯ TypeError: __webpack_modules__[moduleId] is not a function
+    at ignore-listed frames {
+  digest: '860779530'
+}

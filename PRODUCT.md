@@ -54,12 +54,19 @@ O frontend deve tornar compreensíveis as opções, o preço e a disponibilidade
 
 ## Brand Commitments
 
+- **Botões e CTAs confirmado em 11/11/2026:** usar o raio compartilhado de 8 px, via `--radius-control`, inclusive nos CTAs dos banners. Esta decisão substitui a regra histórica de quinas retas para botões de ação. Preservar as geometrias específicas já existentes de controles circulares, busca e header.
+
+- **Tipografia revisada em 11/11/2026:** Sora para títulos e navegação/ações principais; Source Sans 3 para leitura, dados e campos. Pesos 400/600/700, escala em rem e inventário de seletores em [TYPOGRAPHY.md](docs/katukina/TYPOGRAPHY.md). Famílias oficiais preservadas; dependências de fontes históricas removidas.
+
+
 - **CTAs confirmado em 09/11/2026:** usar CTAs sem setas. Prefer?ncia expl?cita de Danilo para os pr?ximos ajustes.
 
 - Nome do produto: Katukina. Preservar referências de marca e ativos aprovados por Danilo.
 - A referência cromática aprovada está em [PALETTE.md](docs/katukina/PALETTE.md), com o SVG original preservado. Esse documento e os estilos existentes governam as cores; este registro não os duplica.
 - **Confirmado em 09/11/2026:** verde nos textos destacados e destaques da interface; vermelho urucum exclusivo de CTAs clicáveis de ações importantes. Sua presença sinaliza uma ação prioritária. Detalhes e exceção das fotografias em `PALETTE.md`.
-- **Geometria confirmada em 09/11/2026:** toda a interface pública usa quinas retas (`border-radius: 0`), incluindo CTAs, botões, campos, cartões, imagens, selos e diálogos. Novos componentes devem seguir esse padrão. Preservar os desenhos do logotipo, ícones e fotografias originais.
+- **Cards confirmado em 11/11/2026:** raio compartilhado de 8 px (`--radius-card`) em cards de campanha, produto, categoria, conteúdo e resumo de compra, incluindo home e páginas internas. Esta decisão substitui a orientação anterior de quinas retas somente nesses cards; elementos circulares e controles mantêm a geometria existente.
+
+- **Geometria confirmada em 09/11/2026 (histórico; cards atualizados em 11/11/2026):** toda a interface pública usa quinas retas (`border-radius: 0`), incluindo CTAs, botões, campos, cartões, imagens, selos e diálogos. Novos componentes devem seguir esse padrão. Preservar os desenhos do logotipo, ícones e fotografias originais.
 - As fotos editadas fornecidas por Danilo são evidência dos produtos. Preservar a identidade de cada produto/apresentação e seus vínculos; não criar detalhes, rótulos ou acessórios fictícios para preencher lacunas.
 - Textos factuais, origem, relações com comunidades e condições comerciais devem ter fonte verificável. Não inventar depoimentos, certificações, benefícios, parcerias ou alegações de produção/homologação.
 

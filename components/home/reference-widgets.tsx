@@ -136,19 +136,22 @@ const campaigns = [
     title: "Discover your natural rhythm",
     text: "Botanicals, incense and meaningful objects",
     href: "/shop",
-    image: "/images/home/hero-01/mobile.webp",
+    cta: "Shop now",
+    image: "/images/home/banners/discover-katukina.webp",
   },
   {
     title: "Nature. Culture. Connection.",
     text: "Get to know Katukina and our story",
     href: "/about",
-    image: "/images/forest.jpg",
+    cta: "Our story",
+    image: "/images/home/banners/our-story.webp",
   },
   {
     title: "Explore Sacred Incense",
     text: "Find your next scent and discover the collection",
     href: "/collections/sacred-incense",
-    image: "/images/home/hero-03/mobile.webp",
+    cta: "Shop incense",
+    image: "/images/home/banners/sacred-incense.webp",
   },
 ];
 export function HomeCampaigns() {
@@ -184,7 +187,7 @@ export function HomeCampaigns() {
         {[0, 1].map((offset) => {
           const campaign = campaigns[(active + offset) % campaigns.length];
           return (
-            <Link className="rh-campaign" href={campaign.href} key={offset}>
+            <article className="rh-campaign" key={offset}>
               <img
                 src={campaign.image}
                 alt=""
@@ -196,7 +199,10 @@ export function HomeCampaigns() {
                 <h2>{campaign.title}</h2>
                 <p>{campaign.text}</p>
               </div>
-            </Link>
+              <Link className="button primary rh-campaign-cta" href={campaign.href}>
+                {campaign.cta}
+              </Link>
+            </article>
           );
         })}
       </div>
