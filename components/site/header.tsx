@@ -3,7 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { Menu, Search, ShoppingBag, UserRound, X } from "lucide-react";
+import { Menu, ChevronDown, ShoppingBag, UserRound, X } from "lucide-react";
+import { plainText } from "@/lib/wordpress/text";
 import { DestinationSelector } from "@/components/commerce/destination";
 import { ProductSearch } from "./product-search";
 const navigation = [
@@ -19,21 +20,21 @@ const categoryNavigation = [
   ["Beauty & Body", "/collections/beauty-and-body"],
   ["Giftshop", "/collections/giftshop"],
 ] as const;
-export function SiteHeader() {
+export function SiteHeader({ categories }: { categories: { id: number; name: string; slug: string; count: number }[] }) {
   const pathname = usePathname();
   const isActive = (href: string) =>
     pathname === href ||
     pathname.startsWith(`${href}/`) ||
     (href === "/shop" && pathname.startsWith("/products/"));
-  const [panel, setPanel] = useState<"search" | "menu" | null>(null);
-  const searchButton = useRef<HTMLButtonElement>(null);
+  const [panel, setPanel] = useState<"categories" | "menu" | null>(null);
+  const categoryButton = useRef<HTMLButtonElement>(null);
   const menuButton = useRef<HTMLButtonElement>(null);
   useEffect(() => {
     if (!panel) return;
     const onKey = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setPanel(null);
-        (panel === "search" ? searchButton : menuButton).current?.focus();
+        (panel === "categories" ? categoryButton : menuButton).current?.focus();
       }
     };
     document.addEventListener("keydown", onKey);
@@ -65,18 +66,10 @@ export function SiteHeader() {
               unoptimized
             />
           </Link>
+          <div className="header-search-slot" onFocus={() => setPanel(null)}>
+            <ProductSearch inline onNavigate={() => setPanel(null)} />
+          </div>
           <div className="header-actions">
-            <button
-              ref={searchButton}
-              className="icon-button header-search-trigger"
-              aria-label={panel === "search" ? "Close search" : "Open search"}
-              aria-expanded={panel === "search"}
-              aria-controls="site-search"
-              onClick={() => setPanel(panel === "search" ? null : "search")}
-            >
-              {panel === "search" ? <X size={20} strokeWidth={1.5} /> : <Search size={20} strokeWidth={1.5} />}
-              <span className="header-action-label">Search products</span>
-            </button>
             <Link
               className="icon-button account-link"
               href="/account"
@@ -103,7 +96,11 @@ export function SiteHeader() {
         </div>
         <div className="header-categories">
           <nav className="shell category-navigation" aria-label="Main navigation">
-            {[navigation[0], ...categoryNavigation, ...navigation.slice(1)].map(([label, href]) => (
+            <button ref={categoryButton} className="departments-trigger" aria-expanded={panel === "categories"} aria-controls="all-categories-panel"
+              onClick={() => setPanel(panel === "categories" ? null : "categories")}>
+              <Menu size={17} /> All categories <ChevronDown size={14} />
+            </button>
+            {[...categoryNavigation, ...navigation.slice(1)].map(([label, href]) => (
               <Link key={href} href={href}
                 aria-current={pathname === href ? "page" : undefined}
                 data-active={isActive(href)} onClick={() => setPanel(null)}>
@@ -112,9 +109,17 @@ export function SiteHeader() {
             ))}
           </nav>
         </div>
-        {panel === "search" && (
-          <div className="header-panel" id="site-search">
-            <ProductSearch onNavigate={() => setPanel(null)} />
+        {panel === "categories" && (
+          <div className="header-panel departments-panel" id="all-categories-panel">
+            <div className="shell departments-layout">
+              <div className="departments-intro"><p className="eyebrow">FIND YOUR NEXT DISCOVERY</p><h2>Explore Katukina</h2><p>Browse botanicals, incense and meaningful objects by category.</p><Link className="button primary" href="/shop" onClick={() => setPanel(null)}>Shop all products</Link></div>
+              <nav className="departments-grid" aria-label="All product categories">
+                {categories.filter(category => category.count > 0).sort((a, b) => a.name.localeCompare(b.name)).map(category => (
+                  <Link key={category.id} href={`/collections/${category.slug}`} onClick={() => setPanel(null)}>{plainText(category.name)} <span>{category.count}</span></Link>
+                ))}
+                {!categories.length && <Link href="/collections" onClick={() => setPanel(null)}>Browse collections</Link>}
+              </nav>
+            </div>
           </div>
         )}
         {panel === "menu" && (
@@ -129,6 +134,7 @@ export function SiteHeader() {
               ...navigation.slice(1),
               ["Shipping & destinations", "/shipping"],
               ["My account", "/account"],
+              ...categories.filter(category => category.count > 0 && !categoryNavigation.some(([, href]) => href === `/collections/${category.slug}`)).map(category => [plainText(category.name), `/collections/${category.slug}`]),
             ].map(([label, href]) => (
               <Link
                 key={href}

@@ -8,7 +8,7 @@ test("public pages use Next.js, render SEO and remain responsive", async ({
     .getByRole("button", { name: "Reject optional", exact: true })
     .click();
   await expect(page.getByRole("heading", { level: 1 })).toContainText(
-    "Tribal Rapé, Mapacho, Kambo, Sananga, Shamanic Tools & Incenses",
+    "Katukina — botanicals, incense and meaningful objects",
   );
   const html = await (await request.get("/")).text();
   expect(html).toContain("application/ld+json");
@@ -61,7 +61,7 @@ test("public pages use Next.js, render SEO and remain responsive", async ({
   await expect(
     page.getByRole("button", { name: "Open menu", exact: true }),
   ).toBeFocused();
-  await page.getByRole("button", { name: "Open search", exact: true }).click();
+
   await page
     .getByRole("combobox", { name: "Search the collection" })
     .fill("katukina-no-results");

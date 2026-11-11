@@ -1,11 +1,9 @@
 import Link from "next/link";
-import { BrandMark } from "./brand-mark";
 export function SiteFooter() {
   return (
     <footer className="site-footer">
       <div className="shell footer-top">
         <div className="footer-intro">
-          <BrandMark />
           <h2>
             Stay curious.
             <br />
@@ -39,7 +37,7 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="shell footer-signature" aria-hidden="true">
-        katukina.
+        <img className="footer-full-logo" src="/images/brand/katukina-logo-horizontal.svg" alt="" width={600} height={120} />
       </div>
       <div className="shell footer-bottom">
         <span>© {new Date().getFullYear()} Katukina</span>
