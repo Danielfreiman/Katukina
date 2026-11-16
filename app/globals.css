@@ -95,6 +95,24 @@ a {
   color: inherit;
   text-decoration: none;
 }
+/* Filled and outlined controls use their own hover and focus treatments. */
+:is(
+  button,
+  [role="button"],
+  .button,
+  .icon-button,
+  .product-card-action,
+  .footer-cta,
+  .rh-category-chips a,
+  .rh-story-circles a,
+  .catalog-pagination a,
+  .product-category-tags a,
+  .search-suggestions a,
+  .departments-grid a,
+  .footer-bottom > a
+) {
+  text-decoration: none !important;
+}
 button {
   color: inherit;
 }

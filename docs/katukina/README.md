@@ -8,6 +8,8 @@ O projeto local contém Next.js e WordPress + WooCommerce em Docker. Site e pain
 
 ## Entregas
 
+Controles em 2026-11-16 — **CONFIRMADO por Danilo:** remover sublinhados de pílulas e botões em todo o site, inclusive hover/foco. Regra global em `app/globals.css` cobre botões, links com apresentação de botão, categorias em pílulas, tags, paginação e controles equivalentes. Efeitos de cor, fundo, borda e indicadores de foco continuam regidos pelos estilos dos componentes. Typecheck aprovado.
+
 Categorias em 2026-11-16 — decisão final de Danilo: manter somente os oito ícones originais. Integração automática de fotos desfeita e pasta `public/images/home/category-circles/`, incluindo a foto de teste e suas instruções, removida a pedido. Os registros abaixo sobre fotos e pattern preservam o histórico das decisões substituídas.
 
 Categorias em 2026-11-16 — correção posterior confirmada por Danilo: seção e divisórias seguem a largura das seções vizinhas da home (`.rh-wide`, máximo de 1600 px), substituindo o limite de 1280 px solicitado anteriormente. Navegador confirmou larguras iguais nas três seções em 1920, 1440 e 390 px, sem overflow. Typecheck aprovado.
