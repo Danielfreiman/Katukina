@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { Menu, ChevronDown, UserRound, X } from "lucide-react";
+import { Menu, ChevronDown, UserRound, X, Leaf } from "lucide-react";
 import { SideCart } from "@/components/commerce/side-cart";
 import { plainText } from "@/lib/wordpress/text";
 import { DestinationSelector } from "@/components/commerce/destination";
@@ -21,7 +21,11 @@ const categoryNavigation = [
   ["Beauty & Body", "/collections/beauty-and-body"],
   ["Giftshop", "/collections/giftshop"],
 ] as const;
-export function SiteHeader({ categories }: { categories: { id: number; name: string; slug: string; count: number }[] }) {
+export function SiteHeader({
+  categories,
+}: {
+  categories: { id: number; name: string; slug: string; count: number }[];
+}) {
   const pathname = usePathname();
   const isActive = (href: string) =>
     pathname === href ||
@@ -47,7 +51,15 @@ export function SiteHeader({ categories }: { categories: { id: number; name: str
         Skip to content
       </a>
       <div className="site-note">
-        A world of nature. A little closer. <DestinationSelector />
+        <div className="shell site-note-inner">
+          <span>
+            <Leaf size={15} /> Nature. Culture. Connection.
+          </span>
+          <div>
+            <Link href="/shipping">Shipping & destinations</Link>
+            <DestinationSelector />
+          </div>
+        </div>
       </div>
       <header className="header-wrap">
         <div className="site-header shell">
@@ -93,29 +105,79 @@ export function SiteHeader({ categories }: { categories: { id: number; name: str
           </div>
         </div>
         <div className="header-categories">
-          <nav className="shell category-navigation" aria-label="Main navigation">
-            <button ref={categoryButton} className="departments-trigger" aria-expanded={panel === "categories"} aria-controls="all-categories-panel"
-              onClick={() => setPanel(panel === "categories" ? null : "categories")}>
+          <nav
+            className="shell category-navigation"
+            aria-label="Main navigation"
+          >
+            <button
+              ref={categoryButton}
+              className="departments-trigger"
+              aria-expanded={panel === "categories"}
+              aria-controls="all-categories-panel"
+              onClick={() =>
+                setPanel(panel === "categories" ? null : "categories")
+              }
+            >
               <Menu size={17} /> All categories <ChevronDown size={14} />
             </button>
-            {[...categoryNavigation, ...navigation.slice(1)].map(([label, href]) => (
-              <Link key={href} href={href}
+            {[
+              ["Home", "/"],
+              ...categoryNavigation.slice(0, 4),
+              ["Our story", "/about"],
+              ["Journal", "/journal"],
+            ].map(([label, href]) => (
+              <Link
+                key={href}
+                href={href}
                 aria-current={pathname === href ? "page" : undefined}
-                data-active={isActive(href)} onClick={() => setPanel(null)}>
+                data-active={isActive(href)}
+                onClick={() => setPanel(null)}
+              >
                 {label}
               </Link>
             ))}
           </nav>
         </div>
         {panel === "categories" && (
-          <div className="header-panel departments-panel" id="all-categories-panel">
+          <div
+            className="header-panel departments-panel"
+            id="all-categories-panel"
+          >
             <div className="shell departments-layout">
-              <div className="departments-intro"><p className="eyebrow">FIND YOUR NEXT DISCOVERY</p><h2>Explore Katukina</h2><p>Browse botanicals, incense and meaningful objects by category.</p><Link className="button primary" href="/shop" onClick={() => setPanel(null)}>Shop all products</Link></div>
-              <nav className="departments-grid" aria-label="All product categories">
-                {categories.filter(category => category.count > 0).sort((a, b) => a.name.localeCompare(b.name)).map(category => (
-                  <Link key={category.id} href={`/collections/${category.slug}`} onClick={() => setPanel(null)}>{plainText(category.name)} <span>{category.count}</span></Link>
-                ))}
-                {!categories.length && <Link href="/collections" onClick={() => setPanel(null)}>Browse collections</Link>}
+              <div className="departments-intro">
+                <h2>Explore Katukina</h2>
+                <p>
+                  Browse botanicals, incense and meaningful objects by category.
+                </p>
+                <Link
+                  className="button primary"
+                  href="/shop"
+                  onClick={() => setPanel(null)}
+                >
+                  Shop all products
+                </Link>
+              </div>
+              <nav
+                className="departments-grid"
+                aria-label="All product categories"
+              >
+                {categories
+                  .filter((category) => category.count > 0)
+                  .sort((a, b) => a.name.localeCompare(b.name))
+                  .map((category) => (
+                    <Link
+                      key={category.id}
+                      href={`/collections/${category.slug}`}
+                      onClick={() => setPanel(null)}
+                    >
+                      {plainText(category.name)} <span>{category.count}</span>
+                    </Link>
+                  ))}
+                {!categories.length && (
+                  <Link href="/collections" onClick={() => setPanel(null)}>
+                    Browse collections
+                  </Link>
+                )}
               </nav>
             </div>
           </div>
@@ -132,7 +194,18 @@ export function SiteHeader({ categories }: { categories: { id: number; name: str
               ...navigation.slice(1),
               ["Shipping & destinations", "/shipping"],
               ["My account", "/account"],
-              ...categories.filter(category => category.count > 0 && !categoryNavigation.some(([, href]) => href === `/collections/${category.slug}`)).map(category => [plainText(category.name), `/collections/${category.slug}`]),
+              ...categories
+                .filter(
+                  (category) =>
+                    category.count > 0 &&
+                    !categoryNavigation.some(
+                      ([, href]) => href === `/collections/${category.slug}`,
+                    ),
+                )
+                .map((category) => [
+                  plainText(category.name),
+                  `/collections/${category.slug}`,
+                ]),
             ].map(([label, href]) => (
               <Link
                 key={href}

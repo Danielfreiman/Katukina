@@ -1,7 +1,14 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import { ChevronLeft, ChevronRight, Pause, Play, Star } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Pause,
+  Play,
+  Star,
+  Search,
+} from "lucide-react";
 
 export type HomeProduct = {
   id: number;
@@ -29,6 +36,7 @@ export function HomeCard({ product }: { product: HomeProduct }) {
         href={product.href}
         aria-label={product.name}
       >
+        <span className="rh-photo-category">{product.category}</span>
         {product.image ? (
           <img
             src={product.image}
@@ -41,17 +49,20 @@ export function HomeCard({ product }: { product: HomeProduct }) {
           <span>Image unavailable</span>
         )}
         {product.onSale && <span className="rh-product-badge">Sale</span>}
+        <span className="rh-quick-view" aria-hidden>
+          <Search size={18} />
+        </span>
       </Link>
       <div className="rh-product-details">
         <h3 className="rh-product-name">
           <Link href={product.href}>{product.name}</Link>
         </h3>
-        <p className="rh-product-category">{product.category}</p>
-        {product.summary && <p className="rh-product-summary">{product.summary}</p>}
         <div className="rh-product-meta">
-          {product.sku && <span>SKU: {product.sku}</span>}
           {product.variable && product.optionCount > 0 && (
-            <span>{product.optionCount} {product.optionCount === 1 ? "option" : "options"}</span>
+            <span>
+              {product.optionCount}{" "}
+              {product.optionCount === 1 ? "option" : "options"}
+            </span>
           )}
         </div>
         {product.reviews > 0 && (
@@ -68,11 +79,19 @@ export function HomeCard({ product }: { product: HomeProduct }) {
             {product.price}
             {product.regular && <del>{product.regular}</del>}
           </p>
-          <small className={`rh-stock${product.inStock ? " is-available" : ""}`}>
-            {product.inStock ? product.backorder ? "Available on backorder" : "In stock" : "Out of stock"}
+          <small
+            className={`rh-stock${product.inStock ? " is-available" : ""}`}
+          >
+            {product.inStock
+              ? product.backorder
+                ? "Available on backorder"
+                : "In stock"
+              : "Out of stock"}
           </small>
           <Link className="rh-product-cta" href={product.href}>
-            {product.variable && product.inStock ? "Choose options" : "View product"}
+            {product.variable && product.inStock
+              ? "Choose options"
+              : "View product"}
             <span className="sr-only"> for {product.name}</span>
           </Link>
         </div>
@@ -118,6 +137,7 @@ export function HomeRail({
     <section className="rh-rail" aria-label={title}>
       <div className="rh-section-title">
         <h2>{title}</h2>
+        <span className="rh-title-rule" aria-hidden />
         {href && <Link href={href}>View all</Link>}
       </div>
       <div className="rh-rail-body">
@@ -159,21 +179,21 @@ const campaigns = [
     text: "Connect with the forest through sacred plants and ritual tools.",
     href: "/shop",
     cta: "Shop now",
-    image: "/images/home/banners/discover-katukina.webp",
+    image: "/images/legacy-storefront/banners/discover-katukina.webp",
   },
   {
     title: "A Breath of Connection",
     text: "Tepi & Kuripe for moments of presence and sacred ritual.",
     href: "/collections/kuripe-and-tepi",
     cta: "Shop Tepi & Kuripe",
-    image: "/images/home/banners/tepi-kuripe.webp",
+    image: "/images/legacy-storefront/banners/tepi-kuripe.webp",
   },
   {
     title: "Let Your Prayers Rise",
     text: "Sacred woods, resins and incense for your rituals.",
     href: "/collections/sacred-incense",
     cta: "Shop incense",
-    image: "/images/home/banners/sacred-incense.webp",
+    image: "/images/legacy-storefront/banners/sacred-incense.webp",
   },
 ];
 export function HomeCampaigns() {
@@ -221,7 +241,10 @@ export function HomeCampaigns() {
                 <h2>{campaign.title}</h2>
                 <p>{campaign.text}</p>
               </div>
-              <Link className="button primary rh-campaign-cta" href={campaign.href}>
+              <Link
+                className="button primary rh-campaign-cta"
+                href={campaign.href}
+              >
                 {campaign.cta}
               </Link>
             </article>

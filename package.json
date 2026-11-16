@@ -9,6 +9,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "visual:antigo": "node scripts/switch-visual.mjs antigo",
+    "visual:novo": "node scripts/switch-visual.mjs novo",
+    "visual:status": "node scripts/switch-visual.mjs status",
     "test": "playwright test",
     "dev": "next dev --hostname 127.0.0.1 --port 3001 --webpack",
     "build": "next build",

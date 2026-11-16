@@ -8,7 +8,7 @@ test("public pages use Next.js, render SEO and remain responsive", async ({
     .getByRole("button", { name: "Reject optional", exact: true })
     .click();
   await expect(page.getByRole("heading", { level: 1 })).toContainText(
-    "Katukina — botanicals, incense and meaningful objects",
+    /Find your\s*natural rhythm\./,
   );
   const html = await (await request.get("/")).text();
   expect(html).toContain("application/ld+json");

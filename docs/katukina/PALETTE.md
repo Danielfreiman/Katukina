@@ -1,5 +1,17 @@
 # Paleta Katukina — urucum, verde folha e neutros
 
+> **Ajuste posterior confirmado por Danilo em 16/11/2026:** “Rapé” no título do banner 02 passa para `#F2AC59`, substituindo `#5A2F03`.
+
+> **Exceção confirmada por Danilo em 16/11/2026:** a palavra “Rapé” no título do banner 02 usa `#5A2F03`. Restrito a esse trecho; “natural rhythm.” permanece em `#F4AC30`.
+
+> **Exceção confirmada por Danilo em 16/11/2026:** o trecho “natural rhythm.” do título do hero usa `#F4AC30`. Aplicação restrita a esse texto; demais cores permanecem como configuradas.
+
+> **Ajuste posterior confirmado em 16/11/2026:** Danilo solicitou retirar o pattern. O visual moderno passa a usar fundos lisos no cabeçalho, hero, banners e rodapé, mantendo a paleta oficial. As referências ao grafismo abaixo registram a etapa anterior; o arquivo original e o visual antigo permanecem preservados.
+
+> **Direção vigente, reafirmada por Danilo em 16/11/2026:** aplicar as seis cores oficiais em toda a vitrine, mantendo a estrutura moderna e a identidade xamânica: urucum `#782E26`, verde folha `#526B35`, branco quente `#F7F7F2`, cinza claro `#D3D4CF`, cinza médio `#595957` e carvão `#292C27`. Branco quente volta a ser o fundo predominante; branco puro continua disponível nas fotos e superfícies preexistentes. Urucum identifica ações principais; verde folha sustenta navegação e apoio. Campanhas usam neutros e misturas dessas cores. O grafismo original aparece na navegação, hero, banners e rodapé. Esta instrução substitui a paleta do primeiro teste Zilly e os papéis de fundo branco puro registrados abaixo. Implementação vigente em `app/modern-storefront.css`, `app/modern-home.css` e `DESIGN.md`; o visual antigo continua preservado.
+
+> **Histórico do primeiro teste Zilly, superado pela reafirmação acima:** Danilo autorizou substituir a estética inteira, inclusive cores, pela direção das capturas Zilly Home 05. Tema público atual: esmeralda `#167e59`, amarelo `#ffca19`, branco, verde muito claro e campanhas em tons lavanda, menta, amarelo, manteiga, pêssego e azul. Tokens vigentes em `app/modern-storefront.css` e `DESIGN.md`; escopo e evidências em [MODERN-STOREFRONT-2026-11-16.md](MODERN-STOREFRONT-2026-11-16.md). As decisões abaixo preservam o histórico e não governam o novo tema. O SVG original permanece intacto.
+
 **CONFIRMADO por Danilo em 06/11/2026:** aplicar ao site as cores do arquivo aberto no VS Code, `Katukina_Paleta_e_Aplicacoes.svg`, incluindo suas sugestões de função na interface. Essa orientação substitui a combinação anterior de grafite esverdeado, verde escuro e verde-lima.
 
 Fonte preservada, sem alterações: [SVG de referência](design/Katukina_Paleta_e_Aplicacoes.svg). Formato SVG vetorial, prancheta de 1600 × 1450, 8.460 bytes; SHA-256 `f5fbd7c08c6368c7261f637fa7b3ee22d8acfef0ff89cc0a88f764afcbd3ec7a`. O original veio de `GPT Connnnta Sacred/2026-11-06/pr/outputs/` e permanece intacto.

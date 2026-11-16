@@ -1,0 +1,62 @@
+import type { Metadata } from "next";
+import "./globals.css";
+import "./catalog.css";
+import "./privacy.css";
+import "./storefront.css";
+import "./layout-refinement.css";
+import "./side-cart.css";
+import "./modern-storefront.css";
+import { getCategories } from "@/lib/commerce/catalog";
+import { Sora, Source_Sans_3 } from "next/font/google";
+
+const sora = Sora({ subsets: ["latin", "latin-ext"], display: "swap", variable: "--font-sora" });
+const sourceSans = Source_Sans_3({ style: ["normal", "italic"], subsets: ["latin", "latin-ext"], display: "swap", variable: "--font-source-sans" });
+import { siteUrl } from "@/lib/config/site";
+import { SiteHeader } from "@/components/site/header";
+import { SiteFooter } from "@/components/site/footer";
+import { CookieConsentProvider } from "@/components/privacy/cookie-consent";
+export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Katukina | Find your natural rhythm",
+    template: "%s | Katukina",
+  },
+  description:
+    "Discover Katukina: incense, botanicals and objects connecting nature, culture and everyday rituals. Explore the collection and its origins.",
+  alternates: { canonical: "/" },
+  robots: { index: process.env.SITE_INDEXABLE === "true", follow: true },
+  openGraph: {
+    type: "website",
+    locale: "en_GB",
+    siteName: "Katukina",
+    title: "Katukina — Find your natural rhythm",
+    description: "Nature, tradition and connection in every discovery.",
+    images: [
+      {
+        url: "/images/original-background.jpg",
+        alt: "Katukina geometric pattern",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Katukina — Find your natural rhythm",
+    images: ["/images/original-background.jpg"],
+  },
+};
+export default async function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
+  const categories = await getCategories().catch(() => []);
+  return (
+    <html lang="en-GB" data-scroll-behavior="smooth" className={`${sora.variable} ${sourceSans.variable}`}>
+      <body>
+        <CookieConsentProvider>
+          <SiteHeader categories={categories.map(({ id, name, slug, count }) => ({ id, name, slug, count }))} />
+          {children}
+          <SiteFooter />
+        </CookieConsentProvider>
+      </body>
+    </html>
+  );
+}

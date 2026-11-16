@@ -28,6 +28,8 @@ O frontend deve tornar compreensíveis as opções, o preço e a disponibilidade
 
 ## Operating Context
 
+- **Imagens, confirmado por Danilo em 16/11/2026:** sempre preparar pastas para receber as artes e documentar nomes exatos e dimensões em pixels. Novas imagens fornecidas serão sempre WebP. Informar pasta, nomes e tamanhos ao entregar cada integração.
+
 - Projeto existente em Next.js App Router, React e TypeScript; desenvolvimento conduzido no Windows e VS Code.
 - **Escopo confirmado desta etapa: frontend público.** WordPress/WooCommerce e regras comerciais ficam sob responsabilidade do parceiro. O backend existente continua sendo consumido por APIs; as integrações atuais devem ser preservadas.
 - Comunicação de trabalho em português do Brasil; conteúdo público atual em inglês, com `en-GB` no documento HTML. Novos idiomas não estão aprovados.
@@ -55,6 +57,10 @@ O frontend deve tornar compreensíveis as opções, o preço e a disponibilidade
 - Banco, uploads, pacotes privados, exports e credenciais têm ciclo separado do Git. Sincronizar código não sincroniza esses dados entre computadores.
 
 ## Brand Commitments
+
+- **Paleta oficial reafirmada por Danilo em 16/11/2026:** aplicar urucum `#782E26`, verde folha `#526B35`, branco quente `#F7F7F2`, cinza claro `#D3D4CF`, cinza médio `#595957` e carvão `#292C27` em toda a vitrine, mantendo a identidade xamânica e a estrutura moderna. Esta instrução substitui as cores esmeralda/amarelo/pastéis do primeiro teste Zilly. Branco quente volta a ser o fundo predominante; branco puro permanece disponível nas fotos e superfícies preexistentes. Urucum identifica ações principais; verde folha sustenta navegação e apoio. Fundos lisos, sem pattern, conforme pedido posterior de Danilo. O visual antigo continua preservado.
+
+- **Redesign confirmado em 16/11/2026:** Danilo autorizou mudar toda a estética pública, inclusive cores, seguindo as capturas de Zilly Home 05 e usando o catálogo existente. Esta solicitação substitui as restrições visuais anteriores de paleta, geometria e composição abaixo, preservadas como histórico. Sistema vigente em `DESIGN.md`; implementação em `app/modern-storefront.css` e `app/modern-home.css`; escopo em [MODERN-STOREFRONT-2026-11-16.md](docs/katukina/MODERN-STOREFRONT-2026-11-16.md). Marca, fotos e verdade comercial continuam preservadas.
 
 - **Botões e CTAs confirmado em 11/11/2026:** usar o raio compartilhado de 8 px, via `--radius-control`, inclusive nos CTAs dos banners. Esta decisão substitui a regra histórica de quinas retas para botões de ação. Preservar as geometrias específicas já existentes de controles circulares, busca e header.
 

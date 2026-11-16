@@ -1,5 +1,57 @@
 # Discovery Katukina
 
+Carrossel de categorias em 16/11/2026 — **CONFIRMADO por Danilo:** incluir as 37 categorias da captura fornecida, excluindo Uncategorized. As oito categorias em destaque permanecem primeiro; demais categorias seguem no carrossel horizontal com fotos do catálogo, contagens reais, setas, arraste e teclado. Verde folha e círculos brancos preservados.
+
+Cards de categorias em 16/11/2026 — **CONFIRMADO por Danilo:** destacar a seção com fundo verde folha oficial (#526B35), títulos e contagens em branco quente, mantendo círculos brancos para as fotografias. Hover escurece o verde e foco de teclado permanece visível.
+
+Imagens das categorias em 16/11/2026 — **CONFIRMADO por Danilo:** eliminar o recorte retangular aparente nas fotos de produtos. Fundo circular ajustado para branco puro, correspondente ao fundo das fotografias; encaixe integral (`contain`) e respiro preservados.
+
+Espaçamento da navegação em 16/11/2026 — **CONFIRMADO por Danilo:** separar um pouco mais as categorias, mantendo o conjunto centralizado. Gap desktop ampliado de 18 para 30 px; regra compacta preservada para telas menores.
+
+Logotipo em 16/11/2026 — **CONFIRMADO por Danilo:** ampliar um pouco no cabeçalho. Largura desktop ajustada de 205 para 230 px, mantendo proporções e tamanhos móveis.
+
+Navegação em 16/11/2026 — **CONFIRMADO por Danilo:** aproximar “All categories” dos links de categorias e centralizar o conjunto na faixa branca do cabeçalho.
+
+Transição do overlay em 16/11/2026 — **CONFIRMADO por Danilo:** final mais sutil nos três cards. Mantida largura de 70%, com redução gradual da opacidade em etapas até zero, preservando a maior intensidade à esquerda.
+
+Overlay dos três cards em 16/11/2026 — **CONFIRMADO por Danilo:** reduzir sua largura. Camada limitada aos 70% à esquerda, com transição para transparente; 30% à direita mostram a arte sem escurecimento.
+
+Busca do cabeçalho em 16/11/2026 — **CONFIRMADO por Danilo:** reduzir a largura da barra. Limite desktop definido em 650 px; no celular, preservada a largura disponível da linha.
+
+Descrições nos cards em 16/11/2026 — **CONFIRMADO por Danilo:** pequenos textos abaixo dos títulos Rapé, Kuripe & Tepi e Herbal Teas. Redação em inglês, mantendo links e fundos WebP. Na conferência inicial, `01-rape.webp` já estava na pasta; os fundos 02 e 03 ainda não haviam sido salvos.
+
+Cabeçalho em 16/11/2026 — **CONFIRMADO por Danilo:** removido o bloco editorial “Get inspired / The Katukina journal” com o ícone de livro, liberando espaço para a busca. Link Journal da navegação preservado.
+
+Título do banner 02 em 16/11/2026 — **FORNECIDO por Danilo:** “Authentic Brazilian Rapé”, mantendo “Rapé” em `#F2AC59`. Subtítulo e CTA anteriores preservados.
+
+Copy final do banner 02 em 16/11/2026 — **FORNECIDA E CONFIRMADA por Danilo:** título “Authentic Rapé”; subtítulo “Grounding blends sourced from the heart of the Amazon. Browse our signature varieties and find the right size for your journey.”; CTA “Shop Blends” para `/collections/rape`. Substitui a redação anterior de Rapé. Texto de origem e posicionamento fornecido pelo responsável, não resultado de verificação independente.
+
+Texto do banner 02 em 16/11/2026 — **CONFIRMADO por Danilo:** conteúdo específico sobre Rapé. Título “Discover Rapé.”, descrição da coleção e apresentações disponíveis, CTA “Explore Rapé” para `/collections/rape`. Conteúdo alterna junto com a imagem 02; demais banners preservam o texto anterior.
+
+Título do hero em 16/11/2026 — Danilo solicitou desfazer a troca para “Sacred Incense”. Restaurado “Find your natural rhythm.”, mantendo “natural rhythm.” em `#F4AC30`.
+
+Correção de pasta em 16/11/2026 — nova troca de imagem havia sido salva em `home/banners/sacred-incense.webp`, fora da pasta observada. Arte atual copiada para `home/hero-slider/desktop/banner-01.webp`. Pastas sem uso `hero-01`, `hero-02` e `hero-03` arquivadas fora de `public`, em `artifacts/unused-hero-folders-20261116-153804`. Imagens do visual antigo transferidas para `public/images/legacy-storefront/banners/`, com referências ativas e snapshots atualizados. Windows bloqueou a remoção da pasta antiga `home/banners`; seus arquivos de imagem foram retirados e foi deixado aviso apontando a pasta correta.
+
+Atualização imediata dos heros em 16/11/2026 — **CONFIRMADO por Danilo:** detectar imagens salvas na pasta e atualizar sem recarregar. Implementado observador das pastas desktop/mobile com eventos enviados ao navegador no desenvolvimento local, agrupando gravações por 120 ms; polling de 2 s mantido como recuperação.
+
+Atualização de imagens e remoção do overlay em 16/11/2026 — **CONFIRMADO por Danilo:** integrar as novas artes e retirar a camada clara do hero. Nova arte encontrada em `public/images/home/banners/sacred-incense.webp` copiada sem alteração para `hero-slider/desktop/banner-01.webp`, preservando o original. Hero local verifica os arquivos da pasta `hero-slider` a cada 2 segundos; alterações em outras pastas não são sincronizadas automaticamente. Textos e botão mantidos, sem overlay.
+
+Hero full com três banners em 16/11/2026 — **CONFIRMADO por Danilo:** fundos rotativos, mantendo título, descrição e botão atuais. Artes futuras sempre WebP, com variantes desktop/celular. Pastas, nomes, dimensões e funcionamento em [HERO-SLIDER-2026-11-16.md](HERO-SLIDER-2026-11-16.md). Substitui a foto avulsa ampliada do incenso no hero.
+
+Cards abaixo do hero em 16/11/2026 — **CONFIRMADO por Danilo:** três cards de categoria, na ordem Rapé, Kuripe & Tepi e Herbal Teas, preparados para fundos que ele produzirá. Novas imagens sempre WebP, com pastas, nomes e dimensões documentados. Arquivos: [guia dos fundos 1600 × 900 px](../../public/images/home/promotion-cards/LEIA-ME.md). Sem imagens, exibir fundo liso; preços e fotos avulsas removidos somente desses três cards. Validação: typecheck e teste Playwright da home aprovados; nomes/links conferidos, sem overflow em 1440/768/390 px; carregamento de WebP após recarregar confirmado com arquivo temporário removido ao final. Capturas desktop/mobile inspecionadas.
+
+Faixa de navegação em 16/11/2026 — **CONFIRMADO por Danilo:** fundo branco puro (`#FFFFFF`) na faixa de categorias/menu do visual moderno, conforme captura fornecida.
+
+Ampliação do incenso no hero em 16/11/2026 — **CONFIRMADO por Danilo:** aumentar a imagem principal. Área visual ampliada, fotografia ocupando toda a largura disponível da coluna, com proporção preservada e altura responsiva no celular.
+
+Simplificação do hero em 16/11/2026 — **CONFIRMADO por Danilo:** retirar do hero a foto complementar de Kuripe & Tepi e a legenda com nome/preço do Palo Santo, mantendo somente a imagem do incenso na área visual. Demais seções preservadas.
+
+Remoção do pattern em 2026-11-16 — **CONFIRMADO por Danilo:** fundos lisos no visual moderno, incluindo navegação, hero, banners e rodapé. Paleta oficial mantida; arte original e versão antiga preservadas.
+
+Paleta oficial e identidade xamânica em 2026-11-16 — **CONFIRMADO por Danilo:** manter a estrutura moderna e aplicar as seis cores oficiais em toda a vitrine. Grafismo original reutilizado; visual antigo preservado. Direção vigente em [PALETTE.md](PALETTE.md) e implementação/validação em [Modern Storefront](MODERN-STOREFRONT-2026-11-16.md).
+
+Alternância de visual em 2026-11-16 — **CONFIRMADO por Danilo:** preservar as versões antiga e nova para comparação. Comandos e limites em [Alternar o visual](../../visual-versions/README.md); validação da reversão em [Modern Storefront](MODERN-STOREFRONT-2026-11-16.md). O novo permanece ativo.
+
 **Entradas atuais:** [guia geral do projeto](../PROJECT_GUIDE.md), [mapa das pastas](../PROJECT_STRUCTURE.md), [inventário de todos os documentos](../PROJECT_INVENTORY.md) e [produção dos banners 4:3](BANNERS.md). As entregas datadas abaixo preservam o histórico; não substituem o guia vigente dos banners.
 
 Versão 0.9 · 2026-10-19 · Elaboração técnica: Codex.
@@ -7,6 +59,8 @@ Versão 0.9 · 2026-10-19 · Elaboração técnica: Codex.
 O projeto local contém Next.js e WordPress + WooCommerce em Docker. Site e painel usam http://localhost:3001/ e `/wp-admin/`. Após correção explícita do responsável, a administração usa as telas nativas: Products/Variations, Orders, Users, Settings e Analytics. O painel paralelo foi removido; lotes, fracionamento e campos operacionais ampliam essas áreas. Catálogo, conteúdo, carrinho, cotação, conta e checkout fictício funcionam pela API. A [cobertura vigente e ADR-009](OPERATIONS.md) registra pendências reais: integrações comerciais, regras fiscais, outras lojas e migração do legado não estão concluídas.
 
 ## Entregas
+
+Redesign Zilly Home 05 em 2026-11-16 — **CONFIRMADO por Danilo:** substituir toda a estética, inclusive cores, usando as seções das sete capturas fornecidas e os produtos existentes. Implementadas nova home comercial, paleta esmeralda/amarela, campanhas coloridas, categorias fotográficas, vitrines variadas, jornal e chrome compartilhado. Preservados catálogo, apresentações, preços, busca e carrinho. Escopo, limites e validação em [MODERN-STOREFRONT-2026-11-16.md](MODERN-STOREFRONT-2026-11-16.md). Substitui a direção visual dos ajustes anteriores abaixo.
 
 Cards de produtos em 2026-11-16 — pedido de Danilo para modernizar os cards com mais informações e CTA. Home com imagem quadrada, painel sobreposto, categoria, SKU, opções, descrição quando disponível, preço, estoque e link de ação permanente. Componente unificado também em From the collection. Escopo e validações em [PRODUCT-CARDS-2026-11-16.md](PRODUCT-CARDS-2026-11-16.md).
 

@@ -1,0 +1,304 @@
+import Link from "next/link";
+import {
+  Leaf,
+  Flame,
+  TreePine,
+  BookOpen,
+  Package,
+} from "lucide-react";
+import { getCategories, getProducts } from "@/lib/commerce/catalog";
+import {
+  productName,
+  productPrice,
+  formatPrice,
+  type Product,
+} from "@/lib/commerce/product";
+import { plainText } from "@/lib/wordpress/text";
+import { getArticles } from "@/lib/wordpress/content";
+import { siteUrl } from "@/lib/config/site";
+import {
+  HomeCampaigns,
+  HomeRail,
+  HomeCollectionTabs,
+  HomeCard,
+  type HomeProduct,
+} from "@/components/home/reference-widgets";
+import "./reference-home.css";
+import { CategoryCarousel } from "@/components/home/category-carousel";
+import { HomeCategoryCircles } from "@/components/home/category-circles";
+import { getHomeCategoryMedia } from "@/lib/home-category-media";
+export const dynamic = "force-dynamic";
+const departments = [
+  { slug: "rape", label: "Rapé", icon: "/images/icons/categories/01-rape.svg" },
+  { slug: "sacred-incense", label: "Sacred Incense", icon: "/images/icons/categories/02-sacred-incense.svg" },
+  { slug: "beauty-and-body", label: "Beauty & Body", icon: "/images/icons/categories/03-beauty-body.svg" },
+  { slug: "herbal-teas", label: "Herbal Teas", icon: "/images/icons/categories/04-herbal-teas.svg" },
+  { slug: "giftshop", label: "Giftshop", icon: "/images/icons/categories/05-giftshop.svg" },
+  { slug: "shamanic-tools", label: "Shamanic Tools", icon: "/images/icons/categories/06-shamanic-tools.svg" },
+  { slug: "kuripe-and-tepi", label: "Kuripe & Tepi", icon: "/images/icons/categories/07-kuripe-tepi.svg" },
+  { slug: "aromatics", label: "Aromatics", icon: "/images/icons/categories/08-aromatics.svg" },
+];
+function card(product: Product): HomeProduct {
+  return {
+    id: product.id,
+    name: productName(product),
+    href: `/products/${product.slug}`,
+    image: product.images[0]?.src || null,
+    price: productPrice(product) || "View details",
+    regular:
+      product.type === "simple" &&
+      product.on_sale &&
+      product.prices.regular_price &&
+      Number(product.prices.regular_price) > Number(product.prices.price)
+        ? formatPrice(
+            product.prices.regular_price,
+            product.prices.currency_code,
+            product.prices.currency_minor_unit,
+          )
+        : null,
+    inStock: product.is_in_stock,
+    rating: Number(product.average_rating) || 0,
+    reviews: product.review_count || 0,
+    category: plainText(product.categories[0]?.name || "Katukina"),
+    sku: product.sku,
+    summary: plainText(product.short_description).replace(/\s+/g, " ").trim(),
+    variable: product.type === "variable",
+    optionCount: product.variations?.length || 0,
+    onSale: !!product.on_sale,
+    backorder: !!product.is_on_backorder,
+  };
+}
+async function products(query: Record<string, string | number>) {
+  return getProducts({ per_page: 12, ...query })
+    .then((result) => result.data.map(card))
+    .catch(() => []);
+}
+export default async function Home() {
+  const categories = await getCategories().catch(() => []);
+  const available = departments.filter((item) =>
+    categories.some((category) => category.slug === item.slug),
+  );
+  const sale = categories.find(
+    (category) => category.slug === "exclusive-sale",
+  );
+  const [offers, discoveries, newest, collections, articles] =
+    await Promise.all([
+      products(sale ? { category: sale.id } : { on_sale: "true" }),
+      products({ orderby: "title", order: "asc" }),
+      products({ orderby: "date", order: "desc" }),
+      Promise.all(
+        available.map(async (item) => ({
+          slug: item.slug,
+          name: item.label,
+          products: await products({
+            category: categories.find(
+              (category) => category.slug === item.slug,
+            )!.id,
+            per_page: 12,
+            orderby: "popularity",
+            order: "desc",
+          }),
+        })),
+      ),
+      getArticles(1, 6)
+        .then((result) => result.data)
+        .catch(() => []),
+    ]);
+  const editorial = articles.map((article, index) => ({
+    title: plainText(article.title.rendered),
+    href: `/journal/${article.slug}`,
+    image: [
+      "/images/forest.jpg",
+      "/images/palo-santo.jpg",
+      "/images/bamboo.jpg",
+    ][index % 3],
+  }));
+  const fallback = [
+    { title: "Our story", href: "/about", image: "/images/forest.jpg" },
+    {
+      title: "Discover botanicals",
+      href: "/collections",
+      image: "/images/bamboo.jpg",
+    },
+    {
+      title: "Explore incense",
+      href: "/collections/sacred-incense",
+      image: "/images/palo-santo.jpg",
+    },
+    {
+      title: "Objects with meaning",
+      href: "/collections/shamanic-tools",
+      image: "/images/editorial/objects-with-meaning.webp",
+    },
+    { title: "A little discovery", href: "/shop", image: "/images/benzoe.jpg" },
+    {
+      title: "Find your next scent",
+      href: "/collections/aromatics",
+      image: "/images/editorial/incense-selection.webp",
+    },
+  ];
+  const stories = [...editorial, ...fallback].slice(0, 6);
+  return (
+    <main id="content" className="reference-home">
+      <h1 className="sr-only">
+        Katukina — botanicals, incense and meaningful objects
+      </h1>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "Katukina",
+            url: siteUrl,
+            inLanguage: "en-GB",
+          }).replace(/</g, "\\u003c"),
+        }}
+      />
+      <div className="rh-wide rh-opening">
+        <HomeCampaigns />
+      </div>
+      <div className="rh-wide">
+        <HomeRail
+          title="Exclusive Sale"
+          href={sale ? "/collections/exclusive-sale" : "/shop?sale=1"}
+          products={offers}
+        />
+      </div>
+      <section
+        className="rh-categories"
+        aria-labelledby="rh-categories-title"
+      >
+        <div className="rh-wide">
+          <h2 id="rh-categories-title">Shop by category</h2>
+          <HomeCategoryCircles categories={available} initialMedia={await getHomeCategoryMedia()} />
+          <CategoryCarousel className="rh-category-chips" label="More categories">
+            {categories
+              .filter(
+                (category) =>
+                  category.count > 0 &&
+                  !available.some((item) => item.slug === category.slug),
+              )
+              .slice(0, 18)
+              .map((category) => (
+                <Link href={`/collections/${category.slug}`} key={category.id}>
+                  {plainText(category.name)}
+                </Link>
+              ))}
+          </CategoryCarousel>
+        </div>
+      </section>
+      <div className="rh-wide">
+        <HomeCollectionTabs collections={collections} />
+      </div>
+      <section className="rh-story rh-wide" aria-labelledby="rh-story-title">
+        <div className="rh-story-banner">
+          <div className="rh-section-title">
+            <h2 id="rh-story-title">
+              <TreePine />
+              Nature. Culture. Connection.
+            </h2>
+            <Link href="/about">Learn more</Link>
+          </div>
+          <p>
+            Explore the materials, scents and objects that bring the Katukina
+            collection together.
+          </p>
+          <div className="rh-story-features">
+            {[
+              {
+                icon: Leaf,
+                text: "Botanicals and natural materials",
+                href: "/collections/rape",
+              },
+              {
+                icon: Flame,
+                text: "Incense and aromatic discoveries",
+                href: "/collections/sacred-incense",
+              },
+              {
+                icon: Package,
+                text: "Product details and available sizes",
+                href: "/shop",
+              },
+              {
+                icon: BookOpen,
+                text: "Stories, origins and inspiration",
+                href: "/journal",
+              },
+            ].map(({ icon: Icon, text, href }) => (
+              <Link href={href} key={text}>
+                <Icon size={28} />
+                {text}
+              </Link>
+            ))}
+          </div>
+        </div>
+        <nav className="rh-story-circles" aria-label="Explore collections">
+          {available.map(({ slug, label }) => (
+            <Link href={`/collections/${slug}`} key={slug}>
+              {label}
+            </Link>
+          ))}
+        </nav>
+      </section>
+      <div className="rh-wide">
+        <HomeRail
+          title="New in the catalogue"
+          href="/shop?sort=newest"
+          products={newest}
+        />
+      </div>
+      <section className="rh-discovery-band" aria-label="From the collection">
+        <div className="rh-wide">
+          <HomeRail title="From the collection" href="/shop">
+            {discoveries.slice(0, 9).map((product) => (
+              <HomeCard product={product} key={product.id} />
+            ))}
+          </HomeRail>
+        </div>
+      </section>
+      <section className="rh-editorial rh-wide" aria-label="The journal">
+        <div className="rh-editorial-grid">
+          {stories.slice(0, 3).map((story) => (
+            <Link key={story.href} href={story.href}>
+              <img
+                src={story.image}
+                alt=""
+                width={220}
+                height={130}
+                loading="lazy"
+              />
+              <span>{story.title}</span>
+            </Link>
+          ))}
+          <Link href="/journal" className="rh-journal-tile">
+            <span>Discover</span>
+            <strong>The journal</strong>
+          </Link>
+          {stories.slice(3).map((story) => (
+            <Link key={story.href} href={story.href}>
+              <img
+                src={story.image}
+                alt=""
+                width={220}
+                height={130}
+                loading="lazy"
+              />
+              <span>{story.title}</span>
+            </Link>
+          ))}
+        </div>
+        <Link className="rh-subscribe" href="/subscribe">
+          <span>
+            <small>KATUKINA / STAY CONNECTED</small>
+            <strong>
+              Discover stories, collection updates and new arrivals.
+            </strong>
+          </span>
+          <span aria-hidden>+</span>
+        </Link>
+      </section>
+    </main>
+  );
+}

@@ -1,0 +1,11 @@
+{
+  "version": "novo",
+  "classicCommit": "b20fada",
+  "files": [
+    "app/layout.tsx",
+    "app/page.tsx",
+    "components/home/reference-widgets.tsx",
+    "components/site/header.tsx",
+    "components/site/footer.tsx"
+  ]
+}
