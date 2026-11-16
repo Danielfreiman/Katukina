@@ -25,7 +25,7 @@ import {
 import "./reference-home.css";
 import { CategoryCarousel } from "@/components/home/category-carousel";
 import { HomeCategoryCircles } from "@/components/home/category-circles";
-import { getHomeCategoryIcons } from "@/lib/home-category-icons";
+import { getHomeCategoryMedia } from "@/lib/home-category-media";
 export const dynamic = "force-dynamic";
 const departments = [
   { slug: "rape", label: "Rapé", icon: "/images/icons/categories/01-rape.svg" },
@@ -164,7 +164,7 @@ export default async function Home() {
       >
         <div className="rh-wide">
           <h2 id="rh-categories-title">Shop by category</h2>
-          <HomeCategoryCircles categories={available} initialIcons={await getHomeCategoryIcons()} />
+          <HomeCategoryCircles categories={available} initialMedia={await getHomeCategoryMedia()} />
           <CategoryCarousel className="rh-category-chips" label="More categories">
             {categories
               .filter(

@@ -35,5 +35,7 @@ Prefira um arquivo por categoria; havendo vários, aparece o mais recentemente
 modificado. Em empate, vence o nome numerado e a ordem SVG, PNG, WebP.
 
 Os SVG originais permanecem na pasta superior como fallback. As fotografias de
-`public/images/home/category-circles/` estão preservadas, mas não são mais usadas
-nesta seção. A atualização contínua funciona em desenvolvimento com a aba visível.
+`public/images/home/category-circles/` estão habilitadas para os oito círculos:
+quando há fotografia válida, ela substitui o ícone. Sem foto ou em caso de erro,
+permanece o ícone com pattern. A atualização contínua funciona em desenvolvimento
+com a aba visível.

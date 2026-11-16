@@ -1,9 +1,10 @@
 # Fotos de Shop by category
 
-**SUBSTITUÍDO em 16/11/2026:** Danilo voltou a usar ícones brancos com fundo
-colorido. Esta pasta preserva as fotos e instruções históricas, mas não é mais
-lida pela home. Para o novo pacote, use `public/images/icons/categories/custom/`
-e siga o `LEIA-ME.md` dessa pasta. O procedimento abaixo está desativado.
+**ATIVO em 16/11/2026:** as fotos estão habilitadas nos **oito círculos**.
+Salve ou substitua os arquivos nesta pasta para vê-los automaticamente no site.
+Se houver vários candidatos, vence o mais recente. Categorias sem foto ou com
+erro de carregamento mantêm o ícone e o pattern como fallback.
+Para o pacote de ícones, use `public/images/icons/categories/custom/`.
 
 Coloque as imagens nesta pasta. No site local aberto com `npm.cmd run dev`,
 cada foto aparece automaticamente em cerca de 1 segundo, sem recarregar.

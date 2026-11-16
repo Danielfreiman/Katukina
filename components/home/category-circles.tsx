@@ -4,11 +4,17 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { CategoryCarousel } from "./category-carousel";
 
-export function HomeCategoryCircles({ categories, initialIcons }: {
+export function HomeCategoryCircles({
+  categories,
+  initialMedia,
+}: {
   categories: { slug: string; label: string; icon: string }[];
-  initialIcons: Record<string, string>;
+  initialMedia: {
+    icons: Record<string, string>;
+    photos: Record<string, string>;
+  };
 }) {
-  const [icons, setIcons] = useState(initialIcons);
+  const [media, setMedia] = useState(initialMedia);
   const [failed, setFailed] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
@@ -19,43 +25,83 @@ export function HomeCategoryCircles({ categories, initialIcons }: {
     async function refresh() {
       try {
         if (document.visibilityState === "visible") {
-          const response = await fetch("/api/home-category-icons", {
-            cache: "no-store", signal: controller.signal,
+          const response = await fetch("/api/home-category-media", {
+            cache: "no-store",
+            signal: controller.signal,
           });
-          if (response.ok && !disposed) setIcons(await response.json());
+          if (response.ok && !disposed) setMedia(await response.json());
         }
       } catch {
-        // Keep the current icons while the development server restarts.
+        // Keep the current media while the development server restarts.
       } finally {
         if (!disposed) timer = setTimeout(refresh, 1000);
       }
     }
     void refresh();
-    return () => { disposed = true; clearTimeout(timer); controller.abort(); };
+    return () => {
+      disposed = true;
+      clearTimeout(timer);
+      controller.abort();
+    };
   }, []);
 
   return (
     <CategoryCarousel className="rh-category-circles" label="Main categories">
       {categories.map(({ slug, label, icon }) => {
-        const customIcon = icons[slug];
+        const customIcon = media.icons[slug];
         const showCustom = customIcon && !failed[customIcon];
         const source = showCustom ? customIcon : icon;
+        const photo = media.photos[slug];
+        const showPhoto = photo && !failed[photo];
         return (
           <Link key={slug} href={`/collections/${slug}`}>
-            <span>
-              <span
-                className="rh-category-icon"
-                aria-hidden="true"
-                style={{ maskImage: `url("${source}")`, WebkitMaskImage: `url("${source}")` }}
-              >
+            <span className={showPhoto ? "has-category-photo" : undefined}>
+              {showPhoto ? (
                 <img
-                  key={source}
-                  src={source}
-                  alt="" width={64} height={64}
+                  key={photo}
+                    ref={(image) => {
+                      if (image?.complete && !image.naturalWidth) {
+                        setFailed((current) => ({ ...current, [photo]: true }));
+                      }
+                    }}
+                  className="rh-category-photo"
+                  src={photo}
+                  alt=""
+                  width={600}
+                  height={600}
                   draggable={false}
-                  onError={showCustom ? () => setFailed((current) => ({ ...current, [customIcon]: true })) : undefined}
+                  onError={() =>
+                    setFailed((current) => ({ ...current, [photo]: true }))
+                  }
                 />
-              </span>
+              ) : (
+                <span
+                  className="rh-category-icon"
+                  aria-hidden="true"
+                  style={{
+                    maskImage: `url("${source}")`,
+                    WebkitMaskImage: `url("${source}")`,
+                  }}
+                >
+                  <img
+                    key={source}
+                    src={source}
+                    alt=""
+                    width={64}
+                    height={64}
+                    draggable={false}
+                    onError={
+                      showCustom
+                        ? () =>
+                            setFailed((current) => ({
+                              ...current,
+                              [customIcon]: true,
+                            }))
+                        : undefined
+                    }
+                  />
+                </span>
+              )}
             </span>
             {label}
           </Link>
