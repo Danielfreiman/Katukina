@@ -1,0 +1,15 @@
+FAIXA VERDE DE CATEGORIAS - IMAGEM DECORATIVA
+
+Arquivo: category-band-overlay.webp
+Prancheta: 2400 x 800 px (3:1).
+Formato: WebP com transparencia alpha, sRGB.
+Peso recomendado: ate 400 KB.
+
+Substitua o arquivo transparente atual pelo seu export, mantendo o nome.
+A imagem aparece sobre o verde e atras do titulo e dos cards.
+O site usa a imagem centralizada, sem repeticao, em cover.
+Pode haver corte nas bordas conforme a largura da tela.
+No celular, aparece o recorte central da mesma imagem.
+Mantenha a decoracao dispensavel e evite textos, logos ou informacoes essenciais.
+A transparencia e a intensidade devem vir prontas do arquivo; o CSS usa opacidade 100%.
+O arquivo atual e totalmente transparente para preservar a aparencia ate sua entrega.

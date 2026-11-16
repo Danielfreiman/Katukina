@@ -1,0 +1,22 @@
+CATEGORY CARDS - ARTES MANUAIS
+
+Exporte cada imagem com 960 x 960 px (1:1), WebP, sRGB.
+Meta: ate 200 KB por arquivo. Sem texto ou nome incorporado.
+O nome aparece numa faixa verde separada abaixo da imagem, com no minimo 44 px.
+Nao e necessario reservar espaco para a faixa dentro da arte.
+A imagem ocupa um quadro quadrado acima da faixa de nome.
+
+Nomes exatos:
+exclusive-sale.webp
+puer-teas.webp
+giftshop.webp
+incense-smudge.webp
+shamanic-tools.webp
+rape.webp
+
+Coloque os arquivos nesta pasta. A home usa cada arte automaticamente.
+Enquanto o arquivo estiver ausente, o site usa uma foto provisoria do WooCommerce.
+Nao e necessario produzir todas as imagens de uma vez.
+Layout: seis cards no desktop, duas linhas de tres no tablet,
+e rolagem horizontal com indicacao de gesto no celular.
+
