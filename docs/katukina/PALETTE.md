@@ -8,6 +8,14 @@ A tipografia vigente usa **Sora como principal e Source Sans 3 como apoio**, con
 
 ## Cores aprovadas
 
+**Fundo claro, ajuste posterior confirmado em 16/11/2026:** círculos e pílulas da home passam a usar `--soft`, igual ao fundo das fotos dos produtos (`.rh-product-photo`), e contorno `--line`. Ícones e texto usam verde folha para leitura; a linha branca interna permanece. Esta configuração substitui o preenchimento verde das categorias registrado abaixo.
+
+**Extensão posterior confirmada em 16/11/2026:** as pílulas da mesma seção também passam a usar `#526B35` no fundo e no contorno, com texto branco. Os tokens locais `--category-fill` e `--category-outline` consomem `--leaf`. Esta instrução substitui o fundo `#9EAA8F` e contorno `#6B7B59` das pílulas registrados no histórico abaixo.
+
+**Ajuste posterior confirmado em 16/11/2026:** somente os círculos da home passam a usar verde folha `#526B35` (`--leaf`) no fundo e no contorno externo. Ícones e linha interna continuam brancos. A configuração das pílulas descrita abaixo permanece vigente.
+
+**Categorias da home, confirmado por Danilo em 16/11/2026:** círculos e pílulas usam fundo `#9EAA8F`, com ícones brancos. O pedido inclui contorno mais forte do mesmo tom; a implementação usa `#6B7B59`, restrito a essa seção. Tokens locais `--category-fill` e `--category-outline` em `app/reference-home.css`; não alteram o verde global da marca. Textos das pílulas em carvão para preservar a leitura, linha branca interna e ícones brancos mantidos.
+
 **Regra visual confirmada por Danilo em 09/11/2026:** o vermelho urucum é exclusivo de CTAs clicáveis de ações importantes. Sua presença deve indicar a ação prioritária. Textos destacados, ênfases em títulos, navegação, ícones e selos informativos usam verde folha. Textos de leitura continuam em carvão/cinza e textos sobre fundos coloridos permanecem claros para preservar o contraste. Esta regra substitui as aplicações anteriores do urucum no título da Home, em promoções, mensagens de erro e elementos decorativos, inclusive as sugestões de uso do SVG original, que permanece preservado como fonte das cores.
 
 - Aplicar urucum ao fundo do CTA principal (`.button.primary`), com texto claro e hover em urucum escurecido. Não usar urucum para links comuns, enfeites, texto estático ou estados selecionados.

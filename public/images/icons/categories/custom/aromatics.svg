@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="#FFFFFF" role="img" aria-label="Aromatics"><title>Aromatics</title><defs><mask id="leaf-cutout"><rect width="128" height="128" fill="white"/><path fill="#000" d="M60 100C41 97 37 83 40 69c18 3 27 14 24 28L49 81l11 19Zm7-9c-1-20 10-32 23-33 1 17-7 30-18 33l11-22-16 22Z"/></mask></defs><g mask="url(#leaf-cutout)">
+<path d="M49 10h30v12H49ZM53 27h22v14c16 6 25 17 25 31v33c0 9-7 14-15 14H43c-8 0-15-5-15-14V72c0-14 9-25 25-31V27Z"/>
+
+</g></svg>

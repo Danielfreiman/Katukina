@@ -24,6 +24,8 @@ import {
 } from "@/components/home/reference-widgets";
 import "./reference-home.css";
 import { CategoryCarousel } from "@/components/home/category-carousel";
+import { HomeCategoryCircles } from "@/components/home/category-circles";
+import { getHomeCategoryIcons } from "@/lib/home-category-icons";
 export const dynamic = "force-dynamic";
 const departments = [
   { slug: "rape", label: "Rapé", icon: "/images/icons/categories/01-rape.svg" },
@@ -162,16 +164,7 @@ export default async function Home() {
       >
         <div className="rh-wide">
           <h2 id="rh-categories-title">Shop by category</h2>
-          <CategoryCarousel className="rh-category-circles" label="Main categories">
-            {available.map(({ slug, label, icon }) => (
-              <Link key={slug} href={`/collections/${slug}`}>
-                <span>
-                  <img src={icon} alt="" width={56} height={56} draggable={false} />
-                </span>
-                {label}
-              </Link>
-            ))}
-          </CategoryCarousel>
+          <HomeCategoryCircles categories={available} initialIcons={await getHomeCategoryIcons()} />
           <CategoryCarousel className="rh-category-chips" label="More categories">
             {categories
               .filter(

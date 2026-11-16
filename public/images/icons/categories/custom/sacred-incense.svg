@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="#FFFFFF" role="img" aria-label="Sacred Incense"><title>Sacred Incense</title>
+<path fill-rule="evenodd" d="M64 3a11 11 0 1 1 0 22 11 11 0 0 1 0-22Zm0 5a6 6 0 1 0 0 12 6 6 0 0 0 0-12Z"/>
+<path d="m57 20 5 3-33 65-5-3 33-65Zm14 0 33 65-5 3-33-65 5-3Z"/>
+<path d="M61 64c-10-6-12-12-6-19 4-4 5-8 3-13 12 6 13 13 7 20-4 4-5 8-4 12Zm14 2c-7-4-9-8-5-13 3-3 4-6 2-10 10 5 12 10 7 15-3 3-4 5-4 8Z"/>
+<path fill-rule="evenodd" d="M35 83c4-9 13-15 25-16v-3h8v3c12 1 21 7 25 16H35Zm13-4h7v-5h-7v5Zm25 0h7v-5h-7v5Z"/>
+<path d="M23 87h82v7H23Zm7 11h68c-4 14-16 22-34 22s-30-8-34-22Zm25 25h18v4H55Z"/>
+</svg>
