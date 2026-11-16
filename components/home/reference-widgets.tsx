@@ -14,6 +14,12 @@ export type HomeProduct = {
   rating: number;
   reviews: number;
   category: string;
+  sku: string;
+  summary: string;
+  variable: boolean;
+  optionCount: number;
+  onSale: boolean;
+  backorder: boolean;
 };
 export function HomeCard({ product }: { product: HomeProduct }) {
   return (
@@ -34,12 +40,20 @@ export function HomeCard({ product }: { product: HomeProduct }) {
         ) : (
           <span>Image unavailable</span>
         )}
-        <span className="rh-product-action">View product</span>
+        {product.onSale && <span className="rh-product-badge">Sale</span>}
       </Link>
       <div className="rh-product-details">
-        <Link className="rh-product-name" href={product.href}>
-          {product.name}
-        </Link>
+        <h3 className="rh-product-name">
+          <Link href={product.href}>{product.name}</Link>
+        </h3>
+        <p className="rh-product-category">{product.category}</p>
+        {product.summary && <p className="rh-product-summary">{product.summary}</p>}
+        <div className="rh-product-meta">
+          {product.sku && <span>SKU: {product.sku}</span>}
+          {product.variable && product.optionCount > 0 && (
+            <span>{product.optionCount} {product.optionCount === 1 ? "option" : "options"}</span>
+          )}
+        </div>
         {product.reviews > 0 && (
           <div
             className="rh-rating"
@@ -54,9 +68,13 @@ export function HomeCard({ product }: { product: HomeProduct }) {
             {product.price}
             {product.regular && <del>{product.regular}</del>}
           </p>
-          <small className="rh-stock">
-            {product.inStock ? "In stock" : "Out of stock"}
+          <small className={`rh-stock${product.inStock ? " is-available" : ""}`}>
+            {product.inStock ? product.backorder ? "Available on backorder" : "In stock" : "Out of stock"}
           </small>
+          <Link className="rh-product-cta" href={product.href}>
+            {product.variable && product.inStock ? "Choose options" : "View product"}
+            <span className="sr-only"> for {product.name}</span>
+          </Link>
         </div>
       </div>
     </article>

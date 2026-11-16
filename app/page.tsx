@@ -20,6 +20,7 @@ import {
   HomeCampaigns,
   HomeRail,
   HomeCollectionTabs,
+  HomeCard,
   type HomeProduct,
 } from "@/components/home/reference-widgets";
 import "./reference-home.css";
@@ -59,6 +60,12 @@ function card(product: Product): HomeProduct {
     rating: Number(product.average_rating) || 0,
     reviews: product.review_count || 0,
     category: plainText(product.categories[0]?.name || "Katukina"),
+    sku: product.sku,
+    summary: plainText(product.short_description).replace(/\s+/g, " ").trim(),
+    variable: product.type === "variable",
+    optionCount: product.variations?.length || 0,
+    onSale: !!product.on_sale,
+    backorder: !!product.is_on_backorder,
   };
 }
 async function products(query: Record<string, string | number>) {
@@ -246,23 +253,7 @@ export default async function Home() {
         <div className="rh-wide">
           <HomeRail title="From the collection" href="/shop">
             {discoveries.slice(0, 9).map((product) => (
-              <article className="rh-discovery-card" key={product.id}>
-                <p>
-                  <Leaf size={17} />
-                  {product.category}
-                </p>
-                <Link href={product.href}>
-                  <img
-                    src={product.image || "/images/brand/katukina-tree.svg"}
-                    alt=""
-                    width={140}
-                    height={140}
-                    loading="lazy"
-                  />
-                  <strong>{product.name}</strong>
-                  <span>{product.price}</span>
-                </Link>
-              </article>
+              <HomeCard product={product} key={product.id} />
             ))}
           </HomeRail>
         </div>
