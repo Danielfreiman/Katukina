@@ -238,7 +238,9 @@
   overflow-x: auto;
   scroll-snap-type: x proximity;
   scrollbar-width: none;
-  padding-bottom: 12px;
+  /* Keep the raised card and its top border inside the scrollport. */
+  padding-block: 8px 16px;
+  margin-block: -8px -4px;
 }
 .reference-home .rh-product-track::-webkit-scrollbar {
   display: none;
@@ -252,6 +254,22 @@
   border: 1px solid var(--line);
   border-radius: var(--radius-card);
   background: var(--surface);
+  transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 240ms cubic-bezier(0.16, 1, 0.3, 1), border-color 180ms ease-out;
+}
+.reference-home .rh-product:focus-within {
+  border-color: var(--green);
+  box-shadow: 0 10px 22px -12px var(--shadow-soft);
+}
+@media (hover: hover) and (pointer: fine) {
+  .reference-home .rh-product:hover {
+    transform: translateY(-4px);
+    border-color: var(--green);
+    box-shadow: 0 10px 22px -12px var(--shadow-soft);
+  }
+  .reference-home .rh-product:hover .rh-product-photo img {
+    transform: scale(1.035);
+  }
 }
 .reference-home .rh-product-details {
   display: flex;
@@ -275,6 +293,7 @@
   overflow: hidden;
 }
 .reference-home .rh-product-photo img {
+  transition: transform 280ms cubic-bezier(0.16, 1, 0.3, 1);
   width: 100%;
   height: 100%;
   padding: 16px;
@@ -343,8 +362,8 @@
   color: var(--muted);
 }
 .reference-home .rh-categories {
-  --category-fill: var(--soft);
-  --category-outline: var(--line);
+  --category-fill: var(--leaf);
+  --category-outline: var(--support-hover);
 }
 .reference-home .rh-categories > .rh-wide {
   padding-block: 38px;
@@ -394,7 +413,7 @@
   display: block;
   width: 64px;
   height: 64px;
-  background: var(--green);
+  background: var(--white);
   mask-mode: alpha;
   mask-size: contain;
   mask-repeat: no-repeat;
@@ -413,7 +432,7 @@
   display: grid;
   place-items: center;
   background: var(--category-fill);
-  border: 4px solid var(--green);
+  border: 4px solid var(--category-outline);
   border-radius: 50%;
   box-shadow: 0 6px 14px -10px var(--shadow-soft);
   margin-bottom: 14px;
@@ -476,13 +495,14 @@
   overflow-x: auto;
   scrollbar-width: none;
 }
-.reference-home .rh-category-chips a {
+.reference-home .rh-category-chips a,
+.reference-home .rh-tabs button {
   position: relative;
   flex-shrink: 0;
   white-space: nowrap;
   border-radius: 30px;
-  background: var(--category-fill);
-  border: 2px solid var(--category-outline);
+  background: var(--support-soft);
+  border: 2px solid var(--green);
   min-height: 44px;
   display: inline-flex;
   align-items: center;
@@ -494,7 +514,8 @@
     box-shadow 220ms cubic-bezier(0.16, 1, 0.3, 1),
     transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
 }
-.reference-home .rh-category-chips a::after {
+.reference-home .rh-category-chips a::after,
+.reference-home .rh-tabs button::after {
   content: "";
   position: absolute;
   inset: 2px;
@@ -502,7 +523,10 @@
   border-radius: inherit;
   pointer-events: none;
 }
-.reference-home .rh-category-chips a:focus-visible {
+.reference-home .rh-category-chips a:focus-visible,
+.reference-home .rh-tabs button:focus-visible {
+  background: var(--green);
+  color: var(--white);
   outline: 2px solid var(--green);
   outline-offset: 2px;
   transform: translateY(-2px);
@@ -513,10 +537,14 @@
     color: var(--green);
   }
   .reference-home .rh-category-circles a:hover > span {
+    background: var(--support-hover);
     transform: translateY(-6px);
     box-shadow: 0 12px 20px -10px var(--shadow-soft);
   }
-  .reference-home .rh-category-chips a:hover {
+  .reference-home .rh-category-chips a:hover,
+  .reference-home .rh-tabs button:hover {
+    background: var(--green);
+    color: var(--white);
     transform: translateY(-2px);
     box-shadow: 0 8px 14px -10px var(--shadow-soft);
   }
@@ -527,31 +555,25 @@
 }
 .reference-home .rh-tabs {
   display: flex;
-  gap: 8px;
+  gap: 16px;
   overflow-x: auto;
   margin-bottom: 24px;
-  padding-bottom: 2px;
+  padding: 8px 4px 12px;
   scrollbar-width: thin;
-}
-.reference-home .rh-tabs button {
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: 28px;
-  white-space: nowrap;
-  padding: 12px 20px;
-  color: var(--ink);
-  font-size: var(--text-body);
 }
 .reference-home .rh-tabs button[aria-selected="true"] {
   border-color: var(--green);
-  background: var(--support-soft);
-  color: var(--green);
+  background: var(--green);
+  color: var(--white);
   font-weight: var(--weight-semibold);
 }
 .reference-home .rh-tab-products {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 28px 16px;
+  /* Also protects hover/focus when this grid becomes a mobile carousel. */
+  padding-block: 8px 16px;
+  margin-block: -8px -16px;
 }
 .reference-home .rh-tab-products[hidden] {
   display: none;
@@ -904,10 +926,12 @@
   .reference-home .rh-category-circles a {
     font-size: var(--text-ui);
   }
-  .reference-home .rh-category-chips {
+  .reference-home .rh-category-chips,
+  .reference-home .rh-tabs {
     gap: 8px;
   }
-  .reference-home .rh-category-chips a {
+  .reference-home .rh-category-chips a,
+  .reference-home .rh-tabs button {
     padding: 8px 16px;
     font-size: var(--text-ui);
   }
@@ -919,10 +943,6 @@
     gap: 12px;
     scroll-snap-type: x proximity;
     position: relative;
-  }
-  .reference-home .rh-tabs button {
-    padding: 9px 16px;
-    font-size: var(--text-ui);
   }
   .reference-home .rh-tabbed {
     padding-block: 28px;
@@ -1000,6 +1020,13 @@
   }
 }
 @media (prefers-reduced-motion: reduce) {
+  .reference-home .rh-product,
+  .reference-home .rh-product:hover,
+  .reference-home .rh-product .rh-product-photo img,
+  .reference-home .rh-product:hover .rh-product-photo img {
+    transform: none;
+    transition: none;
+  }
   .reference-home * {
     scroll-behavior: auto;
     transition: none;
@@ -1009,7 +1036,10 @@
   .reference-home .rh-category-circles a:focus-visible > span,
   .reference-home .rh-category-chips a,
   .reference-home .rh-category-chips a:hover,
-  .reference-home .rh-category-chips a:focus-visible {
+  .reference-home .rh-category-chips a:focus-visible,
+  .reference-home .rh-tabs button,
+  .reference-home .rh-tabs button:hover,
+  .reference-home .rh-tabs button:focus-visible {
     transform: none;
     transition: none;
   }

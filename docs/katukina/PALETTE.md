@@ -8,6 +8,20 @@ A tipografia vigente usa **Sora como principal e Source Sans 3 como apoio**, con
 
 ## Cores aprovadas
 
+**Faixa de navegação verde folha, confirmado por Danilo em 16/11/2026:** `.header-categories` usa `--leaf` (`#526B35`), com links e botão All categories brancos. Pattern original preservado com multiplicação e opacidade de 12%; hover, seção ativa, foco e menu expandido usam fundo `--support-soft` e texto verde. Foco com contorno branco. Substitui o fundo branco desta faixa. Typecheck aprovado; Playwright confirmou cores, hover, abertura/fechamento do menu e ausência de overflow em 390 px. Captura desktop inspecionada.
+
+**Harmonização da seção de categorias em 16/11/2026:** pedido de Danilo confirmado para adequar as cores à paleta vigente. Escolha de implementação: círculos em `--leaf`, contorno em `--support-hover`, ícones e linha interna brancos; pílulas em `--support-soft`, com texto/contorno verde e preenchimento verde com texto branco no hover e foco por teclado. Fundo geral branco, pattern, geometria e navegação preservados. Substitui a configuração cinza/carvão desta seção. Typecheck aprovado; Playwright conferiu 1440/390 px sem overflow, oito ícones, 18 pílulas, hover e foco. Contraste: branco/verde 5,98:1 e verde/fundo de apoio 4,87:1. Capturas desktop/mobile inspecionadas.
+
+**Pílulas cinza/carvão, ajuste posterior confirmado em 16/11/2026:** pílulas passam a acompanhar os círculos com `--medium-gray` (`#595957`) no fundo e `--charcoal` (`#292C27`) no contorno. Texto branco e linha branca interna preservados. Substitui as cores anteriores das pílulas.
+
+**Círculos cinza/carvão, ajuste posterior confirmado em 16/11/2026:** somente os círculos da home usam fundo `#595957` (`--medium-gray`) e contorno externo `#292C27` (`--charcoal`), mantendo ícones e linha interna brancos. Pílulas permanecem em `#617871`/`#203931`.
+
+**Configuração posterior confirmada em 16/11/2026:** círculos e pílulas da home usam fundo `#617871` e contorno externo `#203931`, por meio de `--category-fill` e `--category-outline`. Ícones e textos das pílulas são brancos; linhas internas brancas preservadas. Esta decisão substitui as combinações anteriores registradas abaixo apenas nessa seção.
+
+**Contorno dos círculos, ajuste posterior confirmado em 16/11/2026:** borda externa em `#88B8A8`, mantendo fundo `#203931`, ícones e linha interna brancos. Aplicação restrita aos círculos da home.
+
+**Círculos escuros, ajuste posterior confirmado em 16/11/2026:** fundo dos círculos em `#203931`, ícones brancos, contorno verde folha e linha branca interna. Pílulas continuam claras, com texto verde. Esta configuração substitui o fundo claro apenas nos círculos.
+
 **Fundo claro, ajuste posterior confirmado em 16/11/2026:** círculos e pílulas da home passam a usar `--soft`, igual ao fundo das fotos dos produtos (`.rh-product-photo`), e contorno `--line`. Ícones e texto usam verde folha para leitura; a linha branca interna permanece. Esta configuração substitui o preenchimento verde das categorias registrado abaixo.
 
 **Extensão posterior confirmada em 16/11/2026:** as pílulas da mesma seção também passam a usar `#526B35` no fundo e no contorno, com texto branco. Os tokens locais `--category-fill` e `--category-outline` consomem `--leaf`. Esta instrução substitui o fundo `#9EAA8F` e contorno `#6B7B59` das pílulas registrados no histórico abaixo.

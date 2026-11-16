@@ -49,19 +49,12 @@ async function readCategoryFiles(
 }
 
 export async function getHomeCategoryMedia() {
-  const [icons, photos] = await Promise.all([
-    readCategoryFiles(Object.keys(files), "/images/icons/categories/custom", [
-      "svg",
-      "png",
-      "webp",
-    ]),
-    readCategoryFiles(Object.keys(files), "/images/home/category-circles", [
-      "webp",
-      "jpg",
-      "jpeg",
-      "png",
-      "avif",
-    ]),
-  ]);
+  const icons = await readCategoryFiles(
+    Object.keys(files),
+    "/images/icons/categories/custom",
+    ["svg", "png", "webp"],
+  );
+  // Photos remain on disk for reference; the current direction uses icons only.
+  const photos: Record<string, string> = {};
   return { icons, photos };
 }

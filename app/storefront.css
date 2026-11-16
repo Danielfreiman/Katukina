@@ -24,11 +24,15 @@
 .site-note .destination-selector select { border-radius: 6px; padding: 4px 8px; }
 .header-wrap .category-navigation { gap: 12px; font-family: var(--font-display); font-size: var(--text-ui); }
 .header-wrap .category-navigation > a,
-.header-wrap .departments-trigger { border-radius: 8px; padding: 9px 12px; }
+.header-wrap .departments-trigger { border-radius: 8px; padding: 9px 12px; color: var(--white); }
+.header-wrap .category-navigation > a { color: var(--white); }
 .header-wrap .category-navigation > a[data-active="true"],
 .header-wrap .category-navigation > a:hover,
 .header-wrap .departments-trigger:hover,
-.header-wrap .departments-trigger[aria-expanded="true"] { background: var(--support-soft); text-decoration: none; }
+.header-wrap .departments-trigger[aria-expanded="true"],
+.header-wrap .category-navigation > a:focus-visible,
+.header-wrap .departments-trigger:focus-visible { background: var(--support-soft); color: var(--green); text-decoration: none; }
+.header-wrap .category-navigation :focus-visible { outline-color: var(--white); outline-offset: 2px; }
 .header-wrap .departments-intro { border-radius: 12px; }
 .header-wrap .departments-intro .button { border-radius: 8px; }
 .header-wrap .departments-grid a { border-radius: 6px; padding-inline: 8px; }

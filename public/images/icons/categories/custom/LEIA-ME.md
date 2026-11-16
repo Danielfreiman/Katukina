@@ -11,12 +11,11 @@ Remover um arquivo restaura o ícone original da categoria.
 - Alternativa: **PNG ou WebP transparente**, **512 × 512 px**.
 - Desenho **branco puro**, centralizado, com margem livre ao redor.
 - Não inclua fundo, círculo, texto ou bordas no arquivo: o site aplica o fundo
-  claro das fotos dos produtos (`--soft`), pattern suave atrás do ícone,
-  contorno verde da mesma cor do ícone e linha branca interna.
+  `#595957`, pattern suave atrás do ícone, contorno carvão `#292C27` e linha branca interna.
 - O ícone é exibido em **64 × 64 px no desktop** e **44 × 44 px no celular**,
   mantendo sua proporção. Use espessuras e margens consistentes entre os oito.
 - Os arquivos continuam brancos; o site usa sua transparência como máscara para
-  apresentá-los em verde sobre o fundo claro, sem alterar os SVG/PNG/WebP originais.
+  apresentá-los em branco sobre o fundo escuro, sem alterar os SVG/PNG/WebP originais.
 
 | Categoria | Nome recomendado |
 | --- | --- |
@@ -35,7 +34,6 @@ Prefira um arquivo por categoria; havendo vários, aparece o mais recentemente
 modificado. Em empate, vence o nome numerado e a ordem SVG, PNG, WebP.
 
 Os SVG originais permanecem na pasta superior como fallback. As fotografias de
-`public/images/home/category-circles/` estão habilitadas para os oito círculos:
-quando há fotografia válida, ela substitui o ícone. Sem foto ou em caso de erro,
-permanece o ícone com pattern. A atualização contínua funciona em desenvolvimento
-com a aba visível.
+`public/images/home/category-circles/` estão preservadas, mas desativadas por
+solicitação posterior de Danilo em 16/11/2026. Os oito círculos usam os ícones.
+A atualização contínua dos ícones funciona em desenvolvimento com a aba visível.

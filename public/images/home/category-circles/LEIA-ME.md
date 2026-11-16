@@ -1,10 +1,9 @@
 # Fotos de Shop by category
 
-**ATIVO em 16/11/2026:** as fotos estão habilitadas nos **oito círculos**.
-Salve ou substitua os arquivos nesta pasta para vê-los automaticamente no site.
-Se houver vários candidatos, vence o mais recente. Categorias sem foto ou com
-erro de carregamento mantêm o ícone e o pattern como fallback.
-Para o pacote de ícones, use `public/images/icons/categories/custom/`.
+**DESATIVADO por instrução posterior em 16/11/2026:** os oito círculos voltaram
+a usar ícones brancos sobre fundo `#203931`. As fotos permanecem nesta pasta,
+mas não são lidas pelo site. O procedimento abaixo é histórico.
+Para o pacote de ícones ativo, use `public/images/icons/categories/custom/`.
 
 Coloque as imagens nesta pasta. No site local aberto com `npm.cmd run dev`,
 cada foto aparece automaticamente em cerca de 1 segundo, sem recarregar.
