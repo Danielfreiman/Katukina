@@ -8,9 +8,9 @@ test('departments, permanent search and home shelves work across screen sizes', 
   expect(await departments.getByRole('link').count()).toBeGreaterThan(7);
   await page.keyboard.press('Escape');
   await expect(page.getByRole('button',{name:'All categories',exact:true})).toBeFocused();
-  const shelf=page.getByRole('region',{name:'Discover Katukina',exact:true});
+  const shelf=page.getByRole('region',{name:'New in the catalogue',exact:true});
   await shelf.scrollIntoViewIfNeeded();
-  await shelf.getByRole('button',{name:'Next Discover Katukina'}).click();
+  await shelf.getByRole('button',{name:'Next New in the catalogue'}).click();
   await expect.poll(()=>shelf.locator('.rh-product-track').evaluate(el=>el.scrollLeft)).toBeGreaterThan(100);
   for(const width of [1440,1024,801,390,320]) {
     await page.setViewportSize({width,height:900});

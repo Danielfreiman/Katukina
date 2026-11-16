@@ -9,21 +9,21 @@ test("reference home preserves its composition and interactive sections", async 
     .getByRole("button", { name: "Reject optional", exact: true })
     .click();
   await expect(page.locator(".rh-campaign")).toHaveCount(2);
-  const first = await page.locator(".rh-campaign").first().getAttribute("href");
+  const first = await page.locator(".rh-campaign-cta").first().getAttribute("href");
   await page
     .getByRole("button", { name: "Next campaign", exact: true })
     .click();
-  await expect(page.locator(".rh-campaign").first()).not.toHaveAttribute(
+  await expect(page.locator(".rh-campaign-cta").first()).not.toHaveAttribute(
     "href",
     first!,
   );
   const rail = page.getByRole("region", {
-    name: "Discover Katukina",
+    name: "New in the catalogue",
     exact: true,
   });
   expect(await rail.locator(".rh-product").count()).toBeGreaterThan(6);
   await rail.scrollIntoViewIfNeeded();
-  await rail.getByRole("button", { name: "Next Discover Katukina" }).click();
+  await rail.getByRole("button", { name: "Next New in the catalogue" }).click();
   await expect
     .poll(() =>
       rail.locator(".rh-product-track").evaluate((el) => el.scrollLeft),

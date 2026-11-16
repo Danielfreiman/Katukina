@@ -4,6 +4,8 @@
 
 Registro de contexto do produto para o trabalho de frontend. Público e divisão de responsabilidades confirmados por Danilo em 06/11/2026. Complementa a documentação técnica em `docs/katukina/`; não transforma propostas históricas em requisitos aprovados.
 
+**Reconfirmado por Danilo em 16/11/2026 durante `/impeccable init`:** manter o contexto atual deste documento, incluindo o público prioritário de varejo internacional, a responsabilidade de Danilo pelo frontend e pela direção visual e a responsabilidade do parceiro pelo backend e pelas regras comerciais.
+
 **Reconfirmado por Danilo em 09/11/2026:** manter o foco no cliente final internacional de varejo, com Danilo conduzindo o frontend e a direção visual e o parceiro responsável pelo backend e pelas regras comerciais. O contexto existente permanece válido para a continuidade do projeto.
 
 ## Platform

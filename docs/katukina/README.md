@@ -8,6 +8,22 @@ O projeto local contém Next.js e WordPress + WooCommerce em Docker. Site e pain
 
 ## Entregas
 
+Categorias em 2026-11-16 — decisão final de Danilo: manter somente os oito ícones originais. Integração automática de fotos desfeita e pasta `public/images/home/category-circles/`, incluindo a foto de teste e suas instruções, removida a pedido. Os registros abaixo sobre fotos e pattern preservam o histórico das decisões substituídas.
+
+Categorias em 2026-11-16 — correção posterior confirmada por Danilo: seção e divisórias seguem a largura das seções vizinhas da home (`.rh-wide`, máximo de 1600 px), substituindo o limite de 1280 px solicitado anteriormente. Navegador confirmou larguras iguais nas três seções em 1920, 1440 e 390 px, sem overflow. Typecheck aprovado.
+
+Categorias em 2026-11-16 — **CONFIRMADO por Danilo:** remover o pattern da seção e preparar imagens para os oito círculos. Pattern removido; especificações e nomes em `public/images/home/category-circles/LEIA-ME.md`. Imagens a fornecer pelo responsável, com integração após o recebimento. Esta decisão substitui a aplicação do pattern registrada abaixo.
+
+Home em 2026-11-16 — ajuste posterior confirmado por Danilo: conteúdo da faixa de categorias limitado a 1280 px, alinhado ao limite do cabeçalho, com fundo em largura total. “Shop by collection” reduzido de até 18 para até 12 produtos por coleção, removendo uma fileira de seis no desktop. Typecheck aprovado; navegador a 1920 px confirmou 12 produtos, contêiner de 1280 px e ausência de overflow horizontal.
+
+Pattern das categorias em 2026-11-16 — **CONFIRMADO por Danilo:** fundo dentro da seção “Shop by category”, atrás dos círculos, ocupando a largura total; conteúdo mantém o contêiner anterior `.rh-wide`, com limite de 1600 px. Reutilizado o grafismo original com o tratamento suave do header. Conferido em navegador a 1920, 1440, 390 e 320 px, com fundo de ponta a ponta, conteúdo centralizado e sem overflow horizontal. Capturas locais em `artifacts/category-full-width-*.png`.
+
+Home em 2026-11-16 — **CONFIRMADO por Danilo:** remover a seção “Discover Katukina”. Removido o carrossel correspondente em `app/page.tsx`; “Shop by collection” passa a seguir as categorias. Os dois testes existentes de home/navegação foram atualizados para verificar o carrossel “New in the catalogue” e aprovados; o seletor antigo dos CTAs dos banners também foi corrigido no teste de composição. Ausência da seção e composição conferidas em navegador a 1440 e 390 px, sem overflow horizontal.
+
+Categorias da home em 2026-11-16 — **CONFIRMADO por Danilo:** reforçar o destaque dos círculos dentro do estilo visual existente. Aplicados contorno verde suave, sombra discreta, ícones maiores, rótulos semibold e estados de hover/foco em `app/reference-home.css`; categorias adicionais com borda leve e alvo mínimo de 44 px. Conferido em navegador a 1440, 800, 390 e 320 px, sem overflow horizontal da página; foco visível, rolagem por teclado e movimento reduzido verificados. Detector de layout sem achados. Capturas locais em `artifacts/category-layout-*.png`.
+
+Ambiente local em 2026-11-16: [recuperação do banco vazio com backup de 10/11 e validação da home, catálogo e painel](LOCAL-RECOVERY-2026-11-16.md).
+
 Navegação do histórico em 2026-11-11: “Recently viewed” usa setas circulares com estados de início/fim e mantém rolagem por toque, links dos produtos e limpeza do histórico. Barra de rolagem visual removida. Validado em navegador a 1440 e 390 px; typecheck aprovado.
 
 Rodapé compacto em 2026-11-11: logo integrada à introdução, links em duas colunas e remoção da assinatura gigante inferior. Conferido em 1440, 800, 390 e 320 px, sem overflow horizontal; altura de 369 px no desktop de 1440 px. Typecheck aprovado.

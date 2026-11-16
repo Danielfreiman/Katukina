@@ -85,7 +85,7 @@ export default async function Home() {
             category: categories.find(
               (category) => category.slug === item.slug,
             )!.id,
-            per_page: 18,
+            per_page: 12,
             orderby: "popularity",
             order: "desc",
           }),
@@ -157,41 +157,38 @@ export default async function Home() {
         />
       </div>
       <section
-        className="rh-categories rh-wide"
+        className="rh-categories"
         aria-labelledby="rh-categories-title"
       >
-        <h2 id="rh-categories-title">Shop by category</h2>
-        <CategoryCarousel className="rh-category-circles" label="Main categories">
-          {available.map(({ slug, label, icon }) => (
-            <Link key={slug} href={`/collections/${slug}`}>
-              <span>
-                <img src={icon} alt="" width={56} height={56} draggable={false} />
-              </span>
-              {label}
-            </Link>
-          ))}
-        </CategoryCarousel>
-        <CategoryCarousel className="rh-category-chips" label="More categories">
-          {categories
-            .filter(
-              (category) =>
-                category.count > 0 &&
-                !available.some((item) => item.slug === category.slug),
-            )
-            .slice(0, 18)
-            .map((category) => (
-              <Link href={`/collections/${category.slug}`} key={category.id}>
-                {plainText(category.name)}
+        <div className="rh-wide">
+          <h2 id="rh-categories-title">Shop by category</h2>
+          <CategoryCarousel className="rh-category-circles" label="Main categories">
+            {available.map(({ slug, label, icon }) => (
+              <Link key={slug} href={`/collections/${slug}`}>
+                <span>
+                  <img src={icon} alt="" width={56} height={56} draggable={false} />
+                </span>
+                {label}
               </Link>
             ))}
-        </CategoryCarousel>
+          </CategoryCarousel>
+          <CategoryCarousel className="rh-category-chips" label="More categories">
+            {categories
+              .filter(
+                (category) =>
+                  category.count > 0 &&
+                  !available.some((item) => item.slug === category.slug),
+              )
+              .slice(0, 18)
+              .map((category) => (
+                <Link href={`/collections/${category.slug}`} key={category.id}>
+                  {plainText(category.name)}
+                </Link>
+              ))}
+          </CategoryCarousel>
+        </div>
       </section>
       <div className="rh-wide">
-        <HomeRail
-          title="Discover Katukina"
-          href="/shop"
-          products={discoveries}
-        />
         <HomeCollectionTabs collections={collections} />
       </div>
       <section className="rh-story rh-wide" aria-labelledby="rh-story-title">
