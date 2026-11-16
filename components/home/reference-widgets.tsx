@@ -7,7 +7,6 @@ import {
   Pause,
   Play,
   Star,
-  Search,
 } from "lucide-react";
 
 export type HomeProduct = {
@@ -49,9 +48,6 @@ export function HomeCard({ product }: { product: HomeProduct }) {
           <span>Image unavailable</span>
         )}
         {product.onSale && <span className="rh-product-badge">Sale</span>}
-        <span className="rh-quick-view" aria-hidden>
-          <Search size={18} />
-        </span>
       </Link>
       <div className="rh-product-details">
         <h3 className="rh-product-name">

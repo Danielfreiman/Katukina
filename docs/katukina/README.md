@@ -1,5 +1,7 @@
 # Discovery Katukina
 
+Cards de produtos em 16/11/2026 — **CONFIRMADO por Danilo:** remover a lupa sobre as imagens. Links das fotografias e botões de acesso ao produto preservados.
+
 Alinhamento dos cards em 16/11/2026 — **CONFIRMADO por Danilo:** equilibrar o respiro acima e abaixo do conteúdo e destacar títulos sobre as contagens. Padding vertical de 28 px no desktop e 24 px no celular; espaço de 16 px após a imagem, títulos em 16 px/peso 700 com área mínima de duas linhas, contagens em 12 px/peso 400.
 
 Pattern nos cards em 16/11/2026 — **CONFIRMADO por Danilo:** reaplicar o grafismo padrão apenas dentro dos cards de categorias, sobre o verde folha. Reutilizado `public/images/original-background.jpg`, com mistura tonal escura e fotos/textos acima da camada decorativa. Esta exceção substitui a orientação de fundo liso somente nesses cards.
