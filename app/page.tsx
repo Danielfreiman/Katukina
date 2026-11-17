@@ -1,4 +1,6 @@
 ﻿import Link from "next/link";
+import { existsSync } from "node:fs";
+import path from "node:path";
 import {
   Leaf,
   Flame,
@@ -444,20 +446,19 @@ export default async function Home() {
           className="mh-banner mh-banner-incense"
           href="/collections/sacred-incense"
         >
-          <div>
+          {existsSync(path.join(process.cwd(), "public/images/home/ritual-banner/background.webp")) && (
+            <picture className="mh-ritual-art" aria-hidden="true">
+              {existsSync(path.join(process.cwd(), "public/images/home/ritual-banner/background-mobile.webp")) && (
+                <source media="(max-width: 640px)" srcSet="/images/home/ritual-banner/background-mobile.webp" />
+              )}
+              <img src="/images/home/ritual-banner/background.webp" alt="" width={2400} height={560} loading="lazy" />
+            </picture>
+          )}
+          <div className="mh-ritual-content">
             <h2>Make room for a little ritual.</h2>
             <p>Explore sacred woods, resins and aromatic discoveries.</p>
+            <span className="mh-button mh-button-primary">Explore incense</span>
           </div>
-          <span className="mh-button mh-button-primary">Explore incense</span>
-          {main?.image && (
-            <img
-              src={main.image}
-              alt=""
-              width={250}
-              height={220}
-              loading="lazy"
-            />
-          )}
         </Link>
       </div>
       <section

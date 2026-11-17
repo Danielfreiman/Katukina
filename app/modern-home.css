@@ -137,7 +137,7 @@
   color: #582f12;
 }
 .mh-hero h1 .mh-hero-sananga-title {
-  color: var(--green);
+  color: #80adde;
 }
 .mh-hero-copy > p {
   color: var(--muted);
@@ -568,6 +568,7 @@
   top: 40%;
   width: 44px;
   height: 44px;
+  box-shadow: 0 3px 10px rgb(41 44 39 / 12%);
 }
 .mh-category-grid.is-dragging {
   cursor: grabbing;
@@ -585,7 +586,7 @@
   scroll-snap-type: x mandatory;
   scrollbar-width: thin;
   scrollbar-color: var(--green) var(--soft);
-  padding-block: 6px 14px;
+  padding-block: 8px 20px;
 }
 .mh-category-grid > a {
   position: relative;
@@ -595,6 +596,8 @@
   color: var(--warm-white);
   border-radius: 9px;
   padding: 28px 12px;
+  box-shadow: 0 4px 8px rgb(41 44 39 / 14%);
+  transition: background-color 180ms ease-out, box-shadow 180ms ease-out;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -612,6 +615,14 @@
   mix-blend-mode: multiply;
   opacity: 0.65;
 }
+.mh-category-grid > a::after {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgb(247 247 242 / 18%);
+  border-radius: 5px;
+  pointer-events: none;
+}
 .mh-category-image {
   flex-shrink: 0;
   display: grid;
@@ -623,6 +634,7 @@
   margin-bottom: 16px;
   overflow: hidden;
   color: var(--green);
+  box-shadow: 0 5px 12px rgb(41 44 39 / 24%);
 }
 .mh-category-image img {
   width: 100%;
@@ -649,10 +661,16 @@
 .mh-category-grid > a:hover {
   background: color-mix(in srgb, var(--green) 85%, var(--charcoal));
   color: var(--warm-white);
+  box-shadow: 0 6px 12px rgb(41 44 39 / 22%);
 }
 .mh-category-grid > a:focus-visible {
   outline: 2px solid var(--green);
   outline-offset: 4px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .mh-category-grid > a {
+    transition: none;
+  }
 }
 .mh-banner {
   display: flex;
@@ -1183,6 +1201,9 @@
     grid-template-columns: 1fr;
     gap: 14px;
   }
+  .mh-promotion-card:nth-child(-n + 2) {
+    background-position: 90% center;
+  }
   .mh-campaign {
     min-height: 205px;
   }
@@ -1427,4 +1448,29 @@
   .mh-hero-slide {
     transition: none;
   }
+}
+
+/* Ritual campaign: copy and action stay together; artwork is optional. */
+.mh-banner.mh-banner-incense {
+  min-height: 280px;
+  padding: 40px 48px;
+  border-radius: 12px;
+  isolation: isolate;
+}
+.mh-ritual-content { position: relative; max-width: 560px; }
+.mh-banner-incense h2 {
+  max-width: 19ch;
+  font-size: clamp(1.75rem, 2.4vw, 2.25rem);
+  line-height: 1.2;
+  text-wrap: balance;
+}
+.mh-banner-incense p { margin-top: 12px; max-width: 44ch; font-size: 1rem; line-height: 1.5; }
+.mh-banner-incense .mh-button { margin: 24px 0 0; min-height: 44px; padding-inline: 24px; font-size: 0.875rem; }
+.mh-ritual-art { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+.mh-ritual-art img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.mh-banner-incense:focus-visible { outline: 3px solid var(--green); outline-offset: 4px; }
+@media (max-width: 640px) {
+  .mh-banner.mh-banner-incense { min-height: 320px; align-items: flex-start; padding: 32px 24px; }
+  .mh-banner-incense h2 { font-size: 1.75rem; }
+  .mh-ritual-content { max-width: 100%; }
 }

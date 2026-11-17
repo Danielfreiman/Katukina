@@ -1,5 +1,17 @@
 # Discovery Katukina
 
+Banner ritual em 17/11/2026 ? **CONFIRMADO por Danilo:** melhorar o layout e deixar a arte de fundo para ele fornecer. Mensagem e CTA agrupados ? esquerda, respiro ampliado e produto avulso removido para receber a composi??o. Fundo liso enquanto os arquivos n?o existem. Pasta `public/images/home/ritual-banner/`: `background.webp` (2400 ? 560 px) e `background-mobile.webp` opcional (960 ? 960 px). **A VALIDAR:** arte e contraste ap?s fornecimento. Valida??o executada: typecheck aprovado; Playwright em 1440, 768, 390 e 320 px sem overflow, destino do link preservado e capturas revisadas; detector de layout sem achados.
+
+Faixa superior neutra em 17/11/2026 — **CONFIRMADO por Danilo:** remover o verde da faixa “Nature. Culture. Connection.”. Fundo em branco quente, texto cinza e seletor de país com texto escuro; foco adaptado à superfície clara. Faixa de navegação verde com pattern preservada.
+
+Faixa de navegação em 17/11/2026 — **CONFIRMADO por Danilo:** aplicar verde folha e pattern à faixa de categorias do cabeçalho. Reutilizado `original-background.jpg` em camada tonal; links, ícones, contorno do seletor e foco em branco quente, com estados hover/aberto ajustados para leitura sobre verde.
+
+Azul de Sananga em 17/11/2026 — **CONFIRMADO por Danilo:** trocar novamente a palavra “Sananga” do terceiro hero para azul. Restaurado `#80ADDE`, mantendo itálico e composição em desktop/mobile. Substitui a reversão para verde registrada anteriormente.
+
+Enquadramento dos cards mobile em 17/11/2026 — **CONFIRMADO por Danilo:** deslocar para a esquerda as imagens de Rapé e Kuripe & Tepi somente no mobile. Após pedido de ampliar o deslocamento, posição horizontal do fundo em 90% nos dois primeiros cards até 540 px, preservando preenchimento `cover`, textos e botões.
+
+Acabamento das categorias em 17/11/2026 — **CONFIRMADO por Danilo:** refinar sutilmente a seção “Shop by category”. Aplicadas sombras suaves aos cards, fotos circulares e setas, traçado interno discreto e realce no hover, preservando verde, grafismo, conteúdo e navegação. Validação local: `npm.cmd run typecheck` passou; Playwright em 1600, 768 e 390 px sem overflow da página, 37 cards, avanço do carrossel e foco visível conferidos. Capturas desktop, tablet e mobile revisadas.
+
 Controles centralizados no mobile em 17/11/2026 — **CONFIRMADO por Danilo:** centralizar horizontalmente os controles dos três banners abaixo do CTA em telas de até 640 px. Alinhamento desktop preservado.
 
 Fundo integral do hero mobile em 17/11/2026 — **CONFIRMADO por Danilo:** a imagem deve preencher toda a largura e altura, inclusive atrás do CTA e dos controles. Restaurado `cover` centralizado, removida a faixa inferior separada e mantida a altura `max(640px, 125vw)`. Danilo ajustará a posição dos produtos na arte ao espaço disponível. Esta decisão substitui o encaixe `contain` e a reserva inferior na área da imagem.
