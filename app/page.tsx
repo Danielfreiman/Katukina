@@ -446,12 +446,12 @@ export default async function Home() {
           className="mh-banner mh-banner-incense"
           href="/collections/sacred-incense"
         >
-          {existsSync(path.join(process.cwd(), "public/images/home/ritual-banner/background.webp")) && (
+          {existsSync(path.join(process.cwd(), "public/images/home/ritual-banner/ritual-incense-desktop.webp")) && (
             <picture className="mh-ritual-art" aria-hidden="true">
-              {existsSync(path.join(process.cwd(), "public/images/home/ritual-banner/background-mobile.webp")) && (
-                <source media="(max-width: 640px)" srcSet="/images/home/ritual-banner/background-mobile.webp" />
+              {existsSync(path.join(process.cwd(), "public/images/home/ritual-banner/ritual-incense-mobile.webp")) && (
+                <source media="(max-width: 640px)" srcSet="/images/home/ritual-banner/ritual-incense-mobile.webp" />
               )}
-              <img src="/images/home/ritual-banner/background.webp" alt="" width={2400} height={560} loading="lazy" />
+              <img src="/images/home/ritual-banner/ritual-incense-desktop.webp" alt="" width={2400} height={560} loading="lazy" />
             </picture>
           )}
           <div className="mh-ritual-content">

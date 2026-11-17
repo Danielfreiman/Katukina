@@ -1472,5 +1472,12 @@
 @media (max-width: 640px) {
   .mh-banner.mh-banner-incense { min-height: 320px; align-items: flex-start; padding: 32px 24px; }
   .mh-banner-incense h2 { font-size: 1.75rem; }
-  .mh-ritual-content { max-width: 100%; }
+  .mh-ritual-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 256px;
+    max-width: 100%;
+  }
+  .mh-banner-incense .mh-button { margin-top: auto; }
 }

@@ -1,6 +1,8 @@
 # Discovery Katukina
 
-Banner ritual em 17/11/2026 ? **CONFIRMADO por Danilo:** melhorar o layout e deixar a arte de fundo para ele fornecer. Mensagem e CTA agrupados ? esquerda, respiro ampliado e produto avulso removido para receber a composi??o. Fundo liso enquanto os arquivos n?o existem. Pasta `public/images/home/ritual-banner/`: `background.webp` (2400 ? 560 px) e `background-mobile.webp` opcional (960 ? 960 px). **A VALIDAR:** arte e contraste ap?s fornecimento. Valida??o executada: typecheck aprovado; Playwright em 1440, 768, 390 e 320 px sem overflow, destino do link preservado e capturas revisadas; detector de layout sem achados.
+CTA do banner ritual em 17/11/2026 ? **CONFIRMADO por Danilo:** descer o botao no mobile. Acao alinhada na base do bloco, com recuo inferior de 32 px e altura minima do banner preservada. Artes desktop e mobile fornecidas na pasta e detectadas localmente.
+
+Banner ritual em 17/11/2026 ? **CONFIRMADO por Danilo:** melhorar o layout e deixar a arte de fundo para ele fornecer. Mensagem e CTA agrupados ? esquerda, respiro ampliado e produto avulso removido para receber a composi??o. Fundo liso enquanto os arquivos n?o existem. Pasta `public/images/home/ritual-banner/`: `ritual-incense-desktop.webp` (2400 ? 560 px) e `ritual-incense-mobile.webp` opcional (960 ? 960 px). **A VALIDAR:** arte e contraste ap?s fornecimento. Valida??o executada: typecheck aprovado; Playwright em 1440, 768, 390 e 320 px sem overflow, destino do link preservado e capturas revisadas; detector de layout sem achados.
 
 Faixa superior neutra em 17/11/2026 — **CONFIRMADO por Danilo:** remover o verde da faixa “Nature. Culture. Connection.”. Fundo em branco quente, texto cinza e seletor de país com texto escuro; foco adaptado à superfície clara. Faixa de navegação verde com pattern preservada.
 
