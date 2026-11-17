@@ -138,7 +138,7 @@
 .side-cart button:not(:disabled):hover {
   background: var(--support-soft);
 }
-.side-cart .button.primary:hover {
+.side-cart .button.primary:hover:not(:disabled) {
   background: var(--primary-hover);
 }
 .side-cart-empty {

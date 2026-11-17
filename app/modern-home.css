@@ -16,6 +16,7 @@
   text-decoration: none;
 }
 .mh-button {
+  transition: background-color 180ms ease-out, color 180ms ease-out;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -233,7 +234,7 @@
   padding: 9px 20px;
   font-size: 0.8125rem;
 }
-.mh-promotion-card:hover .mh-button {
+.mh-promotion-card:is(:hover, :focus-visible) .mh-button {
   background: var(--green);
   color: var(--on-color);
 }
@@ -567,6 +568,7 @@
   padding: 24px 0;
 }
 .mh-categories {
+  --green: var(--charcoal);
   padding-block: 22px 36px;
 }
 .mh-categories .rh-category-carousel {
@@ -667,7 +669,7 @@
   margin-top: 4px;
 }
 .mh-category-grid > a:hover {
-  background: color-mix(in srgb, var(--green) 85%, var(--charcoal));
+  background: color-mix(in srgb, var(--green) 85%, var(--warm-white));
   color: var(--warm-white);
   box-shadow: 0 6px 12px rgb(41 44 39 / 22%);
 }
@@ -691,6 +693,13 @@
   min-height: 170px;
   padding: 30px 245px 30px 38px;
   margin-block: 12px 38px;
+}
+.mh-banner:is(:hover, :focus-visible) {
+  color: var(--ink);
+}
+.mh-banner:is(:hover, :focus-visible) .mh-button-primary {
+  background: var(--primary-hover);
+  color: var(--on-color);
 }
 .mh-banner h2 {
   font-size: clamp(1.375rem, 2vw, 1.875rem);
@@ -920,8 +929,11 @@
   background: var(--warm-white);
   color: var(--ink);
 }
-.mh-giftshop-banner:hover > .mh-button {
+.mh-giftshop-banner:is(:hover, :focus-visible) > .mh-button {
   background: #fff;
+}
+.mh-giftshop-banner:is(:hover, :focus-visible) {
+  color: var(--warm-white);
 }
 .mh-giftshop-banner:focus-visible {
   outline: 3px solid var(--green);

@@ -200,17 +200,21 @@ svg {
   background: var(--primary);
   color: var(--on-color);
 }
-.button.primary:hover {
+.button.primary:hover:not(:disabled):not([aria-disabled="true"]) {
   background: var(--primary-hover);
   color: var(--on-color);
-  transform: translateY(-2px);
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .button.primary:hover:not(:active):not(:disabled):not([aria-disabled="true"]) {
+    transform: translateY(-2px);
+  }
 }
 .button.secondary {
   border-color: var(--green);
   color: var(--green);
   background: transparent;
 }
-.button.secondary:hover {
+.button.secondary:hover:not(:disabled):not([aria-disabled="true"]) {
   background: var(--green);
   color: var(--on-color);
 }
