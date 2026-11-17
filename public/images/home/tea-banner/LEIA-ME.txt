@@ -1,0 +1,14 @@
+Banner: The art of slowing down
+
+Arquivo: herbal-tea.webp
+Tamanho recomendado: 1000 x 1500 pixels (largura x altura).
+Formato: WebP.
+Versao mobile recomendada: herbal-tea-mobile.webp, 1200 x 800 pixels.
+No mobile o banner e horizontal: reserve a esquerda para texto e coloque o produto a direita.
+Arte de fundo vertical, sem textos, preco ou botao: esses elementos continuam no HTML.
+Reserve a metade superior com pouco detalhe para manter a leitura do conteudo.
+Concentre o produto na metade inferior e mantenha margem nas bordas para cortes responsivos.
+
+Pasta preparada em 17/11/2026 a pedido de Danilo.
+O componente atual ainda usa a foto do produto do catalogo.
+A integracao desta arte de fundo sera feita quando o arquivo for fornecido.

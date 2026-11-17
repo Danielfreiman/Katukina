@@ -1,5 +1,25 @@
 # Discovery Katukina
 
+Espaçamento de Discover the collection em 17/11/2026 — **CONFIRMADO por Danilo:** corrigir o espaçamento da seção. O banner com proporção 2:3 e altura mínima ultrapassava sua coluna; largura explícita de 100% restaura o gap de 26 px entre banner e produtos. Typecheck aprovado; Playwright confirmou 26 px e ausência de overflow em 1651 e 1440 px, com captura desktop revisada.
+
+Contraste do título Essential oils em 17/11/2026 — **CONFIRMADO por Danilo:** substituir o amarelo por uma cor de maior contraste e harmonia com o fundo. Aplicado carvão `#292C27`, da paleta, sobre a área clara superior da arte. Substitui o amarelo registrado abaixo.
+
+Título Essential oils em 17/11/2026 — **CONFIRMADO por Danilo:** substituir o verde do título do banner por amarelo `#f2d64d`. Cor aplicada ao título da campanha com arte própria.
+
+CTA Essential oils em 17/11/2026 — **CONFIRMADO por Danilo:** remover “Explore” do botão. Rótulo atualizado para “Essential oils”, mantendo o destino da categoria.
+
+Arte Essential oils em 17/11/2026 — **CONFIRMADO:** Danilo forneceu `essential-oils.webp` (1000 × 1500 px). Integrada como fundo completo do banner, sem foto provisória sobreposta; texto, CTA e ausência de preço preservados. Sem variante mobile fornecida, composição vertical mantida no celular.
+
+Banner Essential oils em 17/11/2026 — **CONFIRMADO por Danilo:** substituir o banner de chás por óleos essenciais. Título “Essential oils”, descrição “Explore botanical aromas and find a new favourite scent for your everyday rituals.” e CTA “Explore essential oils” para `/collections/essential-oils`. Sem preço; imagem provisória obtida de produto dessa categoria. Substitui o tema de chás registrado abaixo; arte própria pendente.
+
+Texto do banner de chás em 17/11/2026 — **CONFIRMADO por Danilo:** melhorar título e descrição, ampliando o subtexto. Aplicado “A moment for tea” e “Discover herbal teas for slow mornings, quiet afternoons and the simple pleasure of a warm cup.” Descrição ampliada de 14 para 16 px, entrelinha 1,55; CTA e ausência de preço preservados.
+
+Banner de chás sem preço em 17/11/2026 — **CONFIRMADO por Danilo:** remover o preço de “The art of slowing down” e usar CTA para a categoria de chás. Implementado “Explore teas” com destino `/collections/herbal-teas`; demais campanhas preservadas. A arte própria será fornecida por Danilo; até lá permanece a imagem existente.
+
+Arte do banner de chás em 17/11/2026 — **CONFIRMADO por Danilo:** solicitar tamanho, pasta e nome para criar a imagem de “The art of slowing down”. Pasta preparada: `public/images/home/tea-banner/`; arquivo previsto `herbal-tea.webp`, dimensão recomendada 1000 × 1500 px. Orientação: fundo sem texto/preço/botão, área superior livre e produto abaixo. **A VALIDAR:** arte fornecida e integração responsiva; o componente ainda usa a imagem do catálogo.
+
+Arraste do hero em 17/11/2026 — **CONFIRMADO por Danilo:** permitir trocar banners com o mouse. `HomeHeroSlider` aceita o botão principal, captura o ponteiro até a soltura e indica a interação com cursores grab/grabbing. Gestos horizontais acima de 50 px avançam ou voltam; links e botões não iniciam arraste. Mantidos o gesto de toque, a rolagem vertical e os controles existentes. Validação executada: `npm.cmd run typecheck` aprovado; Playwright desktop confirmou arraste nos dois sentidos, movimentos curtos/verticais ignorados e botões anterior/próximo; captura visual revisada.
+
 CTA do banner ritual em 17/11/2026 ? **CONFIRMADO por Danilo:** descer o botao no mobile. Acao alinhada na base do bloco, com recuo inferior de 32 px e altura minima do banner preservada. Artes desktop e mobile fornecidas na pasta e detectadas localmente.
 
 Banner ritual em 17/11/2026 ? **CONFIRMADO por Danilo:** melhorar o layout e deixar a arte de fundo para ele fornecer. Mensagem e CTA agrupados ? esquerda, respiro ampliado e produto avulso removido para receber a composi??o. Fundo liso enquanto os arquivos n?o existem. Pasta `public/images/home/ritual-banner/`: `ritual-incense-desktop.webp` (2400 ? 560 px) e `ritual-incense-mobile.webp` opcional (960 ? 960 px). **A VALIDAR:** arte e contraste ap?s fornecimento. Valida??o executada: typecheck aprovado; Playwright em 1440, 768, 390 e 320 px sem overflow, destino do link preservado e capturas revisadas; detector de layout sem achados.

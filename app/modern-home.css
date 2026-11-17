@@ -48,6 +48,14 @@
   isolation: isolate;
   touch-action: pan-y;
 }
+.mh-hero-slider[data-draggable="true"] {
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.mh-hero-slider[data-dragging="true"] {
+  cursor: grabbing;
+}
 .mh-hero-inner {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -730,6 +738,31 @@
   color: var(--green);
   font-size: 1.625rem;
 }
+.mh-campaign.mh-campaign-tall p {
+  font-size: 1rem;
+  line-height: 1.55;
+  max-width: 29ch;
+  margin-bottom: 18px;
+}
+.mh-campaign.mh-campaign-tall[data-has-artwork="true"] {
+  width: 100%;
+  min-height: 540px;
+  aspect-ratio: 2 / 3;
+}
+.mh-campaign[data-has-artwork="true"] > div {
+  width: 100%;
+  padding: 28px;
+}
+.mh-campaign[data-has-artwork="true"] h2 {
+  color: #292c27;
+}
+.mh-campaign > img.mh-campaign-artwork {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+}
 .mh-campaign-tall > img {
   width: 100%;
   height: 58%;
@@ -1320,7 +1353,7 @@
     width: 63%;
   }
   .mh-campaign-tall > img {
-    width: 57%;
+    width: 40%;
     height: 95%;
   }
   .mh-small-grid {

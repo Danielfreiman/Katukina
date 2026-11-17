@@ -1,0 +1,9 @@
+Banner: Essential oils (substitui o banner de chas).
+Desktop: essential-oils.webp — 1000 x 1500 px.
+Mobile: essential-oils-mobile.webp — 1200 x 800 px.
+Formato WebP, sem textos ou botao.
+Desktop: area superior livre para texto, produto abaixo.
+Mobile: texto a esquerda e produto a direita.
+Arte desktop integrada em 17/11/2026 como fundo completo, substituindo a foto provisoria.
+Sem arquivo mobile, o banner preserva a composicao vertical tambem no celular.
+A variante mobile indicada acima ainda nao esta integrada.

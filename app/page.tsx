@@ -136,6 +136,9 @@ function Campaign({
   href,
   tone,
   tall = false,
+  showPrice = true,
+  cta = "Shop now",
+  artwork,
 }: {
   title: string;
   text: string;
@@ -143,22 +146,28 @@ function Campaign({
   href: string;
   tone: string;
   tall?: boolean;
+  showPrice?: boolean;
+  cta?: string;
+  artwork?: string;
 }) {
   return (
     <article
       className={`mh-campaign mh-${tone}${tall ? " mh-campaign-tall" : ""}`}
+      data-has-artwork={Boolean(artwork)}
     >
       <div>
         <h2>{title}</h2>
         <p>{text}</p>
-        {product && (
+        {showPrice && product && (
           <strong className="mh-campaign-price">{product.price}</strong>
         )}
         <Link className="mh-button" href={href}>
-          Shop now
+          {cta}
         </Link>
       </div>
-      {product?.image && (
+      {artwork ? (
+        <img className="mh-campaign-artwork" src={artwork} alt="" width={1000} height={1500} loading="lazy" />
+      ) : product?.image && (
         <img
           src={product.image}
           alt={product.name}
@@ -237,7 +246,10 @@ export default async function Home() {
     collections.find((collection) => collection.slug === slug)?.products[0];
   const main =
     incense.find((item) => item.image) || find("sacred-incense") || featured[0];
-  const tea = find("herbal-teas");
+  const essentialOilsCategory = categories.find((category) => category.slug === "essential-oils");
+  const essentialOil = essentialOilsCategory
+    ? (await products({ category: essentialOilsCategory.id, per_page: 1 }))[0]
+    : undefined;
   const tools =
     collections
       .find((collection) => collection.slug === "kuripe-and-tepi")
@@ -466,10 +478,13 @@ export default async function Home() {
         aria-label="Discover the collection"
       >
         <Campaign
-          title="The art of slowing down"
-          text="Find your next favourite tea."
-          product={tea}
-          href="/collections/herbal-teas"
+          title="Essential oils"
+          text="Explore botanical aromas and find a new favourite scent for your everyday rituals."
+          showPrice={false}
+          cta="Essential oils"
+          artwork="/images/home/essential-oils-banner/essential-oils.webp"
+          product={essentialOil}
+          href="/collections/essential-oils"
           tone="forest"
           tall
         />

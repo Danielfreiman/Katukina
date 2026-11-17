@@ -22,7 +22,8 @@ export function HomeHeroSlider({
   const [paused, setPaused] = useState(false);
   const [hovered, setHovered] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(true);
-  const touch = useRef<{ x: number; y: number } | null>(null);
+  const [dragging, setDragging] = useState(false);
+  const touch = useRef<{ x: number; y: number; pointerId: number } | null>(null);
   const rotationBeforePointer = useRef<boolean | null>(null);
   const current = count ? active % count : 0;
 
@@ -87,12 +88,12 @@ export function HomeHeroSlider({
   }, []);
 
   useEffect(() => {
-    if (count < 2 || paused || hovered || reducedMotion) return;
+    if (count < 2 || paused || hovered || dragging || reducedMotion) return;
     const timer = setInterval(() => {
       if (!document.hidden) setActive((index) => (index + 1) % count);
     }, 6500);
     return () => clearInterval(timer);
-  }, [count, paused, hovered, reducedMotion]);
+  }, [count, paused, hovered, dragging, reducedMotion]);
 
   const move = (direction: number) => {
     if (count < 2) return;
@@ -107,6 +108,8 @@ export function HomeHeroSlider({
       aria-roledescription="carousel"
       data-active-slide={available[current]?.id || "none"}
       data-has-images={Boolean(available[current]?.desktop || available[current]?.mobile)}
+      data-draggable={count > 1}
+      data-dragging={dragging}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       onFocusCapture={() => setPaused(true)}
@@ -118,19 +121,29 @@ export function HomeHeroSlider({
       }}
       onPointerDown={(event) => {
         if (
-          event.pointerType === "mouse" ||
+          count < 2 || !event.isPrimary || event.button !== 0 ||
           (event.target as HTMLElement).closest("a,button")
         )
           return;
-        touch.current = { x: event.clientX, y: event.clientY };
+        touch.current = { x: event.clientX, y: event.clientY, pointerId: event.pointerId };
+        event.currentTarget.setPointerCapture(event.pointerId);
+        setDragging(true);
       }}
       onPointerCancel={() => {
         touch.current = null;
+        setDragging(false);
+      }}
+      onLostPointerCapture={() => {
+        touch.current = null;
+        setDragging(false);
       }}
       onPointerUp={(event) => {
         const start = touch.current;
+        if (!start || start.pointerId !== event.pointerId) return;
         touch.current = null;
-        if (!start) return;
+        setDragging(false);
+        if (event.currentTarget.hasPointerCapture(event.pointerId))
+          event.currentTarget.releasePointerCapture(event.pointerId);
         const dx = event.clientX - start.x;
         if (
           Math.abs(dx) > 50 &&
