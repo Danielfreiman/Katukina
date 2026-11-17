@@ -774,14 +774,28 @@
   gap: 20px;
 }
 .mh-stacked-campaigns .mh-campaign {
-  min-height: 225px;
+  display: flex;
+  min-height: 260px;
 }
 .mh-stacked-campaigns .mh-campaign > div {
-  padding: 22px 0 22px 22px;
-  width: 68%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 22px;
+  width: 100%;
 }
-.mh-stacked-campaigns h2 {
+.mh-stacked-campaigns .mh-button {
+  margin-top: auto;
+}
+.mh-stacked-campaigns .mh-campaign h2 {
   font-size: 1.25rem;
+  max-width: 100%;
+}
+.mh-stacked-campaigns .mh-campaign > img {
+  width: 60%;
+  height: 64%;
+  right: 0;
+  bottom: 0;
 }
 .mh-stacked-campaigns .mh-campaign-price {
   font-size: 1.125rem;
@@ -860,17 +874,58 @@
   grid-template-columns: 1.7fr repeat(3, minmax(0, 1fr));
   gap: 22px;
 }
-.mh-arrivals-grid > .rh-product:first-child {
+.mh-giftshop-banner {
   grid-row: span 2;
-  padding: 20px;
-  background: var(--soft);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 640px;
+  padding: 28px;
+  background: #315f3e;
+  color: var(--warm-white);
   border-radius: 9px;
 }
-.mh-arrivals-grid > .rh-product:first-child .rh-product-photo {
-  flex: 1;
+.mh-giftshop-art {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
 }
-.mh-arrivals-grid > .rh-product:first-child .rh-product-details {
-  flex: 0;
+.mh-giftshop-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.mh-giftshop-copy h3 {
+  color: inherit;
+  max-width: 16ch;
+  font-size: clamp(1.5rem, 2vw, 1.875rem);
+  line-height: 1.15;
+  text-wrap: balance;
+  margin: 0 0 12px;
+}
+.mh-giftshop-copy p {
+  color: inherit;
+  max-width: 26ch;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0 0 24px;
+}
+.mh-giftshop-banner > .mh-button {
+  margin-top: auto;
+  background: var(--warm-white);
+  color: var(--ink);
+}
+.mh-giftshop-banner:hover > .mh-button {
+  background: #fff;
+}
+.mh-giftshop-banner:focus-visible {
+  outline: 3px solid var(--green);
+  outline-offset: 4px;
 }
 .mh-arrivals-grid .rh-product-photo {
   aspect-ratio: 1.1;
@@ -1050,7 +1105,7 @@
     grid-template-columns: 1fr 1fr;
   }
   .mh-stacked-campaigns .mh-campaign {
-    min-height: 210px;
+    min-height: 260px;
   }
   .mh-arrivals-layout {
     grid-template-columns: minmax(0, 1fr);
@@ -1180,21 +1235,23 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 18px;
   }
-  .mh-arrivals-grid > .rh-product:first-child {
+  .mh-giftshop-banner {
     grid-column: 1/-1;
     grid-row: auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    min-height: 360px;
+    height: auto;
   }
-  .mh-arrivals-grid > .rh-product:first-child .rh-product-photo {
-    aspect-ratio: 1.4;
+  .mh-giftshop-copy {
+    max-width: 60%;
   }
-  .mh-arrivals-grid > .rh-product:first-child .rh-product-details {
-    justify-content: center;
+  .mh-giftshop-banner[data-portrait-fallback="true"] {
+    aspect-ratio: 1 / 2;
   }
-  .mh-arrivals-grid > .rh-product:first-child .rh-product-purchase {
-    margin-top: 5px;
+  .mh-giftshop-banner[data-portrait-fallback="true"] .mh-giftshop-copy {
+    max-width: 100%;
+  }
+  .mh-giftshop-banner[data-portrait-fallback="true"] .mh-giftshop-copy p {
+    max-width: 100%;
   }
   .mh-edit {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1378,28 +1435,21 @@
     grid-template-columns: 1fr;
   }
   .mh-stacked-campaigns .mh-campaign {
-    min-height: 205px;
+    min-height: 280px;
+  }
+  .mh-stacked-campaigns .mh-campaign > img {
+    height: 60%;
   }
   .mh-stacked-campaigns .mh-campaign > div {
-    width: 62%;
+    width: 100%;
     padding: 24px;
   }
   .mh-arrivals-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px 14px;
   }
-  .mh-arrivals-grid > .rh-product:first-child {
-    padding: 15px;
-    gap: 14px;
-  }
-  .mh-arrivals-grid > .rh-product:first-child .rh-product-photo {
-    aspect-ratio: 1;
-  }
-  .mh-arrivals-grid > .rh-product:first-child .rh-photo-category {
-    display: none;
-  }
-  .mh-arrivals-grid > .rh-product:first-child img {
-    padding: 10px;
+  .mh-giftshop-banner {
+    padding: 24px;
   }
   .mh-edit {
     display: block;

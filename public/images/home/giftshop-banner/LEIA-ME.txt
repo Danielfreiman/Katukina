@@ -1,0 +1,18 @@
+Banner Giftshop — substitui o produto grande em New in the catalogue.
+
+Desktop: giftshop-desktop.webp
+Tamanho recomendado: 1000 x 2000 px (largura x altura), vertical.
+Reserve o topo para titulo e descricao e o canto inferior esquerdo para o CTA.
+Concentre os objetos na regiao central/inferior, com margens de seguranca.
+
+Mobile/tablet ate 800 px: giftshop-mobile.webp
+Tamanho recomendado: 1200 x 800 px, horizontal.
+Reserve os 60% da esquerda para texto e CTA. Objetos principais a direita.
+O fundo usa cover: ha cortes responsivos; mantenha os objetos importantes afastados das bordas.
+
+Formato WebP. Nao incluir textos, precos ou botoes na arte; ficam no HTML.
+Preparar areas escuras para os textos em branco quente da interface.
+Destino do CTA: /collections/giftshop.
+Arquivos detectados no servidor ao atualizar a pagina local.
+Sem arquivos, o banner mostra fundo verde liso. Sem mobile, usa a arte desktop em composicao vertical.
+Arte desktop integrada em 17/11/2026; variante mobile ainda pendente.

@@ -10,7 +10,7 @@ import {
   Headphones,
   ChevronRight,
 } from "lucide-react";
-import { getCategories, getProducts } from "@/lib/commerce/catalog";
+import { getCategories, getProduct, getProducts } from "@/lib/commerce/catalog";
 import {
   productName,
   productPrice,
@@ -197,6 +197,7 @@ export default async function Home() {
     incense,
     promotionCards,
     heroSlides,
+    campaignProducts,
   ] = await Promise.all([
     products(sale ? { category: sale.id } : { on_sale: "true" }),
     products({ orderby: "date", order: "desc" }),
@@ -220,6 +221,10 @@ export default async function Home() {
     products({ search: "Palo Santo", per_page: 3 }),
     getHomePromotionCards(),
     getHomeHeroSlides(),
+    Promise.all([
+      getProduct("urucum-coconut-creme").catch(() => null),
+      getProduct("yerba-santa-smudge-bundle").catch(() => null),
+    ]),
   ]);
   const selection = Array.from(
     new Map(
@@ -257,6 +262,17 @@ export default async function Home() {
     find("kuripe-and-tepi") ||
     find("shamanic-tools");
   const beauty = find("beauty-and-body") || find("aromatics");
+  const productCampaigns = campaignProducts.flatMap((product, index) =>
+    product ? [{
+      product: card(product),
+      text: index === 0 ? "Beauty & body" : "Incense smudge",
+      tone: index === 0 ? "linen" : "sage",
+    }] : [],
+  );
+  const giftshopDesktop = existsSync(path.join(process.cwd(), "public/images/home/giftshop-banner/giftshop-desktop.webp"))
+    ? "/images/home/giftshop-banner/giftshop-desktop.webp" : null;
+  const giftshopMobile = existsSync(path.join(process.cwd(), "public/images/home/giftshop-banner/giftshop-mobile.webp"))
+    ? "/images/home/giftshop-banner/giftshop-mobile.webp" : null;
   const stories = [
     ...articles
       .filter((article) => article.slug !== "hello-world")
@@ -497,34 +513,44 @@ export default async function Home() {
           </div>
         </div>
         <div className="mh-stacked-campaigns">
-          <Campaign
-            title="Naturally you"
-            text="Beauty & body"
-            product={beauty}
-            href="/collections/beauty-and-body"
-            tone="linen"
-          />
-          <Campaign
-            title="Objects with a story"
-            text="Explore shamanic tools"
-            product={find("shamanic-tools")}
-            href="/collections/shamanic-tools"
-            tone="sage"
-          />
+          {productCampaigns.map(({ product, text, tone }) => (
+            <Campaign
+              key={product.id}
+              title={product.name}
+              text={text}
+              product={product}
+              href={product.href}
+              tone={tone}
+              cta="View product"
+            />
+          ))}
         </div>
       </section>
       <section className="mh-wrap mh-arrivals-layout" aria-label="New arrivals">
         <div>
           <SectionTitle title="New in the catalogue" href="/shop?sort=newest" />
           <div className="mh-arrivals-grid">
-            {newest.slice(0, 7).map((product) => (
+            <Link className="mh-giftshop-banner" href="/collections/giftshop" data-portrait-fallback={Boolean(giftshopDesktop && !giftshopMobile)}>
+              {(giftshopDesktop || giftshopMobile) && (
+                <picture className="mh-giftshop-art" aria-hidden="true">
+                  {giftshopMobile && <source media="(max-width: 800px)" srcSet={giftshopMobile} />}
+                  <img src={(giftshopDesktop || giftshopMobile)!} alt="" width={1000} height={2000} loading="lazy" />
+                </picture>
+              )}
+              <div className="mh-giftshop-copy">
+                <h3>Giftshop</h3>
+                <p>Shells, incense accessories and meaningful gifts for everyday rituals, special occasions and people you care about.</p>
+              </div>
+              <span className="mh-button mh-button-primary">Giftshop</span>
+            </Link>
+            {newest.slice(1, 7).map((product) => (
               <HomeCard key={product.id} product={product} />
             ))}
           </div>
         </div>
         <aside className="mh-edit">
           <SectionTitle title="More to explore" href="/shop" />
-          {featured.slice(6, 10).map((product) => (
+          {featured.slice(6, 12).map((product) => (
             <SmallProduct key={product.id} product={product} />
           ))}
         </aside>
