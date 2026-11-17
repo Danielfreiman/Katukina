@@ -1,5 +1,7 @@
 # Discovery Katukina
 
+Subtextos das três promoções em 17/11/2026 — **CONFIRMADO por Danilo:** melhorar descrições com práticas de SEO e evitar “Explore” e “Discover” na redação. Cards Rapé, Kuripe & Tepi e Herbal Teas agora descrevem diretamente categoria e seleção; faixa adjacente usa “Incense, resins & aromatic woods”. Preferência editorial vigente: linguagem específica e natural, sem esses verbos genéricos, sem repetição artificial de palavras-chave ou alegações sem evidência. Referência: Google Search Essentials, https://developers.google.com/search/docs/essentials. Escopo desta alteração: três cards e faixa mostrados pelo responsável.
+
 Espaçamento de Discover the collection em 17/11/2026 — **CONFIRMADO por Danilo:** corrigir o espaçamento da seção. O banner com proporção 2:3 e altura mínima ultrapassava sua coluna; largura explícita de 100% restaura o gap de 26 px entre banner e produtos. Typecheck aprovado; Playwright confirmou 26 px e ausência de overflow em 1651 e 1440 px, com captura desktop revisada.
 
 Contraste do título Essential oils em 17/11/2026 — **CONFIRMADO por Danilo:** substituir o amarelo por uma cor de maior contraste e harmonia com o fundo. Aplicado carvão `#292C27`, da paleta, sobre a área clara superior da arte. Substitui o amarelo registrado abaixo.

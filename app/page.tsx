@@ -403,7 +403,7 @@ export default async function Home() {
           </span>
           <span>
             <Flame />
-            Discover your next scent
+            Incense, resins & aromatic woods
           </span>
           <span>
             <BookOpen />
