@@ -299,6 +299,27 @@ export default async function Home() {
       <HomeHeroSlider
         slides={heroSlides}
         contentBySlide={{
+          "03": (
+            <div className="mh-wrap mh-hero-inner">
+              <div className="mh-hero-copy">
+                <h1 id="mh-hero-title">
+                  The Spirit of
+                  <br />
+                  <em className="mh-hero-sananga-title">Sananga</em>
+                </h1>
+                <p>
+                  Rooted in Amazonian tradition. Discover our pure Katukina and
+                  Matses extracts, crafted for clarity, focus, and deep connection.
+                </p>
+                <Link
+                  className="mh-button mh-button-primary"
+                  href="/collections/sananga"
+                >
+                  Discover the Collection
+                </Link>
+              </div>
+            </div>
+          ),
           "02": (
             <div className="mh-wrap mh-hero-inner">
               <div className="mh-hero-copy">

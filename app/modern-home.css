@@ -133,6 +133,9 @@
 .mh-hero h1 .mh-hero-rape-title {
   color: #582f12;
 }
+.mh-hero h1 .mh-hero-sananga-title {
+  color: var(--green);
+}
 .mh-hero-copy > p {
   color: var(--muted);
   font-size: 1.125rem;

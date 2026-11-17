@@ -1,5 +1,13 @@
 # Discovery Katukina
 
+Cor do título do banner 03 em 17/11/2026 — **CONFIRMADO por Danilo:** aplicação de `#80adde` à palavra “Sananga” desfeita a pedido do responsável; restaurada a cor anterior `var(--green)`.
+
+Texto do terceiro hero em 17/11/2026 — **CONFIRMADO por Danilo:** título “The Spirit of Sananga”, com Sananga em itálico; subtítulo “Rooted in Amazonian tradition. Discover our pure Katukina and Matses extracts, crafted for clarity, focus, and deep connection.”; botão “Discover the Collection”. Redação fornecida pelo responsável, substituindo a anterior; destino `/collections/sananga` preservado.
+
+Revisão do terceiro hero em 17/11/2026 — **CONFIRMADO por Danilo:** substituir Kuripes & Tepis por Sananga. Implementados título “The essence of Sananga”, descrição e CTA “Explore Sananga” para `/collections/sananga`; categoria confirmada na API local WooCommerce (slug `sananga`). Mantido fundo liso enquanto aguarda a arte `banner-03.webp`. Esta decisão substitui o tema anterior registrado abaixo.
+
+Terceiro hero em 17/11/2026 — **CONFIRMADO por Danilo:** completar os três banners com Kuripes e Tepis; arte será produzida por ele. Conteúdo e CTA para `/collections/kuripe-and-tepi` implementados. O terceiro banner já participa da rotação sobre fundo liso enquanto aguarda `banner-03.webp`; salvar a arte nas pastas desktop/mobile do hero a integra automaticamente no desenvolvimento local. Dimensões e composição no [guia dos banners](../../public/images/home/hero-slider/LEIA-ME.md).
+
 Revisão da cor do banner 02 em 17/11/2026 — **CONFIRMADO por Danilo:** substituir `#f60259` por `#582f12` somente na palavra “Rapé” do título “Authentic Brazilian Rapé”.
 
 Cor do título do banner 02 em 17/11/2026 — **CONFIRMADO por Danilo:** aplicar `#f60259` somente à palavra “Rapé” em “Authentic Brazilian Rapé”, substituindo `#F2AC59`.

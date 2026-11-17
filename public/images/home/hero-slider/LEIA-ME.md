@@ -1,5 +1,7 @@
 # Hero completo — três banners rotativos
 
+**Banner 03 — Sananga (17/11/2026):** substitui Kuripes & Tepis por solicitação de Danilo. Título “The Spirit of Sananga” e botão “Discover the Collection”, com link para `/collections/sananga`. A arte será produzida por Danilo. Salvar `desktop/banner-03.webp` (2400 × 900 px) e `mobile/banner-03.webp` (1080 × 1350 px). Até lá, o terceiro banner aparece sobre fundo liso; não incluir texto nem botão na imagem.
+
 O hero mantém título, descrição, botão e links atuais em HTML. **Criar apenas a imagem de fundo**, sem repetir textos ou botões na arte.
 
 Formato obrigatório: **WebP**, perfil sRGB. Cada banner tem duas composições:
@@ -24,7 +26,7 @@ Pasta base: `public/images/home/hero-slider/`.
 
 - Ordem: 01 → 02 → 03; troca automática a cada 6,5 segundos.
 - Setas, indicadores, pausa/reprodução e gesto horizontal no celular. O foco por teclado e a navegação manual pausam a reprodução; preferência por movimento reduzido desativa a rotação automática.
-- Apenas banners com pelo menos um arquivo disponível entram na rotação. Com um banner, ele fica fixo; sem arquivos, o texto atual aparece sobre o fundo liso da marca, sem imagem quebrada nem controles vazios.
+- Banners com imagem ou conteúdo próprio entram na rotação. Banners com conteúdo próprio e sem imagem usam fundo liso. Com um banner disponível, ele fica fixo; sem nenhum, o texto padrão aparece sobre fundo liso, sem imagem quebrada nem controles vazios.
 - Fornecer as duas versões de cada banner. Se uma faltar, a disponível é usada como alternativa com recorte.
 - No desenvolvimento local, salvar/substituir os WebP nesta pasta: o servidor detecta a gravação e avisa imediatamente o navegador, sem recarregar a página. Há uma espera de estabilização de 120 ms para agrupar eventos de gravação; a imagem aparece após carregar. A consulta a cada 2 segundos permanece apenas como recuperação se o aviso em tempo real falhar. A URL muda conforme a versão do arquivo para evitar cache antigo. No site publicado, incluir os arquivos na próxima publicação e recarregar.
 - As imagens do hero antigo e as pastas `hero-01`, `hero-02`, `hero-03` não são usadas nesta integração. Não sobrescrevê-las.

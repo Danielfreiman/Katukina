@@ -14,7 +14,9 @@ export function HomeHeroSlider({
   contentBySlide?: Record<string, ReactNode>;
 }) {
   const [liveSlides, setLiveSlides] = useState(slides);
-  const available = liveSlides.filter((slide) => slide.desktop || slide.mobile);
+  const available = liveSlides.filter(
+    (slide) => slide.desktop || slide.mobile || contentBySlide?.[slide.id],
+  );
   const count = available.length;
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
@@ -104,7 +106,7 @@ export function HomeHeroSlider({
       aria-label="Katukina highlights"
       aria-roledescription="carousel"
       data-active-slide={available[current]?.id || "none"}
-      data-has-images={count > 0}
+      data-has-images={Boolean(available[current]?.desktop || available[current]?.mobile)}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       onFocusCapture={() => setPaused(true)}
@@ -138,7 +140,7 @@ export function HomeHeroSlider({
       }}
     >
       <div className="mh-hero-slides" aria-hidden="true">
-        {available.map((slide, index) => (
+        {available.map((slide, index) => (slide.desktop || slide.mobile) && (
           <picture
             key={`${slide.id}:${slide.desktop}:${slide.mobile}`}
             className="mh-hero-slide"
