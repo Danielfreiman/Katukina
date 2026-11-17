@@ -357,16 +357,6 @@ export default async function Home() {
             <Link className="mh-button mh-button-primary" href="/shop">
               Explore the collection
             </Link>
-            <div className="mh-hero-links">
-              <Link href="/collections/sacred-incense">
-                <Flame size={17} />
-                Sacred incense
-              </Link>
-              <Link href="/collections/herbal-teas">
-                <Leaf size={17} />
-                Herbal teas
-              </Link>
-            </div>
           </div>
         </div>
       </HomeHeroSlider>

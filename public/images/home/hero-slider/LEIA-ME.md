@@ -1,6 +1,6 @@
 # Hero completo — três banners rotativos
 
-**Banner 03 — Sananga (17/11/2026):** substitui Kuripes & Tepis por solicitação de Danilo. Título “The Spirit of Sananga” e botão “Discover the Collection”, com link para `/collections/sananga`. A arte será produzida por Danilo. Salvar `desktop/banner-03.webp` (2400 × 900 px) e `mobile/banner-03.webp` (1080 × 1350 px). Até lá, o terceiro banner aparece sobre fundo liso; não incluir texto nem botão na imagem.
+**Banner 03 — Sananga (17/11/2026):** substitui Kuripes & Tepis por solicitação de Danilo. Título “The Spirit of Sananga” e botão “Discover the Collection”, com link para `/collections/sananga`. A arte será produzida por Danilo. Salvar `desktop/banner-03.webp` (2400 × 900 px) e `mobile/banner-03-mobile.webp` (1080 × 1350 px). Até lá, o terceiro banner aparece sobre fundo liso; não incluir texto nem botão na imagem.
 
 O hero mantém título, descrição, botão e links atuais em HTML. **Criar apenas a imagem de fundo**, sem repetir textos ou botões na arte.
 
@@ -8,17 +8,17 @@ Formato obrigatório: **WebP**, perfil sRGB. Cada banner tem duas composições:
 
 | Banner | Desktop — 2400 × 900 px | Celular — 1080 × 1350 px |
 | --- | --- | --- |
-| 1 | `desktop/banner-01.webp` | `mobile/banner-01.webp` |
-| 2 | `desktop/banner-02.webp` | `mobile/banner-02.webp` |
-| 3 | `desktop/banner-03.webp` | `mobile/banner-03.webp` |
+| 1 | `desktop/banner-01.webp` | `mobile/banner-01-mobile.webp` |
+| 2 | `desktop/banner-02.webp` | `mobile/banner-02-mobile.webp` |
+| 3 | `desktop/banner-03.webp` | `mobile/banner-03-mobile.webp` |
 
-Pasta base: `public/images/home/hero-slider/`.
+Pastas separadas: desktop em `public/images/home/hero-slider/desktop/`; mobile em `public/images/home/hero-slider/mobile/`. As vers?es mobile s?o usadas at? 640 px de largura.
 
 ## Composição
 
 - Desktop: colocar o assunto principal na metade direita, mantendo a metade esquerda calma para o texto existente. Proporção 8:3.
 - Celular: fazer uma composição própria, com o assunto principal na metade inferior e espaço para o texto na parte superior. Proporção 4:5; usada até 640 px de largura.
-- O fundo preenche toda a largura e altura do hero, com recorte central proporcional (`cover`). Reservar margem de segurança de 10% nas bordas e evitar detalhes essenciais no centro inferior, onde ficam os controles.
+- O fundo preenche toda a largura e altura do hero, com recorte central proporcional (`cover`). Reservar margem de segurança de 10% nas bordas e evitar detalhes essenciais no canto inferior esquerdo, onde ficam os controles.
 - O hero não aplica overlay, conforme pedido posterior de Danilo. Preparar a própria imagem com áreas claras e calmas atrás dos textos existentes: esquerda no desktop e parte superior no celular.
 - Preferir até 600 KB por arquivo desktop e 350 KB por arquivo celular, sem degradar a imagem. Não colocar arquivos de trabalho, PSD ou AI nesta pasta pública.
 

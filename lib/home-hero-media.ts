@@ -28,11 +28,12 @@ async function imageUrl(url: string) {
 export async function getHomeHeroSlides(): Promise<HomeHeroSlide[]> {
   return Promise.all(
     ["01", "02", "03"].map(async (id) => {
-      const [desktop, mobile] = await Promise.all([
+      const [desktop, mobile, legacyMobile] = await Promise.all([
         imageUrl(`/images/home/hero-slider/desktop/banner-${id}.webp`),
+        imageUrl(`/images/home/hero-slider/mobile/banner-${id}-mobile.webp`),
         imageUrl(`/images/home/hero-slider/mobile/banner-${id}.webp`),
       ]);
-      return { id, desktop, mobile };
+      return { id, desktop, mobile: mobile || legacyMobile };
     }),
   );
 }

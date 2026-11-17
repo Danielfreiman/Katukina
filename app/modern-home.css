@@ -83,10 +83,9 @@
   position: absolute;
   z-index: 2;
   bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
+  left: max(var(--layout-gutter), calc((100% - 1440px) / 2));
   display: flex;
-  padding: 2px 6px;
+  padding: 1px 4px;
   border-radius: 30px;
   background: var(--warm-white);
   border: 1px solid var(--line);
@@ -94,8 +93,8 @@
 .mh-hero-controls button {
   display: grid;
   place-items: center;
-  width: 44px;
-  height: 44px;
+  width: 24px;
+  height: 24px;
   padding: 0;
   border: 0;
   border-radius: 50%;
@@ -105,9 +104,13 @@
 .mh-hero-controls button:hover {
   background: var(--support-soft);
 }
+.mh-hero-controls button svg {
+  width: 12px;
+  height: 12px;
+}
 .mh-hero-dot span {
-  width: 9px;
-  height: 9px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
   border: 1px solid var(--green);
 }
@@ -1396,13 +1399,27 @@
 }
 
 @media (max-width: 640px) {
+  .mh-hero-slides {
+    height: calc(100% - 120px);
+  }
   .mh-hero-inner {
     grid-template-columns: 1fr;
-    align-items: start;
+    align-items: stretch;
     min-height: max(640px, 125vw);
   }
   .mh-hero-copy {
-    padding-block: 35px 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-block: 35px 64px;
+  }
+  .mh-hero-copy > p {
+    margin-inline: auto;
+  }
+  .mh-hero-copy > .mh-button {
+    margin-top: auto;
+    min-height: 44px;
   }
 }
 @media (prefers-reduced-motion: reduce) {

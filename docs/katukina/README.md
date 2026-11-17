@@ -1,5 +1,19 @@
 # Discovery Katukina
 
+Destino mobile revisado em 17/11/2026 ? **CONFIRMADO por Danilo:** mover as artes mobile para `public/images/home/hero-slider/mobile/`, preservando os nomes `banner-01-mobile.webp`, `banner-02-mobile.webp` e `banner-03-mobile.webp` e o tamanho 1080 ? 1350 px. Movidos os arquivos 01 e 03 existentes; 02 ainda pendente. Vers?o diferente de 01 j? presente no destino preservada em `.local-backups/hero-mobile-move-2026-11-17/` antes da movimenta??o. Esta decis?o substitui o destino junto das imagens desktop.
+
+Correção da altura mobile do hero em 17/11/2026 — **CONFIRMADO por Danilo:** não aumentar a altura vertical. Restaurado `max(640px, 125vw)`; CTA e controles acomodados dentro da altura original, com textos centralizados e CTA abaixo da área da imagem. Substitui o acréscimo de 120 px registrado anteriormente.
+
+Composição mobile do hero em 17/11/2026 — **CONFIRMADO por Danilo:** centralizar títulos e descrições dos três banners e colocar o CTA centralizado abaixo da imagem. Até 640 px, a área da arte mantém sua altura e ganha faixa inferior de 120 px para CTA e controles, sem alterar a composição desktop.
+
+Links auxiliares do hero em 17/11/2026 — **CONFIRMADO por Danilo:** remover os textos “Sacred incense” e “Herbal teas” e seus ícones abaixo do CTA do banner 01.
+
+Controles compactos do hero em 17/11/2026 — **CONFIRMADO por Danilo:** reduzir fortemente o bloco. Botões de 24 × 24 px, ícones de 12 px e indicadores de 5 px; bloco com aproximadamente 154 × 28 px quando os seis controles estão visíveis. Alinhamento esquerdo preservado.
+
+Imagens mobile do hero em 17/11/2026 ? **CONFIRMADO por Danilo:** artes mobile pr?prias, salvas na mesma pasta das desktop. Destino `public/images/home/hero-slider/desktop/`; nomes `banner-01-mobile.webp`, `banner-02-mobile.webp` e `banner-03-mobile.webp`; 1080 ? 1350 px, WebP sRGB. Desktop mant?m nomes e 2400 ? 900 px. Mobile usado at? 640 px; nomes antigos na pasta `mobile/` preservados como alternativa.
+
+Controles do hero em 17/11/2026 — **CONFIRMADO por Danilo:** alinhar o bloco de navegação à esquerda, na mesma borda do texto do banner. Aplicado o mesmo recuo responsivo do contêiner `.mh-wrap`, preservando a posição inferior e os controles existentes.
+
 Cor do título do banner 03 em 17/11/2026 — **CONFIRMADO por Danilo:** aplicação de `#80adde` à palavra “Sananga” desfeita a pedido do responsável; restaurada a cor anterior `var(--green)`.
 
 Texto do terceiro hero em 17/11/2026 — **CONFIRMADO por Danilo:** título “The Spirit of Sananga”, com Sananga em itálico; subtítulo “Rooted in Amazonian tradition. Discover our pure Katukina and Matses extracts, crafted for clarity, focus, and deep connection.”; botão “Discover the Collection”. Redação fornecida pelo responsável, substituindo a anterior; destino `/collections/sananga` preservado.

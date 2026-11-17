@@ -1,9 +1,11 @@
-# Fundos para celular
+# Fundos mobile
 
-WebP, **1080 × 1350 px**, sRGB:
+Salvar e substituir diretamente nesta pasta:
 
-- `banner-01.webp`
-- `banner-02.webp`
-- `banner-03.webp`
+- `banner-01-mobile.webp`
+- `banner-02-mobile.webp`
+- `banner-03-mobile.webp`
 
-Assunto principal na metade inferior; parte superior livre para os textos do site. Não inserir textos ou botões na imagem. Instruções completas em [../LEIA-ME.md](../LEIA-ME.md).
+Tamanho oficial no Photoshop: **1080 ? 1350 px** (largura ? altura). WebP, sRGB. N?o inserir textos ou bot?es. Parte superior livre para os textos centralizados; produtos na metade inferior. CTA renderizado pelo site abaixo da ?rea da imagem.
+
+As imagens atualizam automaticamente no desenvolvimento local.
