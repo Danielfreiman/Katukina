@@ -1,5 +1,11 @@
 # Discovery Katukina
 
+Controles centralizados no mobile em 17/11/2026 — **CONFIRMADO por Danilo:** centralizar horizontalmente os controles dos três banners abaixo do CTA em telas de até 640 px. Alinhamento desktop preservado.
+
+Fundo integral do hero mobile em 17/11/2026 — **CONFIRMADO por Danilo:** a imagem deve preencher toda a largura e altura, inclusive atrás do CTA e dos controles. Restaurado `cover` centralizado, removida a faixa inferior separada e mantida a altura `max(640px, 125vw)`. Danilo ajustará a posição dos produtos na arte ao espaço disponível. Esta decisão substitui o encaixe `contain` e a reserva inferior na área da imagem.
+
+Encaixe das artes mobile em 17/11/2026 — **CONFIRMADO por Danilo:** corrigir o corte das artes 1080 × 1350 px. Até 640 px, usar `object-fit: contain`, centralizado na base da área de imagem. Arte integral e proporção preservadas, sem aumentar a altura do hero; eventuais sobras mostram o fundo do banner. Desktop mantém `cover`.
+
 Destino mobile revisado em 17/11/2026 ? **CONFIRMADO por Danilo:** mover as artes mobile para `public/images/home/hero-slider/mobile/`, preservando os nomes `banner-01-mobile.webp`, `banner-02-mobile.webp` e `banner-03-mobile.webp` e o tamanho 1080 ? 1350 px. Movidos os arquivos 01 e 03 existentes; 02 ainda pendente. Vers?o diferente de 01 j? presente no destino preservada em `.local-backups/hero-mobile-move-2026-11-17/` antes da movimenta??o. Esta decis?o substitui o destino junto das imagens desktop.
 
 Correção da altura mobile do hero em 17/11/2026 — **CONFIRMADO por Danilo:** não aumentar a altura vertical. Restaurado `max(640px, 125vw)`; CTA e controles acomodados dentro da altura original, com textos centralizados e CTA abaixo da área da imagem. Substitui o acréscimo de 120 px registrado anteriormente.

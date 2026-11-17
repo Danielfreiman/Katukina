@@ -18,7 +18,7 @@ Pastas separadas: desktop em `public/images/home/hero-slider/desktop/`; mobile e
 
 - Desktop: colocar o assunto principal na metade direita, mantendo a metade esquerda calma para o texto existente. Proporção 8:3.
 - Celular: fazer uma composição própria, com o assunto principal na metade inferior e espaço para o texto na parte superior. Proporção 4:5; usada até 640 px de largura.
-- O fundo preenche toda a largura e altura do hero, com recorte central proporcional (`cover`). Reservar margem de segurança de 10% nas bordas e evitar detalhes essenciais no canto inferior esquerdo, onde ficam os controles.
+- Desktop e mobile: a imagem preenche toda a largura e altura do hero com `cover` centralizado, inclusive atras do CTA e dos controles. Pode haver recorte conforme a proporcao da tela. Manter margem de seguranca nas bordas e espaco para textos no topo e CTA e controles na base do mobile.
 - O hero não aplica overlay, conforme pedido posterior de Danilo. Preparar a própria imagem com áreas claras e calmas atrás dos textos existentes: esquerda no desktop e parte superior no celular.
 - Preferir até 600 KB por arquivo desktop e 350 KB por arquivo celular, sem degradar a imagem. Não colocar arquivos de trabalho, PSD ou AI nesta pasta pública.
 

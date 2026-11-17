@@ -1399,8 +1399,9 @@
 }
 
 @media (max-width: 640px) {
-  .mh-hero-slides {
-    height: calc(100% - 120px);
+  .mh-hero-controls {
+    left: 50%;
+    transform: translateX(-50%);
   }
   .mh-hero-inner {
     grid-template-columns: 1fr;
