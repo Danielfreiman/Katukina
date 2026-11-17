@@ -1,5 +1,9 @@
 # Discovery Katukina
 
+Revisão da cor do banner 02 em 17/11/2026 — **CONFIRMADO por Danilo:** substituir `#f60259` por `#582f12` somente na palavra “Rapé” do título “Authentic Brazilian Rapé”.
+
+Cor do título do banner 02 em 17/11/2026 — **CONFIRMADO por Danilo:** aplicar `#f60259` somente à palavra “Rapé” em “Authentic Brazilian Rapé”, substituindo `#F2AC59`.
+
 Cards de produtos em 16/11/2026 — **CONFIRMADO por Danilo:** remover a lupa sobre as imagens. Links das fotografias e botões de acesso ao produto preservados.
 
 Alinhamento dos cards em 16/11/2026 — **CONFIRMADO por Danilo:** equilibrar o respiro acima e abaixo do conteúdo e destacar títulos sobre as contagens. Padding vertical de 28 px no desktop e 24 px no celular; espaço de 16 px após a imagem, títulos em 16 px/peso 700 com área mínima de duas linhas, contagens em 12 px/peso 400.
