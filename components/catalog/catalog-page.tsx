@@ -144,14 +144,15 @@ export async function CatalogPage({
         <p>
           {category?.description
             ? plainText(category.description)
-            : "Explore botanicals, artisan objects and traditions. Find your next discovery."}
+            : category
+              ? `${category.count} ${category.count === 1 ? "product" : "products"} in this collection`
+              : "Explore botanicals, artisan objects and traditions. Find your next discovery."}
         </p>
       </header>
       {category && (
         <CategoryDiscovery
           category={category}
           categories={categories}
-          products={products.data}
           query={query}
         />
       )}
@@ -222,7 +223,10 @@ export async function CatalogPage({
                     >
                       <div>
                         <h2>Stay connected to the collection</h2>
-                        <p>Discover new arrivals and stories from Katukina.</p>
+                        <p>
+                          Get new product announcements and stories from
+                          Katukina by email.
+                        </p>
                       </div>
                       <Link href="/subscribe" className="button secondary">
                         Get email updates
@@ -253,7 +257,9 @@ export async function CatalogPage({
               aria-labelledby="category-editorial-title"
             >
               <div>
-                <h2 id="category-editorial-title">A little more to discover</h2>
+                <h2 id="category-editorial-title">
+                  About Katukina & your order
+                </h2>
                 <Link href="/journal">View the journal</Link>
               </div>
               <CategoryRail

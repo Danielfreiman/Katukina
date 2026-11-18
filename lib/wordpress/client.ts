@@ -1,5 +1,6 @@
 import "server-only";
 import { cookies } from "next/headers";
+import { setTimeout as delay } from "node:timers/promises";
 const origin = process.env.WORDPRESS_INTERNAL_URL || "http://127.0.0.1:8888";
 // Local Docker bind mounts can exceed 12 seconds while PHP warms up on Windows.
 const requestTimeout = process.env.NODE_ENV === "development" ? 30000 : 12000;
@@ -16,7 +17,8 @@ export async function wordpressGet<T>(
   const destination =
     (await cookies()).get("katukina_destination")?.value || "";
   const currency = (await cookies()).get("katukina_currency")?.value || "";
-  const response = await fetch(url, {
+  const signal = AbortSignal.timeout(requestTimeout);
+  const options: RequestInit = {
     headers: {
       Accept: "application/json",
       "X-Katukina-Channel": process.env.KATUKINA_CHANNEL || "",
@@ -24,9 +26,21 @@ export async function wordpressGet<T>(
       "X-Katukina-Currency": currency,
     },
     cache: "no-store",
-    signal: AbortSignal.timeout(requestTimeout),
+    signal,
     redirect: "error",
-  });
+  };
+  let response = await fetch(url, options);
+  // Retry temporary gateway/service failures on these read-only requests.
+  // Share one timeout across attempts so an outage cannot keep a page waiting.
+  for (
+    let attempt = 0;
+    attempt < 2 && [502, 503, 504].includes(response.status);
+    attempt++
+  ) {
+    await response.body?.cancel();
+    await delay(500 * 2 ** attempt, undefined, { signal });
+    response = await fetch(url, options);
+  }
   if (!response.ok)
     throw new Error(`WordPress API unavailable (${response.status})`);
   return {

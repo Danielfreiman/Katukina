@@ -1,4 +1,73 @@
 # Histórico do discovery Katukina
+
+## 2026-11-18 — Recuperação de falhas temporárias do WordPress
+
+- **CONFIRMADO por logs locais.** A tela de erro em Kuripe & Tepi coincidiu com respostas HTTP 503 dos endpoints de categorias e configuração de comércio, registradas pelo WordPress entre 14h49min13s e 14h49min22s, horário de São Paulo. Na inspeção seguinte, o backend e a página responderam HTTP 200. A causa interna dessa indisponibilidade breve permanece a validar.
+- A leitura de dados no frontend agora faz até duas novas tentativas após HTTP 502, 503 ou 504, com pausas de 500 e 1000 ms. As tentativas compartilham o limite de tempo e conservam destino, moeda e consulta. Erros persistentes continuam chegando ao tratamento de erro da página.
+- **Verificação local.** Três testes exercitaram recuperação após 503/502, limite de tentativas e respostas 404/200. Typecheck e build passaram. O build também emitiu o aviso preexistente de segurança sobre a versão do Next.js.
+- Playwright navegou pelo menu entre Rapé e Kuripe & Tepi, conferiu os 12 produtos da primeira página e recarregou a categoria. Desktop e mobile abriram normalmente, com ausência de erros JavaScript no teste.
+
+## 2026-11-18 — Subtextos dos banners em duas linhas
+
+- **CONFIRMADO pelo responsável.** As descrições completas dos banners usam largura máxima de 56ch e quebra equilibrada. Playwright conferiu as 38 descrições no componente em 1440 e 1920 px, todas em duas linhas. Captura de Kuripe & Tepi inspecionada. Typecheck aprovado.
+
+## 2026-11-18 — Textos compactos nos banners mobile
+
+- **CONFIRMADO pelo responsável.** No celular, o texto ocupa a metade esquerda do banner. Títulos de 18–20 px em carvão, com peso 800 solicitado no ajuste seguinte. Descrições de 12 px usam redação curta específica para cada categoria.
+- A arte mobile tem a metade direita disponível para o produto. O guia da pasta foi atualizado. A versão desktop usa a descrição completa.
+- **Verificação local.** Playwright conferiu o espaço do texto e a troca das imagens em Rapé, Aromatherapy Pendants, Jambu & Chilcuague e Pouches & Purses em 320, 390, 640 e 1440 px. Peso 800 conferido em Rapé mobile. Typecheck aprovado.
+
+## 2026-11-18 — Textos sobre as artes e títulos em carvão
+
+- **CONFIRMADO pelo responsável.** Título, descrição e botão voltaram a aparecer sobre as imagens dos banners. Os títulos usam carvão oficial `#292C27`.
+- Os 76 WebPs separados para desktop e mobile continuam como imagens de fundo. O guia da pasta orienta reservar espaço à esquerda para os textos HTML. Esta correção substitui a retirada dos textos registrada abaixo.
+- **Verificação local.** Typecheck aprovado. Playwright conferiu títulos em carvão, troca de imagens e conteúdo dentro do banner em 320, 390 e 1440 px nas categorias Aromatics, Aromatherapy Pendants e Uncategorized.
+
+## 2026-11-18 — Banners completos para desktop e mobile
+
+- **CONFIRMADO pelo responsável.** Substituição da composição automática por artes completas, independentes para desktop e celular. Cada uma das 38 categorias recebeu dois WebPs provisórios em cinza, totalizando 76 arquivos.
+- Os arquivos ficam em `public/images/collections/banners/desktop/<slug>.webp` e `public/images/collections/banners/mobile/<slug>.webp`. Dimensões definidas para a entrega de 2880 × 640 px e 1080 × 720 px, respectivamente. O [guia da pasta](../../public/images/collections/banners/LEIA-ME.md) lista todos os arquivos.
+- O elemento picture seleciona a versão mobile até 640 px e exibe a imagem inteira com altura proporcional. O banner leva à grade da categoria. Na categoria vazia, leva à loja. A versão da URL acompanha a substituição do arquivo após recarregar a página.
+- As fotos automáticas, o círculo branco e os textos sobrepostos foram retirados do banner. A redação para meta descriptions continua em `lib/collection-banner-copy.ts`. Os WebPs anteriores continuam guardados na raiz da pasta como referência.
+- **Verificação local.** Conferidos os 76 arquivos, as dimensões e os pixels cinza. Playwright verificou as 38 categorias em 390, 640, 641 e 1440 px, a seleção do arquivo e a proporção da imagem. Packaging e Plant Extracts passaram na repetição após erro transitório do Webpack. Typecheck e teste de navegação e filtros de Giftshop aprovados.
+
+## 2026-11-18 — Círculo branco nas fotos dos banners
+
+- **CONFIRMADO pelo responsável.** Fundo branco circular grande à direita, avançando para dentro do banner e parcialmente cortado pelas bordas. A foto original fica inteira dentro do círculo. O tratamento automático de remoção do fundo foi retirado.
+- O círculo usa largura e altura iguais, independentemente das proporções do banner. Playwright confirmou 617 × 617 px em tela de 1440 px e 197 × 197 px em tela de 390 px na categoria Aromatics. Capturas conferidas e typecheck aprovado.
+
+## 2026-11-18 — Fundo restaurado nos banners de categoria
+
+- **CONFIRMADO pelo responsável.** O fundo texturizado volta a ocupar todo o banner. Cada categoria usa seu próprio WebP no desktop e no celular. O texto fica à esquerda e a foto inteira do produto fica à direita.
+- As fotos de estúdio com fundo branco recebem composição em primeiro plano no navegador. A textura aparece ao redor do produto e a sombra da foto se integra à arte. Os arquivos de produto no WooCommerce permanecem originais.
+- **Verificação local.** Em Rapé, o Playwright comparou os pixels dos rótulos com a foto original e a região branca de estúdio com a textura de fundo, em 390 e 1500 px. Typecheck e build passaram.
+
+## 2026-11-18 — Textos dos banners de categoria
+
+- **CONFIRMADO pelo responsável.** As 38 páginas de categoria receberam títulos, descrições e botões em inglês, sem o prefixo “Discover”. Materiais, modelos e apresentações mencionados nos textos foram conferidos no catálogo WooCommerce local.
+- O banner de Aromatherapy Pendants apresenta os modelos em bronze e aço. O de Rapé identifica três variedades pelo nome. A categoria vazia encaminha o visitante à loja. A [redação dos banners](../../lib/collection-banner-copy.ts) é independente da arte do Photoshop.
+- As 38 categorias locais estavam sem descrição no WooCommerce. Nessa situação, a página usa o texto do banner como meta description. Uma descrição editorial preenchida no WooCommerce tem prioridade nesse campo.
+- **Verificação local.** O Playwright conferiu títulos, descrições, metadados, botões, fundos e fotos nas 38 páginas. Os textos couberam no banner em 320, 390 e 1440 px. A página de pendentes também entregou o texto no HTML do servidor. Passaram o typecheck, o build e o teste de navegação e filtros de Giftshop. O build emitiu um aviso de segurança sobre a versão instalada do Next.js.
+
+## 2026-11-18 — Um único fundo por categoria em todas as telas
+
+- **CONFIRMADO pelo responsável.** Cada categoria possui um WebP próprio para substituição no Photoshop. Desktop e celular carregam o mesmo arquivo. Este pedido substitui a entrega anterior de artes por dispositivo.
+- Foram preparados 38 fundos temporários independentes de 2880 × 960 px a partir de uma textura comum. O [guia da pasta](../../public/images/collections/banners/LEIA-ME.md) relaciona cada categoria ao seu arquivo. A composição anterior `rape-desktop.webp` foi preservada.
+- O texto e o botão ficam à esquerda. À direita, o site exibe a foto inteira de um produto da categoria informado pelo WooCommerce. A escolha independe dos filtros e da paginação da grade. Em Rapé, a preferência é Yawanawa Tonka, o produto da referência. Categorias sem produto com foto exibem fundo e texto.
+- **Verificação local.** Playwright conferiu as 38 rotas em 320, 390 e 1600 px, o uso do mesmo WebP em cada largura e as 37 fotos de produto. Uncategorized estava vazia. A busca sem resultados em Rapé manteve a foto do banner. Typecheck aprovado.
+
+## 2026-11-18 — Artes próprias para os banners de categoria
+
+- Danilo vai produzir as artes de cada categoria. O frontend local reconhece WebP pelo slug em `public/images/collections/banners/`. Desktop e celular entram separadamente e preenchem o fundo do banner. Título, descrição e botão continuam em HTML.
+- As pranchetas recomendadas são 2880 × 512 px no desktop e 1080 × 540 px no celular. O [guia de produção](../../public/images/collections/banners/LEIA-ME.md) reúne o enquadramento e os nomes dos arquivos para as 38 categorias locais.
+- **Verificação local.** Com artes temporárias de Rapé, o Chromium verificou as duas versões juntas e separadas, a troca entre 640 e 641 px, a substituição de um arquivo e o retorno ao visual anterior após sua remoção. As dimensões do banner e a posição do texto foram preservadas nas cinco larguras verificadas.
+
+## 2026-11-18 — Categorias alinhadas à home
+
+- **CONFIRMADO pelo responsável.** Aplicar o padrão visual da home a todas as páginas `/collections/[slug]`, preservando a posição das seções e dos controles. O modelo compartilhado incorpora a faixa de categorias em urucum, fotos maiores na grade e botões arredondados. A vitrine usa a grafia Rapé também nas trilhas e nos títulos das categorias.
+- Os destaques de Rapé, Kuripe & Tepi e Herbal Teas reutilizam as campanhas da home. As artes WebP de 1600 × 900 px são `01-rape.webp`, `02-kuripe-tepi.webp` e `03-herbal-teas.webp` em [promotion-cards](../../public/images/home/promotion-cards/LEIA-ME.md). O modelo também aceita a imagem da categoria, a foto do primeiro produto disponível na listagem ou apenas o texto.
+- **Verificação local.** As 38 rotas de categoria abriram em 320 e 1440 px, incluindo a categoria vazia, sem transbordamento horizontal da página. O cenário Playwright de Giftshop conferiu a grade em cinco larguras, as imagens, o carrossel, os filtros, a ordenação, a busca e a paginação.
+
 ## 2026-11-11 — Estoque de teste para todo o catálogo local
 
 - Por solicitação do responsável, disponibilizadas 908 variações com saldo mínimo de 100 unidades para teste, sincronizando 370 produtos pais. Backup privado de banco e estoque anterior preservado.

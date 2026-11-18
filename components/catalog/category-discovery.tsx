@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { getProducts } from "@/lib/commerce/catalog";
-import type { Category, Product } from "@/lib/commerce/product";
+import { getCollectionBannerCopy } from "@/lib/collection-banner-copy";
+import { publicImageUrl } from "@/lib/public-image";
+import type { Category } from "@/lib/commerce/product";
 import { catalogHref, type CatalogQuery } from "@/lib/commerce/catalog-query";
 import { plainText } from "@/lib/wordpress/text";
 import { CatalogImage } from "./catalog-image";
@@ -9,12 +11,10 @@ import { CategoryRail } from "./category-rail";
 export async function CategoryDiscovery({
   category,
   categories,
-  products,
   query,
 }: {
   category: Category;
   categories: Category[];
-  products: Product[];
   query: CatalogQuery;
 }) {
   const children = categories.filter(
@@ -28,40 +28,62 @@ export async function CategoryDiscovery({
           item.id !== category.id &&
           item.count > 0,
       );
-  const cards = await Promise.all(
-    related.slice(0, 12).map(async (item) => {
-      const image =
-        item.image?.src ||
-        (await getProducts({ category: item.id, per_page: 1 })
-          .then((result) => result.data[0]?.images[0]?.src)
-          .catch(() => undefined));
-      return { ...item, image };
-    }),
-  );
-  const image = category.image?.src || products[0]?.images[0]?.src;
+  const bannerFile = /^[a-z0-9][a-z0-9_-]*$/.test(category.slug)
+    ? `${category.slug}.webp`
+    : null;
+  const copy = getCollectionBannerCopy(category);
+  const [desktop, mobile, cards] = await Promise.all([
+    bannerFile &&
+      publicImageUrl(`/images/collections/banners/desktop/${bannerFile}`),
+    bannerFile &&
+      publicImageUrl(`/images/collections/banners/mobile/${bannerFile}`),
+    Promise.all(
+      related.slice(0, 12).map(async (item) => {
+        const image =
+          item.image?.src ||
+          (await getProducts({ category: item.id, per_page: 1 })
+            .then((result) => result.data[0]?.images[0]?.src)
+            .catch(() => undefined));
+        return { ...item, image };
+      }),
+    ),
+  ]);
+  const name = plainText(category.name);
+  const banner = desktop || mobile;
   return (
     <>
-      <section
-        className="category-campaign"
-        aria-label={`${plainText(category.name)} collection`}
-      >
-        <div>
-          <p className="eyebrow">NATURE. CULTURE. CONNECTION.</p>
-          <h2>Discover {plainText(category.name)}</h2>
-          <p>Explore the collection and find your next discovery.</p>
-          <a href="#category-products" className="button primary">
-            Shop this collection
-          </a>
-        </div>
-        {image && (
-          <CatalogImage
-            src={image}
-            alt=""
-            width={320}
-            height={240}
-            className="category-campaign-image"
-          />
+      <section className="category-campaign" aria-label={`${name} collection`}>
+        {banner && (
+          <picture>
+            {mobile && (
+              <source
+                media="(max-width: 640px)"
+                srcSet={mobile}
+                width={1080}
+                height={720}
+              />
+            )}
+            <img
+              src={banner}
+              alt=""
+              width={desktop ? 2880 : 1080}
+              height={desktop ? 640 : 720}
+            />
+          </picture>
         )}
+        <div className="category-campaign-copy">
+          <h2>{copy.heading}</h2>
+          <p className="category-campaign-description">{copy.description}</p>
+          <p className="category-campaign-description-mobile">
+            {copy.mobileDescription}
+          </p>
+          <Link
+            href={category.count ? "#category-products" : "/shop"}
+            className="button primary"
+          >
+            {copy.action}
+          </Link>
+        </div>
       </section>
       {cards.length > 0 && (
         <CategoryRail

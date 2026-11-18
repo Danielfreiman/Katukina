@@ -1,6 +1,5 @@
 import "server-only";
-import { stat } from "node:fs/promises";
-import path from "node:path";
+import { publicImageUrl } from "./public-image";
 
 const cards = [
   {
@@ -23,24 +22,13 @@ const cards = [
   },
 ];
 
-export async function getHomePromotionCards() {
-  return Promise.all(
-    cards.map(async (card) => {
-      const url = `/images/home/promotion-cards/${card.file}`;
-      let image: string | null = null;
-      try {
-        const file = await stat(path.join(process.cwd(), "public", url));
-        if (file.isFile() && file.size > 0)
-          image = `${url}?v=${file.mtimeMs}-${file.size}`;
-      } catch (error) {
-        if (
-          !["ENOENT", "ENOTDIR"].includes(
-            (error as NodeJS.ErrnoException).code || "",
-          )
-        )
-          throw error;
-      }
-      return { ...card, image, href: `/collections/${card.slug}` };
-    }),
+async function readPromotion(card: (typeof cards)[number]) {
+  const image = await publicImageUrl(
+    `/images/home/promotion-cards/${card.file}`,
   );
+  return { ...card, image, href: `/collections/${card.slug}` };
+}
+
+export function getHomePromotionCards() {
+  return Promise.all(cards.map(readPromotion));
 }
