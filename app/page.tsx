@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { existsSync } from "node:fs";
 import path from "node:path";
 import {
@@ -622,42 +622,44 @@ export default async function Home() {
           </div>
         </div>
       </section>
-      <nav className="mh-wrap mh-service-strip" aria-label="Shopping guidance">
-        {[
-          {
-            icon: Globe2,
-            title: "Shipping & destinations",
-            text: "Check delivery options",
-            href: "/shipping",
-          },
-          {
-            icon: Package,
-            title: "Find your presentation",
-            text: "Explore available sizes",
-            href: "/shop",
-          },
-          {
-            icon: Leaf,
-            title: "Explore the collection",
-            text: "Botanicals, incense & objects",
-            href: "/collections",
-          },
-          {
-            icon: Headphones,
-            title: "Your account",
-            text: "Orders and account details",
-            href: "/account",
-          },
-        ].map(({ icon: Icon, title, text, href }) => (
-          <Link key={title} href={href}>
-            <Icon size={36} strokeWidth={1.3} />
-            <span>
-              <strong>{title}</strong>
-              <small>{text}</small>
-            </span>
-          </Link>
-        ))}
-      </nav>
+      <div className="mh-service-band">
+        <nav className="mh-wrap mh-service-strip" aria-label="Shopping guidance">
+          {[
+            {
+              icon: Globe2,
+              title: "Shipping & destinations",
+              text: "Check delivery options",
+              href: "/shipping",
+            },
+            {
+              icon: Package,
+              title: "Find your presentation",
+              text: "Explore available sizes",
+              href: "/shop",
+            },
+            {
+              icon: Leaf,
+              title: "Explore the collection",
+              text: "Botanicals, incense & objects",
+              href: "/collections",
+            },
+            {
+              icon: Headphones,
+              title: "Your account",
+              text: "Orders and account details",
+              href: "/account",
+            },
+          ].map(({ icon: Icon, title, text, href }) => (
+            <Link key={title} href={href}>
+              <Icon size={36} strokeWidth={1.3} />
+              <span>
+                <strong>{title}</strong>
+                <small>{text}</small>
+              </span>
+            </Link>
+          ))}
+        </nav>
+      </div>
     </main>
   );
 }

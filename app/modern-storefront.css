@@ -15,7 +15,7 @@
   color: var(--on-color);
 }
 .site-footer :focus-visible {
-  outline: 2px solid var(--on-color);
+  outline: 2px solid var(--green);
   outline-offset: 4px;
 }
 :focus-visible {
@@ -263,8 +263,8 @@ html .purchase-fields input {
 html .site-footer {
   border: 0;
   border-radius: 0;
-  background: var(--green);
-  color: var(--on-color);
+  background: #ffffff;
+  color: var(--ink);
 }
 html .footer-top {
   display: grid;
@@ -275,14 +275,14 @@ html .footer-top {
 .site-footer .footer-full-logo {
   width: 210px;
   margin: 0 0 22px;
-  filter: brightness(0) invert(1);
+  filter: none;
 }
 .site-footer .footer-intro h2 {
   font-size: 1.25rem;
   font-family: var(--font-body);
 }
 .site-footer .footer-intro p {
-  color: var(--on-color);
+  color: var(--muted);
   font-size: 0.9375rem;
   max-width: 30ch;
 }
@@ -296,24 +296,24 @@ html .footer-top {
 }
 .site-footer .footer-links h3,
 .footer-news h3 {
-  color: var(--on-color);
+  color: var(--ink);
   text-transform: none;
   letter-spacing: 0;
   font-size: 1.0625rem;
   margin-bottom: 22px;
 }
 .site-footer .footer-links a {
-  color: var(--on-color);
+  color: var(--muted);
   font-size: 0.9375rem;
   line-height: 1.65;
   margin: 0 0 9px;
 }
 .site-footer a:hover {
-  color: var(--on-color);
+  color: var(--green);
 }
 .footer-news p {
   font-size: 0.9375rem;
-  color: var(--on-color);
+  color: var(--muted);
   margin-bottom: 22px;
 }
 .footer-news .footer-news-link {
@@ -328,8 +328,8 @@ html .footer-top {
   font-weight: 600;
 }
 .site-footer .footer-bottom {
-  border-color: color-mix(in srgb, var(--on-color) 30%, transparent);
-  color: var(--on-color);
+  border-color: var(--line);
+  color: var(--muted);
   padding-block: 20px;
   font-size: 0.875rem;
 }

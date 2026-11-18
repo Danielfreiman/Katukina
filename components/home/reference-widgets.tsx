@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { useDragScroll } from "./use-drag-scroll";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import {
   ChevronLeft,
@@ -107,6 +108,7 @@ export function HomeRail({
   children?: ReactNode;
 }) {
   const track = useRef<HTMLDivElement>(null);
+  const dragScroll = useDragScroll();
   const [edges, setEdges] = useState({ start: true, end: false });
   const update = () => {
     const el = track.current;
@@ -145,7 +147,7 @@ export function HomeRail({
         >
           <ChevronLeft size={20} />
         </button>
-        <div ref={track} className="rh-product-track" onScroll={update}>
+        <div {...dragScroll} ref={track} className="rh-product-track" onScroll={update} role="region" aria-label={`${title}: use arrow keys to browse`}>
           {children ??
             products?.map((product) => (
               <HomeCard key={product.id} product={product} />
@@ -286,6 +288,25 @@ export function HomeCollectionTabs({
 }) {
   const [active, setActive] = useState(0);
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const panelRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [edges, setEdges] = useState({ start: true, end: true });
+  const updateEdges = () => {
+    const el = panelRefs.current[active];
+    if (el) setEdges({ start: el.scrollLeft < 2, end: el.scrollLeft + el.clientWidth >= el.scrollWidth - 2 });
+  };
+  useEffect(() => {
+    const el = panelRefs.current[active];
+    if (!el) return;
+    const observer = new ResizeObserver(updateEdges);
+    observer.observe(el);
+    updateEdges();
+    return () => observer.disconnect();
+  }, [active, collections]);
+  const move = (direction: number) => {
+    const el = panelRefs.current[active];
+    el?.scrollBy({ left: direction * el.clientWidth, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
+  };
+  const dragScroll = useDragScroll();
   const collection = collections[active];
   if (!collection) return null;
   return (
@@ -331,9 +352,16 @@ export function HomeCollectionTabs({
           </button>
         ))}
       </div>
+      <div className="rh-rail-body">
+        <button className="rh-arrow rh-prev" aria-label={`Previous ${collection.name} products`} aria-controls={`rh-panel-${collection.slug}`} disabled={edges.start} onClick={() => move(-1)}>
+          <ChevronLeft size={20} />
+        </button>
       {collections.map((item, index) => (
         <div
           key={item.slug}
+          {...dragScroll}
+          ref={(el) => { panelRefs.current[index] = el; }}
+          onScroll={index === active ? updateEdges : undefined}
           id={`rh-panel-${item.slug}`}
           role="tabpanel"
           aria-labelledby={`rh-tab-${item.slug}`}
@@ -351,6 +379,10 @@ export function HomeCollectionTabs({
           )}
         </div>
       ))}
+        <button className="rh-arrow rh-next" aria-label={`Next ${collection.name} products`} aria-controls={`rh-panel-${collection.slug}`} disabled={edges.end} onClick={() => move(1)}>
+          <ChevronRight size={20} />
+        </button>
+      </div>
     </section>
   );
 }
