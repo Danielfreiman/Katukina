@@ -63,8 +63,8 @@ export function SiteHeader({
       </div>
       <header className="header-wrap">
         <div className="site-header shell">
-          <Link
-            href="/"
+          <a
+            href="/#top"
             className="wordmark"
             aria-label="Katukina — home"
             onClick={() => setPanel(null)}
@@ -78,7 +78,7 @@ export function SiteHeader({
               loading="eager"
               unoptimized
             />
-          </Link>
+          </a>
           <div className="header-search-slot" onFocus={() => setPanel(null)}>
             <ProductSearch inline onNavigate={() => setPanel(null)} />
           </div>

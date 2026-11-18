@@ -5,13 +5,15 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div className="shell footer-top">
         <div className="footer-intro">
-          <img
-            className="footer-full-logo"
-            src="/images/brand/katukina-logo-horizontal.svg"
-            alt="Katukina"
-            width={600}
-            height={120}
-          />
+          <a href="/#top" aria-label="Katukina — home">
+            <img
+              className="footer-full-logo"
+              src="/images/brand/katukina-logo-horizontal.svg"
+              alt="Katukina"
+              width={600}
+              height={120}
+            />
+          </a>
           <h2>Nature. Culture. Connection.</h2>
           <p>
             Botanicals, incense and meaningful objects. A different way to

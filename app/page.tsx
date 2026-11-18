@@ -368,9 +368,9 @@ export default async function Home() {
             <div className="mh-wrap mh-hero-inner">
               <div className="mh-hero-copy">
                 <h1 id="mh-hero-title">
-                  Authentic Brazilian
+                  Authentic
                   <br />
-                  <em className="mh-hero-rape-title">Rapé</em>
+                  <span className="mh-hero-rape-title">Brazilian&nbsp;<em>Rapé</em></span>
                 </h1>
                 <p>
                   Grounding blends sourced from the heart of the Amazon. Browse
@@ -470,10 +470,10 @@ export default async function Home() {
             <Flame />
             Incense, resins & aromatic woods
           </span>
-          <span>
+          <Link href="/journal">
             <BookOpen />
             Stories, origins & inspiration
-          </span>
+          </Link>
         </div>
       </div>
       <div className="mh-wrap">
@@ -582,9 +582,11 @@ export default async function Home() {
           />
         </div>
       )}
-      <div className="mh-wrap">
-        <HomeCollectionTabs collections={collections} />
-      </div>
+      {collections.length > 0 && (
+        <div className="mh-wrap">
+          <HomeCollectionTabs collections={collections} />
+        </div>
+      )}
       <div className="mh-wrap">
         <Link
           className="mh-banner mh-banner-body mh-banner-artwork-layout"

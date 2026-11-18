@@ -150,7 +150,11 @@
 }
 .policy-page h2 {
   font-size: var(--text-card-title);
-  margin-top: 32px;
+  margin-top: var(--layout-section);
+  margin-bottom: 12px;
+}
+.policy-page h2 + :is(p, ul, ol, .policy-table-wrap) {
+  margin-top: 0;
 }
 .policy-page p,
 .policy-page li {

@@ -1,4 +1,7 @@
 .modern-home {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  row-gap: var(--layout-section);
   background: var(--warm-white);
   color: var(--ink);
 }
@@ -142,7 +145,8 @@
   font-style: italic;
   color: #f4ac30;
 }
-.mh-hero h1 .mh-hero-rape-title {
+.mh-hero h1 .mh-hero-rape-title,
+.mh-hero h1 .mh-hero-rape-title em {
   color: #582f12;
 }
 .mh-hero h1 .mh-hero-sananga-title {
@@ -176,7 +180,6 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 22px;
-  padding-block: 36px;
 }
 .mh-promotion-card {
   min-height: 240px;
@@ -322,7 +325,6 @@
 }
 .mh-discovery-strip {
   background: var(--soft);
-  margin-bottom: 8px;
 }
 .mh-discovery-strip > div {
   display: flex;
@@ -331,19 +333,19 @@
   gap: 26px;
   padding-block: 17px;
 }
-.mh-discovery-strip span {
+.mh-discovery-strip :is(span, a) {
   display: inline-flex;
   align-items: center;
   gap: 12px;
   font-size: 0.9375rem;
 }
+.mh-discovery-strip a:is(:hover, :focus-visible) {
+  color: var(--green);
+}
 .mh-discovery-strip svg {
   width: 18px;
   height: 18px;
   color: var(--green);
-}
-.rh-rail {
-  padding-block: 32px;
 }
 .rh-section-title {
   display: flex;
@@ -402,7 +404,7 @@
   scroll-snap-type: x proximity;
   scrollbar-width: thin;
   scrollbar-color: var(--line) transparent;
-  padding: 5px 0 16px;
+  padding: 5px 0;
   margin-top: -5px;
 }
 .modern-home :is(.rh-product-track, .rh-tab-products):focus-visible {
@@ -575,8 +577,8 @@
   position: absolute;
   z-index: 2;
   top: 29%;
-  width: 32px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   display: grid;
   place-items: center;
   border: 1px solid var(--line);
@@ -604,7 +606,6 @@
 }
 .mh-categories {
   --green: var(--charcoal);
-  padding-block: 22px 36px;
 }
 .mh-categories .rh-category-carousel {
   position: relative;
@@ -631,7 +632,7 @@
   scroll-snap-type: x mandatory;
   scrollbar-width: thin;
   scrollbar-color: var(--green) var(--soft);
-  padding-block: 8px 20px;
+  padding-block: 8px;
 }
 .mh-category-grid > a {
   position: relative;
@@ -727,7 +728,6 @@
   background: var(--support-soft);
   min-height: 170px;
   padding: 30px 245px 30px 38px;
-  margin-block: 12px 38px;
 }
 .mh-banner:is(:hover, :focus-visible) {
   color: var(--ink);
@@ -776,8 +776,7 @@
   display: grid;
   grid-template-columns: 1fr 2.2fr 1fr;
   align-items: stretch;
-  gap: 26px;
-  padding-block: 0 42px;
+  gap: var(--layout-section) 26px;
 }
 .mh-discover-layout > * {
   min-width: 0;
@@ -919,8 +918,7 @@
 .mh-arrivals-layout {
   display: grid;
   grid-template-columns: minmax(0, 3.1fr) minmax(0, 1fr);
-  gap: 28px;
-  margin-bottom: 12px;
+  gap: var(--layout-section) 28px;
 }
 .mh-arrivals-layout > * {
   min-width: 0;
@@ -1020,9 +1018,6 @@
 .mh-edit .mh-small-product > div {
   max-width: 85px;
 }
-.rh-tabbed {
-  padding-block: 34px;
-}
 .rh-tabbed .rh-section-title h2 {
   margin-right: auto;
 }
@@ -1054,13 +1049,12 @@
   grid-auto-columns: calc((100% - 110px) / 6);
   gap: 22px;
   overflow-x: auto;
-  padding-block: 3px 15px;
+  padding-block: 3px 5px;
   scrollbar-width: thin;
 }
 .mh-journal {
   background: var(--soft);
-  padding-block: 48px;
-  margin-top: 38px;
+  padding-block: calc(var(--layout-section) / 2);
 }
 .mh-journal-grid {
   display: grid;
@@ -1314,7 +1308,6 @@
   }
   .mh-promotions {
     gap: 14px;
-    padding-block: 24px;
   }
   .mh-campaign {
     min-height: 255px;
@@ -1344,7 +1337,7 @@
     overflow-x: auto;
     gap: 35px;
   }
-  .mh-discovery-strip span {
+  .mh-discovery-strip :is(span, a) {
     white-space: nowrap;
     font-size: 0.8125rem;
   }
@@ -1379,7 +1372,7 @@
     margin: 0;
   }
   .mh-discover-layout {
-    gap: 22px;
+    gap: var(--layout-section) 22px;
   }
   .mh-campaign-tall {
     min-height: 420px;
@@ -1496,9 +1489,6 @@
     margin: 9px 0 13px;
     font-size: 1.0625rem;
   }
-  .rh-rail {
-    padding-block: 26px;
-  }
   .rh-product-track,
   .rh-tab-products:not([hidden]) {
     grid-auto-columns: calc((100% - 14px) / 2);
@@ -1526,10 +1516,6 @@
   }
   .rh-quick-view svg {
     width: 15px;
-  }
-  .rh-arrow {
-    width: 28px;
-    height: 32px;
   }
   .rh-prev {
     left: -12px;
@@ -1563,7 +1549,6 @@
   }
   .mh-banner {
     padding: 24px 115px 24px 20px;
-    margin-bottom: 28px;
   }
   .mh-banner h2 {
     font-size: 1.375rem;
@@ -1581,7 +1566,6 @@
   }
   .mh-discover-layout {
     grid-template-columns: 1fr;
-    padding-bottom: 28px;
   }
   .mh-campaign-tall {
     min-height: 235px;
@@ -1640,10 +1624,6 @@
   }
   .mh-edit .mh-small-product > div {
     width: 80px;
-  }
-  .mh-journal {
-    margin-top: 20px;
-    padding-block: 28px;
   }
   .mh-journal-grid {
     grid-template-columns: 1fr;

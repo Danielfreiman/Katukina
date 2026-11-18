@@ -2,7 +2,6 @@
    Preserve the existing palette, typography, geometry, content and DOM order. */
 :root {
   --layout-gutter: clamp(20px, 2.25vw, 40px);
-  --layout-section: clamp(32px, 3.4vw, 48px);
   --layout-group: 24px;
 }
 
@@ -12,7 +11,7 @@ html .reference-home .rh-wide {
 }
 
 html .page-intro {
-  padding-block: 32px 40px;
+  padding-block: 32px var(--layout-section);
 }
 html .page-intro nav,
 html .breadcrumbs {
@@ -38,7 +37,7 @@ html .page-intro > p:last-child:not(.eyebrow) {
   margin-top: 16px;
 }
 html .catalog-intro {
-  margin-block: 24px 32px;
+  margin-block: 24px var(--layout-section);
   padding-block: 0;
 }
 html .catalog-intro > p:last-child {
@@ -81,6 +80,14 @@ html .product-purchase-layout {
 }
 html .commerce-layout {
   column-gap: clamp(28px, 4vw, 56px);
+  row-gap: var(--layout-section);
+}
+html .commerce-page > h1,
+html .account-welcome {
+  margin-bottom: var(--layout-section);
+}
+html .commerce-page :is(.commerce-empty, .commerce-success) {
+  padding-block: 0;
 }
 html .commerce-layout > * {
   min-width: 0;
@@ -108,7 +115,7 @@ html .editorial-text {
   line-height: 1.8;
 }
 html .editorial-text h2 {
-  margin-block: 36px 16px;
+  margin-block: var(--layout-section) 16px;
 }
 html .editorial-text > h2:first-child {
   margin-top: 0;
@@ -194,17 +201,13 @@ html .reference-home .rh-subscribe {
 }
 @media (max-width: 600px) {
   :root {
-    --layout-section: 32px;
     --layout-group: 20px;
   }
   html .page-intro {
-    padding-block: 24px 32px;
+    padding-block: 24px var(--layout-section);
   }
   html .page-intro nav {
     margin-bottom: 24px;
-  }
-  html .catalog-intro {
-    margin-block: 24px;
   }
   html .catalog-intro > p:last-child,
   html .page-intro > p:last-child:not(.eyebrow) {

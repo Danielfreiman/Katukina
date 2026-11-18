@@ -11,10 +11,10 @@ export default async function Collections() {
   return (
     <main id="content" className="shell page-content">
       <PageIntro title="Collections" eyebrow="EXPLORE YOUR CURIOSITY" />
-      <div className="journal-grid">
+      <div className="collection-index">
         {categories.map((category) => (
           <Link
-            className="journal-card"
+            className="collection-index-entry"
             key={category.id}
             href={`/collections/${category.slug}`}
           >

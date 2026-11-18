@@ -1,5 +1,15 @@
 # Discovery Katukina
 
+Tipografia em 18/11/2026 — [auditoria da vitrine moderna, medições com texto ampliado e prioridades de correção](TYPESET-2026-11-18.md).
+
+Logotipos em 18/11/2026 — **CONFIRMADO no ambiente local:** cabeçalho e rodapé apontam para `/#top` com links nativos. Playwright confirmou retorno ao topo a partir da home e da loja em 390 e 1440 px, incluindo cliques repetidos com o fragmento já presente e ativação por Enter. Typecheck aprovado.
+
+Ritmo vertical em 18/11/2026 — [intervalos entre as seções da vitrine e medições nas cinco larguras da home](LAYOUT-2026-11-18.md).
+
+Espaçamentos em 18/11/2026 — [cinco correções aplicadas na vitrine, medidas e recortes mobile antes e depois](LAYOUT-2026-11-18.md).
+
+Faixa de descoberta em 18/11/2026 — **CONFIRMADO no ambiente local:** “Stories, origins & inspiration” abre o Journal. Playwright confirmou a navegação por Tab e Enter no desktop e por toque emulado em 390 px. Typecheck aprovado.
+
 Links de Stories & inspiration em 18/11/2026 — **CONFIRMADO no ambiente local:** os cartões identificam a página da marca, o índice de categorias e as coleções específicas. Artigos usam “Read article”. Playwright conferiu os quatro cartões exibidos, todos com destinos fora do Journal. Typecheck aprovado.
 
 Lista lateral de novidades em 18/11/2026 — **CONFIRMADO no ambiente local:** “More new arrivals” exibe do 7º ao 12º produto mais recente. Playwright confirmou que a grade e a lista seguem a ordem dos 12 primeiros produtos de `/shop?sort=newest` e que o link da lista aponta para esse destino. Typecheck aprovado.

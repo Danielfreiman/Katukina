@@ -239,7 +239,7 @@
   flex-wrap: wrap;
   gap: 12px 32px;
   padding: 20px 0;
-  margin-top: 48px;
+  margin-top: var(--layout-section);
   border-block: 1px solid var(--line);
 }
 .pdp-reference .pdp-section-navigation a {
@@ -257,7 +257,7 @@
   border-top: 0;
   grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
   gap: 48px;
-  padding-block: 32px;
+  padding-block: var(--layout-section) 0;
 }
 .pdp-reference .product-information h2,
 .pdp-reference .related-heading h2 {
@@ -325,7 +325,7 @@
   }
   .pdp-reference .product-purchase-layout {
     grid-template-columns: minmax(0, 1fr);
-    gap: 28px;
+    row-gap: var(--layout-section);
   }
   .pdp-reference .product-gallery {
     position: static;
@@ -347,10 +347,9 @@
   }
   .pdp-reference .product-information {
     grid-template-columns: minmax(0, 1fr);
-    gap: 24px;
+    row-gap: var(--layout-section);
   }
   .pdp-reference .pdp-section-navigation {
-    margin-top: 32px;
     gap: 12px 20px;
   }
   .pdp-reference .related-heading {

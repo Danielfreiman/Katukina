@@ -59,29 +59,31 @@ export function ProductGrid({ products }: { products: Product[] }) {
               </div>
             </Link>
             <div className="product-info">
-              <p className="product-category">
-                {plainText(product.categories[0]?.name || "Collection")}
-              </p>
-              <h3>
-                <Link href={href}>{productName(product)}</Link>
-              </h3>
-              {!!product.review_count && (
-                <p
-                  className="product-rating"
-                  aria-label={`${product.average_rating} out of 5 stars, ${product.review_count} reviews`}
-                >
-                  <span className="rating-stars" aria-hidden="true">
-                    ★
-                  </span>{" "}
-                  {product.average_rating} <span>({product.review_count})</span>
+              <div className="product-card-details">
+                <p className="product-category">
+                  {plainText(product.categories[0]?.name || "Collection")}
                 </p>
-              )}
-              {product.type === "variable" && !!product.variations?.length && (
-                <Link className="product-more-options" href={href}>
-                  {product.variations.length}{" "}
-                  {product.variations.length === 1 ? "option" : "options"}
-                </Link>
-              )}
+                <h3>
+                  <Link href={href}>{productName(product)}</Link>
+                </h3>
+                {!!product.review_count && (
+                  <p
+                    className="product-rating"
+                    aria-label={`${product.average_rating} out of 5 stars, ${product.review_count} reviews`}
+                  >
+                    <span className="rating-stars" aria-hidden="true">
+                      ★
+                    </span>{" "}
+                    {product.average_rating} <span>({product.review_count})</span>
+                  </p>
+                )}
+                {product.type === "variable" && !!product.variations?.length && (
+                  <Link className="product-more-options" href={href}>
+                    {product.variations.length}{" "}
+                    {product.variations.length === 1 ? "option" : "options"}
+                  </Link>
+                )}
+              </div>
               <p className="product-price">
                 {product.type === "simple" &&
                   product.on_sale &&

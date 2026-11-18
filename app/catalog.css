@@ -710,6 +710,9 @@
   padding: 18px 18px 8px;
   flex: 1;
 }
+.product-card-details {
+  display: contents;
+}
 .product-grid-v2 .product-info h3 {
   font-size: var(--text-body);
   line-height: 1.45;
@@ -1089,7 +1092,7 @@
   font-size: var(--text-meta);
 }
 .related-products {
-  margin-top: 46px;
+  margin-top: var(--layout-section);
 }
 .related-heading {
   display: flex;
@@ -1555,8 +1558,8 @@
 }
 .recently-viewed {
   border-top: 1px solid var(--line);
-  margin-top: 48px;
-  padding-top: 32px;
+  margin-top: calc(var(--layout-section) / 2);
+  padding-top: calc(var(--layout-section) / 2);
 }
 .recently-viewed .product-grid {
   display: grid;
