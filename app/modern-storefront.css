@@ -361,9 +361,6 @@ html .footer-top {
   line-height: 1.65;
   margin: 0 0 9px;
 }
-.site-footer a:hover {
-  color: var(--green);
-}
 .footer-news p {
   font-size: 0.9375rem;
   color: var(--muted);
@@ -471,7 +468,6 @@ html .footer-top {
   }
 }
 
-.site-footer a:hover,
 .site-note a:hover {
   color: var(--green);
 }
@@ -482,9 +478,38 @@ html body :is(a, button):hover,
 html body :is(a, button):hover :not(del, s) {
   text-decoration: none !important;
 }
-.footer-news .footer-news-link:hover {
-  background: var(--soft);
-  color: var(--green);
+.site-footer .footer-links a,
+.site-footer .footer-bottom > a,
+.cookie-controls .cookie-settings-link {
+  border-radius: 4px;
+}
+.site-footer .footer-news-link:focus-visible {
+  background: var(--green);
+  color: white;
+}
+@media (hover: hover) and (pointer: fine) {
+  .site-footer .footer-links a:hover,
+  .site-footer .footer-bottom > a:hover,
+  .cookie-controls .cookie-settings-link:hover {
+    color: var(--green);
+    background: var(--support-soft);
+    box-shadow: -4px 0 var(--support-soft), 4px 0 var(--support-soft);
+  }
+  .site-footer .footer-news-link:hover {
+    background: var(--green);
+    color: white;
+  }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .site-footer .footer-links a {
+    transition: text-indent 160ms ease-out, background-color 160ms ease-out;
+  }
+  .site-footer .footer-links a:hover {
+    text-indent: 6px;
+  }
+  .site-footer .footer-news-link {
+    transition: background-color 160ms ease-out, color 160ms ease-out;
+  }
 }
 .site-note .destination-selector select option {
   background: var(--surface);

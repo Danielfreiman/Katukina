@@ -1,5 +1,7 @@
 # Discovery Katukina
 
+Rodapé em 18/11/2026 — **CONFIRMADO no ambiente local:** os links de navegação recebem fundo verde suave no hover e o botão “Email updates” passa a verde folha com texto branco. O deslocamento do texto respeita a preferência por movimento reduzido. Typecheck aprovado. Playwright verificou hover, foco por teclado e movimento reduzido em 1440 px e ausência de overflow horizontal em 1440 e 390 px.
+
 Tipografia em 18/11/2026 — [auditoria da vitrine moderna, medições com texto ampliado e prioridades de correção](TYPESET-2026-11-18.md).
 
 Logotipos em 18/11/2026 — **CONFIRMADO no ambiente local:** cabeçalho e rodapé apontam para `/#top` com links nativos. Playwright confirmou retorno ao topo a partir da home e da loja em 390 e 1440 px, incluindo cliques repetidos com o fragmento já presente e ativação por Enter. Typecheck aprovado.
