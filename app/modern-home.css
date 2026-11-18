@@ -1079,8 +1079,7 @@
   outline-offset: 6px;
 }
 .mh-journal-grid article > a:hover span {
-  text-decoration: underline;
-  text-underline-offset: 4px;
+  color: var(--ink);
 }
 .mh-journal-grid img {
   width: 100%;
@@ -1157,8 +1156,8 @@
 }
 .mh-service-strip a:hover {
   color: var(--on-color);
-  text-decoration: underline;
-  text-underline-offset: 4px;
+  background: rgb(247 247 242 / 12%);
+  border-radius: 8px;
 }
 .mh-service-strip a:focus-visible {
   outline-color: var(--on-color);
