@@ -1,5 +1,7 @@
 # Discovery Katukina
 
+Traçado da navegação em 18/11/2026 — **CONFIRMADO por Danilo:** retirar o sublinhado dos textos da faixa de navegação também no estado normal e no foco, removendo a decoração herdada e a regra que reativava sua cor. Contorno acessível de foco preservado. Typecheck aprovado e estados conferidos com Playwright.
+
 Logo do header e hover em 18/11/2026 — **CONFIRMADO por Danilo:** aumentar um pouco o logotipo e remover sublinhados ao passar o mouse em toda a vitrine. Logo passa de 230 para 260 px no desktop, 185 para 205 px no celular e 160 para 176 px até 360 px. Regra compartilhada remove decoração no hover dos links/botões e seus textos, preservando elementos semânticos de preço riscado; feedback usa cor/fundo e navegação ativa recebe fundo suave. Foco por teclado preservado. Typecheck e detector Impeccable aprovados; Playwright confirmou larguras e ausência de overflow em 1440, 1024, 390 e 320 px, ausência de sublinhado no hover em rodapé, jornal, serviços e navegação e foco sólido. Capturas desktop/mobile revisadas.
 
 Faixa de serviços e rodapé em 18/11/2026 — **CONFIRMADO por Danilo:** faixa de serviços em verde folha, rodapé branco e logotipo nas cores originais. Faixa ocupa a largura inteira com textos, ícones e foco claros; rodapé usa textos carvão/cinza, foco verde e SVG original sem filtro. Typecheck aprovado; Playwright confirmou cores, filtro removido e ausência de overflow em 1440 e 390 px; capturas desktop e mobile revisadas.

@@ -131,6 +131,7 @@ html .header-categories::before {
 }
 .header-wrap .category-navigation > a {
   color: var(--warm-white);
+  text-decoration: none;
   font-weight: 600;
   padding: 10px 5px;
 }
@@ -159,7 +160,7 @@ html .header-categories::before {
 .header-wrap .departments-trigger[aria-expanded="true"] {
   background: rgb(247 247 242 / 12%);
   color: var(--warm-white);
-  text-decoration-color: currentColor;
+  text-decoration: none;
 }
 .header-wrap .departments-layout {
   padding-block: 24px;
