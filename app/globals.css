@@ -59,6 +59,24 @@
 * {
   box-sizing: border-box;
 }
+.carousel-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+.carousel-hint-touch { display: none; }
+@media (pointer: coarse) {
+  .carousel-hint-pointer { display: none; }
+  .carousel-hint-touch { display: inline; }
+}
+::-webkit-scrollbar:horizontal {
+  height: 0;
+}
 html {
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--header-height) + 24px);
@@ -348,7 +366,7 @@ button.text-link {
   justify-content: space-between;
   gap: 24px;
   overflow-x: auto;
-  scrollbar-width: thin;
+  scrollbar-width: none;
   font-family: var(--font-display);
   font-size: var(--text-ui);
   font-weight: var(--weight-semibold);

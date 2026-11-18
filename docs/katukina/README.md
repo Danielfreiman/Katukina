@@ -1,5 +1,11 @@
 # Discovery Katukina
 
+Indicador de arrasto em 18/11/2026 — **CONFIRMADO no ambiente local:** os carrosséis da home, categorias e produtos vistos recentemente mostram uma seta horizontal dupla e uma instrução abaixo da lista quando há conteúdo para rolar. Playwright confirmou posição e texto nos quatro carrosséis da home em 1440 e 390 px. Typecheck aprovado.
+
+Barras horizontais em 18/11/2026 — **CONFIRMADO no ambiente local:** as áreas com rolagem horizontal da vitrine ocultam a barra nativa. Playwright confirmou navegação no carrossel de categorias por teclado em 1440 px e por toque emulado em 390 px, e a barra oculta na tabela de cookies em 390 px. Typecheck aprovado.
+
+Faixa de serviços da home em 18/11/2026 — **CONFIRMADO no ambiente local:** fundo carvão e faixa mais fina, separada do rodapé. Playwright mediu 66 px de altura e 29 px de intervalo em 1440 px, e 135 px de altura e 20 px de intervalo em 390 px, com os quatro atalhos e sem overflow horizontal. Typecheck aprovado.
+
 Rodapé em 18/11/2026 — **CONFIRMADO no ambiente local:** os links de navegação recebem fundo verde suave no hover e o botão “Email updates” passa a verde folha com texto branco. O deslocamento do texto respeita a preferência por movimento reduzido. Typecheck aprovado. Playwright verificou hover, foco por teclado e movimento reduzido em 1440 px e ausência de overflow horizontal em 1440 e 390 px.
 
 Tipografia em 18/11/2026 — [auditoria da vitrine moderna, medições com texto ampliado e prioridades de correção](TYPESET-2026-11-18.md).

@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { CarouselHint } from "@/components/site/carousel-hint";
 
 export function ProductScroller({ children, label }: { children: ReactNode; label: string }) {
   const root = useRef<HTMLDivElement>(null);
@@ -24,5 +25,6 @@ export function ProductScroller({ children, label }: { children: ReactNode; labe
     <button type="button" className="product-scroller-prev" aria-label={`Previous ${label}`} disabled={edges.start} hidden={edges.start && edges.end} onClick={() => move(-1)}><ChevronLeft size={20} /></button>
     {children}
     <button type="button" className="product-scroller-next" aria-label={`Next ${label}`} disabled={edges.end} hidden={edges.start && edges.end} onClick={() => move(1)}><ChevronRight size={20} /></button>
+    {!(edges.start && edges.end) && <CarouselHint mouseDrag={false} />}
   </div>;
 }

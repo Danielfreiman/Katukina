@@ -614,7 +614,7 @@
   overflow-x: auto;
   margin-bottom: 24px;
   padding: 8px 4px 12px;
-  scrollbar-width: thin;
+  scrollbar-width: none;
 }
 .reference-home .rh-tabs button[aria-selected="true"] {
   border-color: var(--green);
@@ -996,6 +996,7 @@
     grid-auto-flow: column;
     grid-auto-columns: calc((100% - 12px) / 2);
     overflow-x: auto;
+    scrollbar-width: none;
     gap: 12px;
     scroll-snap-type: x proximity;
     position: relative;
@@ -1051,6 +1052,7 @@
   .reference-home .rh-editorial-grid {
     display: flex;
     overflow-x: auto;
+    scrollbar-width: none;
     gap: 10px;
   }
   .reference-home .rh-editorial-grid > a {

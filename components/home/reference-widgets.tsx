@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { CarouselHint } from "@/components/site/carousel-hint";
 import { useDragScroll } from "./use-drag-scroll";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import {
@@ -109,7 +110,7 @@ export function HomeRail({
 }) {
   const track = useRef<HTMLDivElement>(null);
   const dragScroll = useDragScroll();
-  const [edges, setEdges] = useState({ start: true, end: false });
+  const [edges, setEdges] = useState({ start: true, end: true });
   const update = () => {
     const el = track.current;
     if (el)
@@ -162,6 +163,7 @@ export function HomeRail({
           <ChevronRight size={20} />
         </button>
       </div>
+      {!(edges.start && edges.end) && <CarouselHint />}
       {products?.length === 0 && (
         <p className="rh-empty">
           This collection is currently unavailable.{" "}
@@ -383,6 +385,7 @@ export function HomeCollectionTabs({
           <ChevronRight size={20} />
         </button>
       </div>
+      {!(edges.start && edges.end) && <CarouselHint />}
     </section>
   );
 }

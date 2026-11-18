@@ -79,7 +79,7 @@
 .shelf-actions a { color: var(--green); margin-right: 12px; font-size: var(--text-ui); }
 .shelf-actions button { width: 40px; height: 40px; display: grid; place-items: center; border: 1px solid var(--line); background: var(--white); color: var(--green); }
 .shelf-actions button:hover { background: var(--support-soft); }
-.product-shelf .product-grid-v2 { display: grid; grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: calc((100% - 60px) / 4); gap: 20px; overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: thin; padding: 4px 0 18px; }
+.product-shelf .product-grid-v2 { display: grid; grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: calc((100% - 60px) / 4); gap: 20px; overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none; padding: 4px 0 18px; }
 .product-shelf .product-grid-v2 .product-card { scroll-snap-align: start; border: 1px solid var(--line); box-shadow: none; transform: none; }
 .product-shelf .product-grid-v2 .product-card:hover { transform: none; box-shadow: none; border-color: var(--green); }
 .department-shelves { display: grid; gap: 48px; padding-block: 0 56px; }

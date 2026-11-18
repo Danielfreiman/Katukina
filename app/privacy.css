@@ -175,6 +175,7 @@
 }
 .policy-table-wrap {
   overflow-x: auto;
+scrollbar-width: none;
 }
 .policy-page table {
   width: 100%;

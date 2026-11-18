@@ -370,6 +370,7 @@
   .category-reference .category-editorial nav {
     display: flex;
     overflow-x: auto;
+    scrollbar-width: none;
     gap: 12px;
   }
   .category-reference .category-editorial nav > a {

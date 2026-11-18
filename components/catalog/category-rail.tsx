@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { CarouselHint } from "@/components/site/carousel-hint";
+import { useDragScroll } from "@/components/home/use-drag-scroll";
 
 export function CategoryRail({
   children,
@@ -13,6 +15,7 @@ export function CategoryRail({
   className: string;
 }) {
   const track = useRef<HTMLElement>(null);
+  const dragScroll = useDragScroll();
   const [edges, setEdges] = useState({ start: true, end: true });
   const update = () => {
     const el = track.current;
@@ -52,6 +55,7 @@ export function CategoryRail({
         <ChevronLeft size={20} />
       </button>
       <nav
+        {...dragScroll}
         ref={track}
         className={className}
         aria-label={label}
@@ -69,6 +73,7 @@ export function CategoryRail({
       >
         <ChevronRight size={20} />
       </button>
+      {!(edges.start && edges.end) && <CarouselHint />}
     </div>
   );
 }

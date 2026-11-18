@@ -2,6 +2,7 @@
 
 import { useEffect, useId, useRef, useState, type ReactNode } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { CarouselHint } from "@/components/site/carousel-hint";
 
 export function CategoryCarousel({
   children,
@@ -123,6 +124,7 @@ export function CategoryCarousel({
           >
             <ChevronRight size={20} />
           </button>
+          <CarouselHint />
         </>
       )}
     </div>
