@@ -1,5 +1,9 @@
 # Discovery Katukina
 
+Indicador de arrasto em 18/11/2026 — **CONFIRMADO no ambiente local:** Danilo pediu o retorno à apresentação original. O aviso fica centralizado abaixo dos cards com seta de 16 px, texto cinza e fundo transparente. Playwright confirmou a posição, as cores e o tamanho da seta nos quatro carrosséis da home em 390 e 1440 px. Typecheck aprovado.
+
+Indicador de arrasto em 18/11/2026 — **CONFIRMADO no ambiente local:** o aviso passou para o início dos carrosséis, com seta branca em círculo verde e texto em seminegrito. Playwright verificou o aviso acima dos cards nos quatro carrosséis da home em 390 e 1440 px. Typecheck aprovado.
+
 Grafismo das categorias em 18/11/2026 — **CONFIRMADO no CSS local:** novo ajuste de opacidade de 22% para 30%. Typecheck aprovado.
 
 Grafismo das categorias em 18/11/2026 — **CONFIRMADO no ambiente local:** opacidade aumentada de 12% para 22%. Playwright confirmou a opacidade e o fundo urucum no primeiro card. Typecheck aprovado.
