@@ -1,5 +1,7 @@
 # Discovery Katukina
 
+Cores Beauty & Body em 18/11/2026 — **CONFIRMADO por Danilo:** título e descrição brancos sobre a arte fornecida; CTA em branco quente com texto carvão, invertendo para carvão com texto claro no hover/foco. Typecheck aprovado; Playwright confirmou as cores normais e no hover; captura desktop revisada.
+
 Banner Beauty & Body em 18/11/2026 — **CONFIRMADO por Danilo:** preparar arte própria como no banner de incensos. Layout compartilhado, texto e CTA agrupados à esquerda, foto avulsa removida e fundo liso até receber as artes. Pasta `public/images/home/beauty-body-banner/`: `beauty-body-desktop.webp` (2400 × 560 px) e `beauty-body-mobile.webp` (960 × 960 px, até 640 px). Atualizar a página após salvar. Typecheck aprovado; Playwright em 1440, 390 e 320 px confirmou destino preservado, ausência de imagem provisória e de overflow; capturas desktop/mobile revisadas. **A VALIDAR:** enquadramento e contraste das artes após fornecimento.
 
 CTA Giftshop em 18/11/2026 — **CONFIRMADO por Danilo:** igualar o efeito ao CTA Essential oils. Hover e foco do banner agora aplicam fundo carvão e texto branco quente, com a mesma transição de 180 ms. Typecheck aprovado; Playwright confirmou igualdade das cores e transição no hover, foco de Giftshop e ausência de overflow em 390 px. Captura desktop revisada.
