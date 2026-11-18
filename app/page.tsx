@@ -428,13 +428,6 @@ export default async function Home() {
           </span>
         </div>
       </div>
-      <div className="mh-wrap">
-        <HomeRail
-          title="Featured products"
-          href="/shop"
-          products={featured.slice(0, 12)}
-        />
-      </div>
       <section className="mh-wrap mh-categories" aria-label="Shop by category">
         <SectionTitle title="Shop by category" href="/collections" />
         <CategoryCarousel className="mh-category-grid" label="Product categories">
@@ -470,6 +463,13 @@ export default async function Home() {
           ))}
         </CategoryCarousel>
       </section>
+      <div className="mh-wrap">
+        <HomeRail
+          title="Featured products"
+          href="/shop"
+          products={featured.slice(0, 12)}
+        />
+      </div>
       <div className="mh-wrap">
         <Link
           className="mh-banner mh-banner-incense mh-banner-artwork-layout"

@@ -1,5 +1,9 @@
 # Discovery Katukina
 
+Hover das três campanhas em 18/11/2026 — **CONFIRMADO por Danilo:** efeito ao passar o mouse nos cards Rapé, Kuripe & Tepi e Herbal Teas. Elevação de 4 px com sombra suave e transição de 180 ms, preservando destaque verde do botão e textos sem sublinhado. Movimento restrito a ponteiro preciso sem preferência de movimento reduzido; foco visível preservado. Typecheck aprovado; Playwright confirmou transformação, sombra e ausência de sublinhado nos três cards, além de transformação ausente com movimento reduzido. Captura revisada.
+
+Ordem das vitrines em 18/11/2026 — **CONFIRMADO por Danilo:** Shop by category acima de Featured products. Blocos reordenados no DOM da home, preservando dados e carrosséis. Typecheck aprovado; Playwright confirmou ordem das seções e ausência de overflow em desktop (1440 px) e celular (390 px).
+
 Traçado da navegação em 18/11/2026 — **CONFIRMADO por Danilo:** retirar o sublinhado dos textos da faixa de navegação também no estado normal e no foco, removendo a decoração herdada e a regra que reativava sua cor. Contorno acessível de foco preservado. Typecheck aprovado e estados conferidos com Playwright.
 
 Logo do header e hover em 18/11/2026 — **CONFIRMADO por Danilo:** aumentar um pouco o logotipo e remover sublinhados ao passar o mouse em toda a vitrine. Logo passa de 230 para 260 px no desktop, 185 para 205 px no celular e 160 para 176 px até 360 px. Regra compartilhada remove decoração no hover dos links/botões e seus textos, preservando elementos semânticos de preço riscado; feedback usa cor/fundo e navegação ativa recebe fundo suave. Foco por teclado preservado. Typecheck e detector Impeccable aprovados; Playwright confirmou larguras e ausência de overflow em 1440, 1024, 390 e 320 px, ausência de sublinhado no hover em rodapé, jornal, serviços e navegação e foco sólido. Capturas desktop/mobile revisadas.
