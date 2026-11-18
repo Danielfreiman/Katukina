@@ -247,6 +247,14 @@ export default async function Home() {
       }))),
   ];
   const featured = selection.length ? selection : newest;
+  const featuredIds = new Set(featured.slice(0, 12).map((product) => product.id));
+  const discoveryCollections = collections
+    .map((collection) => ({
+      ...collection,
+      products: collection.products.filter((product) => !featuredIds.has(product.id)),
+    }))
+    .filter((collection) => collection.products.length > 0);
+  const discovery = discoveryCollections[Math.floor(Math.random() * discoveryCollections.length)];
   const find = (slug: string) =>
     collections.find((collection) => collection.slug === slug)?.products[0];
   const main =
@@ -391,6 +399,41 @@ export default async function Home() {
           </div>
         </div>
       </HomeHeroSlider>
+      <section className="mh-wrap mh-categories" aria-label="Shop by category">
+        <SectionTitle title="Shop by category" href="/collections" />
+        <CategoryCarousel className="mh-category-grid" label="Product categories">
+          {categoryCards.map((collection) => (
+            <Link
+              key={collection.slug}
+              href={`/collections/${collection.slug}`}
+            >
+              <span className="mh-category-image">
+                {(
+                  collection.slug === "kuripe-and-tepi"
+                    ? tools?.image
+                    : collection.products[0]?.image
+                ) ? (
+                  <img
+                    src={
+                      (collection.slug === "kuripe-and-tepi"
+                        ? tools?.image
+                        : collection.products[0]?.image)!
+                    }
+                    alt=""
+                    width={130}
+                    height={130}
+                    loading="lazy"
+                  />
+                ) : (
+                  <Leaf size={36} />
+                )}
+              </span>
+              <strong>{collection.name}</strong>
+              <small>{collection.count} {collection.count === 1 ? "product" : "products"}</small>
+            </Link>
+          ))}
+        </CategoryCarousel>
+      </section>
       <div className="mh-wrap mh-promotions">
         {promotionCards.map((card) => (
           <Link
@@ -428,41 +471,6 @@ export default async function Home() {
           </span>
         </div>
       </div>
-      <section className="mh-wrap mh-categories" aria-label="Shop by category">
-        <SectionTitle title="Shop by category" href="/collections" />
-        <CategoryCarousel className="mh-category-grid" label="Product categories">
-          {categoryCards.map((collection) => (
-            <Link
-              key={collection.slug}
-              href={`/collections/${collection.slug}`}
-            >
-              <span className="mh-category-image">
-                {(
-                  collection.slug === "kuripe-and-tepi"
-                    ? tools?.image
-                    : collection.products[0]?.image
-                ) ? (
-                  <img
-                    src={
-                      (collection.slug === "kuripe-and-tepi"
-                        ? tools?.image
-                        : collection.products[0]?.image)!
-                    }
-                    alt=""
-                    width={130}
-                    height={130}
-                    loading="lazy"
-                  />
-                ) : (
-                  <Leaf size={36} />
-                )}
-              </span>
-              <strong>{collection.name}</strong>
-              <small>{collection.count} {collection.count === 1 ? "product" : "products"}</small>
-            </Link>
-          ))}
-        </CategoryCarousel>
-      </section>
       <div className="mh-wrap">
         <HomeRail
           title="Featured products"
@@ -506,9 +514,13 @@ export default async function Home() {
           tall
         />
         <div className="mh-discover-products">
-          <SectionTitle title="Discover the collection" href="/shop" />
+          <SectionTitle
+            title={discovery ? `Discover ${discovery.name}` : "Discover the collection"}
+            href={discovery ? `/collections/${discovery.slug}` : "/collections"}
+            link={discovery ? "View collection" : "View categories"}
+          />
           <div className="mh-small-grid">
-            {featured.slice(0, 6).map((product) => (
+            {discovery?.products.slice(0, 6).map((product) => (
               <SmallProduct key={product.id} product={product} />
             ))}
           </div>

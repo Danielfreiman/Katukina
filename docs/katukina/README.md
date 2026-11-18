@@ -1,5 +1,9 @@
 # Discovery Katukina
 
+Segunda rodada da revisão da home em 18/11/2026 — **CONFIRMADO no ambiente local:** a vitrine central sorteia, a cada renderização da home no servidor, um departamento com produtos além dos exibidos em Featured products. Exibe até seis desses itens e leva à coleção completa. Typecheck aprovado. Quatro entradas via Playwright em desktop e celular exibiram Aromatics, Giftshop, Beauty & Body e Rapé, com links das respectivas coleções e sem repetição de itens de Featured products.
+
+Primeira rodada da revisão da home em 18/11/2026 — **CONFIRMADO no ambiente local:** Shop by category passou para logo após o banner principal, antes das três campanhas, da faixa descritiva e de Featured products. Typecheck aprovado. Playwright confirmou a sequência e ausência de overflow horizontal em 390 × 844 e 1440 × 900. O início da seção passou de 1.652 para 793 px no celular e de 1.106 para 723 px no desktop.
+
 Hover das três campanhas em 18/11/2026 — **CONFIRMADO por Danilo:** efeito ao passar o mouse nos cards Rapé, Kuripe & Tepi e Herbal Teas. Elevação de 4 px com sombra suave e transição de 180 ms, preservando destaque verde do botão e textos sem sublinhado. Movimento restrito a ponteiro preciso sem preferência de movimento reduzido; foco visível preservado. Typecheck aprovado; Playwright confirmou transformação, sombra e ausência de sublinhado nos três cards, além de transformação ausente com movimento reduzido. Captura revisada.
 
 Ordem das vitrines em 18/11/2026 — **CONFIRMADO por Danilo:** Shop by category acima de Featured products. Blocos reordenados no DOM da home, preservando dados e carrosséis. Typecheck aprovado; Playwright confirmou ordem das seções e ausência de overflow em desktop (1440 px) e celular (390 px).
