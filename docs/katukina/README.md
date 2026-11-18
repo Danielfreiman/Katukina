@@ -1,5 +1,7 @@
 # Discovery Katukina
 
+Novidades da home em 18/11/2026 — **CONFIRMADO no ambiente local:** “New in the catalogue” começa pelo produto mais recente. Playwright confirmou que os seis cartões seguem a mesma ordem de `/shop?sort=newest` e que o banner Giftshop continua na grade. Typecheck aprovado.
+
 Segunda rodada da revisão da home em 18/11/2026 — **CONFIRMADO no ambiente local:** a vitrine central sorteia, a cada renderização da home no servidor, um departamento com produtos além dos exibidos em Featured products. Exibe até seis desses itens e leva à coleção completa. Typecheck aprovado. Quatro entradas via Playwright em desktop e celular exibiram Aromatics, Giftshop, Beauty & Body e Rapé, com links das respectivas coleções e sem repetição de itens de Featured products.
 
 Primeira rodada da revisão da home em 18/11/2026 — **CONFIRMADO no ambiente local:** Shop by category passou para logo após o banner principal, antes das três campanhas, da faixa descritiva e de Featured products. Typecheck aprovado. Playwright confirmou a sequência e ausência de overflow horizontal em 390 × 844 e 1440 × 900. O início da seção passou de 1.652 para 793 px no celular e de 1.106 para 723 px no desktop.

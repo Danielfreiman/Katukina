@@ -556,7 +556,7 @@ export default async function Home() {
               </div>
               <span className="mh-button mh-button-primary">Giftshop</span>
             </Link>
-            {newest.slice(1, 7).map((product) => (
+            {newest.slice(0, 6).map((product) => (
               <HomeCard key={product.id} product={product} />
             ))}
           </div>
