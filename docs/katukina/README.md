@@ -1,5 +1,7 @@
 # Discovery Katukina
 
+Links de Stories & inspiration em 18/11/2026 — **CONFIRMADO no ambiente local:** os cartões identificam a página da marca, o índice de categorias e as coleções específicas. Artigos usam “Read article”. Playwright conferiu os quatro cartões exibidos, todos com destinos fora do Journal. Typecheck aprovado.
+
 Lista lateral de novidades em 18/11/2026 — **CONFIRMADO no ambiente local:** “More new arrivals” exibe do 7º ao 12º produto mais recente. Playwright confirmou que a grade e a lista seguem a ordem dos 12 primeiros produtos de `/shop?sort=newest` e que o link da lista aponta para esse destino. Typecheck aprovado.
 
 Vitrine por abas em 18/11/2026 — **CONFIRMADO no ambiente local:** título atualizado para “Browse products by collection”. Typecheck aprovado. Em 390 px, Playwright confirmou o título e a ativação da aba Sacred Incense pelo teclado.

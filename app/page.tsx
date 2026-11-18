@@ -288,6 +288,7 @@ export default async function Home() {
       .map((article, index) => ({
         title: plainText(article.title.rendered),
         href: `/journal/${article.slug}`,
+        linkText: "Read article",
         image: [
           "/images/forest.jpg",
           "/images/palo-santo.jpg",
@@ -298,24 +299,28 @@ export default async function Home() {
       })),
     {
       title: "Nature. Culture. Connection.",
+      linkText: "Our story",
       href: "/about",
       image: "/images/forest.jpg",
       text: "Discover the story behind the Katukina collection.",
     },
     {
       title: "A world of scent",
+      linkText: "Shop Sacred Incense",
       href: "/collections/sacred-incense",
       image: "/images/palo-santo.jpg",
       text: "Explore our collection of woods, resins and incense.",
     },
     {
       title: "Discover botanicals",
+      linkText: "View all categories",
       href: "/collections",
       image: "/images/bamboo.jpg",
       text: "Find your way through botanicals and natural materials.",
     },
     {
       title: "Objects with meaning",
+      linkText: "Shop Shamanic Tools",
       href: "/collections/shamanic-tools",
       image: "/images/editorial/objects-with-meaning.webp",
       text: "Take a closer look at the objects in our collection.",
@@ -622,9 +627,7 @@ export default async function Home() {
                     <h3>{story.title}</h3>
                     <p>{story.text}</p>
                     <span>
-                      {story.href.startsWith("/collections")
-                        ? "Explore the collection"
-                        : "Read the story"}
+                      {story.linkText}
                       <ChevronRight size={15} />
                     </span>
                   </div>
