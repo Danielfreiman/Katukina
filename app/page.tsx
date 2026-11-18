@@ -261,7 +261,8 @@ export default async function Home() {
       ?.products.find((product) => /kuripe|tepi/i.test(product.name)) ||
     find("kuripe-and-tepi") ||
     find("shamanic-tools");
-  const beauty = find("beauty-and-body") || find("aromatics");
+  const beautyDesktop = existsSync(path.join(process.cwd(), "public/images/home/beauty-body-banner/beauty-body-desktop.webp"));
+  const beautyMobile = existsSync(path.join(process.cwd(), "public/images/home/beauty-body-banner/beauty-body-mobile.webp"));
   const productCampaigns = campaignProducts.flatMap((product, index) =>
     product ? [{
       product: card(product),
@@ -471,7 +472,7 @@ export default async function Home() {
       </section>
       <div className="mh-wrap">
         <Link
-          className="mh-banner mh-banner-incense"
+          className="mh-banner mh-banner-incense mh-banner-artwork-layout"
           href="/collections/sacred-incense"
         >
           {existsSync(path.join(process.cwd(), "public/images/home/ritual-banner/ritual-incense-desktop.webp")) && (
@@ -569,25 +570,22 @@ export default async function Home() {
       </div>
       <div className="mh-wrap">
         <Link
-          className="mh-banner mh-banner-body"
+          className="mh-banner mh-banner-body mh-banner-artwork-layout"
           href="/collections/beauty-and-body"
         >
-          <div>
+          {(beautyDesktop || beautyMobile) && (
+            <picture className="mh-ritual-art" aria-hidden="true">
+              {beautyMobile && <source media="(max-width: 640px)" srcSet="/images/home/beauty-body-banner/beauty-body-mobile.webp" />}
+              <img src={`/images/home/beauty-body-banner/beauty-body-${beautyDesktop ? "desktop" : "mobile"}.webp`} alt="" width={2400} height={560} loading="lazy" />
+            </picture>
+          )}
+          <div className="mh-ritual-content">
             <h2>A little nature. Every day.</h2>
             <p>Discover the Beauty & Body collection.</p>
+            <span className="mh-button mh-button-primary">
+              Shop the collection
+            </span>
           </div>
-          <span className="mh-button mh-button-primary">
-            Shop the collection
-          </span>
-          {beauty?.image && (
-            <img
-              src={beauty.image}
-              alt=""
-              width={250}
-              height={220}
-              loading="lazy"
-            />
-          )}
         </Link>
       </div>
       <section className="mh-journal" aria-label="The Katukina journal">

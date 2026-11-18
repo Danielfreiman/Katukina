@@ -1,5 +1,9 @@
 # Discovery Katukina
 
+Banner Beauty & Body em 18/11/2026 — **CONFIRMADO por Danilo:** preparar arte própria como no banner de incensos. Layout compartilhado, texto e CTA agrupados à esquerda, foto avulsa removida e fundo liso até receber as artes. Pasta `public/images/home/beauty-body-banner/`: `beauty-body-desktop.webp` (2400 × 560 px) e `beauty-body-mobile.webp` (960 × 960 px, até 640 px). Atualizar a página após salvar. Typecheck aprovado; Playwright em 1440, 390 e 320 px confirmou destino preservado, ausência de imagem provisória e de overflow; capturas desktop/mobile revisadas. **A VALIDAR:** enquadramento e contraste das artes após fornecimento.
+
+CTA Giftshop em 18/11/2026 — **CONFIRMADO por Danilo:** igualar o efeito ao CTA Essential oils. Hover e foco do banner agora aplicam fundo carvão e texto branco quente, com a mesma transição de 180 ms. Typecheck aprovado; Playwright confirmou igualdade das cores e transição no hover, foco de Giftshop e ausência de overflow em 390 px. Captura desktop revisada.
+
 Revisão dos efeitos dos CTAs em 17/11/2026 — **CONFIRMADO por Danilo:** verificar os estados dos CTAs. Corrigidos hover herdado em banners, resposta dos botões internos ao foco do link pai, transições e hover indevido em botões desabilitados. Movimento reduzido respeitado na elevação dos botões primários. Evidências, cobertura e limites em [CTA-STATES-2026-11-17.md](CTA-STATES-2026-11-17.md).
 
 Correção de hover Giftshop em 17/11/2026 — **CONFIRMADO por inspeção:** a regra global `a:hover` alterava a cor herdada do título e descrição para verde. Banner agora mantém branco quente `#F7F7F2` em hover e foco visível. Typecheck aprovado; Playwright confirmou título e descrição com a mesma cor nos estados normal, hover e foco; captura com hover revisada.
