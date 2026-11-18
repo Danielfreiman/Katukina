@@ -581,7 +581,7 @@ export default async function Home() {
           )}
           <div className="mh-ritual-content">
             <h2>A little nature. Every day.</h2>
-            <p>Discover the Beauty & Body collection.</p>
+            <p>Botanical care for <span className="mh-body-copy-ending">your everyday rituals.</span></p>
             <span className="mh-button mh-button-primary">
               Shop the collection
             </span>

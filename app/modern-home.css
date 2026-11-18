@@ -1588,4 +1588,5 @@
     max-width: 100%;
   }
   .mh-banner-artwork-layout .mh-button { margin-top: auto; }
+  .mh-banner-body .mh-body-copy-ending { display: block; }
 }

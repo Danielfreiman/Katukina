@@ -1,5 +1,17 @@
 # Discovery Katukina
 
+Subtexto Beauty & Body em 18/11/2026 — **CONFIRMADO por Danilo:** melhorar o texto e quebrar a linha no mobile. Aplicado “Botanical care for your everyday rituals.”, com quebra após “for” até 640 px. Typecheck aprovado; Playwright confirmou duas linhas em 390 e 320 px e uma em 1440 px, sem overflow; capturas mobile revisadas.
+
+Destaque das categorias em 18/11/2026 — **CONFIRMADO por Danilo:** tornar evidente a categoria sob o mouse no menu All categories. Linha inteira em verde folha com nome e quantidade em branco quente, transição de 160 ms e mesmo estilo em foco visível. Typecheck aprovado; Playwright confirmou cores no hover e fechamento por Escape; captura do menu revisada.
+
+Alinhamento da navegação em 18/11/2026 — **CONFIRMADO por Danilo:** All categories no limite esquerdo do conteúdo e demais links agrupados à direita. Aplicados alinhamento inicial e margem automática após o seletor. Typecheck aprovado; Playwright confirmou recuos de 0 px nos dois extremos do contêiner em 1880, 1440 e 1024 px, sem overflow; captura desktop revisada.
+
+Faixa de categorias em 18/11/2026 — **CONFIRMADO por Danilo:** deixar a faixa verde um pouco mais fina. Altura reduzida de 60 para 52 px; padding vertical do seletor de categorias reduzido de 11 para 8 px e variável de altura do header alinhada. Typecheck aprovado; Playwright confirmou 52 px e ausência de overflow em 1440 px; captura revisada.
+
+Hover Account e Bag em 18/11/2026 — **CONFIRMADO por Danilo:** efeito retangular como nos links da navegação inferior. Controles com raio de 8 px e fundo verde suave em hover/foco e quando expandidos, preservando ícones, rótulos e ações. Typecheck aprovado; Playwright confirmou fundo e raio nos dois controles, foco e ausência de overflow em 390 px; capturas de hover revisadas.
+
+Sombra do header em 18/11/2026 — **CONFIRMADO por Danilo:** adicionar sombra sutil na borda inferior. Sombra do contêiner ajustada para `0 5px 12px -6px rgb(41 44 39 / 22%)`. Typecheck aprovado; Playwright confirmou sombra aplicada e ausência de overflow em 1440 e 390 px; capturas dos dois formatos revisadas.
+
 Cores Beauty & Body em 18/11/2026 — **CONFIRMADO por Danilo:** título e descrição brancos sobre a arte fornecida; CTA em branco quente com texto carvão, invertendo para carvão com texto claro no hover/foco. Typecheck aprovado; Playwright confirmou as cores normais e no hover; captura desktop revisada.
 
 Banner Beauty & Body em 18/11/2026 — **CONFIRMADO por Danilo:** preparar arte própria como no banner de incensos. Layout compartilhado, texto e CTA agrupados à esquerda, foto avulsa removida e fundo liso até receber as artes. Pasta `public/images/home/beauty-body-banner/`: `beauty-body-desktop.webp` (2400 × 560 px) e `beauty-body-mobile.webp` (960 × 960 px, até 640 px). Atualizar a página após salvar. Typecheck aprovado; Playwright em 1440, 390 e 320 px confirmou destino preservado, ausência de imagem provisória e de overflow; capturas desktop/mobile revisadas. **A VALIDAR:** enquadramento e contraste das artes após fornecimento.

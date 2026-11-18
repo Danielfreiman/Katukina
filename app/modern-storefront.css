@@ -7,7 +7,7 @@
   --accent-ink: var(--on-color);
   --radius-card: 10px;
   --radius-control: 24px;
-  --header-height: 154px;
+  --header-height: 146px;
   --layout-gutter: clamp(20px, 3.4vw, 56px);
 }
 ::selection {
@@ -61,7 +61,7 @@ html .site-note {
 }
 html .header-wrap {
   border-color: var(--line);
-  box-shadow: 0 5px 22px -17px var(--shadow-soft);
+  box-shadow: 0 5px 12px -6px rgb(41 44 39 / 22%);
 }
 html .site-header {
   height: 94px;
@@ -105,6 +105,13 @@ html .header-search-slot {
   font-size: 0.9375rem;
   font-weight: 400;
 }
+.header-actions :is(.account-link, .bag-trigger) {
+  border-radius: 8px;
+}
+.header-actions :is(.account-link, .bag-trigger):is(:hover, :focus-visible, [aria-expanded="true"]) {
+  background: var(--support-soft);
+  color: var(--ink);
+}
 html .header-categories {
   background: var(--green);
   box-shadow: none;
@@ -116,8 +123,8 @@ html .header-categories::before {
   opacity: 0.5;
 }
 .header-wrap .category-navigation {
-  height: 60px;
-  justify-content: safe center;
+  height: 52px;
+  justify-content: flex-start;
   gap: 30px;
   font-family: var(--font-body);
   font-size: 0.9375rem;
@@ -131,8 +138,8 @@ html .header-categories::before {
   color: var(--warm-white);
   border: 1px solid rgb(247 247 242 / 45%);
   border-radius: 26px;
-  padding: 11px 20px;
-  margin-right: 12px;
+  padding: 8px 20px;
+  margin-right: auto;
 }
 .header-wrap .departments-trigger > svg {
   color: currentColor;
@@ -160,6 +167,22 @@ html .header-categories::before {
 }
 .header-wrap .departments-intro {
   background: var(--soft);
+}
+.header-wrap .departments-grid a {
+  transition: background-color 160ms ease-out, color 160ms ease-out, border-color 160ms ease-out;
+}
+.header-wrap .departments-grid a:is(:hover, :focus-visible) {
+  background: var(--green);
+  color: var(--warm-white);
+  border-color: var(--green);
+  text-decoration: none;
+}
+.header-wrap .departments-grid a:is(:hover, :focus-visible) span {
+  color: inherit;
+}
+.header-wrap .departments-grid a:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 2px;
 }
 html .catalog-sidebar {
   border-radius: 10px;
