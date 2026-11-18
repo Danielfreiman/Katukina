@@ -1,5 +1,13 @@
 # Discovery Katukina
 
+Lista lateral de novidades em 18/11/2026 — **CONFIRMADO no ambiente local:** “More new arrivals” exibe do 7º ao 12º produto mais recente. Playwright confirmou que a grade e a lista seguem a ordem dos 12 primeiros produtos de `/shop?sort=newest` e que o link da lista aponta para esse destino. Typecheck aprovado.
+
+Vitrine por abas em 18/11/2026 — **CONFIRMADO no ambiente local:** título atualizado para “Browse products by collection”. Typecheck aprovado. Em 390 px, Playwright confirmou o título e a ativação da aba Sacred Incense pelo teclado.
+
+Categorias da home em 18/11/2026 — **CONFIRMADO no ambiente local:** o link de “Shop by category” passou de “See more” para “View all categories”. Playwright confirmou sua visibilidade em 390 px e o destino `/collections`. Typecheck aprovado.
+
+Faixa de serviços da home em 18/11/2026 — **CONFIRMADO no ambiente local:** o atalho para a loja usa “Browse all products” e “See the full catalogue”. Playwright confirmou o texto e o destino `/shop`. Typecheck aprovado.
+
 Novidades da home em 18/11/2026 — **CONFIRMADO no ambiente local:** “New in the catalogue” começa pelo produto mais recente. Playwright confirmou que os seis cartões seguem a mesma ordem de `/shop?sort=newest` e que o banner Giftshop continua na grade. Typecheck aprovado.
 
 Segunda rodada da revisão da home em 18/11/2026 — **CONFIRMADO no ambiente local:** a vitrine central sorteia, a cada renderização da home no servidor, um departamento com produtos além dos exibidos em Featured products. Exibe até seis desses itens e leva à coleção completa. Typecheck aprovado. Quatro entradas via Playwright em desktop e celular exibiram Aromatics, Giftshop, Beauty & Body e Rapé, com links das respectivas coleções e sem repetição de itens de Featured products.

@@ -312,7 +312,7 @@ export function HomeCollectionTabs({
   return (
     <section className="rh-tabbed" aria-labelledby="rh-tabbed-title">
       <div className="rh-section-title">
-        <h2 id="rh-tabbed-title">Shop by collection</h2>
+        <h2 id="rh-tabbed-title">Browse products by collection</h2>
         <Link href={`/collections/${collection.slug}`}>
           View all {collection.name}
         </Link>

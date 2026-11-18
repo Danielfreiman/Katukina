@@ -400,7 +400,7 @@ export default async function Home() {
         </div>
       </HomeHeroSlider>
       <section className="mh-wrap mh-categories" aria-label="Shop by category">
-        <SectionTitle title="Shop by category" href="/collections" />
+        <SectionTitle title="Shop by category" href="/collections" link="View all categories" />
         <CategoryCarousel className="mh-category-grid" label="Product categories">
           {categoryCards.map((collection) => (
             <Link
@@ -562,8 +562,8 @@ export default async function Home() {
           </div>
         </div>
         <aside className="mh-edit">
-          <SectionTitle title="More to explore" href="/shop" />
-          {featured.slice(6, 12).map((product) => (
+          <SectionTitle title="More new arrivals" href="/shop?sort=newest" />
+          {newest.slice(6, 12).map((product) => (
             <SmallProduct key={product.id} product={product} />
           ))}
         </aside>
@@ -645,8 +645,8 @@ export default async function Home() {
             },
             {
               icon: Package,
-              title: "Find your presentation",
-              text: "Explore available sizes",
+              title: "Browse all products",
+              text: "See the full catalogue",
               href: "/shop",
             },
             {
