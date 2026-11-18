@@ -1,5 +1,11 @@
 # Discovery Katukina
 
+Grafismo das categorias em 18/11/2026 — **CONFIRMADO no CSS local:** novo ajuste de opacidade de 22% para 30%. Typecheck aprovado.
+
+Grafismo das categorias em 18/11/2026 — **CONFIRMADO no ambiente local:** opacidade aumentada de 12% para 22%. Playwright confirmou a opacidade e o fundo urucum no primeiro card. Typecheck aprovado.
+
+Cor dos cards de categorias em 18/11/2026 — **CONFIRMADO no ambiente local:** fundo em urucum oficial (#782E26) com textura suavizada. Playwright confirmou a cor de fundo dos 37 cards da home. Typecheck aprovado.
+
 Indicador de arrasto em 18/11/2026 — **CONFIRMADO no ambiente local:** os carrosséis da home, categorias e produtos vistos recentemente mostram uma seta horizontal dupla e uma instrução abaixo da lista quando há conteúdo para rolar. Playwright confirmou posição e texto nos quatro carrosséis da home em 1440 e 390 px. Typecheck aprovado.
 
 Barras horizontais em 18/11/2026 — **CONFIRMADO no ambiente local:** as áreas com rolagem horizontal da vitrine ocultam a barra nativa. Playwright confirmou navegação no carrossel de categorias por teclado em 1440 px e por toque emulado em 390 px, e a barra oculta na tabela de cookies em 390 px. Typecheck aprovado.

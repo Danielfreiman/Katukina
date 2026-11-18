@@ -636,7 +636,7 @@
   position: relative;
   isolation: isolate;
   scroll-snap-align: start;
-  background: var(--green);
+  background: var(--urucum);
   color: var(--warm-white);
   border-radius: 9px;
   padding: 28px 12px;
@@ -657,7 +657,7 @@
   background: url("/images/original-background.jpg") center / 400px auto;
   filter: grayscale(1) invert(1);
   mix-blend-mode: multiply;
-  opacity: 0.65;
+  opacity: 0.30;
 }
 .mh-category-grid > a::after {
   content: "";
@@ -703,12 +703,12 @@
   margin-top: 4px;
 }
 .mh-category-grid > a:hover {
-  background: color-mix(in srgb, var(--green) 85%, var(--warm-white));
+  background: var(--primary-hover);
   color: var(--warm-white);
   box-shadow: 0 6px 12px rgb(41 44 39 / 22%);
 }
 .mh-category-grid > a:focus-visible {
-  outline: 2px solid var(--green);
+  outline: 2px solid var(--urucum);
   outline-offset: 4px;
 }
 @media (prefers-reduced-motion: reduce) {
