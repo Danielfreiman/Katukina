@@ -320,10 +320,10 @@ export default async function Home() {
                   Matses extracts, crafted for clarity, focus, and deep connection.
                 </p>
                 <Link
-                  className="mh-button mh-button-primary"
+                  className="mh-cta-lift"
                   href="/collections/sananga"
                 >
-                  Discover the Collection
+                  <span className="mh-button mh-button-primary">Discover the Collection</span>
                 </Link>
               </div>
             </div>
@@ -341,10 +341,10 @@ export default async function Home() {
                   our signature varieties and find the right size for your journey.
                 </p>
                 <Link
-                  className="mh-button mh-button-primary"
+                  className="mh-cta-lift"
                   href="/collections/rape"
                 >
-                  Shop Blends
+                  <span className="mh-button mh-button-primary">Shop Blends</span>
                 </Link>
               </div>
             </div>
@@ -362,8 +362,8 @@ export default async function Home() {
               Botanicals, incense and meaningful objects.
               <br />A world of discoveries, rooted in nature.
             </p>
-            <Link className="mh-button mh-button-primary" href="/shop">
-              Explore the collection
+            <Link className="mh-cta-lift" href="/shop">
+              <span className="mh-button mh-button-primary">Explore the collection</span>
             </Link>
           </div>
         </div>
@@ -376,29 +376,31 @@ export default async function Home() {
               key={collection.slug}
               href={`/collections/${collection.slug}`}
             >
-              <span className="mh-category-image">
-                {(
-                  collection.slug === "kuripe-and-tepi"
-                    ? tools?.image
-                    : collection.products[0]?.image
-                ) ? (
-                  <img
-                    src={
-                      (collection.slug === "kuripe-and-tepi"
-                        ? tools?.image
-                        : collection.products[0]?.image)!
-                    }
-                    alt=""
-                    width={130}
-                    height={130}
-                    loading="lazy"
-                  />
-                ) : (
-                  <Leaf size={36} />
-                )}
+              <span className="mh-category-card">
+                <span className="mh-category-image">
+                  {(
+                    collection.slug === "kuripe-and-tepi"
+                      ? tools?.image
+                      : collection.products[0]?.image
+                  ) ? (
+                    <img
+                      src={
+                        (collection.slug === "kuripe-and-tepi"
+                          ? tools?.image
+                          : collection.products[0]?.image)!
+                      }
+                      alt=""
+                      width={130}
+                      height={130}
+                      loading="lazy"
+                    />
+                  ) : (
+                    <Leaf size={36} />
+                  )}
+                </span>
+                <strong>{collection.name}</strong>
+                <small>{collection.count} {collection.count === 1 ? "product" : "products"}</small>
               </span>
-              <strong>{collection.name}</strong>
-              <small>{collection.count} {collection.count === 1 ? "product" : "products"}</small>
             </Link>
           ))}
         </CategoryCarousel>
@@ -469,7 +471,9 @@ export default async function Home() {
           <div className="mh-ritual-content">
             <h2>Make room for a little ritual.</h2>
             <p>Explore sacred woods, resins and aromatic discoveries.</p>
-            <span className="mh-button mh-button-primary">Explore incense</span>
+            <span className="mh-cta-lift">
+              <span className="mh-button mh-button-primary">Explore incense</span>
+            </span>
           </div>
         </Link>
       </div>

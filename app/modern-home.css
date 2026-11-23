@@ -44,9 +44,22 @@
   background: var(--primary);
 }
 .mh-button-primary:is(:hover, :focus-visible),
+.mh-cta-lift:is(:hover, :focus-visible) > .mh-button-primary,
 .mh-banner:is(:hover, :focus-visible) .mh-button-primary {
   background: var(--primary-hover);
   color: var(--on-color);
+}
+.mh-cta-lift {
+  display: inline-flex;
+  border-radius: var(--radius-control);
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .mh-cta-lift > .mh-button {
+    transition-property: background-color, color, transform;
+  }
+  .mh-cta-lift:hover > .mh-button {
+    transform: translateY(-4px);
+  }
 }
 .mh-hero {
   background: var(--warm-white);
@@ -161,8 +174,10 @@
   line-height: 1.75;
   max-width: 46ch;
 }
-.mh-hero-copy > .mh-button {
+.mh-hero-copy > .mh-cta-lift {
   margin-top: 28px;
+}
+.mh-hero-copy .mh-button {
   padding-inline: 30px;
   min-height: 48px;
 }
@@ -638,21 +653,25 @@
   padding-block: 8px;
 }
 .mh-category-grid > a {
+  display: grid;
+  scroll-snap-align: start;
+  border-radius: 9px;
+}
+.mh-category-card {
   position: relative;
   isolation: isolate;
-  scroll-snap-align: start;
   background: var(--urucum);
   color: var(--warm-white);
-  border-radius: 9px;
+  border-radius: inherit;
   padding: 28px 12px;
   box-shadow: 0 4px 8px rgb(41 44 39 / 14%);
-  transition: background-color 180ms ease-out, box-shadow 180ms ease-out;
+  transition: transform 180ms ease-out, background-color 180ms ease-out, box-shadow 180ms ease-out;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.mh-category-grid > a::before {
+.mh-category-card::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -664,7 +683,7 @@
   mix-blend-mode: multiply;
   opacity: 0.30;
 }
-.mh-category-grid > a::after {
+.mh-category-card::after {
   content: "";
   position: absolute;
   inset: 6px;
@@ -707,17 +726,21 @@
   color: var(--warm-white);
   margin-top: 4px;
 }
-.mh-category-grid > a:hover {
+.mh-category-grid > a:hover .mh-category-card {
   background: var(--primary-hover);
-  color: var(--warm-white);
   box-shadow: 0 6px 12px rgb(41 44 39 / 22%);
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .mh-category-grid:not(.is-dragging) > a:hover .mh-category-card {
+    transform: translateY(-4px);
+  }
 }
 .mh-category-grid > a:focus-visible {
   outline: 2px solid var(--urucum);
   outline-offset: 4px;
 }
 @media (prefers-reduced-motion: reduce) {
-  .mh-category-grid > a {
+  .mh-category-card {
     transition: none;
   }
 }
@@ -1239,9 +1262,6 @@
   .mh-category-grid {
     grid-auto-columns: calc((100% - 48px) / 4);
   }
-  .mh-category-grid > a {
-    padding-block: 28px;
-  }
   .mh-discover-layout {
     grid-template-columns: 1fr 2.5fr;
   }
@@ -1413,9 +1433,8 @@
   .mh-hero-copy > p {
     font-size: 1rem;
   }
-  .mh-hero-copy > .mh-button {
+  .mh-hero-copy > .mh-cta-lift {
     margin-top: 22px;
-    min-height: 44px;
   }
   .mh-hero-links {
     margin-top: 19px;
@@ -1500,7 +1519,7 @@
     grid-auto-columns: 44%;
     gap: 12px;
   }
-  .mh-category-grid > a {
+  .mh-category-card {
     padding: 24px 12px;
   }
   .mh-category-image {
@@ -1625,8 +1644,10 @@
   .mh-hero-copy > p {
     margin-inline: auto;
   }
-  .mh-hero-copy > .mh-button {
+  .mh-hero-copy > .mh-cta-lift {
     margin-top: auto;
+  }
+  .mh-hero-copy .mh-button {
     min-height: 44px;
   }
 }
@@ -1651,7 +1672,8 @@
   text-wrap: balance;
 }
 .mh-banner-artwork-layout p { margin-top: 12px; max-width: 44ch; font-size: 1rem; line-height: 1.5; }
-.mh-banner-artwork-layout .mh-button { margin: 24px 0 0; min-height: 44px; padding-inline: 24px; font-size: 0.875rem; }
+.mh-ritual-content > :is(.mh-button, .mh-cta-lift) { margin: 24px 0 0; }
+.mh-banner-artwork-layout .mh-button { min-height: 44px; padding-inline: 24px; font-size: 0.875rem; }
 .mh-ritual-art { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
 .mh-ritual-art img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
 .mh-banner-artwork-layout:focus-visible { outline: 3px solid var(--green); outline-offset: 4px; }
@@ -1665,6 +1687,6 @@
     min-height: 256px;
     max-width: 100%;
   }
-  .mh-banner-artwork-layout .mh-button { margin-top: auto; }
+  .mh-ritual-content > :is(.mh-button, .mh-cta-lift) { margin-top: auto; }
   .mh-banner-body .mh-body-copy-ending { display: block; }
 }

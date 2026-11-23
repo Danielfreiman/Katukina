@@ -1,5 +1,11 @@
 # Discovery Katukina
 
+**23/11/2026 · CONFIRMADO na home local.** Os CTAs “Explore the collection”, “Shop Blends” e “Discover the Collection” do carrossel principal usam a mesma elevação de 4 px em 180 ms do botão “Explore incense”. O link mantém a área clicável fixa. A elevação respeita a preferência por movimento reduzido. Typecheck e teste Playwright da home aprovados. Os três slides foram verificados em 1440, 600 e 390 px, incluindo seus destinos, foco por teclado no desktop e toque no celular.
+
+**23/11/2026 · CONFIRMADO na home local.** No banner “Make room for a little ritual.”, o CTA “Explore incense” sobe 4 px em 180 ms quando o ponteiro entra na área do botão e retorna ao sair. O banner inteiro continua levando à coleção Sacred Incense. Typecheck e teste Playwright da home aprovados. Playwright verificou a elevação, o retorno, a preferência por movimento reduzido e a navegação por teclado e toque.
+
+**23/11/2026 · CONFIRMADO na home local.** Em “Shop by category”, o card sob o mouse sobe 4 px em 180 ms e volta ao sair. A área clicável permanece fixa. O deslocamento fica desativado durante o arraste, no toque e com preferência por movimento reduzido. Typecheck e teste Playwright da home aprovados. A verificação no navegador cobriu hover na borda inferior, retorno, arraste, foco por teclado e abertura da categoria por toque.
+
 Apresentação e contribuição da Conexão Ancestral em 23/11/2026 — **CONFIRMADO por Danilo.** A apresentação institucional e o convite a apoiar um projeto passam para a esquerda e o mosaico para a direita. O logotipo ganha o maior destaque da seção. Esta revisão substitui o bloco de valores com ícones. A home aceita um fundo WebP opcional. [Guia da seção e especificação do fundo](CONEXAO-ANCESTRAL.md)
 
 Revisão da Conexão Ancestral em 23/11/2026 — **CONFIRMADO por Danilo.** A referência vigente é a seção de valores da ONG com quatro fotografias, três ícones e a cartela oficial de cinco cores. O fundo passa para verde `#284E32`, com títulos brancos e botão vermelho. Esta revisão substitui a composição de duas fotos registrada a seguir. [Paleta, grade, imagem de referência e instruções de mídia](CONEXAO-ANCESTRAL.md)
