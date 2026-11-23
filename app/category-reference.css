@@ -325,13 +325,6 @@
 .category-reference .catalog-results .product-card-action {
   margin: 8px 14px 14px;
   padding: 8px;
-  border-radius: var(--radius-control);
-  background: var(--support-soft);
-  color: var(--green);
-}
-.category-reference .catalog-results .product-card-action:is(:hover, :focus-visible) {
-  background: var(--green);
-  color: var(--on-color);
 }
 .category-reference .catalog-results .purchase-actions {
   margin: 8px 14px 14px;
@@ -359,13 +352,7 @@
 }
 .category-reference .category-subscribe .button {
   min-height: 44px;
-  border-radius: var(--radius-control);
-  background: var(--white);
   font-size: var(--text-ui);
-}
-.category-reference .category-subscribe .button:is(:hover, :focus-visible) {
-  color: var(--on-color);
-  background: var(--green);
 }
 .category-reference .category-editorial {
   border-block: 1px solid var(--line);

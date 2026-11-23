@@ -48,7 +48,7 @@ export function SiteFooter() {
           <p>
             Discover stories, collection updates and new arrivals from Katukina.
           </p>
-          <Link className="footer-news-link" href="/subscribe">
+          <Link className="button light footer-news-link" href="/subscribe">
             Email updates
             <Mail size={18} />
           </Link>

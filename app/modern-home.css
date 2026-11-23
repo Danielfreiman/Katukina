@@ -25,7 +25,8 @@
   justify-content: center;
   min-height: 44px;
   padding: 11px 25px;
-  border-radius: 26px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-control);
   background: var(--warm-white);
   color: var(--ink);
   font-size: 0.875rem;
@@ -33,7 +34,8 @@
   font-weight: 600;
   width: fit-content;
 }
-.mh-button:hover {
+.mh-button:is(:hover, :focus-visible),
+:is(.mh-promotion-card, .mh-banner, .mh-giftshop-banner):is(:hover, :focus-visible) .mh-button {
   background: var(--ink);
   color: var(--warm-white);
 }
@@ -41,9 +43,10 @@
   color: var(--on-color);
   background: var(--primary);
 }
-.mh-button-primary:hover {
+.mh-button-primary:is(:hover, :focus-visible),
+.mh-banner:is(:hover, :focus-visible) .mh-button-primary {
   background: var(--primary-hover);
-  color: var(--warm-white);
+  color: var(--on-color);
 }
 .mh-hero {
   background: var(--warm-white);
@@ -237,10 +240,6 @@
   padding: 9px 20px;
   font-size: 0.8125rem;
 }
-.mh-promotion-card:is(:hover, :focus-visible) .mh-button {
-  background: var(--green);
-  color: var(--on-color);
-}
 .mh-promotion-card:focus-visible {
   outline: 2px solid var(--green);
   outline-offset: 4px;
@@ -293,7 +292,7 @@
 .mh-campaign .mh-button {
   font-size: 0.8125rem;
   padding: 9px 22px;
-  min-height: 40px;
+  min-height: 44px;
 }
 .mh-campaign > img {
   position: absolute;
@@ -395,12 +394,12 @@
   gap: 8px;
   padding: 5px 10px;
   border: 1px solid var(--line);
-  border-radius: 4px;
+  border-radius: var(--radius-control);
   font-size: 0.8125rem;
   color: var(--muted);
   white-space: nowrap;
 }
-.rh-section-title > a:hover {
+.rh-section-title > a:is(:hover, :focus-visible) {
   background: var(--soft);
   color: var(--green);
 }
@@ -571,15 +570,8 @@
   min-height: 36px;
   margin-top: 10px;
   padding: 6px 10px;
-  background: var(--soft);
-  color: var(--green);
-  border-radius: 20px;
   font-size: 0.8125rem;
   font-weight: 600;
-}
-.rh-product-cta:hover {
-  background: var(--green);
-  color: var(--warm-white);
 }
 .rh-product:focus-within .rh-product-photo {
   outline: 2px solid var(--green);
@@ -743,10 +735,6 @@
 .mh-banner:is(:hover, :focus-visible) {
   color: var(--ink);
 }
-.mh-banner:is(:hover, :focus-visible) .mh-button-primary {
-  background: var(--primary-hover);
-  color: var(--on-color);
-}
 .mh-banner h2 {
   font-size: clamp(1.375rem, 2vw, 1.875rem);
 }
@@ -774,14 +762,6 @@
 .mh-banner-body h2,
 .mh-banner-body p {
   color: #fff;
-}
-.mh-banner-body .mh-button {
-  background: var(--warm-white);
-  color: var(--ink);
-}
-.mh-banner-body:is(:hover, :focus-visible) .mh-button {
-  background: var(--ink);
-  color: var(--warm-white);
 }
 .mh-discover-layout {
   display: grid;
@@ -877,6 +857,7 @@
   aspect-ratio: 1;
   min-height: 0;
   object-fit: contain;
+  transform: scale(1.15);
 }
 .mh-stacked-campaigns .mh-campaign .mh-button {
   grid-area: action;
@@ -884,8 +865,6 @@
   align-self: end;
   position: relative;
   margin: 16px 0 0;
-  min-height: 44px;
-  border: 1px solid var(--control-line);
 }
 /* Match each silhouette to its source photo. New catalogue photos use the default treatment. */
 .mh-stacked-campaigns img[src$="white-e4a00c4696b5-1953-4444_01.webp"] {
@@ -1019,12 +998,6 @@
 }
 .mh-giftshop-banner > .mh-button {
   margin-top: auto;
-  background: var(--warm-white);
-  color: var(--ink);
-}
-.mh-giftshop-banner:is(:hover, :focus-visible) > .mh-button {
-  background: var(--ink);
-  color: var(--warm-white);
 }
 .mh-giftshop-banner:is(:hover, :focus-visible) {
   color: var(--warm-white);
@@ -1080,7 +1053,7 @@
 .rh-tabs button {
   border: 1px solid var(--line);
   color: var(--ink);
-  border-radius: 24px;
+  border-radius: var(--radius-control);
   background: var(--warm-white);
   font-size: 0.875rem;
   padding: 9px 18px;
@@ -1105,99 +1078,50 @@
   padding-block: 3px 5px;
   scrollbar-width: none;
 }
-.mh-journal {
-  background: var(--soft);
-  padding-block: calc(var(--layout-section) / 2);
-}
-.mh-journal-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px 40px;
-}
-.mh-journal-grid article {
-  min-width: 0;
-}
-.mh-journal-grid article > a {
-  display: grid;
-  grid-template-columns: minmax(112px, 24%) minmax(0, 1fr);
-  align-items: center;
-  gap: 24px;
-  height: 100%;
-  border-radius: 8px;
-}
-.mh-journal-grid article:first-child {
-  grid-row: span 3;
-}
-.mh-journal-grid article:first-child > a {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 24px;
-}
-.mh-journal-grid article:nth-child(n + 3) {
-  border-top: 1px solid var(--line);
-  padding-top: 24px;
-}
-.mh-journal-grid article > a:focus-visible {
-  outline: 2px solid var(--green);
-  outline-offset: 6px;
-}
-.mh-journal-grid article > a:hover span {
-  color: var(--ink);
-}
-.mh-journal-grid img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 1;
-  object-fit: cover;
-  border-radius: 8px;
-}
-.mh-journal-grid article:first-child img {
-  aspect-ratio: 1.6;
-  flex: none;
-  min-height: 0;
-}
-.mh-journal-grid article div {
-  min-width: 0;
-}
-.mh-journal-grid h3 {
-  font-size: 1.25rem;
-  line-height: 1.45;
-  font-family: var(--font-body);
-  font-weight: 600;
-  text-wrap: initial;
-}
-.mh-journal-grid article:first-child h3 {
-  font-family: var(--font-display);
-  font-size: clamp(1.375rem, 2vw, 1.75rem);
-  line-height: 1.3;
-  text-wrap: balance;
-}
-.mh-journal-grid p {
-  font-size: 0.9375rem;
-  line-height: 1.7;
-  color: var(--muted);
-  margin-top: 8px;
-}
-.mh-journal-grid article span {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--green);
-  font-size: 0.875rem;
-  font-weight: 600;
-  margin-top: 12px;
-}
 .mh-service-band {
   margin-bottom: clamp(20px, 2vw, 32px);
   background: var(--charcoal);
   color: var(--on-color);
 }
 .mh-service-strip {
+  display: flex;
+  overflow: clip;
+}
+.mh-service-group {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 30px;
+  width: min(1440px, calc(100% - 2 * var(--layout-gutter)));
+  margin-inline: auto;
   padding-block: 10px;
+}
+.mh-service-group[aria-hidden="true"] {
+  display: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .mh-service-strip[data-motion] .mh-service-group:not([aria-hidden]),
+  .mh-service-strip[data-motion]:not(:has(a:focus-visible)) .mh-service-group {
+    display: flex;
+    flex: 0 0 auto;
+    width: auto;
+    min-width: 100%;
+    margin: 0;
+    padding-inline: var(--layout-gutter);
+    justify-content: space-around;
+    white-space: nowrap;
+  }
+  .mh-service-strip[data-motion]:not(:has(a:focus-visible)) .mh-service-group {
+    animation: discovery-scroll 48s linear infinite;
+    animation-play-state: var(--service-motion-state, running);
+  }
+  .mh-service-strip[data-motion]:has(a:focus-visible) {
+    overflow-x: auto;
+    scrollbar-width: none;
+    scroll-padding-inline: 6px;
+  }
+  .mh-service-strip:is(:hover, [data-motion="paused"]) {
+    --service-motion-state: paused;
+  }
 }
 .mh-service-strip a {
   min-height: 44px;
@@ -1268,7 +1192,7 @@
 }
 .modern-home .rh-product:focus-within .rh-product-cta {
   background: var(--green);
-  color: var(--warm-white);
+  color: var(--on-color);
 }
 @media (hover: hover) and (pointer: fine) {
   .modern-home :is(.mh-small-product, .rh-product):hover {
@@ -1281,7 +1205,7 @@
   }
   .modern-home .rh-product:hover .rh-product-cta {
     background: var(--green);
-    color: var(--warm-white);
+    color: var(--on-color);
   }
 }
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
@@ -1468,20 +1392,7 @@
   .mh-edit {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  .mh-journal-grid {
-    grid-template-columns: 1fr;
-  }
-  .mh-journal-grid article:first-child {
-    grid-row: auto;
-  }
-  .mh-journal-grid article:first-child img {
-    flex: none;
-  }
-  .mh-journal-grid article:nth-child(n + 2) {
-    border-top: 1px solid var(--line);
-    padding-top: 24px;
-  }
-  .mh-service-strip {
+  .mh-service-group {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 22px;
   }
@@ -1667,18 +1578,7 @@
   .mh-edit .mh-small-product > div {
     width: 80px;
   }
-  .mh-journal-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  .mh-journal-grid article > a {
-    grid-template-columns: 96px minmax(0, 1fr);
-    gap: 16px;
-  }
-  .mh-journal-grid h3 {
-    font-size: 1.1875rem;
-  }
-  .mh-service-strip {
+  .mh-service-group {
     gap: 10px 12px;
     padding-block: 12px;
   }

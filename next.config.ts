@@ -14,6 +14,9 @@ if (
 }
 const nextConfig: NextConfig = {
   devIndicators: false,
+  experimental: {
+    agentUpgrade: "security",
+  },
   // WordPress requires /wp-admin/; Next's automatic slash removal would loop.
   skipTrailingSlashRedirect: true,
   async rewrites() {

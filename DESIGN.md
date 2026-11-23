@@ -49,8 +49,7 @@ rounded:
   campaign: "9px"
   card: "10px"
   panel: "12px"
-  control: "24px"
-  home-button: "26px"
+  control: "8px"
   circle: "50%"
 spacing:
   compact: "14px"
@@ -63,7 +62,7 @@ components:
   button-primary:
     backgroundColor: "{colors.primary}"
     textColor: "{colors.white}"
-    rounded: "{rounded.home-button}"
+    rounded: "{rounded.control}"
     padding: "11px 25px"
   button-primary-hover:
     backgroundColor: "{colors.primary-hover}"
@@ -110,6 +109,8 @@ Documento extraído de `app/modern-storefront.css`, `app/modern-home.css`, `app/
 
 ## Colors
 
+A seção Conexão Ancestral na home segue a identidade própria da ONG. O guia registra os cinco valores oficiais, os papéis de cada cor, os estados do botão e a grade de fotografias. [Guia da Conexão Ancestral](docs/katukina/CONEXAO-ANCESTRAL.md)
+
 ### Primary
 
 Urucum (`primary`) identifica ações principais, incluindo busca e CTA do hero. `primary-hover` escurece o urucum com carvão. Não usar essa cor para decoração ou informações estáticas.
@@ -152,13 +153,13 @@ Foco visível usa contorno verde (2px) e afastamento (4px); nas áreas verdes do
 
 ## Shapes
 
-Cards compartilhados usam `card`; campanhas usam `campaign`; fotos dos trilhos e campos usam `field`; galeria e resumo de compra usam `panel`. Controles de ação e abas têm formato de pílula, enquanto categorias mantêm fotografias dentro de círculos. A linguagem aceita essas variações funcionais: não aplicar um único raio indiscriminadamente a todos os elementos.
+CTAs e abas são retangulares e usam o raio `control` de 8 px. Campos e fotos dos trilhos usam `field`. Cards compartilhados usam `card`, campanhas usam `campaign` e a galeria e o resumo de compra usam `panel`. As fotografias das categorias ficam dentro de círculos.
 
 ## Components
 
 ### Buttons
 
-CTAs da home são compactos, com altura mínima (44px), preenchimento urucum ou branco quente e texto semibold. A variante branca passa a fundo escuro no hover; a urucum usa `primary-hover`. CTAs do hero podem chegar a (48px). CTAs de produto são menores e largos, partindo de fundo `soft` e texto verde para verde com texto branco no hover. Preservar rótulos sem setas; setas de navegação dos trilhos têm função própria.
+CTAs preenchidos usam borda invisível. Os de campanha usam branco quente com texto carvão e passam a carvão com texto branco quente ao interagir. Os principais usam urucum e `primary-hover`. Os de produto da home, da loja e das coleções usam fundo `soft` e texto verde. Os de inscrição usam branco quente e texto verde. Produto e inscrição passam a fundo verde com texto branco quente no hover e no foco por teclado. Links auxiliares de seção usam contorno cinza e botões secundários de formulário usam contorno verde. Todos usam cantos de 8 px.
 
 ### Cards / Containers
 
@@ -168,7 +169,7 @@ A foto é separada dos dados por superfície tonal, sem moldura pesada. Produtos
 
 ### Inputs / Fields
 
-Campos preservam fonte de leitura, contornos legíveis e foco visível. A busca compartilhada é uma cápsula clara com ação urucum; seletores de compra e filtros usam cantos menores. Mensagens e disponibilidade devem continuar legíveis nos estados reais de erro, vazio ou indisponibilidade.
+Campos preservam fonte de leitura, contornos legíveis e foco visível. A barra de busca do cabeçalho tem fundo claro e botão urucum. Ambos são retangulares e usam o raio `field` de 8 px. Mensagens e disponibilidade devem continuar legíveis nos estados reais de erro, vazio ou indisponibilidade.
 
 ### Navigation
 

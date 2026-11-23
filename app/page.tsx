@@ -6,7 +6,6 @@ import {
   BookOpen,
   Package,
   Globe2,
-  Headphones,
   ChevronRight,
 } from "lucide-react";
 import { getCategories, getProduct, getProducts } from "@/lib/commerce/catalog";
@@ -17,12 +16,13 @@ import {
   type Product,
 } from "@/lib/commerce/product";
 import { plainText } from "@/lib/wordpress/text";
-import { getArticles } from "@/lib/wordpress/content";
 import { siteUrl } from "@/lib/config/site";
 import { getHomePromotionCards } from "@/lib/home-promotion-media";
 import { getHomeHeroSlides } from "@/lib/home-hero-media";
 import { HomeHeroSlider } from "@/components/home/hero-slider";
 import { CategoryCarousel } from "@/components/home/category-carousel";
+import { ConexaoAncestral } from "@/components/home/conexao-ancestral";
+import { ServiceStrip } from "@/components/home/service-strip";
 import {
   HomeRail,
   HomeCard,
@@ -197,7 +197,6 @@ export default async function Home() {
     offers,
     newest,
     collections,
-    articles,
     incense,
     promotionCards,
     heroSlides,
@@ -219,9 +218,6 @@ export default async function Home() {
         }),
       })),
     ),
-    getArticles(1, 4)
-      .then((result) => result.data)
-      .catch(() => []),
     products({ search: "Palo Santo", per_page: 3 }),
     getHomePromotionCards(),
     getHomeHeroSlides(),
@@ -294,50 +290,6 @@ export default async function Home() {
     ? "/images/home/giftshop-banner/giftshop-desktop.webp" : null;
   const giftshopMobile = existsSync(path.join(process.cwd(), "public/images/home/giftshop-banner/giftshop-mobile.webp"))
     ? "/images/home/giftshop-banner/giftshop-mobile.webp" : null;
-  const stories = [
-    ...articles
-      .filter((article) => article.slug !== "hello-world")
-      .map((article, index) => ({
-        title: plainText(article.title.rendered),
-        href: `/journal/${article.slug}`,
-        linkText: "Read article",
-        image: [
-          "/images/forest.jpg",
-          "/images/palo-santo.jpg",
-          "/images/bamboo.jpg",
-          "/images/editorial/objects-with-meaning.webp",
-        ][index % 4],
-        text: plainText(article.excerpt.rendered).slice(0, 135),
-      })),
-    {
-      title: "Nature. Culture. Connection.",
-      linkText: "Our story",
-      href: "/about",
-      image: "/images/forest.jpg",
-      text: "Discover the story behind the Katukina collection.",
-    },
-    {
-      title: "A world of scent",
-      linkText: "Shop Sacred Incense",
-      href: "/collections/sacred-incense",
-      image: "/images/palo-santo.jpg",
-      text: "Explore our collection of woods, resins and incense.",
-    },
-    {
-      title: "Discover botanicals",
-      linkText: "View all categories",
-      href: "/collections",
-      image: "/images/bamboo.jpg",
-      text: "Find your way through botanicals and natural materials.",
-    },
-    {
-      title: "Objects with meaning",
-      linkText: "Shop Shamanic Tools",
-      href: "/collections/shamanic-tools",
-      image: "/images/editorial/objects-with-meaning.webp",
-      text: "Take a closer look at the objects in our collection.",
-    },
-  ];
   return (
     <main id="content" className="modern-home">
       <script
@@ -578,7 +530,7 @@ export default async function Home() {
                 <h3>Giftshop</h3>
                 <p>Shells, incense accessories and meaningful gifts for everyday rituals, special occasions and people you care about.</p>
               </div>
-              <span className="mh-button mh-button-primary">Giftshop</span>
+              <span className="mh-button">Giftshop</span>
             </Link>
             {newest.slice(0, 6).map((product) => (
               <HomeCard key={product.id} product={product} />
@@ -620,82 +572,14 @@ export default async function Home() {
           <div className="mh-ritual-content">
             <h2>A little nature. Every day.</h2>
             <p>Botanical care for <span className="mh-body-copy-ending">your everyday rituals.</span></p>
-            <span className="mh-button mh-button-primary">
+            <span className="mh-button">
               Shop the collection
             </span>
           </div>
         </Link>
       </div>
-      <section className="mh-journal" aria-label="The Katukina journal">
-        <div className="mh-wrap">
-          <SectionTitle
-            title="Stories & inspiration"
-            href="/journal"
-            link="The journal"
-          />
-          <div className="mh-journal-grid">
-            {stories.slice(0, 4).map((story) => (
-              <article key={story.href}>
-                <Link href={story.href}>
-                  <img
-                    src={story.image}
-                    alt=""
-                    width={400}
-                    height={260}
-                    loading="lazy"
-                  />
-                  <div>
-                    <h3>{story.title}</h3>
-                    <p>{story.text}</p>
-                    <span>
-                      {story.linkText}
-                      <ChevronRight size={15} />
-                    </span>
-                  </div>
-                </Link>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-      <div className="mh-service-band">
-        <nav className="mh-wrap mh-service-strip" aria-label="Shopping guidance">
-          {[
-            {
-              icon: Globe2,
-              title: "Shipping & destinations",
-              text: "Check delivery options",
-              href: "/shipping",
-            },
-            {
-              icon: Package,
-              title: "Browse all products",
-              text: "See the full catalogue",
-              href: "/shop",
-            },
-            {
-              icon: Leaf,
-              title: "Explore the collection",
-              text: "Botanicals, incense & objects",
-              href: "/collections",
-            },
-            {
-              icon: Headphones,
-              title: "Your account",
-              text: "Orders and account details",
-              href: "/account",
-            },
-          ].map(({ icon: Icon, title, text, href }) => (
-            <Link key={title} href={href}>
-              <Icon size={36} strokeWidth={1.3} />
-              <span>
-                <strong>{title}</strong>
-                <small>{text}</small>
-              </span>
-            </Link>
-          ))}
-        </nav>
-      </div>
+      <ConexaoAncestral />
+      <ServiceStrip />
     </main>
   );
 }

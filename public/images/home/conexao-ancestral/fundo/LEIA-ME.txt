@@ -1,0 +1,12 @@
+Imagem de fundo da seção Conexão Ancestral
+
+Nome do arquivo: fundo-conexao-ancestral.webp
+Tamanho recomendado: 1920 × 800 px (horizontal, proporção 12:5).
+Pasta no projeto: public/images/home/conexao-ancestral/fundo/
+
+Exporte a arte em WebP. Deixe a metade esquerda mais simples para acomodar
+o texto. A imagem cobre toda a seção e o celular usa um recorte central.
+O site aplica a tonalidade verde para manter a leitura do texto branco.
+
+Salve o arquivo nesta pasta e atualize a home local. Enquanto a pasta
+estiver sem essa imagem, a seção usa o fundo verde #284E32.

@@ -1,5 +1,7 @@
 # Paleta Katukina — urucum, verde folha e neutros
 
+> **Conexão Ancestral, confirmado em 23/11/2026.** A seção institucional da ONG na home usa uma paleta própria de cinco cores. Seus valores e aplicações estão no [guia da seção Conexão Ancestral](CONEXAO-ANCESTRAL.md).
+
 > **Ajuste posterior confirmado por Danilo em 16/11/2026:** “Rapé” no título do banner 02 passa para `#F2AC59`, substituindo `#5A2F03`.
 
 > **Exceção confirmada por Danilo em 16/11/2026:** a palavra “Rapé” no título do banner 02 usa `#5A2F03`. Restrito a esse trecho; “natural rhythm.” permanece em `#F4AC30`.

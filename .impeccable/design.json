@@ -101,7 +101,7 @@
       "refersTo": "button-primary",
       "description": "Ação principal urucum com texto branco quente.",
       "html": "<button class=\"ds-home-button\">Explore the collection</button>",
-      "css": ".ds-home-button{display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;min-height:44px;padding:11px 25px;border:0;border-radius:26px;background:var(--primary,#782e26);color:#f7f7f2;font-family:var(--font-body,'Source Sans 3',Arial,sans-serif);font-size:.875rem;line-height:1.5;font-weight:600;cursor:pointer;transition:background .2s,color .2s,transform .2s}.ds-home-button:hover{background:var(--primary-hover,color-mix(in srgb, #782e26 85%, #292c27));color:#f7f7f2}.ds-home-button:focus-visible{outline:2px solid var(--green,#526b35);outline-offset:4px}"
+      "css": ".ds-home-button{display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;min-height:44px;padding:11px 25px;border:0;border-radius:8px;background:var(--primary,#782e26);color:#f7f7f2;font-family:var(--font-body,'Source Sans 3',Arial,sans-serif);font-size:.875rem;line-height:1.5;font-weight:600;cursor:pointer;transition:background .2s,color .2s,transform .2s}.ds-home-button:hover{background:var(--primary-hover,color-mix(in srgb, #782e26 85%, #292c27));color:#f7f7f2}.ds-home-button:focus-visible{outline:2px solid var(--green,#526b35);outline-offset:4px}"
     },
     {
       "name": "Abas de coleção",
@@ -109,14 +109,14 @@
       "refersTo": "tab",
       "description": "Seleção verde; o componente real mantém navegação por teclado e estado ARIA.",
       "html": "<div class=\"ds-tabs\" role=\"tablist\" aria-label=\"Collections\"><button role=\"tab\" aria-selected=\"true\">Sacred Incense</button><button role=\"tab\" aria-selected=\"false\" tabindex=\"-1\">Herbal Teas</button></div>",
-      "css": ".ds-tabs{display:flex;gap:10px;overflow-x:auto;padding:4px}.ds-tabs button{border:1px solid var(--line,#d3d4cf);color:var(--ink,#292c27);border-radius:24px;background:#f7f7f2;font-family:var(--font-body,'Source Sans 3',Arial,sans-serif);font-size:.875rem;line-height:1.5;padding:9px 18px;white-space:nowrap;cursor:pointer;transition:background .2s,color .2s}.ds-tabs button[aria-selected=true]{background:var(--green,#526b35);border-color:var(--green,#526b35);color:#f7f7f2}.ds-tabs button:focus-visible{outline:2px solid var(--green,#526b35);outline-offset:4px}"
+      "css": ".ds-tabs{display:flex;gap:10px;overflow-x:auto;padding:4px}.ds-tabs button{border:1px solid var(--line,#d3d4cf);color:var(--ink,#292c27);border-radius:8px;background:#f7f7f2;font-family:var(--font-body,'Source Sans 3',Arial,sans-serif);font-size:.875rem;line-height:1.5;padding:9px 18px;white-space:nowrap;cursor:pointer;transition:background .2s,color .2s}.ds-tabs button[aria-selected=true]{background:var(--green,#526b35);border-color:var(--green,#526b35);color:#f7f7f2}.ds-tabs button:focus-visible{outline:2px solid var(--green,#526b35);outline-offset:4px}"
     },
     {
       "name": "Título de vitrine",
       "kind": "custom",
       "description": "Título com regra horizontal e acesso auxiliar.",
       "html": "<div class=\"ds-heading\"><h2>From the collection</h2><span aria-hidden=\"true\"></span><a href=\"/shop\">View all</a></div>",
-      "css": ".ds-heading{display:flex;align-items:center;gap:12px;color:var(--ink,#292c27)}.ds-heading h2{font-family:var(--font-display,'Sora',Arial,sans-serif);font-size:clamp(1.25rem,1.9vw,1.625rem);line-height:1.2;font-weight:600;letter-spacing:-.025em;margin:0}.ds-heading>span{flex:1;min-width:20px;height:1px;background:#d3d4cf;position:relative;margin-right:10px}.ds-heading>span:before{content:'';position:absolute;left:0;top:-1px;width:36px;height:3px;border-radius:3px;background:var(--green,#526b35)}.ds-heading>a{padding:5px 10px;border:1px solid var(--line,#d3d4cf);border-radius:4px;font-family:var(--font-body,'Source Sans 3',Arial,sans-serif);font-size:.8125rem;color:var(--muted,#595957);white-space:nowrap;text-decoration:none;transition:background .2s,color .2s}.ds-heading>a:hover{background:var(--soft,#f7f7f2);color:var(--green,#526b35)}.ds-heading>a:focus-visible{outline:2px solid var(--green,#526b35);outline-offset:4px}"
+      "css": ".ds-heading{display:flex;align-items:center;gap:12px;color:var(--ink,#292c27)}.ds-heading h2{font-family:var(--font-display,'Sora',Arial,sans-serif);font-size:clamp(1.25rem,1.9vw,1.625rem);line-height:1.2;font-weight:600;letter-spacing:-.025em;margin:0}.ds-heading>span{flex:1;min-width:20px;height:1px;background:#d3d4cf;position:relative;margin-right:10px}.ds-heading>span:before{content:'';position:absolute;left:0;top:-1px;width:36px;height:3px;border-radius:3px;background:var(--green,#526b35)}.ds-heading>a{padding:5px 10px;border:1px solid var(--line,#d3d4cf);border-radius:8px;font-family:var(--font-body,'Source Sans 3',Arial,sans-serif);font-size:.8125rem;color:var(--muted,#595957);white-space:nowrap;text-decoration:none;transition:background .2s,color .2s}.ds-heading>a:hover{background:var(--soft,#f7f7f2);color:var(--green,#526b35)}.ds-heading>a:focus-visible{outline:2px solid var(--green,#526b35);outline-offset:4px}"
     }
   ],
   "narrative": {
@@ -125,7 +125,7 @@
     "keyCharacteristics": [
       "Fotografias reais de WooCommerce e public/images reutilizadas sem gerar ou modificar rasters.",
       "Cards leves e superfícies tonais claras.",
-      "Controles arredondados e títulos com regra horizontal.",
+      "CTAs retangulares com cantos de 8 px. Os preenchidos usam borda invisível e os links auxiliares de seção usam contorno cinza.",
       "Sora nos títulos; Source Sans 3 para leitura e dados."
     ],
     "rules": [

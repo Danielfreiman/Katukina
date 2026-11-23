@@ -1,8 +1,9 @@
 :root {
   --layout-section: clamp(32px, 3.4vw, 48px);
   --header-height: 144px;
+  --radius-field: 8px;
   --radius-card: 8px;
-  --radius-control: var(--radius-card);
+  --radius-control: var(--radius-field);
   /* Approved source: docs/katukina/design/Katukina_Paleta_e_Aplicacoes.svg */
   --urucum: #782e26;
   --leaf: #526b35;
@@ -236,6 +237,20 @@ svg {
 .button.secondary:hover:not(:disabled):not([aria-disabled="true"]) {
   background: var(--green);
   color: var(--on-color);
+}
+.button.light {
+  background: var(--warm-white);
+  color: var(--green);
+}
+.button.light:is(:hover, :focus-visible),
+:is(.product-card-action, .rh-product-cta):is(:hover, :focus-visible) {
+  background: var(--green);
+  color: var(--on-color);
+}
+:is(.product-card-action, .rh-product-cta) {
+  border-radius: var(--radius-control);
+  background: var(--soft);
+  color: var(--green);
 }
 .text-link {
   display: inline-flex;

@@ -6,7 +6,6 @@
   --accent: var(--primary);
   --accent-ink: var(--on-color);
   --radius-card: 10px;
-  --radius-control: 24px;
   --header-height: 146px;
   --layout-gutter: clamp(20px, 3.4vw, 56px);
 }
@@ -75,7 +74,7 @@ html .header-search-slot {
 }
 .header-wrap .inline-search .search {
   border: 1px solid var(--control-line);
-  border-radius: 30px;
+  border-radius: var(--radius-field);
   background: var(--soft);
   padding: 3px;
 }
@@ -87,7 +86,6 @@ html .header-search-slot {
   color: var(--muted);
 }
 .header-wrap .inline-search .search .button {
-  border-radius: 27px;
   background: var(--accent);
   color: var(--accent-ink);
   padding-inline: 25px;
@@ -138,7 +136,6 @@ html .header-categories::before {
 .header-wrap .departments-trigger {
   color: var(--warm-white);
   border: 1px solid rgb(247 247 242 / 45%);
-  border-radius: 26px;
   padding: 8px 20px;
   margin-right: auto;
 }
@@ -272,16 +269,6 @@ html .catalog-results .product-card-action,
 html .catalog-results .purchase-actions {
   margin-inline: 0;
 }
-html .product-grid-v2 .product-card-action {
-  background: var(--soft);
-  color: var(--green);
-  border: 0;
-  border-radius: 24px;
-}
-html .product-grid-v2 .product-card-action:hover {
-  color: var(--on-color);
-  background: var(--green);
-}
 html .product-grid-v2 .product-price {
   color: var(--ink);
   font-size: 1.125rem;
@@ -371,11 +358,8 @@ html .footer-top {
   justify-content: space-between;
   align-items: center;
   gap: 16px;
-  background: var(--warm-white);
-  color: var(--green);
   padding: 12px 20px;
-  border-radius: 6px;
-  font-weight: 600;
+  min-height: 44px;
 }
 .site-footer .footer-bottom {
   border-color: var(--line);
@@ -483,10 +467,6 @@ html body :is(a, button):hover :not(del, s) {
 .cookie-controls .cookie-settings-link {
   border-radius: 4px;
 }
-.site-footer .footer-news-link:focus-visible {
-  background: var(--green);
-  color: white;
-}
 @media (hover: hover) and (pointer: fine) {
   .site-footer .footer-links a:hover,
   .site-footer .footer-bottom > a:hover,
@@ -494,10 +474,6 @@ html body :is(a, button):hover :not(del, s) {
     color: var(--green);
     background: var(--support-soft);
     box-shadow: -4px 0 var(--support-soft), 4px 0 var(--support-soft);
-  }
-  .site-footer .footer-news-link:hover {
-    background: var(--green);
-    color: white;
   }
 }
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {

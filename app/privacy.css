@@ -69,7 +69,7 @@
   border: 1px solid var(--green);
   background: var(--surface);
   color: var(--green);
-  border-radius: 0;
+  border-radius: var(--radius-control);
   font: inherit;
   font-size: var(--text-ui);
   font-weight: var(--weight-semibold);
@@ -171,7 +171,7 @@
 .policy-notice {
   padding: 18px;
   background: var(--soft);
-  border-left: 3px solid var(--green);
+  border: 1px solid var(--line);
 }
 .policy-table-wrap {
   overflow-x: auto;

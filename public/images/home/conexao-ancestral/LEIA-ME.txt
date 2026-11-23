@@ -1,0 +1,44 @@
+Conexão Ancestral na home da Katukina
+
+Coloque seus arquivos nas pastas abaixo e recarregue a página inicial.
+Os nomes podem conter espaços e acentos.
+
+logo/
+  Logotipo da ONG. SVG, PNG, WebP, JPG, JPEG ou AVIF.
+  Um logo horizontal com fundo transparente aproveita melhor o espaço.
+  O logo colorido aparece sobre branco. Para um logo branco transparente
+  diretamente sobre o verde, use um nome terminado em -branco, como
+  conexao-branco.svg.
+
+foto-principal/
+  Foto maior, no alto da coluna direita do mosaico.
+  Prefira uma foto levemente horizontal, com os rostos perto do centro.
+
+foto-secundaria/
+  Foto inferior esquerda. Prefira um enquadramento quase quadrado.
+
+foto-03/
+  Foto superior esquerda, menor. Prefira um retrato vertical em 3:4.
+
+foto-04/
+  Foto inferior direita. Prefira um enquadramento quase quadrado.
+
+As quatro posições aceitam JPG, JPEG, PNG, WebP ou AVIF.
+
+fundo/
+  Imagem decorativa opcional para a seção inteira.
+  Nome exato: fundo-conexao-ancestral.webp
+  Tamanho recomendado: 1920 × 800 px, horizontal. A página usa cobertura
+  com recorte central e aplica a tonalidade verde sobre a imagem.
+
+Use uma imagem por pasta. Se houver várias, a página usa a de modificação
+mais recente. Em caso de empate, usa a primeira por ordem de nome.
+Em cada pasta de foto, você pode escrever uma descrição curta em inglês
+no arquivo descricao.txt. Ela será lida por quem usa leitor de tela.
+
+Enquanto uma pasta estiver sem imagem, a página usa a mídia correspondente
+de previa/. As quatro fotografias atuais vieram
+da seção de valores do site oficial da Conexão Ancestral.
+Você pode substituir o logo e as quatro fotos de forma independente.
+
+Guia visual e paleta no repositório: docs/katukina/CONEXAO-ANCESTRAL.md.

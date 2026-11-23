@@ -1,0 +1,204 @@
+.section {
+  --ca-green: #284e32;
+  --ca-white: #ffffff;
+  --ca-red: #dc251e;
+  --ca-charcoal: #191a1f;
+  --ca-yellow: #d5b314;
+  --photo-gap: clamp(12px, 1.5vw, 20px);
+  --ca-background-tint: linear-gradient(90deg, rgb(40 78 50 / 89%) 0% 44%, rgb(40 78 50 / 38%) 100%);
+  background-color: var(--ca-green);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: var(--ca-white);
+  padding-block: clamp(44px, 5vw, 88px);
+}
+
+.section .layout {
+  max-width: 1224px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.04fr);
+  gap: 32px clamp(40px, 5.6vw, 96px);
+  align-items: center;
+}
+
+.logo {
+  width: clamp(10.75rem, 43%, 15rem);
+  height: auto;
+  aspect-ratio: 194 / 75;
+  object-fit: contain;
+  object-position: left center;
+}
+
+/* Only the bundled green logo needs a colour filter. */
+.logo[src$="/previa/logo.svg"] {
+  filter: brightness(0) invert(1);
+}
+
+.logo:not([src$="/previa/logo.svg"], [src*="-branco." i]) {
+  background: var(--ca-white);
+  border-radius: 12px;
+  padding: 6px 12px;
+  object-position: center;
+}
+
+.section .copy h2 {
+  margin-top: 24px;
+  max-width: 22ch;
+  font-family: var(--font-body);
+  font-size: clamp(1.65rem, 2.5vw, 2.35rem);
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: -0.025em;
+  color: var(--ca-white);
+  text-wrap: balance;
+}
+
+.copy p {
+  max-width: 49ch;
+  margin-top: 16px;
+  color: var(--ca-white);
+  font-size: clamp(1.0625rem, 1.25vw, 1.1875rem);
+  line-height: 1.55;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: minmax(0, 42fr) minmax(0, 58fr);
+  align-items: start;
+  gap: var(--photo-gap);
+}
+
+.leftColumn,
+.rightColumn {
+  display: grid;
+  gap: var(--photo-gap);
+}
+
+.rightColumn {
+  padding-top: clamp(36px, 4.5vw, 72px);
+}
+
+.gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border: 2px solid var(--ca-white);
+  border-radius: clamp(14px, 1.5vw, 24px);
+}
+
+.leftColumn img:first-child {
+  width: 70%;
+  justify-self: end;
+  aspect-ratio: 3 / 4;
+}
+
+.leftColumn img:last-child {
+  aspect-ratio: 0.94;
+}
+
+.rightColumn img:first-child {
+  aspect-ratio: 1.16;
+}
+
+.rightColumn img:last-child {
+  width: 76%;
+  aspect-ratio: 1.04;
+  object-position: center 38%;
+}
+
+.link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 28px;
+  min-height: 52px;
+  padding: 12px 24px;
+  border-radius: 16px;
+  background: var(--ca-red);
+  color: var(--ca-white);
+  font-weight: 700;
+  line-height: 1.4;
+  transition: box-shadow 180ms ease-out;
+}
+
+.link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 2px solid var(--ca-white);
+  border-radius: inherit;
+  pointer-events: none;
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 220ms ease-out;
+}
+
+.section .link:is(:hover, :focus-visible) {
+  color: var(--ca-white);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .link:hover {
+    box-shadow: 0 5px 12px rgb(25 26 31 / 28%);
+  }
+
+  .link:hover::after {
+    clip-path: inset(0);
+  }
+}
+
+.link:focus-visible {
+  outline: 3px solid var(--ca-yellow);
+  outline-offset: 4px;
+}
+
+.link:focus-visible::after {
+  clip-path: inset(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .link,
+  .link::after {
+    transition: none;
+  }
+}
+
+.section ::selection {
+  background: var(--ca-yellow);
+  color: var(--ca-charcoal);
+}
+
+@media (max-width: 880px) {
+  .section {
+    --ca-background-tint: linear-gradient(180deg, rgb(40 78 50 / 89%) 0% 58%, rgb(40 78 50 / 45%) 100%);
+  }
+
+  .section .layout {
+    max-width: 600px;
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 28px;
+  }
+
+  .gallery {
+    width: min(100%, 460px);
+    justify-self: center;
+  }
+
+  .rightColumn {
+    padding-top: 32px;
+  }
+}
+
+@media (max-width: 540px) {
+  .section {
+    padding-block: 40px;
+    --photo-gap: 10px;
+  }
+
+  .section .copy h2 {
+    margin-top: 20px;
+    font-size: clamp(1.5rem, 6.5vw, 1.875rem);
+  }
+}

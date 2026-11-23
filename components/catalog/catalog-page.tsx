@@ -228,7 +228,7 @@ export async function CatalogPage({
                           Katukina by email.
                         </p>
                       </div>
-                      <Link href="/subscribe" className="button secondary">
+                      <Link href="/subscribe" className="button light">
                         Get email updates
                       </Link>
                     </aside>
