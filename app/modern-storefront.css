@@ -371,6 +371,18 @@ html .footer-top {
   background: transparent;
   padding: 0;
 }
+.footer-legal {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0 12px;
+}
+.footer-legal .cookie-settings-link {
+  padding: 0;
+  min-height: 24px;
+  color: inherit;
+  text-decoration: none;
+}
 @media (max-width: 1200px) {
   .header-wrap .category-navigation {
     gap: 12px;
@@ -464,13 +476,13 @@ html body :is(a, button):hover :not(del, s) {
 }
 .site-footer .footer-links a,
 .site-footer .footer-bottom > a,
-.cookie-controls .cookie-settings-link {
+.footer-legal .cookie-settings-link {
   border-radius: 4px;
 }
 @media (hover: hover) and (pointer: fine) {
   .site-footer .footer-links a:hover,
   .site-footer .footer-bottom > a:hover,
-  .cookie-controls .cookie-settings-link:hover {
+  .footer-legal .cookie-settings-link:hover {
     color: var(--green);
     background: var(--support-soft);
     box-shadow: -4px 0 var(--support-soft), 4px 0 var(--support-soft);

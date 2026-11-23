@@ -1,13 +1,5 @@
-.cookie-controls {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 16px;
-  padding-block: 15px;
-  font-size: var(--text-meta);
-}
-.cookie-controls p {
-  margin: 0;
+.cookie-save-error {
+  padding-block: 8px;
   color: var(--muted);
 }
 .cookie-settings-link {

@@ -13,10 +13,13 @@ import {
 
 const Context = createContext({ functional: false, openSettings: () => {} });
 export const useCookieConsent = () => useContext(Context);
-export function CookieSettingsButton() {
+const footerSettings = () => document.getElementById("footer-cookie-settings");
+
+export function CookieSettingsButton({ id }: { id?: string }) {
   const { openSettings } = useCookieConsent();
   return (
     <button
+      id={id}
       className="cookie-settings-link"
       type="button"
       onClick={openSettings}
@@ -34,9 +37,9 @@ export function CookieConsentProvider({
   const [ready, setReady] = useState(false);
   const [draft, setDraft] = useState(false);
   const [message, setMessage] = useState("");
+  const [saveFailed, setSaveFailed] = useState(false);
   const dialog = useRef<HTMLDialogElement>(null);
   const trigger = useRef<HTMLElement | null>(null);
-  const footerTrigger = useRef<HTMLButtonElement>(null);
   useEffect(() => {
     const refresh = () => {
       let stored: Consent | null = null;
@@ -96,7 +99,7 @@ export function CookieConsentProvider({
     dialog.current?.close();
     (trigger.current?.isConnected
       ? trigger.current
-      : footerTrigger.current
+      : footerSettings()
     )?.focus({ preventScroll: true });
   };
   const save = (functional: boolean) => {
@@ -117,6 +120,7 @@ export function CookieConsentProvider({
     if (!functional || !persisted) clearOptionalStorage();
     setConsent({ ...record, functional: functional && persisted });
     setDraft(functional && persisted);
+    setSaveFailed(!persisted);
     setMessage(
       persisted
         ? "Your cookie preferences have been saved."
@@ -126,7 +130,7 @@ export function CookieConsentProvider({
     // The banner button may be removed by this render. Keep a usable focus target.
     requestAnimationFrame(() => {
       if (!document.activeElement || document.activeElement === document.body)
-        footerTrigger.current?.focus({ preventScroll: true });
+        footerSettings()?.focus({ preventScroll: true });
     });
   };
   return (
@@ -138,17 +142,9 @@ export function CookieConsentProvider({
       }}
     >
       {children}
-      <div className="cookie-controls shell">
-        <button
-          type="button"
-          className="cookie-settings-link"
-          ref={footerTrigger}
-          onClick={openSettings}
-        >
-          Cookie settings
-        </button>
-        <p role="status">{message}</p>
-      </div>
+      <p className={saveFailed ? "shell cookie-save-error" : "sr-only"} role="status">
+        {message}
+      </p>
       {ready && !consent && (
         <section
           className="cookie-banner"

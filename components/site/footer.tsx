@@ -1,5 +1,6 @@
 ﻿import Link from "next/link";
 import { Mail } from "lucide-react";
+import { CookieSettingsButton } from "@/components/privacy/cookie-consent";
 export function SiteFooter() {
   return (
     <footer className="site-footer">
@@ -55,7 +56,10 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="shell footer-bottom">
-        <span>© {new Date().getFullYear()} Katukina</span>
+        <div className="footer-legal">
+          <span>© {new Date().getFullYear()} Katukina</span>
+          <CookieSettingsButton id="footer-cookie-settings" />
+        </div>
         <span>Find your natural rhythm.</span>
         <a href="#content">Back to the top</a>
       </div>

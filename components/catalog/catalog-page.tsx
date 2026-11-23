@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { X } from "lucide-react";
+import { ArrowRight, Mail, X } from "lucide-react";
 import {
   getCollectionData,
   getProducts,
@@ -18,7 +18,6 @@ import { ProductGrid } from "./product-grid";
 import { CatalogFilters, CatalogSort } from "./catalog-controls";
 import { RecentlyViewed } from "./recently-viewed";
 import { CategoryDiscovery } from "./category-discovery";
-import { CategoryRail } from "./category-rail";
 import "@/app/category-reference.css";
 
 export async function CatalogPage({
@@ -221,6 +220,9 @@ export async function CatalogPage({
                       className="category-subscribe"
                       aria-label="Collection updates"
                     >
+                      <span className="collection-mail-stamp" aria-hidden="true">
+                        <Mail size={28} strokeWidth={1.5} />
+                      </span>
                       <div>
                         <h2>Stay connected to the collection</h2>
                         <p>
@@ -230,6 +232,7 @@ export async function CatalogPage({
                       </div>
                       <Link href="/subscribe" className="button light">
                         Get email updates
+                        <ArrowRight size={16} aria-hidden="true" />
                       </Link>
                     </aside>
                     <ProductGrid products={products.data.slice(4)} />
@@ -250,56 +253,6 @@ export async function CatalogPage({
                 Clear filters
               </Link>
             </div>
-          )}
-          {category && products.data.length > 0 && (
-            <section
-              className="category-editorial"
-              aria-labelledby="category-editorial-title"
-            >
-              <div>
-                <h2 id="category-editorial-title">
-                  About Katukina & your order
-                </h2>
-                <Link href="/journal">View the journal</Link>
-              </div>
-              <CategoryRail
-                className="category-guidance-track"
-                label="Collection guidance"
-              >
-                {[
-                  {
-                    href: "/about",
-                    image: "/images/forest.jpg",
-                    title: "Our story",
-                    copy: "Nature, culture and connection.",
-                  },
-                  {
-                    href: "/journal",
-                    image: "/images/palo-santo.jpg",
-                    title: "The journal",
-                    copy: "Explore the stories behind the collection.",
-                  },
-                  {
-                    href: "/shipping",
-                    image: "/images/bamboo.jpg",
-                    title: "Shipping & destinations",
-                    copy: "Check delivery options for your country.",
-                  },
-                ].map((item) => (
-                  <Link href={item.href} key={item.href}>
-                    <img
-                      src={item.image}
-                      alt=""
-                      width={320}
-                      height={180}
-                      loading="lazy"
-                    />
-                    <h3>{item.title}</h3>
-                    <p>{item.copy}</p>
-                  </Link>
-                ))}
-              </CategoryRail>
-            </section>
           )}
           {pages > 1 && (
             <nav className="catalog-pagination" aria-label="Pagination">

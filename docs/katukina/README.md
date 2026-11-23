@@ -1,5 +1,9 @@
 # Discovery Katukina
 
+**23/11/2026 · CONFIRMADO na vitrine local.** A faixa de inscrição das coleções usa fundo verde-folha e um envelope em formato de selo. O botão “Get email updates” leva a `/subscribe`.
+
+**23/11/2026 · CONFIRMADO na vitrine local.** A pedido do responsável, a seção “About Katukina & your order” foi removida do catálogo compartilhado por todas as coleções.
+
 **23/11/2026 · CONFIRMADO na home local.** Os CTAs “Explore the collection”, “Shop Blends” e “Discover the Collection” do carrossel principal usam a mesma elevação de 4 px em 180 ms do botão “Explore incense”. O link mantém a área clicável fixa. A elevação respeita a preferência por movimento reduzido. Typecheck e teste Playwright da home aprovados. Os três slides foram verificados em 1440, 600 e 390 px, incluindo seus destinos, foco por teclado no desktop e toque no celular.
 
 **23/11/2026 · CONFIRMADO na home local.** No banner “Make room for a little ritual.”, o CTA “Explore incense” sobe 4 px em 180 ms quando o ponteiro entra na área do botão e retorna ao sair. O banner inteiro continua levando à coleção Sacred Incense. Typecheck e teste Playwright da home aprovados. Playwright verificou a elevação, o retorno, a preferência por movimento reduzido e a navegação por teclado e toque.
