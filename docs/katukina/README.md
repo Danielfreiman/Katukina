@@ -1,5 +1,7 @@
 # Discovery Katukina
 
+Cards Urucum e Yerba Santa em 23/11/2026 ? CONFIRMADO no ambiente local. T?tulo, subt?tulo curto, pre?o e CTA alinhados ? esquerda, com foto ? direita sobre o fundo. Typecheck aprovado. Playwright verificou alinhamento, espa?o do bot?o e aus?ncia de overflow dos cards em 320, 390, 768 e 1440 px. Captura de 390 px revisada.
+
 Faixa da home em 23/11/2026 - controle de pausa removido a pedido do responsável. A faixa continua respeitando movimento reduzido.
 
 Faixa da home em 23/11/2026 - CONFIRMADO no frontend local. Fundo carvao, texto branco e quatro mensagens sobre qualidade e origens, entrega, colecoes e Journal. A mensagem de entrega aponta para o calculo por destino.

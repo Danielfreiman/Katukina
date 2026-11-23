@@ -278,7 +278,9 @@ export default async function Home() {
   const productCampaigns = campaignProducts.flatMap((product, index) =>
     product ? [{
       product: card(product),
-      text: index === 0 ? "Beauty & body" : "Incense smudge",
+      text: index === 0
+        ? "Urucum and coconut in a body care creme."
+        : "A botanical bundle for your incense collection.",
       tone: index === 0 ? "linen" : "sage",
       background: `/images/home/product-card-backgrounds/${product.slug}.webp`,
     }] : [],
