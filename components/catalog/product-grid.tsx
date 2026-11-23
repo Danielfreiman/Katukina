@@ -38,6 +38,7 @@ export function ProductGrid({ products }: { products: Product[] }) {
               aria-hidden="true"
             >
               <div className="product-photo">
+                <span className="card-photo-category">{plainText(product.categories[0]?.name || "Collection")}</span>
                 {product.on_sale && (
                   <span className="product-sale-badge">Sale</span>
                 )}
@@ -60,7 +61,7 @@ export function ProductGrid({ products }: { products: Product[] }) {
             </Link>
             <div className="product-info">
               <div className="product-card-details">
-                <p className="product-category">
+                <p className="sr-only">
                   {plainText(product.categories[0]?.name || "Collection")}
                 </p>
                 <h3>

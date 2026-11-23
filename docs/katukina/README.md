@@ -1,5 +1,7 @@
 # Discovery Katukina
 
+**23/11/2026 · CONFIRMADO na vitrine local.** Os cards de produto da loja, das coleções, dos relacionados e dos vistos recentemente seguem a referência da home, com categoria sobre a foto, destaque verde da ação e a mesma elevação, sombra e ampliação da imagem ao passar o mouse.
+
 **23/11/2026 · CONFIRMADO na vitrine local.** A faixa de inscrição das coleções usa fundo verde-folha e um envelope em formato de selo. O botão “Get email updates” leva a `/subscribe`.
 
 **23/11/2026 · CONFIRMADO na vitrine local.** A pedido do responsável, a seção “About Katukina & your order” foi removida do catálogo compartilhado por todas as coleções.
