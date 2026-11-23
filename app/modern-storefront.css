@@ -395,8 +395,11 @@ html .catalog-filter-form input,
 html .catalog-filter-form select,
 html .catalog-sort select,
 html .purchase-fields select,
-html .purchase-fields input {
-  border-radius: 8px;
+html .purchase-fields input,
+.commerce-form input:not([type="checkbox"], [type="radio"]),
+.commerce-form select,
+.coupon-form input {
+  border-radius: var(--radius-field);
 }
 html .site-footer {
   border: 0;

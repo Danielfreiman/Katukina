@@ -36,6 +36,9 @@ html .page-intro > p:last-child:not(.eyebrow) {
   max-width: 68ch;
   margin-top: 16px;
 }
+.catalog-page:not(.category-reference) > .breadcrumbs {
+  margin-bottom: 0;
+}
 html .catalog-intro {
   margin-block: 24px var(--layout-section);
   padding-block: 0;

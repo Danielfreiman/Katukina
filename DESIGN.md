@@ -56,7 +56,7 @@ spacing:
   small: "16px"
   grid: "22px"
   medium: "24px"
-  section: "32px"
+  section: "clamp(32px, 3.4vw, 48px)"
   gutter: "clamp(20px, 3.4vw, 56px)"
 components:
   button-primary:
@@ -139,6 +139,8 @@ No celular estreito, o título do hero usa (2.7rem); os títulos de seção redu
 
 ## Layout
 
+Na home, o intervalo entre seções segue `section`, de 32 a 48 px. Em conta, entrega e inscrição, há 18 px entre o título do formulário e o próximo elemento. O formulário da página de inscrição acompanha a largura da conta, até 440 px.
+
 O conteúdo é centralizado, com largura máxima (1440px) e margens fluidas pelo token `gutter`. A home alterna grades e trilhos horizontais. Os trilhos mostram seis produtos em telas largas, cinco até (1200px), três até (800px) e dois até (540px), mantendo rolagem horizontal. Os intervalos passam de (22px) a (20px) e depois (14px).
 
 Categorias usam oito colunas, quatro até (1200px) e duas até (540px). O jornal passa de quatro para duas colunas até (800px), e uma até (540px). O hero mantém texto e foto lado a lado até o empilhamento em (540px). As campanhas iniciais também empilham nesse ponto. Esses arranjos pertencem à home; páginas de operação preservam sua própria estrutura funcional.
@@ -153,7 +155,7 @@ Foco visível usa contorno verde (2px) e afastamento (4px); nas áreas verdes do
 
 ## Shapes
 
-CTAs e abas são retangulares e usam o raio `control` de 8 px. Campos e fotos dos trilhos usam `field`. Cards compartilhados usam `card`, campanhas usam `campaign` e a galeria e o resumo de compra usam `panel`. As fotografias das categorias ficam dentro de círculos.
+CTAs e abas são retangulares e usam o raio `control` de 8 px. Campos de texto, seletores e fotos dos trilhos usam `field`. Cards compartilhados usam `card` e as campanhas usam `campaign`. Na compra, o contorno externo do resumo usa 10 px e o bloco interno de totais usa `panel` (12 px), assim como a galeria do produto. As fotografias das categorias ficam dentro de círculos.
 
 ## Components
 

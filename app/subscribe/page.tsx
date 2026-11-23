@@ -5,7 +5,7 @@ export const metadata = {
 };
 export default function Subscribe() {
   return (
-    <main id="content" className="shell page-content commerce-page">
+    <main id="content" className="shell page-content commerce-page subscribe-page">
       <SubscriptionForm />
     </main>
   );
