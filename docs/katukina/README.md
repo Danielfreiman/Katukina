@@ -1,6 +1,8 @@
 # Discovery Katukina
 
-Cards Urucum e Yerba Santa em 23/11/2026 ? CONFIRMADO no ambiente local. T?tulo, subt?tulo curto, pre?o e CTA alinhados ? esquerda, com foto ? direita sobre o fundo. Typecheck aprovado. Playwright verificou alinhamento, espa?o do bot?o e aus?ncia de overflow dos cards em 320, 390, 768 e 1440 px. Captura de 390 px revisada.
+Recorte Yerba Santa em 23/11/2026 — CONFIRMADO no frontend local. ImageGen integrado produziu transparência a partir da foto do catálogo. A versão para o card fica em public/images/home/product-cutouts/yerba-santa.webp, 900 × 900 px. Prompt solicitado: remover fundo branco e sombra, preservar folhas, caules, cordão, orientação e enquadramento, eliminar halo sem apagar o cordão branco. Typecheck aprovado e captura do card em 390 px revisada.
+
+Cards Urucum e Yerba Santa em 23/11/2026 — CONFIRMADO no ambiente local. Título, subtítulo curto, preço e CTA alinhados à esquerda, com foto à direita sobre o fundo. Typecheck aprovado. Playwright verificou alinhamento, espaço do botão e ausência de overflow dos cards em 320, 390, 768 e 1440 px. Captura de 390 px revisada.
 
 Faixa da home em 23/11/2026 - controle de pausa removido a pedido do responsável. A faixa continua respeitando movimento reduzido.
 

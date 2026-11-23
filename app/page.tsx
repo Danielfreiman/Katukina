@@ -277,7 +277,12 @@ export default async function Home() {
   const beautyMobile = existsSync(path.join(process.cwd(), "public/images/home/beauty-body-banner/beauty-body-mobile.webp"));
   const productCampaigns = campaignProducts.flatMap((product, index) =>
     product ? [{
-      product: card(product),
+      product: {
+        ...card(product),
+        ...(product.slug === "yerba-santa-smudge-bundle"
+          ? { image: "/images/home/product-cutouts/yerba-santa.webp" }
+          : {}),
+      },
       text: index === 0
         ? "Urucum and coconut in a body care creme."
         : "A botanical bundle for your incense collection.",

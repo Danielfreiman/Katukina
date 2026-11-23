@@ -894,6 +894,9 @@
 .mh-stacked-campaigns img[src$="white-4d8cea25854b-2192-5186_01.webp"] {
   --product-mask: url("/images/home/product-card-masks/yerba-santa-smudge-bundle.png");
 }
+.mh-stacked-campaigns .mh-campaign > img[src="/images/home/product-cutouts/yerba-santa.webp"] {
+  mix-blend-mode: normal;
+}
 .mh-stacked-campaigns .mh-campaign > img:is([src$="1953-4444_01.webp"], [src$="2192-5186_01.webp"]) {
   mix-blend-mode: normal;
   mask: var(--product-mask) center / contain no-repeat;
