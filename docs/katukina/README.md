@@ -1,5 +1,11 @@
 # Discovery Katukina
 
+Faixa da home em 23/11/2026 - controle de pausa removido a pedido do responsável. A faixa continua respeitando movimento reduzido.
+
+Faixa da home em 23/11/2026 - CONFIRMADO no frontend local. Fundo carvao, texto branco e quatro mensagens sobre qualidade e origens, entrega, colecoes e Journal. A mensagem de entrega aponta para o calculo por destino.
+
+Faixa de descoberta em 23/11/2026 ? CONFIRMADO no ambiente local. A home apresenta tr?s links em ingl?s com rolagem cont?nua e controle de pausa. Typecheck aprovado. Playwright verificou anima??o em 390 e 1440 px, pausa e prefer?ncia por movimento reduzido.
+
 Indicador de arrasto em 18/11/2026 — **CONFIRMADO no ambiente local:** Danilo pediu o retorno à apresentação original. O aviso fica centralizado abaixo dos cards com seta de 16 px, texto cinza e fundo transparente. Playwright confirmou a posição, as cores e o tamanho da seta nos quatro carrosséis da home em 390 e 1440 px. Typecheck aprovado.
 
 Indicador de arrasto em 18/11/2026 — **CONFIRMADO no ambiente local:** o aviso passou para o início dos carrosséis, com seta branca em círculo verde e texto em seminegrito. Playwright verificou o aviso acima dos cards nos quatro carrosséis da home em 390 e 1440 px. Typecheck aprovado.

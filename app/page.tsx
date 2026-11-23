@@ -3,7 +3,6 @@ import { existsSync } from "node:fs";
 import path from "node:path";
 import {
   Leaf,
-  Flame,
   BookOpen,
   Package,
   Globe2,
@@ -139,6 +138,7 @@ function Campaign({
   showPrice = true,
   cta = "Shop now",
   artwork,
+  background,
 }: {
   title: string;
   text: string;
@@ -149,11 +149,15 @@ function Campaign({
   showPrice?: boolean;
   cta?: string;
   artwork?: string;
+  background?: string;
 }) {
   return (
     <article
       className={`mh-campaign mh-${tone}${tall ? " mh-campaign-tall" : ""}`}
       data-has-artwork={Boolean(artwork)}
+      style={background && existsSync(path.join(process.cwd(), "public", background))
+        ? { backgroundImage: `url("${background}")` }
+        : undefined}
     >
       <div>
         <h2>{title}</h2>
@@ -276,6 +280,7 @@ export default async function Home() {
       product: card(product),
       text: index === 0 ? "Beauty & body" : "Incense smudge",
       tone: index === 0 ? "linen" : "sage",
+      background: `/images/home/product-card-backgrounds/${product.slug}.webp`,
     }] : [],
   );
   const giftshopDesktop = existsSync(path.join(process.cwd(), "public/images/home/giftshop-banner/giftshop-desktop.webp"))
@@ -460,22 +465,28 @@ export default async function Home() {
           </Link>
         ))}
       </div>
-      <div className="mh-discovery-strip">
-        <div className="mh-wrap">
-          <span>
-            <Leaf />
-            Botanicals & natural materials
-          </span>
-          <span>
-            <Flame />
-            Incense, resins & aromatic woods
-          </span>
-          <Link href="/journal">
-            <BookOpen />
-            Stories, origins & inspiration
-          </Link>
+      <nav className="mh-discovery-strip" aria-label="Explore Katukina">
+        <div className="mh-discovery-window">
+          <div className="mh-discovery-track">
+            {[false, true].map((copy) => (
+              <div className="mh-discovery-group" key={String(copy)} aria-hidden={copy || undefined}>
+                <Link href="/shop" tabIndex={copy ? -1 : undefined}>
+                  <Globe2 aria-hidden="true" /> Quality botanicals from Peru, Kenya, Sumatra and beyond
+                </Link>
+                <Link href="/shipping" tabIndex={copy ? -1 : undefined}>
+                  <Package aria-hidden="true" /> Check delivery options for your destination
+                </Link>
+                <Link href="/collections" tabIndex={copy ? -1 : undefined}>
+                  <Leaf aria-hidden="true" /> Explore incense, essential oils and herbal teas
+                </Link>
+                <Link href="/journal" tabIndex={copy ? -1 : undefined}>
+                  <BookOpen aria-hidden="true" /> Discover the stories behind the botanicals
+                </Link>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      </nav>
       <div className="mh-wrap">
         <HomeRail
           title="Featured products"
@@ -531,7 +542,7 @@ export default async function Home() {
           </div>
         </div>
         <div className="mh-stacked-campaigns">
-          {productCampaigns.map(({ product, text, tone }) => (
+          {productCampaigns.map(({ product, text, tone, background }) => (
             <Campaign
               key={product.id}
               title={product.name}
@@ -540,6 +551,7 @@ export default async function Home() {
               href={product.href}
               tone={tone}
               cta="View product"
+              background={background}
             />
           ))}
         </div>

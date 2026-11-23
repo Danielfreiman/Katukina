@@ -1,0 +1,11 @@
+Fundos dos dois cards de produto da home
+
+Salve cada arte em WebP, em 1320 × 1040 px (proporção 33:26).
+
+urucum-coconut-creme.webp — fundo do card Urucum Coconut Creme
+yerba-santa-smudge-bundle.webp — fundo do card Yerba Santa smudge bundle
+
+Exporte somente o cenário. O site sobrepõe a foto do catálogo, o título,
+a categoria, o preço e o botão. Prefira tons claros e pouco detalhe à
+esquerda, onde fica o texto, e atrás do produto, no canto inferior direito.
+O fundo cobre o card com recorte central conforme a largura da tela.

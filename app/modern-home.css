@@ -324,28 +324,41 @@
   --campaign-bg: var(--support-soft);
 }
 .mh-discovery-strip {
-  background: var(--soft);
-}
-.mh-discovery-strip > div {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 26px;
-  padding-block: 17px;
+  background: var(--charcoal);
+  color: var(--white);
 }
-.mh-discovery-strip :is(span, a) {
+.mh-discovery-window { min-width: 0; overflow: clip; flex: 1; }
+.mh-discovery-track { display: flex; }
+.mh-discovery-group {
+  display: flex;
+  flex: 0 0 auto;
+  min-width: 100%;
+  justify-content: space-around;
+  animation: discovery-scroll 48s linear infinite;
+}
+@keyframes discovery-scroll { to { transform: translateX(-100%); } }
+.mh-discovery-group a {
+  color: var(--white);
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  font-size: 0.9375rem;
+  justify-content: center;
+  gap: 10px;
+  padding: 17px clamp(20px, 4vw, 70px);
+  font-size: .9375rem;
 }
-.mh-discovery-strip a:is(:hover, :focus-visible) {
-  color: var(--green);
+.mh-discovery-strip svg { width: 18px; height: 18px; color: var(--white); flex: none; }
+.mh-discovery-strip a:is(:hover, :focus-visible) { text-decoration: underline; text-underline-offset: 3px; }
+.mh-discovery-group a:focus-visible { outline: 2px solid white; outline-offset: -4px; }
+.mh-discovery-window:hover .mh-discovery-group { animation-play-state: paused; }
+.mh-discovery-window:has(a:focus-visible) .mh-discovery-group {
+  animation: none; flex: 1; flex-wrap: wrap;
 }
-.mh-discovery-strip svg {
-  width: 18px;
-  height: 18px;
-  color: var(--green);
+.mh-discovery-window:has(a:focus-visible) [aria-hidden="true"].mh-discovery-group { display: none; }
+@media (prefers-reduced-motion: reduce) {
+  .mh-discovery-group { animation: none; flex: 1; flex-wrap: wrap; }
+  .mh-discovery-group[aria-hidden] { display: none; }
 }
 .rh-section-title {
   display: flex;
@@ -829,6 +842,9 @@
 .mh-stacked-campaigns .mh-campaign {
   display: flex;
   min-height: 260px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .mh-stacked-campaigns .mh-campaign > div {
   display: flex;
@@ -849,6 +865,17 @@
   height: 64%;
   right: 0;
   bottom: 0;
+}
+/* Match each silhouette to its source photo. New catalogue photos use the default treatment. */
+.mh-stacked-campaigns img[src$="white-e4a00c4696b5-1953-4444_01.webp"] {
+  --product-mask: url("/images/home/product-card-masks/urucum-jars.svg");
+}
+.mh-stacked-campaigns img[src$="white-4d8cea25854b-2192-5186_01.webp"] {
+  --product-mask: url("/images/home/product-card-masks/yerba-santa-smudge-bundle.png");
+}
+.mh-stacked-campaigns .mh-campaign > img:is([src$="1953-4444_01.webp"], [src$="2192-5186_01.webp"]) {
+  mix-blend-mode: normal;
+  mask: var(--product-mask) center / contain no-repeat;
 }
 .mh-stacked-campaigns .mh-campaign-price {
   font-size: 1.125rem;
@@ -1035,6 +1062,11 @@
   font-size: 0.875rem;
   padding: 9px 18px;
   white-space: nowrap;
+}
+@media (hover: hover) and (pointer: fine) {
+  .rh-tabs button[aria-selected="false"]:hover {
+    background: var(--support-soft);
+  }
 }
 .rh-tabs button[aria-selected="true"] {
   background: var(--green);
@@ -1334,15 +1366,6 @@
   .mh-campaign .mh-button {
     font-size: 0.75rem;
     padding-inline: 15px;
-  }
-  .mh-discovery-strip > div {
-    overflow-x: auto;
-    scrollbar-width: none;
-    gap: 35px;
-  }
-  .mh-discovery-strip :is(span, a) {
-    white-space: nowrap;
-    font-size: 0.8125rem;
   }
   .rh-product-track,
   .rh-tab-products:not([hidden]) {
