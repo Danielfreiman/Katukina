@@ -1,20 +1,24 @@
 # Artes dos banners por categoria
 
-As 38 categorias têm duas artes independentes. O site sobrepõe o título, a descrição e o botão à esquerda. Substitua os WebPs nas subpastas abaixo para atualizar a imagem de fundo.
+As categorias têm artes independentes por dispositivo. O site sobrepõe o título e a descrição em HTML. No desktop, o texto fica à esquerda. No celular, fica centralizado no topo da arte.
 
 | Versão | Pasta | Dimensões | Exibição |
 | --- | --- | --- | --- |
 | Desktop | desktop/ | 2880 × 640 px | Telas acima de 640 px |
-| Mobile | mobile/ | 1080 × 720 px | Telas até 640 px |
+| Mobile | mobile/ | 1080 × 1080 px | Telas até 640 px |
+
+### Guias para a arte mobile
+
+Medidas em pixels a partir do canto superior esquerdo. Reserve a metade superior (y = 0–540) para o texto do site, com fundo claro e poucos detalhes. O texto começa a cerca de 86 px do topo e tem margens laterais de 65 px. Centralize o produto no eixo x = 540. Para a foto, use como referência a região entre x = 90–990 e y = 540–990, com centro em (540, 765). Ajuste a escala ao formato do produto, mantendo rótulos e extremidades dentro dessa área.
 
 ## Como substituir
 
 1. Abra no Photoshop o arquivo da categoria e da versão que deseja editar.
-2. Crie a arte de fundo com as fotos que desejar. Reserve uma área clara à esquerda para o título, a descrição e o botão que o site apresenta em HTML. No celular, reserve a metade esquerda para esse conteúdo. A metade direita fica livre para a foto.
+2. Crie a arte com fundo e foto. Deixe a tipografia a cargo do site e use as guias acima no arquivo mobile.
 3. Exporte em WebP no perfil sRGB, usando as dimensões acima.
 4. Substitua o arquivo mantendo o mesmo nome e recarregue a página.
 
-Em Rapé, os arquivos são desktop/rape.webp e mobile/rape.webp. A arte cobre todo o banner e pode sofrer recorte nas bordas conforme o espaço ocupado pelo texto. O botão leva à lista de produtos da categoria. Na categoria vazia, leva à loja.
+Em Rapé, os arquivos são desktop/rape.webp e mobile/rape.webp. As artes móveis anteriores, em formato horizontal, recebem recorte central enquanto são substituídas pelas quadradas.
 
 Os arquivos provisórios são cinza. Os arquivos antigos guardados diretamente nesta pasta servem como referência. A vitrine usa as subpastas desktop/ e mobile/.
 

@@ -137,22 +137,26 @@
 }
 @media (max-width: 640px) {
   .category-reference .category-campaign {
-    min-height: calc((100vw - 40px) * 2 / 3);
+    align-items: flex-start;
+    aspect-ratio: 1;
+    min-height: 0;
   }
   .category-reference .category-campaign-copy {
-    width: 46%;
-    padding: 16px 8px 16px 16px;
+    width: 100%;
+    padding: 8% 6% 0;
+    text-align: center;
   }
   .category-reference .category-campaign h2 {
-    font-size: clamp(1.125rem, 5vw, 1.25rem);
-    font-weight: 800;
+    font-size: clamp(1.25rem, 5.65vw, 1.5rem);
+    font-weight: var(--weight-bold);
     line-height: 1.15;
     letter-spacing: -0.025em;
   }
   .category-reference .category-campaign p {
+    max-width: 38ch;
     font-size: var(--text-ui);
-    line-height: 1.4;
-    margin-top: 8px;
+    line-height: 1.5;
+    margin: 6px auto 0;
   }
 }
 .category-reference .category-discovery {

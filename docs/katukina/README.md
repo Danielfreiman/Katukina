@@ -1,5 +1,7 @@
 # Discovery Katukina
 
+**Banners de categoria no celular · 24/11/2026.** Até 640 px, o banner é quadrado, com título e descrição centralizados no topo. As novas artes usam 1080 × 1080 px e produto centralizado abaixo do texto. [Medidas e arquivos por categoria](../../public/images/collections/banners/LEIA-ME.md)
+
 **24/11/2026 · Rodapé compartilhado.** Uma linha contínua de 1 px em verde folha separa o conteúdo do rodapé em toda a largura da vitrine.
 
 **24/11/2026 · Catálogo.** A pedido do responsável, a loja, a busca e as coleções deixam de exibir o resumo da faixa de preços abaixo dos resultados.

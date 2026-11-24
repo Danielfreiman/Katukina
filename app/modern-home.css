@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   row-gap: var(--layout-section);
-  background: var(--warm-white);
+  background: var(--bg);
   color: var(--ink);
 }
 .mh-wrap {

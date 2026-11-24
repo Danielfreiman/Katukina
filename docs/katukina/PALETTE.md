@@ -1,5 +1,7 @@
 # Paleta Katukina — urucum, verde folha e neutros
 
+**Fundo geral da vitrine · 24/11/2026.** A pedido do responsável, o branco puro (`--bg`, `#FFFFFF`) aplicado inicialmente à coleção Rapé passa a ser o fundo geral de todas as páginas públicas, incluindo os intervalos entre seções da home. Cabeçalho, rodapé e superfícies de componentes conservam suas cores próprias.
+
 **Vigente em 24/11/2026.** A prancheta 04 confirma os seis valores da identidade. Carvão e verde folha compõem o logotipo, urucum identifica a ação principal, branco quente forma o fundo da página e o respiro da marca, cinza claro separa elementos e cinza médio identifica textos complementares. Cabeçalho e rodapé usam branco quente. [Manual de identidade visual](design/Katukina_Identidade_Visual.pdf)
 
 **Exceções de campanha reconfirmadas pelo responsável em 24/11/2026.** “natural rhythm.” mantém o dourado `#F4AC30`, “Rapé” o marrom `#582F12` e “Sananga” o azul `#80ADDE`. Essas cores têm uso restrito às respectivas campanhas.

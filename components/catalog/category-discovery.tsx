@@ -60,14 +60,14 @@ export async function CategoryDiscovery({
                 media="(max-width: 640px)"
                 srcSet={mobile}
                 width={1080}
-                height={720}
+                height={1080}
               />
             )}
             <img
               src={banner}
               alt=""
               width={desktop ? 2880 : 1080}
-              height={desktop ? 640 : 720}
+              height={desktop ? 640 : 1080}
             />
           </picture>
         )}

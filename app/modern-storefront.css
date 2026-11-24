@@ -1,7 +1,6 @@
 ﻿/* Public storefront redesign, authorised 2026-11-16. Zilly Home 05 reference. */
 :root {
   /* Official brand primitives and semantic roles inherit from globals.css. */
-  --bg: var(--warm-white);
   --surface: var(--warm-white);
   --accent: var(--primary);
   --accent-ink: var(--on-color);
