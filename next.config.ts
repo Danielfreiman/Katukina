@@ -19,6 +19,15 @@ const nextConfig: NextConfig = {
   },
   // WordPress requires /wp-admin/; Next's automatic slash removal would loop.
   skipTrailingSlashRedirect: true,
+  async redirects() {
+    return [
+      {
+        source: "/pagina-inexistente",
+        destination: "/page-not-found",
+        permanent: true,
+      },
+    ];
+  },
   async rewrites() {
     const paths = [
       "/wp-admin/:path+",

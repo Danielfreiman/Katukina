@@ -1,5 +1,7 @@
 # Discovery Katukina
 
+**24/11/2026 · CONFIRMADO pelo responsável.** Os textos e endereços dos links de navegação da vitrine devem estar em inglês. O endereço de exemplo da página 404 é `/page-not-found`.
+
 **24/11/2026 · CONFIRMADO pelo responsável.** Na página de endereço inexistente, o número 404 ocupa o maior destaque visual acima da mensagem e do link para a home.
 
 **24/11/2026 · CONFIRMADO no catálogo local.** Os 1.592 anexos de produto voltaram a usar as fotos com a marca d’água lateral. A verificação HTTP conferiu os 1.592 arquivos e as 1.535 referências de imagem dos 370 produtos públicos, sem divergências. [Aplicação e reversão](PHOTOS-WATERMARK-2026-11-10.md#restauração-dos-vínculos-em-24112026)
