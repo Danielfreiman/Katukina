@@ -211,37 +211,7 @@ export async function CatalogPage({
             </nav>
           )}
           {products.data.length ? (
-            category ? (
-              <>
-                <ProductGrid products={products.data.slice(0, 4)} />
-                {products.data.length > 4 && (
-                  <>
-                    <aside
-                      className="category-subscribe"
-                      aria-label="Collection updates"
-                    >
-                      <span className="collection-mail-stamp" aria-hidden="true">
-                        <Mail size={28} strokeWidth={1.5} />
-                      </span>
-                      <div>
-                        <h2>Stay connected to the collection</h2>
-                        <p>
-                          Get new product announcements and stories from
-                          Katukina by email.
-                        </p>
-                      </div>
-                      <Link href="/subscribe" className="button light">
-                        Get email updates
-                        <ArrowRight size={16} aria-hidden="true" />
-                      </Link>
-                    </aside>
-                    <ProductGrid products={products.data.slice(4)} />
-                  </>
-                )}
-              </>
-            ) : (
-              <ProductGrid products={products.data} />
-            )
+            <ProductGrid products={products.data} />
           ) : (
             <div className="no-results">
               <h2>No discoveries here just yet.</h2>
@@ -306,6 +276,23 @@ export async function CatalogPage({
           )}
         </section>
       </div>
+      {category && products.data.length > 4 && (
+        <aside className="category-subscribe" aria-label="Collection updates">
+          <span className="collection-mail-stamp" aria-hidden="true">
+            <Mail size={28} strokeWidth={1.5} />
+          </span>
+          <div>
+            <h2>Stay connected to the collection</h2>
+            <p>
+              Get new product announcements and stories from Katukina by email.
+            </p>
+          </div>
+          <Link href="/subscribe" className="button light">
+            Get email updates
+            <ArrowRight size={16} aria-hidden="true" />
+          </Link>
+        </aside>
+      )}
       <RecentlyViewed />
     </main>
   );

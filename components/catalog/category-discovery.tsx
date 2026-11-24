@@ -73,16 +73,7 @@ export async function CategoryDiscovery({
         )}
         <div className="category-campaign-copy">
           <h2>{copy.heading}</h2>
-          <p className="category-campaign-description">{copy.description}</p>
-          <p className="category-campaign-description-mobile">
-            {copy.mobileDescription}
-          </p>
-          <Link
-            href={category.count ? "#category-products" : "/shop"}
-            className="button primary"
-          >
-            {copy.action}
-          </Link>
+          <p>{copy.description}</p>
         </div>
       </section>
       {cards.length > 0 && (

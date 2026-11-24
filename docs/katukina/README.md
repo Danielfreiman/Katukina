@@ -1,5 +1,9 @@
 # Discovery Katukina
 
+**24/11/2026 · CONFIRMADO pelo responsável.** Os banners das categorias exibem o título e a descrição completa no desktop e no celular. O botão de navegação foi removido, e o subtexto ganhou mais destaque.
+
+**24/11/2026 · CONFIRMADO pelo responsável.** Nas páginas de coleção com mais de quatro produtos nos resultados da página atual, a faixa “Stay connected to the collection” fica logo antes de “Recently viewed”, após a listagem e a paginação.
+
 **23/11/2026 · Confirmado na vitrine local.** Os formulários usam 18 px após o título e os campos comerciais têm raio de 8 px. A inscrição acompanha a largura da conta até 440 px. A abertura da loja e da busca usa 24 px entre a trilha e a introdução. [Auditoria e verificação das correções em cinco larguras](ESPACAMENTOS-E-RAIOS-2026-11-23.md)
 
 **23/11/2026 · CONFIRMADO na vitrine local.** Os cards de produto da loja, das coleções, dos relacionados e dos vistos recentemente seguem a referência da home, com categoria sobre a foto, destaque verde da ação e a mesma elevação, sombra e ampliação da imagem ao passar o mouse.
