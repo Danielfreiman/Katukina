@@ -1,5 +1,9 @@
 # Discovery Katukina
 
+**24/11/2026 · Rodapé compartilhado.** Uma linha contínua de 1 px em verde folha separa o conteúdo do rodapé em toda a largura da vitrine.
+
+**24/11/2026 · Catálogo.** A pedido do responsável, a loja, a busca e as coleções deixam de exibir o resumo da faixa de preços abaixo dos resultados.
+
 [Registro completo da identidade visual de 24/11/2026](IDENTIDADE-VISUAL-2026-11-24.md) · Fontes, pranchetas, cores, exceções, implementação e validação local.
 
 **24/11/2026 · Identidade da vitrine.** O manual fornecido pelo responsável passa a reger as assinaturas Katukina.com, o respiro e a aplicação das seis cores. As três exceções cromáticas das campanhas da home foram reconfirmadas. [Assinaturas e arquivos de uso](ASSETS.md#assinaturas-vigentes-em-24112026) · [Paleta](PALETTE.md)

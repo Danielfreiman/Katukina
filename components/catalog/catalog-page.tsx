@@ -6,7 +6,7 @@ import {
   getProducts,
   getBrands,
 } from "@/lib/commerce/catalog";
-import { Category, categoryTrail, formatPrice } from "@/lib/commerce/product";
+import { Category, categoryTrail } from "@/lib/commerce/product";
 import {
   SearchParams,
   parseCatalogQuery,
@@ -257,22 +257,6 @@ export async function CatalogPage({
                 </Link>
               )}
             </nav>
-          )}
-          {aggregate.price_range && currency && (
-            <p className="catalog-range">
-              Price range in these results:{" "}
-              {formatPrice(
-                aggregate.price_range.min_price,
-                currency,
-                precision,
-              )}{" "}
-              –{" "}
-              {formatPrice(
-                aggregate.price_range.max_price,
-                currency,
-                precision,
-              )}
-            </p>
           )}
         </section>
       </div>

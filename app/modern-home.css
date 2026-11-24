@@ -890,7 +890,7 @@
   margin: 16px 0 0;
 }
 /* Match each silhouette to its source photo. New catalogue photos use the default treatment. */
-.mh-stacked-campaigns img[src$="white-e4a00c4696b5-1953-4444_01.webp"] {
+.mh-stacked-campaigns img[src$="1953-4444_01.webp"] {
   --product-mask: url("/images/home/product-card-masks/urucum-jars.svg");
 }
 .mh-stacked-campaigns img[src$="white-4d8cea25854b-2192-5186_01.webp"] {

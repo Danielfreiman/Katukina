@@ -404,6 +404,7 @@ html .purchase-fields input,
 }
 html .site-footer {
   border: 0;
+  border-top: 1px solid var(--leaf);
   border-radius: 0;
   background: var(--warm-white);
   color: var(--ink);
