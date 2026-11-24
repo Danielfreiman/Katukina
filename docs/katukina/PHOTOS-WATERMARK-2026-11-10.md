@@ -56,3 +56,13 @@ Danilo solicitou atualizar todas as fotos usando o mesmo RAR. O SHA-256 atual co
 - Recibo adicional privado: `revalidation-2026-11-11.json` no lote. `git diff --check` aprovado. Não foram repetidos typecheck/build, pois nenhum código da aplicação foi alterado.
 
 Escopo local, sem commit, push ou deploy.
+
+## Restauração dos vínculos em 24/11/2026
+
+A Store API local voltou a indicar o lote anterior nas 1.535 referências públicas. O RAR disponível tem o mesmo SHA-256 registrado acima. Os originais com marca e as miniaturas da aplicação anterior já existiam nos uploads. O lote privado `catalog-webp-watermark-2026-11-24` restaurou os vínculos após conferir a identidade dos anexos, os hashes dos originais e cinco dimensões de miniatura por imagem.
+
+O backup SQL imediatamente anterior passou por restauração isolada. O verificador do WordPress confirmou os 1.592 anexos, a preservação dos arquivos anteriores e a integridade dos dados comerciais e operacionais. A verificação HTTP conferiu os 370 produtos públicos, suas 1.535 referências de imagem e os 1.592 arquivos completos, sem erros.
+
+Na galeria de produto, o controle Zoom fica no canto inferior esquerdo para deixar visível o símbolo no canto inferior direito. A coleção Rapé e a galeria Yawanawa Tonka carregaram imagens do lote marcado em 390 e 1440 px. A abertura e o fechamento do zoom passaram nas duas larguras. Typecheck aprovado.
+
+Os recibos e o estado anterior dos anexos ficam no diretório privado do lote. Para reverter especificamente esta atualização local, use `node wordpress/scripts/update-catalog-webp.mjs rollback catalog-webp-watermark-2026-11-24`.

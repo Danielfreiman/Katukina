@@ -1180,6 +1180,30 @@ button.text-link {
 .empty-page .button {
   margin-top: 15px;
 }
+.not-found-page {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  min-height: 65vh;
+  padding: var(--layout-section) 20px;
+  text-align: center;
+}
+.not-found-page h1 {
+  margin: 0;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+}
+.not-found-code {
+  display: block;
+  margin-bottom: 24px;
+  font-family: var(--font-display);
+  font-size: clamp(6rem, 34vw, 15rem);
+  font-weight: var(--weight-bold);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+.not-found-page p {
+  margin: 8px 0 24px;
+}
 .product-page .breadcrumbs {
   margin: 35px 0;
 }

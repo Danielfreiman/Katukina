@@ -1,5 +1,9 @@
 # Discovery Katukina
 
+**24/11/2026 · CONFIRMADO pelo responsável.** Na página de endereço inexistente, o número 404 ocupa o maior destaque visual acima da mensagem e do link para a home.
+
+**24/11/2026 · CONFIRMADO no catálogo local.** Os 1.592 anexos de produto voltaram a usar as fotos com a marca d’água lateral. A verificação HTTP conferiu os 1.592 arquivos e as 1.535 referências de imagem dos 370 produtos públicos, sem divergências. [Aplicação e reversão](PHOTOS-WATERMARK-2026-11-10.md#restauração-dos-vínculos-em-24112026)
+
 **24/11/2026 · CONFIRMADO pelo responsável.** Os banners das categorias exibem o título e a descrição completa no desktop e no celular. O botão de navegação foi removido, e o subtexto ganhou mais destaque.
 
 **24/11/2026 · CONFIRMADO pelo responsável.** Nas páginas de coleção com mais de quatro produtos nos resultados da página atual, a faixa “Stay connected to the collection” fica logo antes de “Recently viewed”, após a listagem e a paginação.

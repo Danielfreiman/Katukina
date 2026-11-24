@@ -29,7 +29,7 @@
   border: 1px solid var(--line);
   border-radius: 24px;
   bottom: 12px;
-  right: 12px;
+  left: 12px;
 }
 .pdp-reference .gallery-navigation button {
   border-radius: 24px;
