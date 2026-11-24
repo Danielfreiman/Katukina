@@ -1,5 +1,9 @@
 # Discovery Katukina
 
+**24/11/2026 · CONFIRMADO pelo responsável.** A faixa abaixo do hero apresenta mensagens de marca em inglês sobre qualidade, procedência internacional, raízes amazônicas e opções de envio rápido conforme o destino.
+
+**24/11/2026 · CONFIRMADO pelo responsável.** Na home, a faixa “Explore Katukina” fica entre o banner principal e a seção “Shop by category”.
+
 **24/11/2026 · CONFIRMADO pelo responsável.** Os textos e endereços dos links de navegação da vitrine devem estar em inglês. O endereço de exemplo da página 404 é `/page-not-found`.
 
 **24/11/2026 · CONFIRMADO pelo responsável.** Na página de endereço inexistente, o número 404 ocupa o maior destaque visual acima da mensagem e do link para a home.

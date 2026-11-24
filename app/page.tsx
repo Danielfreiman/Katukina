@@ -3,7 +3,7 @@ import { existsSync } from "node:fs";
 import path from "node:path";
 import {
   Leaf,
-  BookOpen,
+  Truck,
   Package,
   Globe2,
   ChevronRight,
@@ -368,6 +368,28 @@ export default async function Home() {
           </div>
         </div>
       </HomeHeroSlider>
+      <nav className="mh-discovery-strip" aria-label="Explore Katukina">
+        <div className="mh-discovery-window">
+          <div className="mh-discovery-track">
+            {[false, true].map((copy) => (
+              <div className="mh-discovery-group" key={String(copy)} aria-hidden={copy || undefined}>
+                <Link href="/shop" tabIndex={copy ? -1 : undefined}>
+                  <Leaf aria-hidden="true" /> Selected with care for quality
+                </Link>
+                <Link href="/collections" tabIndex={copy ? -1 : undefined}>
+                  <Globe2 aria-hidden="true" /> Sourced from around the world
+                </Link>
+                <Link href="/about" tabIndex={copy ? -1 : undefined}>
+                  <Leaf aria-hidden="true" /> Rooted in Amazonian traditions
+                </Link>
+                <Link href="/shipping" tabIndex={copy ? -1 : undefined}>
+                  <Truck aria-hidden="true" /> Fast shipping options by destination
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </nav>
       <section className="mh-wrap mh-categories" aria-label="Shop by category">
         <SectionTitle title="Shop by category" href="/collections" link="View all categories" />
         <CategoryCarousel className="mh-category-grid" label="Product categories">
@@ -426,28 +448,6 @@ export default async function Home() {
           </Link>
         ))}
       </div>
-      <nav className="mh-discovery-strip" aria-label="Explore Katukina">
-        <div className="mh-discovery-window">
-          <div className="mh-discovery-track">
-            {[false, true].map((copy) => (
-              <div className="mh-discovery-group" key={String(copy)} aria-hidden={copy || undefined}>
-                <Link href="/shop" tabIndex={copy ? -1 : undefined}>
-                  <Globe2 aria-hidden="true" /> Quality botanicals from Peru, Kenya, Sumatra and beyond
-                </Link>
-                <Link href="/shipping" tabIndex={copy ? -1 : undefined}>
-                  <Package aria-hidden="true" /> Check delivery options for your destination
-                </Link>
-                <Link href="/collections" tabIndex={copy ? -1 : undefined}>
-                  <Leaf aria-hidden="true" /> Explore incense, essential oils and herbal teas
-                </Link>
-                <Link href="/journal" tabIndex={copy ? -1 : undefined}>
-                  <BookOpen aria-hidden="true" /> Discover the stories behind the botanicals
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </nav>
       <div className="mh-wrap">
         <HomeRail
           title="Featured products"
