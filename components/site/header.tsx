@@ -191,6 +191,7 @@ export function SiteHeader({
             {[
               {
                 title: "Account & information",
+                appearance: "information",
                 links: [
                   ["My account", "/account"],
                   ["Shipping & destinations", "/shipping"],
@@ -212,8 +213,8 @@ export function SiteHeader({
                   `/collections/${category.slug}`,
                 ])],
               },
-            ].map(({ title, links }) => (
-              <section className="mobile-navigation-group" key={title} aria-label={title}>
+            ].map(({ title, appearance, links }) => (
+              <section className="mobile-navigation-group" data-appearance={appearance} key={title} aria-label={title}>
                 <h2>{title}</h2>
                 {links.map(([label, href]) => (
                   <Link

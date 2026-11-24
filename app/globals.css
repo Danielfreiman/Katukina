@@ -572,6 +572,15 @@ button.text-link {
   color: var(--green);
   font-size: var(--text-ui);
 }
+.mobile-navigation-group[data-appearance="information"] {
+  --mobile-information-bg: color-mix(in srgb, var(--warm-white) 95%, var(--ink));
+}
+.mobile-navigation-group[data-appearance="information"] a:not(:hover, :focus-visible) {
+  background-color: var(--mobile-information-bg);
+}
+.mobile-navigation-group[data-appearance="information"] a {
+  padding-inline: 12px;
+}
 .mobile-navigation a {
   display: flex;
   align-items: center;
