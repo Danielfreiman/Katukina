@@ -1,5 +1,11 @@
 # Discovery Katukina
 
+**24/11/2026 · Vitrine local.** O menu mobile reúne conta, entrega e história em “Account & information”, antes da lista contínua “Product categories”.
+
+**24/11/2026 · Vitrine local.** O banner de acesso à conta ocupa o fundo atrás do formulário. Exportar a arte em WebP, 2400 × 1200 px, como `public/images/account/account-banner.webp`, com o assunto principal à direita.
+
+**24/11/2026 · Vitrine local.** O formulário de conta permanece em uma coluna à esquerda, com fundo branco, borda discreta e espaçamento interno responsivo.
+
 **24/11/2026 · CONFIRMADO pelo responsável.** A faixa abaixo do hero apresenta mensagens de marca em inglês sobre qualidade, procedência internacional, raízes amazônicas e opções de envio rápido conforme o destino.
 
 **24/11/2026 · CONFIRMADO pelo responsável.** Na home, a faixa “Explore Katukina” fica entre o banner principal e a seção “Shop by category”.

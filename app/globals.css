@@ -564,6 +564,14 @@ button.text-link {
 .mobile-navigation {
   padding: 16px 24px 26px;
 }
+.mobile-navigation-group + .mobile-navigation-group {
+  margin-top: 24px;
+}
+.mobile-navigation-group h2 {
+  margin: 0 0 4px;
+  color: var(--green);
+  font-size: var(--text-ui);
+}
 .mobile-navigation a {
   display: flex;
   align-items: center;
@@ -1891,9 +1899,44 @@ button.text-link {
 .commerce-summary > h2 {
   margin-bottom: 24px;
 }
-.account-form,
 .subscribe-page > .commerce-form {
   max-width: 440px;
+}
+.commerce-page .account-form {
+  width: 100%;
+  max-width: 504px;
+  padding: clamp(18px, 3vw, 32px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  background: var(--white);
+}
+.account-form > p {
+  margin-block: 0;
+}
+.account-form a {
+  color: var(--green);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.commerce-page .account-form .text-link {
+  align-self: flex-start;
+}
+.commerce-page.account-content {
+  padding-bottom: var(--layout-section);
+}
+.account-banner {
+  background: linear-gradient(90deg, var(--warm-white), transparent 70%),
+    url("/images/account/account-banner.webp") center / cover no-repeat;
+}
+.account-banner:has(.account-welcome) {
+  background: var(--warm-white);
+}
+@media (max-width: 640px) {
+  .account-banner {
+    background-position: center, 75% center;
+    background-image: linear-gradient(to bottom, var(--warm-white), transparent 40%),
+      url("/images/account/account-banner.webp");
+  }
 }
 .commerce-form input, .commerce-form select, .coupon-form input {
   font-family: var(--font-body);

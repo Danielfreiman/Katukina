@@ -189,12 +189,17 @@ export function SiteHeader({
             aria-label="Mobile navigation"
           >
             {[
-              navigation[0],
-              ...categoryNavigation,
-              ...navigation.slice(1),
-              ["Shipping & destinations", "/shipping"],
-              ["My account", "/account"],
-              ...categories
+              {
+                title: "Account & information",
+                links: [
+                  ["My account", "/account"],
+                  ["Shipping & destinations", "/shipping"],
+                  ...navigation.slice(1),
+                ],
+              },
+              {
+                title: "Product categories",
+                links: [navigation[0], ...categoryNavigation, ...categories
                 .filter(
                   (category) =>
                     category.count > 0 &&
@@ -205,17 +210,23 @@ export function SiteHeader({
                 .map((category) => [
                   plainText(category.name),
                   `/collections/${category.slug}`,
-                ]),
-            ].map(([label, href]) => (
-              <Link
-                key={href}
-                href={href}
-                aria-current={pathname === href ? "page" : undefined}
-                data-active={isActive(href)}
-                onClick={() => setPanel(null)}
-              >
-                {label}
-              </Link>
+                ])],
+              },
+            ].map(({ title, links }) => (
+              <section className="mobile-navigation-group" key={title} aria-label={title}>
+                <h2>{title}</h2>
+                {links.map(([label, href]) => (
+                  <Link
+                    key={href}
+                    href={href}
+                    aria-current={pathname === href ? "page" : undefined}
+                    data-active={isActive(href)}
+                    onClick={() => setPanel(null)}
+                  >
+                    {label}
+                  </Link>
+                ))}
+              </section>
             ))}
           </nav>
         )}
