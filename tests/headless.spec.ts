@@ -136,7 +136,8 @@ test("same-origin WordPress login, protected modules and live catalogue/content"
       data: {
         title: `Journal integration ${suffix}`,
         slug,
-        content: "<p>Published editorial fixture.</p>",
+        content:
+          "<p>Published editorial fixture.</p><div><h2>Origins</h2><p>First chapter.</p><h3>Notes</h3><ul><li>A field note.</li></ul></div><h2>Origins</h2><p>Second chapter.</p>",
         status: "publish",
       },
     });
@@ -145,6 +146,23 @@ test("same-origin WordPress login, protected modules and live catalogue/content"
     expect(await (await request.get(`/journal/${slug}`)).text()).toContain(
       "Published editorial fixture.",
     );
+    await page.goto(`/journal/${slug}`);
+    const publishedArticle = page.getByRole("article");
+    await expect(
+      publishedArticle.getByRole("heading", { level: 2 }),
+    ).toHaveCount(2);
+    await expect(
+      publishedArticle.getByRole("heading", { name: "Notes", level: 3 }),
+    ).toBeVisible();
+    await expect(publishedArticle.getByRole("listitem")).toHaveText(
+      "A field note.",
+    );
+    const links = page
+      .getByRole("navigation", { name: "On this page" })
+      .getByRole("link", { name: "Origins" });
+    await expect(links).toHaveCount(2);
+    await expect(links.first()).toHaveAttribute("href", "#chapter-origins");
+    await expect(links.last()).toHaveAttribute("href", "#chapter-origins-2");
   } finally {
     if (productId)
       expect(

@@ -1,0 +1,36 @@
+.inventory {
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.inventory::-webkit-scrollbar {
+  height: 8px;
+}
+.inventory table {
+  width: 100%;
+  min-width: 36rem;
+  border-collapse: collapse;
+  font-size: var(--text-body);
+  line-height: 1.5;
+}
+.inventory caption {
+  padding-bottom: 12px;
+  text-align: start;
+  font-weight: var(--weight-semibold);
+}
+.inventory :is(th, td) {
+  padding: 12px;
+  border: 1px solid var(--line);
+  text-align: start;
+  vertical-align: top;
+}
+.inventory th {
+  background: var(--soft);
+}
+.inventory th:first-child {
+  width: 27%;
+}
+.inventory code {
+  font-size: 0.875em;
+}

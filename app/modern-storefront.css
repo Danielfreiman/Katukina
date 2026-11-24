@@ -59,6 +59,7 @@ html .site-note {
   padding: 2px 5px;
 }
 html .header-wrap {
+  background: var(--warm-white);
   border-color: var(--line);
   box-shadow: 0 5px 12px -6px rgb(41 44 39 / 22%);
 }
@@ -404,7 +405,7 @@ html .purchase-fields input,
 html .site-footer {
   border: 0;
   border-radius: 0;
-  background: #ffffff;
+  background: var(--warm-white);
   color: var(--ink);
 }
 html main.page-content {
@@ -417,9 +418,13 @@ html .footer-top {
   padding-block: var(--layout-section);
 }
 .site-footer .footer-full-logo {
-  width: 210px;
-  margin: 0 0 22px;
+  width: 158px;
+  margin: 0;
   filter: none;
+}
+.site-footer .footer-intro > a {
+  display: inline-block;
+  margin-bottom: 12px;
 }
 .site-footer .footer-intro h2 {
   font-size: 1.25rem;

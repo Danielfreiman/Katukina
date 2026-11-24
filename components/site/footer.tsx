@@ -6,13 +6,13 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div className="shell footer-top">
         <div className="footer-intro">
-          <a href="/#top" aria-label="Katukina — home">
+          <a href="/#top" aria-label="Katukina.com — home">
             <img
               className="footer-full-logo"
-              src="/images/brand/katukina-logo-horizontal.svg"
-              alt="Katukina"
-              width={600}
-              height={120}
+              src="/images/brand/katukina-logo-vertical.svg"
+              alt="Katukina.com"
+              width={440}
+              height={308}
             />
           </a>
           <h2>Nature. Culture. Connection.</h2>

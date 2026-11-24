@@ -1,5 +1,20 @@
 # Assets do frontend Katukina
 
+## Assinaturas vigentes em 24/11/2026
+
+**CONFIRMADO pelo responsável.** O manual de identidade fornecido nesta data é a referência para a marca Katukina.com na vitrine. As pranchetas finais 06 e 07 do Illustrator e do PDF contêm os mesmos 16 contornos coloridos em cada assinatura. [Manual de identidade visual](design/Katukina_Identidade_Visual.pdf)
+
+| Aplicação local | Arquivo | Construção |
+| --- | --- | --- |
+| Cabeçalho | `public/images/brand/katukina-logo-horizontal.svg` | Prancheta 06, 969,3 × 238,5 |
+| Rodapé | `public/images/brand/katukina-logo-vertical.svg` | Prancheta 07, 439,5 × 308,173 |
+| Imagem indisponível e catálogo vazio | `public/images/brand/katukina-tree.svg` | Quatro contornos do símbolo da prancheta 06 |
+| Ícone de aba | `app/icon.svg` | Mesmo símbolo centralizado em um quadrado branco quente |
+
+As duas assinaturas têm fundo transparente. O espaço livre de ¼ da altura do símbolo (13,25 módulos por lado) já faz parte do SVG. Exibir com altura automática e preservar toda a prancheta. O nome em Sora Bold 700 está em curvas. “.com”, base e tronco usam verde folha, e “Katukina” e a copa usam carvão. A atribuição das variantes ao cabeçalho e ao rodapé é uma escolha de aplicação da vitrine.
+
+**Verificação local em 24/11/2026.** Typecheck, build, auditoria da paleta e os dois testes Playwright de home e navegação passaram. Em 320, 390 e 1440 px, as duas assinaturas carregaram nas proporções das pranchetas, com fundo computado `rgb(247, 247, 242)` e sem rolagem horizontal na página. Uma falha de imagem simulada no navegador confirmou a exibição do símbolo no catálogo.
+
 ## Especificação vigente — 11/11/2026
 
 **Para os banners em dupla da home, usar [BANNERS.md](BANNERS.md): 2400 × 1800 px, 4:3, WebP/sRGB, em `public/images/home/banners/`.** Três arquivos independentes: `discover-katukina.webp`, `tepi-kuripe.webp`, `sacred-incense.webp`. Mesma arte no desktop/celular.

@@ -66,14 +66,14 @@ export function SiteHeader({
           <a
             href="/#top"
             className="wordmark"
-            aria-label="Katukina — home"
+            aria-label="Katukina.com — home"
             onClick={() => setPanel(null)}
           >
             <Image
               src="/images/brand/katukina-logo-horizontal.svg"
-              alt="Katukina"
-              width={600}
-              height={120}
+              alt="Katukina.com"
+              width={969}
+              height={239}
               className="header-logo"
               loading="eager"
               unoptimized

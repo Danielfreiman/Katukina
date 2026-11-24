@@ -4,7 +4,7 @@
   --radius-field: 8px;
   --radius-card: 8px;
   --radius-control: var(--radius-field);
-  /* Approved source: docs/katukina/design/Katukina_Paleta_e_Aplicacoes.svg */
+  /* Brand manual, board 04: docs/katukina/design/Katukina_Identidade_Visual.pdf */
   --urucum: #782e26;
   --leaf: #526b35;
   --warm-white: #f7f7f2;
@@ -2051,7 +2051,6 @@ button.text-link {
   align-items: center;
   background: var(--warm-white);
 }
-.hero-campaign-incense { --hero-overlay: #3b2619; }
 .hero-campaign > picture {
   position: absolute;
   inset: 0;

@@ -1,5 +1,9 @@
 # Privacidade e consentimento — 2026-10-27
 
+## Apresentação da política em 24/11/2026
+
+**CONFIRMADO na vitrine local.** A pedido do responsável, `/privacy` apresenta um índice dos seis capítulos ao lado do texto, com destaque para a seção em leitura. No celular, o índice pode ser expandido antes do aviso de loja de teste. Os títulos têm links diretos, os dados da empresa usam rótulos próprios e os parágrafos têm largura limitada para leitura. A data editorial da política continua sendo 27/10/2026. O teste de navegação em `tests/privacy.spec.ts` verificou os seis destinos por teclado a 320, 390, 820 e 1440 px.
+
 ## Escopo e evidências
 
 **CONFIRMADO:** o responsável solicitou política e consentimento de cookies e adequações às regras europeias. O escopo técnico foi aplicado à vitrine Next.js local. Na União Europeia, a referência é GDPR/RGPD e a legislação nacional que transpõe ePrivacy, não a LGPD brasileira. Não houve publicação ou alteração do site de produção.

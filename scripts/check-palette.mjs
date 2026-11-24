@@ -17,8 +17,28 @@ for (const [name, hex] of Object.entries(palette)) {
 }
 const canonical = color => color.length === 4 ? '#' + [...color.slice(1)].map(c => c + c).join('') : color.toLowerCase();
 const allowed = new Set([...Object.values(palette), '#000000']);
-for (const file of ['app/globals.css', 'app/catalog.css', 'app/privacy.css', 'app/icon.svg']) {
-  for (const color of readFileSync(file, 'utf8').match(/#[a-f\d]{3,8}\b/gi) || []) assert(allowed.has(canonical(color)), `Unapproved color in ${file}: ${color}`);
+for (const file of ['app/globals.css', 'app/catalog.css', 'app/privacy.css', 'app/modern-storefront.css', 'app/modern-home.css', 'app/icon.svg']) {
+  let styles = readFileSync(file, 'utf8');
+  if (file === 'app/modern-home.css') {
+    // Only these three hero title declarations have campaign-specific colors.
+    for (const [selector, hex] of [
+      ['.mh-hero h1 em', '#f4ac30'],
+      ['.mh-hero h1 .mh-hero-rape-title em', '#582f12'],
+      ['.mh-hero h1 .mh-hero-sananga-title', '#80adde'],
+    ]) {
+      const start = styles.indexOf(selector + ' {');
+      const end = styles.indexOf('}', start);
+      const rule = styles.slice(start, end);
+      assert(start >= 0 && rule.includes(`color: ${hex};`), `Campaign color drift: ${selector}`);
+      styles = styles.slice(0, start) + rule.replace(hex, 'inherit') + styles.slice(end);
+    }
+  }
+  for (const color of styles.match(/#[a-f\d]{3,8}\b/gi) || []) assert(allowed.has(canonical(color)), `Unapproved color in ${file}: ${color}`);
+}
+for (const asset of ['katukina-logo-horizontal', 'katukina-logo-vertical', 'katukina-tree']) {
+  const svg = readFileSync(`public/images/brand/${asset}.svg`, 'utf8');
+  const fills = [...svg.matchAll(/\bfill="(#[a-f\d]+)"/gi)].map(match => canonical(match[1]));
+  assert.deepEqual(new Set(fills), new Set([palette.charcoal, palette.leaf]), `Logo colors: ${asset}`);
 }
 const channels = hex => [1, 3, 5].map(offset => parseInt(hex.slice(offset, offset + 2), 16));
 const mix = (a, b, fraction) => a.map((value, i) => value * fraction + b[i] * (1 - fraction));

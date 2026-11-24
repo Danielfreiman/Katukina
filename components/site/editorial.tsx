@@ -1,7 +1,9 @@
 import { notFound } from "next/navigation";
 import { getEditorial } from "@/lib/wordpress/content";
 import { plainText } from "@/lib/wordpress/text";
-import { PageIntro } from "./page-intro";
+import Link from "next/link";
+import { readingContent } from "@/lib/wordpress/reading-content";
+import { ReadingPage } from "./reading-page";
 export async function EditorialPage({
   type,
   slug,
@@ -11,20 +13,25 @@ export async function EditorialPage({
 }) {
   const article = await getEditorial(type, slug);
   if (!article) notFound();
+  const title = plainText(article.title.rendered);
+  const { introduction, chapters } = readingContent(article.content.rendered);
   return (
-    <main id="content" className="shell page-content">
-      <PageIntro
-        title={plainText(article.title.rendered)}
-        eyebrow={type === "posts" ? "THE JOURNAL" : "KATUKINA"}
-      />
-      <article className="editorial-text">
-        {plainText(article.content.rendered)
-          .split(/\n\s*\n/)
-          .filter(Boolean)
-          .map((paragraph, index) => (
-            <p key={index}>{paragraph}</p>
-          ))}
-      </article>
-    </main>
+    <ReadingPage
+      title={title}
+      chapters={chapters}
+      breadcrumb={
+        <nav className="breadcrumbs" aria-label="Breadcrumb">
+          <Link href="/">Home</Link> /
+          {type === "posts" && (
+            <>
+              <Link href="/journal">The journal</Link> /
+            </>
+          )}
+          <span aria-current="page">{title}</span>
+        </nav>
+      }
+    >
+      {introduction}
+    </ReadingPage>
   );
 }

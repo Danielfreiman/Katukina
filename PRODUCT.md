@@ -58,6 +58,8 @@ O frontend deve tornar compreensíveis as opções, o preço e a disponibilidade
 
 ## Brand Commitments
 
+- **Confirmado em 24/11/2026.** O manual fornecido por Danilo rege a identidade Katukina.com. Usar as assinaturas em curvas, com o respiro e as cores das pranchetas finais. As três cores específicas das campanhas da home foram reconfirmadas. [Manual](docs/katukina/design/Katukina_Identidade_Visual.pdf) · [Aplicações](docs/katukina/ASSETS.md#assinaturas-vigentes-em-24112026)
+
 - **Paleta oficial reafirmada por Danilo em 16/11/2026:** aplicar urucum `#782E26`, verde folha `#526B35`, branco quente `#F7F7F2`, cinza claro `#D3D4CF`, cinza médio `#595957` e carvão `#292C27` em toda a vitrine, mantendo a identidade xamânica e a estrutura moderna. Esta instrução substitui as cores esmeralda/amarelo/pastéis do primeiro teste Zilly. Branco quente volta a ser o fundo predominante; branco puro permanece disponível nas fotos e superfícies preexistentes. Urucum identifica ações principais; verde folha sustenta navegação e apoio. Fundos lisos, sem pattern, conforme pedido posterior de Danilo. O visual antigo continua preservado.
 
 - **Redesign confirmado em 16/11/2026:** Danilo autorizou mudar toda a estética pública, inclusive cores, seguindo as capturas de Zilly Home 05 e usando o catálogo existente. Esta solicitação substitui as restrições visuais anteriores de paleta, geometria e composição abaixo, preservadas como histórico. Sistema vigente em `DESIGN.md`; implementação em `app/modern-storefront.css` e `app/modern-home.css`; escopo em [MODERN-STOREFRONT-2026-11-16.md](docs/katukina/MODERN-STOREFRONT-2026-11-16.md). Marca, fotos e verdade comercial continuam preservadas.

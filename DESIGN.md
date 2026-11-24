@@ -109,6 +109,8 @@ Documento extraído de `app/modern-storefront.css`, `app/modern-home.css`, `app/
 
 ## Colors
 
+As assinaturas Katukina.com usam a arte em curvas, horizontal no cabeçalho e vertical no rodapé, sobre branco quente. A área de proteção de H/4 já está incorporada às duas pranchetas. O favicon e os estados de catálogo sem imagem usam o símbolo bicolor. As três exceções de campanha da home estão registradas na paleta. [Especificação das assinaturas](docs/katukina/ASSETS.md#assinaturas-vigentes-em-24112026) · [Paleta](docs/katukina/PALETTE.md)
+
 A seção Conexão Ancestral na home segue a identidade própria da ONG. O guia registra os cinco valores oficiais, os papéis de cada cor, os estados do botão e a grade de fotografias. [Guia da Conexão Ancestral](docs/katukina/CONEXAO-ANCESTRAL.md)
 
 ### Primary
@@ -117,7 +119,7 @@ Urucum (`primary`) identifica ações principais, incluindo busca e CTA do hero.
 
 ### Secondary
 
-Verde folha (`green`) identifica navegação, foco, seleção e ações de apoio; também sustenta faixa superior e rodapé. `accent` é um alias de `primary` usado pela busca.
+Verde folha (`green`) identifica navegação, foco, seleção e ações de apoio. `accent` é um alias de `primary` usado pela busca.
 
 ### Tertiary
 
@@ -151,7 +153,7 @@ O header prioriza marca, busca, conta e carrinho. Até (1200px), o atalho editor
 
 A profundidade vem sobretudo de superfícies claras e contraste de escala. Cards do catálogo permanecem sem sombra e sem elevação no hover. O header tem uma sombra discreta (`0 5px 22px -17px var(--shadow-soft)`); o produto complementar sobreposto ao hero usa uma sombra localizada (`0 14px 30px -14px var(--shadow-soft)`).
 
-Foco visível usa contorno verde (2px) e afastamento (4px); nas áreas verdes do rodapé e da faixa superior, o contorno é branco quente. O foco interno nos cards também destaca a área do produto.
+Foco visível no rodapé usa contorno verde de 2 px sobre o fundo branco quente, com afastamento de 4 px. O foco interno nos cards também destaca a área do produto.
 
 ## Shapes
 

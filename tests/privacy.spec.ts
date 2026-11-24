@@ -8,6 +8,60 @@ import {
   parseConsent,
 } from "../lib/privacy/consent";
 
+for (const route of ["/privacy", "/cookies"])
+  test(`${route} chapters can be reached from the index on desktop and mobile`, async ({
+    page,
+  }) => {
+    await page.goto(route);
+    await page
+      .getByRole("button", { name: "Reject optional", exact: true })
+      .click();
+    const index = page.getByRole("navigation", { name: "On this page" });
+    const headings = page.locator("article h2");
+    await expect(headings).toHaveCount(6);
+    for (const width of [1440, 820, 390, 320]) {
+      await page.setViewportSize({ width, height: 844 });
+      for (const heading of await headings.all()) {
+        if (width <= 760) {
+          await index.locator("summary").focus();
+          await page.keyboard.press("Enter");
+        }
+        const link = index.getByRole("link", {
+          name: await heading.innerText(),
+          exact: true,
+        });
+        await link.focus();
+        await page.keyboard.press("Enter");
+        await expect(heading).toBeFocused();
+        const id = await heading.getAttribute("id");
+        await expect(page).toHaveURL(new RegExp(`#${id}$`));
+        await expect(index.locator(`a[href="#${id}"]`).first()).toHaveAttribute(
+          "aria-current",
+          "location",
+        );
+        await expect
+          .poll(() =>
+            heading.evaluate((el) => {
+              const top = el.getBoundingClientRect().top;
+              return (
+                top >=
+                  document
+                    .querySelector(".header-wrap")!
+                    .getBoundingClientRect().bottom -
+                    1 && top < innerHeight
+              );
+            }),
+          )
+          .toBe(true);
+      }
+      expect(
+        await page.evaluate(
+          () => document.documentElement.scrollWidth <= innerWidth,
+        ),
+      ).toBe(true);
+    }
+  });
+
 test("consent records deny invalid, old, expired or future choices", () => {
   const now = Date.now();
   const valid = {

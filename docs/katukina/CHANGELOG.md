@@ -1,5 +1,9 @@
 # Histórico do discovery Katukina
 
+## 2026-11-24 — Manual de identidade aplicado à vitrine
+
+As assinaturas oficiais passaram ao cabeçalho e ao rodapé. O favicon e os estados do catálogo que exibem a marca passaram a usar o símbolo bicolor. O responsável reconfirmou as três exceções de campanha. [Registro da implementação e dos testes](IDENTIDADE-VISUAL-2026-11-24.md)
+
 ## 2026-11-18 — Recuperação de falhas temporárias do WordPress
 
 - **CONFIRMADO por logs locais.** A tela de erro em Kuripe & Tepi coincidiu com respostas HTTP 503 dos endpoints de categorias e configuração de comércio, registradas pelo WordPress entre 14h49min13s e 14h49min22s, horário de São Paulo. Na inspeção seguinte, o backend e a página responderam HTTP 200. A causa interna dessa indisponibilidade breve permanece a validar.

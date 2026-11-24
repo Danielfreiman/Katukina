@@ -1,5 +1,9 @@
 # Paleta Katukina — urucum, verde folha e neutros
 
+**Vigente em 24/11/2026.** A prancheta 04 confirma os seis valores da identidade. Carvão e verde folha compõem o logotipo, urucum identifica a ação principal, branco quente forma o fundo da página e o respiro da marca, cinza claro separa elementos e cinza médio identifica textos complementares. Cabeçalho e rodapé usam branco quente. [Manual de identidade visual](design/Katukina_Identidade_Visual.pdf)
+
+**Exceções de campanha reconfirmadas pelo responsável em 24/11/2026.** “natural rhythm.” mantém o dourado `#F4AC30`, “Rapé” o marrom `#582F12` e “Sananga” o azul `#80ADDE`. Essas cores têm uso restrito às respectivas campanhas.
+
 > **Conexão Ancestral, confirmado em 23/11/2026.** A seção institucional da ONG na home usa uma paleta própria de cinco cores. Seus valores e aplicações estão no [guia da seção Conexão Ancestral](CONEXAO-ANCESTRAL.md).
 
 > **Ajuste posterior confirmado por Danilo em 16/11/2026:** “Rapé” no título do banner 02 passa para `#F2AC59`, substituindo `#5A2F03`.

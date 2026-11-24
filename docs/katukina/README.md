@@ -1,5 +1,11 @@
 # Discovery Katukina
 
+[Registro completo da identidade visual de 24/11/2026](IDENTIDADE-VISUAL-2026-11-24.md) · Fontes, pranchetas, cores, exceções, implementação e validação local.
+
+**24/11/2026 · Identidade da vitrine.** O manual fornecido pelo responsável passa a reger as assinaturas Katukina.com, o respiro e a aplicação das seis cores. As três exceções cromáticas das campanhas da home foram reconfirmadas. [Assinaturas e arquivos de uso](ASSETS.md#assinaturas-vigentes-em-24112026) · [Paleta](PALETTE.md)
+
+**24/11/2026 · Vitrine local.** As políticas de privacidade e cookies, as páginas de conteúdo do WordPress e os artigos do Journal compartilham o padrão editorial. Textos com pelo menos dois capítulos mostram o índice lateral no desktop e recolhível no celular. Nos conteúdos do WordPress, os títulos de maior nível no corpo definem os capítulos. Textos curtos como o artigo de exemplo usam uma coluna. [Políticas e navegação](PRIVACY-COOKIES.md)
+
 **24/11/2026 · Vitrine local.** O menu mobile reúne conta, entrega e história em “Account & information”, antes da lista contínua “Product categories”.
 
 **24/11/2026 · Vitrine local.** O banner de acesso à conta ocupa o fundo atrás do formulário. Exportar a arte em WebP, 2400 × 1200 px, como `public/images/account/account-banner.webp`, com o assunto principal à direita.

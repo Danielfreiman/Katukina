@@ -784,7 +784,7 @@
 }
 .mh-banner-body h2,
 .mh-banner-body p {
-  color: #fff;
+  color: var(--warm-white);
 }
 .mh-discover-layout {
   display: grid;
@@ -823,7 +823,7 @@
   padding: 28px;
 }
 .mh-campaign[data-has-artwork="true"] h2 {
-  color: #292c27;
+  color: var(--ink);
 }
 .mh-campaign > img.mh-campaign-artwork {
   inset: 0;
@@ -988,7 +988,7 @@
   overflow: hidden;
   min-height: 640px;
   padding: 28px;
-  background: #315f3e;
+  background: var(--leaf);
   color: var(--warm-white);
   border-radius: 9px;
 }
