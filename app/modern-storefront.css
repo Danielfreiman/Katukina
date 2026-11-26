@@ -406,6 +406,8 @@ html .footer-top {
 }
 .site-footer .footer-intro > a {
   display: inline-block;
+  /* Align the artwork past the SVG's 39.75-unit inset on its 439.5-unit canvas. */
+  transform: translateX(-9.044%);
   margin-bottom: 12px;
 }
 .site-footer .footer-intro h2 {
