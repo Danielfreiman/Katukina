@@ -41,7 +41,6 @@ export function SiteFooter() {
             <Link href="/privacy">Privacy notice</Link>
             <Link href="/cookies">Cookie policy</Link>
             <Link href="/shipping">Delivery information</Link>
-            <Link href="/collections/sacred-incense">Explore incense</Link>
           </div>
         </div>
         <div className="footer-news">

@@ -17,7 +17,7 @@
   top: calc(var(--header-height) + 24px);
 }
 .pdp-reference .gallery-main {
-  border: 0;
+  border: 1px solid var(--line);
   border-radius: 12px;
   padding: 20px;
   background: var(--white);

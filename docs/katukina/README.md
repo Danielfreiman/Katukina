@@ -1,5 +1,9 @@
 # Discovery Katukina
 
+**26/11/2026 · Foto principal do produto.** A galeria usa a mesma borda cinza de 1 px e os mesmos cantos de 12 px do painel “Your selection”.
+
+**26/11/2026 · Rodapé.** O link “Explore incense” foi removido da coluna “A little guidance”.
+
 **26/11/2026 · Fundo da inscrição.** Na página `/subscribe`, o painel “Get email updates” usa o grafismo da Katukina em verde-folha sobre branco quente.
 
 **26/11/2026 · Inscrição por e-mail.** Em `/subscribe`, uma fotografia editorial da coleção de incensos acompanha a apresentação das novidades, histórias e ofertas. O formulário explica a confirmação por e-mail e dá acesso ao aviso de privacidade. A verificação em Chromium cobriu cinco larguras entre 320 e 1440 px, consentimento e validação do endereço. Os estados de falha, nova tentativa e solicitação aceita foram testados com respostas simuladas da API.
