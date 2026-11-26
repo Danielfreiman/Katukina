@@ -1,5 +1,7 @@
 # Discovery Katukina
 
+**26/11/2026 · Our roots.** A página `/about` recebe os textos e as fotos em `app/about/content.ts`. O bloco `story` define a abertura e a capa. Cada item de `sections` acrescenta um capítulo com título e parágrafos, além de foto e link opcionais. Para fotos locais, coloque o arquivo em `public/images/` e informe o caminho público, a descrição alternativa e as dimensões.
+
 **26/11/2026 · Página Collections.** Todas as coleções aparecem em uma grade alfabética de cartões quadrados, cada um com a fotografia e o título da categoria. O cartão inteiro abre a coleção. A busca aceita diferenças de maiúsculas e acentos.
 
 **26/11/2026 · [Auditoria e correções de navegação](AUDITORIA-FRONTEND-2026-11-26.md).** O responsável confirmou como definitivos as cores e o contraste atuais. A vitrine recebeu ajustes na busca por teclado, nos nomes acessíveis de produtos e zoom, na hierarquia de títulos e na navegação por regiões.
