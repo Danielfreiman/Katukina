@@ -1056,8 +1056,23 @@
 .mh-edit .rh-section-title > a {
   display: none;
 }
-.mh-edit .mh-small-product {
-  margin-block: 24px;
+@media (width > 1200px) {
+  .mh-arrivals-layout > div {
+    display: flex;
+    flex-direction: column;
+  }
+  .mh-arrivals-grid {
+    flex: 1;
+  }
+  .mh-edit {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .mh-edit .rh-section-title {
+    margin-bottom: 0;
+  }
 }
 .mh-edit .mh-small-product > div {
   max-width: 85px;
@@ -1102,7 +1117,8 @@
   scrollbar-width: none;
 }
 .mh-service-band {
-  margin-bottom: clamp(20px, 2vw, 32px);
+  --service-spacing: calc((var(--layout-section) + clamp(20px, 2vw, 32px)) / 2);
+  margin-block: calc(var(--service-spacing) - var(--layout-section)) var(--service-spacing);
   background: var(--charcoal);
   color: var(--on-color);
 }

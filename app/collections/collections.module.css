@@ -38,6 +38,14 @@
   background: transparent;
   font: inherit;
 }
+.search:has(input:focus-visible) {
+  border-color: var(--green);
+  outline: 1px solid var(--green);
+  outline-offset: 0;
+}
+.search input:focus-visible {
+  outline: none;
+}
 .search button {
   display: grid;
   place-items: center;

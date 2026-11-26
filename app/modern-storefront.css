@@ -82,6 +82,16 @@ html .header-search-slot {
   background: transparent;
   font-size: 0.9375rem;
 }
+.header-wrap .inline-search .search:has(input:focus-visible),
+.catalog-search-field input:focus-visible,
+.catalog-filter-form input[type="search"]:focus-visible {
+  border-color: var(--green);
+  outline: 1px solid var(--green);
+  outline-offset: 0;
+}
+.header-wrap .inline-search .search input:focus-visible {
+  outline: none;
+}
 .header-wrap .inline-search .search > svg {
   color: var(--muted);
 }
