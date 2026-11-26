@@ -11,8 +11,7 @@ export default async function Shipping() {
     "/wp-json/katukina/v1/commerce/config",
   );
   return (
-    <main id="content" className="shell page-content commerce-page">
-      <p className="eyebrow">FROM US TO YOU</p>
+    <main id="content" className="shell page-content commerce-page shipping-page">
       <h1>Shipping & destinations</h1>
       <ShippingCalculator config={data} />
     </main>

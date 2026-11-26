@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import { Truck } from "lucide-react";
 import { Cart, CommerceConfig, formatMoney } from "@/lib/commerce/types";
 import { commerceRequest } from "./cart";
 export function ShippingCalculator({ config }: { config: CommerceConfig }) {
@@ -34,14 +35,16 @@ export function ShippingCalculator({ config }: { config: CommerceConfig }) {
     }
   }
   return (
-    <div className="commerce-layout">
+    <div className="shipping-estimator">
       <form className="commerce-form" onSubmit={estimate}>
         <h2>Estimate delivery for your bag</h2>
         <label>
           Country
           <select
+            autoComplete="shipping country"
+            disabled={busy}
             value={country}
-            onChange={(e) => setCountry(e.target.value)}
+            onChange={(e) => { setCountry(e.target.value); setCart(undefined); setError(""); }}
             required
           >
             {Object.entries(config.countries).map(([code, name]) => (
@@ -54,8 +57,10 @@ export function ShippingCalculator({ config }: { config: CommerceConfig }) {
         <label>
           Postcode
           <input
+            autoComplete="shipping postal-code"
+            disabled={busy}
             value={postcode}
-            onChange={(e) => setPostcode(e.target.value)}
+            onChange={(e) => { setPostcode(e.target.value); setCart(undefined); setError(""); }}
             required
           />
         </label>
@@ -71,15 +76,11 @@ export function ShippingCalculator({ config }: { config: CommerceConfig }) {
           Explore the collection
         </Link>
       </form>
-      <section className="commerce-summary">
-        <h2>Delivery options</h2>
-        {config.local_checkout && (
-          <p className="commerce-notice">
-            Local preview. The test delivery service does not dispatch goods.
-          </p>
-        )}
-        {config.notices[country]?.note && <p>{config.notices[country].note}</p>}
-        {cart ? (
+      <section className="shipping-results" aria-labelledby="shipping-results-title">
+        <Truck size={32} strokeWidth={1.5} aria-hidden="true" />
+        <h2 id="shipping-results-title">Delivery options</h2>
+        <div aria-live="polite" aria-busy={busy}>
+        {cart && !cart.shipping_rates.length ? <p>No service is available for this address.</p> : cart ? (
           cart.shipping_rates.map((pack) =>
             pack.shipping_rates.length ? (
               pack.shipping_rates.map((rate) => (
@@ -100,13 +101,19 @@ export function ShippingCalculator({ config }: { config: CommerceConfig }) {
           )
         ) : (
           <p>
-            Select your destination to see the available services for the items
-            in your bag.
+            Enter your destination to see delivery services and prices for the items in your bag.
           </p>
         )}
+        </div>
         <Link href="/cart" className="text-link">
           Review your bag
         </Link>
+        {(config.notices[country]?.note || config.local_checkout) && (
+          <div className="shipping-notes">
+            {config.notices[country]?.note && <p>{config.notices[country].note}</p>}
+            {config.local_checkout && <p>Local preview. The test delivery service does not dispatch goods.</p>}
+          </div>
+        )}
       </section>
     </div>
   );

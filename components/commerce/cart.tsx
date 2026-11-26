@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { ShoppingBag } from "lucide-react";
 import { Cart, CommerceConfig, formatMoney } from "@/lib/commerce/types";
 import { plainText } from "@/lib/wordpress/text";
 import { commerceRequest, loadCheckoutContext } from "@/lib/commerce/client";
@@ -99,25 +100,27 @@ export function CartView() {
     return (
       <p role={error ? "alert" : "status"}>{error || "Loading your bag…"}</p>
     );
+  const notice = config?.local_checkout
+          ? "Local preview. Orders are for testing; no payment or dispatch takes place."
+          : "Prices and availability are confirmed by the shop at checkout.";
   return (
     <>
-      <p className="commerce-notice">
-        {config?.local_checkout
-          ? "Local preview. Orders are for testing; no payment or dispatch takes place."
-          : "Prices and availability are confirmed by the shop at checkout."}
-      </p>
+      {cart.items.length > 0 && <p className="commerce-notice">{notice}</p>}
       {error && (
         <p role="alert" className="commerce-error">
           {error}
         </p>
       )}
       {!cart.items.length ? (
-        <div className="commerce-empty">
-          <h2>Your bag is empty.</h2>
-          <Link href="/shop" className="button primary">
-            Explore the collection
-          </Link>
-        </div>
+        <section className="empty-bag" aria-labelledby="empty-bag-title">
+          <ShoppingBag size={44} strokeWidth={1.4} aria-hidden="true" />
+          <h2 id="empty-bag-title">Your bag is empty.</h2>
+          <nav aria-label="Continue shopping">
+            <Link href="/shop" className="button primary">Explore the collection</Link>
+            <Link href="/collections" className="text-link">Browse by category</Link>
+          </nav>
+          <p>{notice}</p>
+        </section>
       ) : (
         <div className="commerce-layout">
           <section aria-label="Bag items">
