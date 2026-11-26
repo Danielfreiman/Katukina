@@ -60,7 +60,7 @@ html .site-note {
 html .header-wrap {
   background: var(--warm-white);
   border-color: var(--line);
-  box-shadow: 0 5px 12px -6px rgb(41 44 39 / 22%);
+  box-shadow: 0 5px 12px -5px rgb(41 44 39 / 28%);
 }
 html .site-header {
   height: 94px;

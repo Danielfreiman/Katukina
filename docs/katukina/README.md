@@ -1,5 +1,7 @@
 # Discovery Katukina
 
+**26/11/2026 · Cabeçalho da vitrine.** A sombra abaixo da navegação ganhou um pouco mais de intensidade para destacar o cabeçalho sobre o banner da home.
+
 **26/11/2026 · Títulos dos cartões de coleções.** Nomes com exatamente duas palavras exibem uma palavra por linha. A verificação no Chromium confirmou as duas linhas nos 17 títulos correspondentes, em nove larguras entre 320 e 1600 px.
 
 **26/11/2026 · Shop by category.** O carrossel da home escolhe uma foto distinta por categoria. Quando os produtos candidatos não oferecem outra foto, usa a arte própria da coleção, se disponível. A verificação no navegador comparou os pixels das 37 miniaturas renderizadas e encontrou 37 imagens distintas.
