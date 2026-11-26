@@ -5,7 +5,7 @@ import { useRef, useState } from "react";
 import { Search, X } from "lucide-react";
 import styles from "./collections.module.css";
 
-type Entry = { id: number; name: string; slug: string; photo: string };
+type Entry = { id: number; name: string; slug: string; photo: string; hasBanner: boolean };
 
 function searchText(value: string) {
   return value.normalize("NFD").replace(/\p{M}/gu, "").toLowerCase().trim();
@@ -59,17 +59,18 @@ export function CollectionDirectory({ entries }: { entries: Entry[] }) {
       </header>
       {matches.length ? (
         <ul className={styles.list}>
-          {matches.map(({ id, slug, name, photo }, index) => (
+          {matches.map(({ id, slug, name, photo, hasBanner }, index) => (
             <li key={id}>
               <Link href={`/collections/${slug}`}>
                 <img
                   src={photo}
                   alt=""
-                  width={1080}
-                  height={1080}
+                  className={hasBanner ? undefined : styles.fallbackPhoto}
+                  width={hasBanner ? 2880 : undefined}
+                  height={hasBanner ? 640 : undefined}
                   loading={index < 4 ? "eager" : "lazy"}
                 />
-                <span>{name}</span>
+                <span>{name.replace(/^(\S+)\s+(\S+)$/, "$1\n$2")}</span>
               </Link>
             </li>
           ))}

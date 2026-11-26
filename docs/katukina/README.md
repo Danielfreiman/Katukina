@@ -1,10 +1,12 @@
 # Discovery Katukina
 
+**26/11/2026 · Títulos dos cartões de coleções.** Nomes com exatamente duas palavras exibem uma palavra por linha. A verificação no Chromium confirmou as duas linhas nos 17 títulos correspondentes, em nove larguras entre 320 e 1600 px.
+
 **26/11/2026 · Shop by category.** O carrossel da home escolhe uma foto distinta por categoria. Quando os produtos candidatos não oferecem outra foto, usa a arte própria da coleção, se disponível. A verificação no navegador comparou os pixels das 37 miniaturas renderizadas e encontrou 37 imagens distintas.
 
 **26/11/2026 · Our roots.** A página `/about` recebe os textos e as fotos em `app/about/content.ts`. O bloco `story` define a abertura e a capa. Cada item de `sections` acrescenta um capítulo com título e parágrafos, além de foto e link opcionais. Para fotos locais, coloque o arquivo em `public/images/` e informe o caminho público, a descrição alternativa e as dimensões.
 
-**26/11/2026 · Página Collections.** Todas as coleções aparecem em uma grade alfabética de cartões quadrados, cada um com a fotografia e o título da categoria. O cartão inteiro abre a coleção. A busca aceita diferenças de maiúsculas e acentos.
+**26/11/2026 · Página Collections.** A grade alfabética usa cartões retangulares com o título à esquerda e a arte horizontal da categoria com o produto à direita. Na verificação a 1440 × 900 px, 36 cartões ficaram inteiramente visíveis antes da primeira rolagem, com o aviso de cookies fechado. A 390 × 844 px, apareceram cinco em uma coluna. O cartão inteiro abre a coleção. Ao passar o mouse, o cartão recebe um contorno verde e a foto amplia 3,5% em 280 ms. Com movimento reduzido, o destaque usa apenas o contorno. A busca aceita diferenças de maiúsculas e acentos.
 
 **26/11/2026 · [Auditoria e correções de navegação](AUDITORIA-FRONTEND-2026-11-26.md).** O responsável confirmou como definitivos as cores e o contraste atuais. A vitrine recebeu ajustes na busca por teclado, nos nomes acessíveis de produtos e zoom, na hierarquia de títulos e na navegação por regiões.
 

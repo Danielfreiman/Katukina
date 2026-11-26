@@ -14,7 +14,7 @@ export default async function Collections() {
     categories.map(async ({ id, name, slug, image }) => {
       const banner = /^[a-z0-9_-]+$/.test(slug)
         ? await publicImageUrl(
-            `/images/collections/banners/mobile/${slug}.webp`,
+            `/images/collections/banners/desktop/${slug}.webp`,
           )
         : null;
       return {
@@ -22,6 +22,7 @@ export default async function Collections() {
         name: plainText(name),
         slug,
         photo: banner || image?.src || "/images/brand/katukina-tree.svg",
+        hasBanner: Boolean(banner),
       };
     }),
   );

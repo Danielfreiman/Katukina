@@ -57,41 +57,73 @@
 }
 .list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr));
-  gap: clamp(12px, 1.6vw, 24px);
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 13rem), 1fr));
+  gap: 12px;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 .list a {
-  display: block;
+  display: flex;
+  align-items: center;
   position: relative;
-  aspect-ratio: 1;
+  width: 100%;
+  min-height: 76px;
+  aspect-ratio: 3 / 1;
   border-radius: var(--radius-card);
   overflow: hidden;
-  background: var(--warm-white);
+  background: var(--green);
 }
 .list img {
+  position: absolute;
+  inset: 0;
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: 82% center;
+}
+.list .fallbackPhoto {
+  inset-inline-start: auto;
+  width: 44%;
+  object-fit: contain;
+  object-position: right bottom;
+}
+.list a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgb(0 0 0 / 58%) 0%, rgb(0 0 0 / 48%) 40%, transparent 70%);
+  pointer-events: none;
 }
 .list span {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  max-width: calc(100% - 24px);
+  position: relative;
+  z-index: 1;
+  width: 57%;
+  box-sizing: border-box;
+  padding: 8px 0 8px 12px;
   color: var(--white);
   text-shadow: 0 1px 3px rgb(0 0 0 / 65%);
   font-family: var(--font-display);
-  font-size: clamp(0.875rem, 1.15vw, 1.125rem);
+  font-size: 0.875rem;
   font-weight: var(--weight-semibold);
   line-height: 1.3;
+  white-space: pre-line;
   overflow-wrap: anywhere;
 }
-.list a:hover span {
-  text-decoration: underline;
+@media (hover: hover) and (pointer: fine) {
+  .list a:hover {
+    outline: 2px solid var(--green);
+    outline-offset: 2px;
+  }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .list img {
+    transition: transform 280ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .list a:hover img {
+    transform: scale(1.035);
+  }
 }
 .empty {
   padding-block: 16px;
@@ -109,9 +141,13 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
   }
-  .list span {
-    top: 10px;
-    left: 10px;
-    max-width: calc(100% - 20px);
+}
+@media (max-width: 480px) {
+  .list {
+    grid-template-columns: 1fr;
+  }
+  .list a {
+    aspect-ratio: 4.5 / 1;
+    min-height: 64px;
   }
 }
