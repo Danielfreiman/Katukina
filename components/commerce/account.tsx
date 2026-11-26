@@ -41,6 +41,7 @@ export function AccountView({ artwork }: { artwork?: string }) {
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
   const [register, setRegister] = useState(false);
+  const featureImage = register ? "/images/account/welcome/account-register.webp" : artwork;
   const [page, setPage] = useState(1);
   useEffect(() => {
     account("session", undefined, page)
@@ -144,7 +145,7 @@ export function AccountView({ artwork }: { artwork?: string }) {
         <div className="account-entry">
           <figure className="account-feature">
             <div className="account-feature-art" aria-hidden="true">
-              {artwork && <img src={artwork} alt="" width={1200} height={1000} />}
+              {featureImage && <img src={featureImage} alt="" width={1200} height={1000} />}
             </div>
             <figcaption>
               <h2>A world of discoveries</h2>
