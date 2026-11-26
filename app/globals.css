@@ -1908,8 +1908,16 @@ button.text-link {
 .commerce-summary > h2 {
   margin-bottom: 24px;
 }
-.subscribe-page > .commerce-form {
-  max-width: 440px;
+.collection-mail-stamp {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 60px;
+  color: var(--leaf);
+  background: var(--warm-white);
+  outline: 1px dashed var(--leaf);
+  outline-offset: -5px;
+  transform: rotate(-5deg);
 }
 .commerce-page .account-form {
   width: 100%;

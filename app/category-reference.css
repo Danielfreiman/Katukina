@@ -260,17 +260,6 @@
   opacity: var(--green-pattern-opacity);
   pointer-events: none;
 }
-.collection-mail-stamp {
-  display: grid;
-  place-items: center;
-  width: 52px;
-  height: 60px;
-  color: var(--leaf);
-  background: var(--warm-white);
-  outline: 1px dashed var(--leaf);
-  outline-offset: -5px;
-  transform: rotate(-5deg);
-}
 .category-reference .category-subscribe h2 {
   color: inherit;
   font-family: var(--font-display);

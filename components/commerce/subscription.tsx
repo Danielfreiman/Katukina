@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
-import { commerceRequest } from "./cart";
+import { Send } from "lucide-react";
+import { commerceRequest } from "@/lib/commerce/client";
 
 export function SubscriptionForm({ productId }: { productId?: number }) {
   const [email, setEmail] = useState("");
@@ -31,12 +32,13 @@ export function SubscriptionForm({ productId }: { productId?: number }) {
   }
   return (
     <form className="commerce-form" onSubmit={submit}>
-      {productId ? <h2>Notify me when available</h2> : <h1>Email updates</h1>}
+      {productId ? <h2>Notify me when available</h2> : null}
       <label>
-        Email
+        Email address
         <input
           type="email"
           autoComplete="email"
+          placeholder="you@example.com"
           required
           value={email}
           onChange={(event) => setEmail(event.target.value)}
@@ -56,6 +58,7 @@ export function SubscriptionForm({ productId }: { productId?: number }) {
         by email. I can unsubscribe at any time.
       </label>
       <button className="button primary" disabled={busy || !consent}>
+        {!productId && <Send size={16} aria-hidden="true" />}
         {busy ? "Sending request…" : "Request email confirmation"}
       </button>
       {message && <p aria-live="polite">{message}</p>}

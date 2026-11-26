@@ -1,5 +1,7 @@
 # Discovery Katukina
 
+**26/11/2026 · Inscrição por e-mail.** Em `/subscribe`, uma fotografia editorial da coleção de incensos acompanha a apresentação das novidades, histórias e ofertas. O formulário explica a confirmação por e-mail e dá acesso ao aviso de privacidade. A verificação em Chromium cobriu cinco larguras entre 320 e 1440 px, consentimento e validação do endereço. Os estados de falha, nova tentativa e solicitação aceita foram testados com respostas simuladas da API.
+
 **26/11/2026 · Cabeçalho da vitrine.** A sombra abaixo da navegação ganhou um pouco mais de intensidade para destacar o cabeçalho sobre o banner da home.
 
 **26/11/2026 · Títulos dos cartões de coleções.** Nomes com exatamente duas palavras exibem uma palavra por linha. A verificação no Chromium confirmou as duas linhas nos 17 títulos correspondentes, em nove larguras entre 320 e 1600 px.

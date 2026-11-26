@@ -1,0 +1,111 @@
+.page {
+  padding-block: 24px var(--layout-section);
+}
+.page nav {
+  margin: 0 0 20px;
+}
+.spread {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background: var(--warm-white);
+}
+.cover {
+  position: relative;
+  isolation: isolate;
+  background: var(--charcoal);
+  color: var(--white);
+}
+.cover img {
+  z-index: -2;
+  object-fit: cover;
+  object-position: center 60%;
+}
+.cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(165deg, rgb(22 21 17 / 88%), rgb(22 21 17 / 57%) 41%, transparent 75%);
+}
+.coverCopy,
+.signup {
+  padding: clamp(28px, 4vw, 64px);
+}
+.cover h1 {
+  margin: 0;
+  max-width: 10ch;
+  color: inherit;
+  font-size: clamp(2.5rem, 4.4vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -.035em;
+}
+.cover p {
+  max-width: 35ch;
+  margin: 18px 0 0;
+  font-size: var(--text-lead);
+  line-height: 1.5;
+}
+.signup {
+  display: grid;
+  place-items: center;
+}
+.formColumn {
+  width: min(100%, 440px);
+}
+.formColumn h2 {
+  margin: 20px 0 0;
+  font-size: clamp(1.5rem, 2.6vw, 2.25rem);
+  line-height: 1.15;
+}
+.intro {
+  margin: 10px 0 24px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.formColumn input[type="email"] {
+  background: var(--white);
+}
+.privacy {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 20px;
+  font-size: var(--text-ui);
+  color: var(--green);
+}
+@media (max-width: 760px) {
+  .spread {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .coverCopy {
+    padding: 24px;
+  }
+  .cover img {
+    object-position: center 55%;
+  }
+  .cover::after {
+    background: linear-gradient(90deg, rgb(22 21 17 / 85%), rgb(22 21 17 / 60%) 75%, rgb(22 21 17 / 28%));
+  }
+  .cover h1 {
+    max-width: 15ch;
+    font-size: var(--text-heading);
+  }
+  .cover p {
+    margin-top: 10px;
+    font-size: var(--text-body);
+  }
+  .signup {
+    padding: 24px;
+  }
+  .formColumn > span {
+    float: right;
+    margin-left: 14px;
+    width: 36px;
+    height: 42px;
+  }
+  .formColumn h2 {
+    margin-top: 0;
+  }
+}
