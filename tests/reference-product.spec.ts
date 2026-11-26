@@ -42,12 +42,12 @@ test("PDP merges gallery, variations and purchase summary across screen sizes", 
   await expect(first).toBeChecked();
   await expect(summary.getByTestId("product-price")).toHaveText(price);
   await page
-    .getByRole("button", { name: "Enlarge product image", exact: true })
+    .getByRole("button", { name: "Zoom product image", exact: true })
     .click();
   await expect(page.getByRole("dialog")).toBeVisible();
   await page.keyboard.press("Escape");
   await expect(
-    page.getByRole("button", { name: "Enlarge product image", exact: true }),
+    page.getByRole("button", { name: "Zoom product image", exact: true }),
   ).toBeFocused();
   for (const width of [1440, 1024, 768, 390, 320]) {
     await page.setViewportSize({ width, height: 1000 });

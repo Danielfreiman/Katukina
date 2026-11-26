@@ -109,6 +109,7 @@ export async function CatalogPage({
       pages,
     ]),
   ).sort((a, b) => a - b);
+  const pageHref = (page: number) => `${catalogHref(path, query, { page })}#category-products`;
   return (
     <main
       id="content"
@@ -169,9 +170,11 @@ export async function CatalogPage({
         />
         <section
           className="catalog-results"
-          id={category ? "category-products" : undefined}
-          aria-label="Product results"
+          id="category-products"
+          tabIndex={-1}
+          aria-labelledby="catalog-results-heading"
         >
+          <h2 id="catalog-results-heading" className="sr-only">Product results</h2>
           <div className="catalog-results-toolbar">
             <p className="catalog-result-count" role="status">
               <strong>{products.total}</strong>{" "}
@@ -228,7 +231,7 @@ export async function CatalogPage({
             <nav className="catalog-pagination" aria-label="Pagination">
               {query.page > 1 && (
                 <Link
-                  href={catalogHref(path, query, { page: query.page - 1 })}
+                  href={pageHref(query.page - 1)}
                   aria-label="Previous page"
                 >
                   Previous
@@ -240,7 +243,7 @@ export async function CatalogPage({
                     <span className="pagination-gap">…</span>
                   )}
                   <Link
-                    href={catalogHref(path, query, { page: number })}
+                    href={pageHref(number)}
                     aria-label={`Page ${number}`}
                     aria-current={number === query.page ? "page" : undefined}
                   >
@@ -250,7 +253,7 @@ export async function CatalogPage({
               ))}
               {query.page < pages && (
                 <Link
-                  href={catalogHref(path, query, { page: query.page + 1 })}
+                  href={pageHref(query.page + 1)}
                   aria-label="Next page"
                 >
                   Next

@@ -379,12 +379,12 @@ test("native variations, gallery, real cart validation and uncertain responses",
         await customer.locator(".gallery-main img").getAttribute("src"),
       ).toBe(small.image.src);
     await customer
-      .getByRole("button", { name: "Enlarge product image" })
+      .getByRole("button", { name: "Zoom product image" })
       .click();
     await expect(customer.getByRole("dialog")).toBeVisible();
     await customer.keyboard.press("Escape");
     await expect(
-      customer.getByRole("button", { name: "Enlarge product image" }),
+      customer.getByRole("button", { name: "Zoom product image" }),
     ).toBeFocused();
     await customer.getByRole("spinbutton", { name: "Quantity" }).fill("99");
     await expect(customer.locator("#quantity-error")).toContainText(

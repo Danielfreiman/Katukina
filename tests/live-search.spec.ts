@@ -17,11 +17,31 @@ test("header suggests real products and supports mobile keyboard navigation", as
   const href = await page.getByRole("listbox").getByRole("option").first().getAttribute("href");
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBeTruthy();
   await page.screenshot({ path: "artifacts/live-search-mobile.png" });
+  await input.press("Escape");
+  await expect(page.getByRole("listbox")).toBeHidden();
   await input.press("ArrowDown");
+  await expect(input).toHaveAttribute("aria-expanded", "true");
   await expect(page.getByRole("listbox").getByRole("option").first()).toHaveAttribute("aria-selected", "true");
   await input.press("Enter");
   await expect(page).toHaveURL(new RegExp(`${href}$`));
   await expect(page.locator(".search-results-panel")).toBeHidden();
+});
+
+test("Enter after dismissing an active suggestion searches the catalogue", async ({ page }) => {
+  await page.goto("/shop");
+  await page.getByRole("button", { name: "Reject optional", exact: true }).click();
+  const input = page.getByRole("combobox", { name: "Search the collection" });
+  await input.fill("palo");
+  await expect(page.getByRole("option").filter({ hasText: /palo/i }).first()).toBeVisible();
+  await input.press("ArrowUp");
+  await expect(input).toHaveAttribute("aria-activedescendant", /.+/);
+  await input.press("Escape");
+  await expect(input).not.toHaveAttribute("aria-activedescendant");
+  const timeOrigin = await page.evaluate(() => performance.timeOrigin);
+  await input.press("Enter");
+  await expect(page).toHaveURL(/\/shop\?q=palo$/);
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Results for “palo”");
+  expect(await page.evaluate(() => performance.timeOrigin)).toBe(timeOrigin);
 });
 
 test("suggestions discard outdated responses and handle empty/error results", async ({ page }) => {

@@ -50,7 +50,7 @@ export function SiteHeader({
       <a className="skip" href="#content">
         Skip to content
       </a>
-      <div className="site-note">
+      <section className="site-note" aria-label="Shipping and destination">
         <div className="shell site-note-inner">
           <span>
             <Leaf size={15} /> Nature. Culture. Connection.
@@ -60,7 +60,7 @@ export function SiteHeader({
             <DestinationSelector />
           </div>
         </div>
-      </div>
+      </section>
       <header className="header-wrap">
         <div className="site-header shell">
           <a

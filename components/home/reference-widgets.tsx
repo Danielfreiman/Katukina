@@ -35,9 +35,9 @@ export function HomeCard({ product }: { product: HomeProduct }) {
       <Link
         className="rh-product-photo"
         href={product.href}
-        aria-label={product.name}
       >
         <span className="rh-photo-category">{product.category}</span>
+        <span className="sr-only">{product.name}</span>
         {product.image ? (
           <img
             src={product.image}

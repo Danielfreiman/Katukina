@@ -1,5 +1,9 @@
 # Discovery Katukina
 
+**26/11/2026 · Página Collections.** Todas as coleções aparecem em uma grade alfabética de cartões quadrados, cada um com a fotografia e o título da categoria. O cartão inteiro abre a coleção. A busca aceita diferenças de maiúsculas e acentos.
+
+**26/11/2026 · [Auditoria e correções de navegação](AUDITORIA-FRONTEND-2026-11-26.md).** O responsável confirmou como definitivos as cores e o contraste atuais. A vitrine recebeu ajustes na busca por teclado, nos nomes acessíveis de produtos e zoom, na hierarquia de títulos e na navegação por regiões.
+
 **26/11/2026 · Vitrine local.** Quando há produtos fora da área visível, o carrossel “Recently viewed” aceita arraste e roda do mouse. Com foco no carrossel, as setas esquerda e direita percorrem os produtos, Home volta ao início e End vai ao fim. Ao chegar à extremidade, a roda volta a rolar a página nessa direção.
 
 **Banners de categoria no celular · 24/11/2026.** Até 640 px, o banner é quadrado, com título e descrição centralizados no topo. As novas artes usam 1080 × 1080 px e produto centralizado abaixo do texto. [Medidas e arquivos por categoria](../../public/images/collections/banners/LEIA-ME.md)

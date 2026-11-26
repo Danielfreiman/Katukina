@@ -31,7 +31,7 @@ export function SubscriptionForm({ productId }: { productId?: number }) {
   }
   return (
     <form className="commerce-form" onSubmit={submit}>
-      <h2>{productId ? "Notify me when available" : "Email updates"}</h2>
+      {productId ? <h2>Notify me when available</h2> : <h1>Email updates</h1>}
       <label>
         Email
         <input

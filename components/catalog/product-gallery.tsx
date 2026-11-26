@@ -37,7 +37,7 @@ export function ProductGallery({
         <>
           <button
             className="gallery-main"
-            aria-label="Enlarge product image"
+            aria-label="Zoom product image"
             onClick={() => {
               setZoomed(true);
               dialog.current?.showModal();

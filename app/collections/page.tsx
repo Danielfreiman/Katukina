@@ -1,31 +1,43 @@
 import Link from "next/link";
 import { getCategories } from "@/lib/commerce/catalog";
+import { publicImageUrl } from "@/lib/public-image";
 import { plainText } from "@/lib/wordpress/text";
-import { PageIntro } from "@/components/site/page-intro";
+import { CollectionDirectory } from "./collection-directory";
+import styles from "./collections.module.css";
 export const metadata = {
   title: "Collections",
   alternates: { canonical: "/collections" },
 };
 export default async function Collections() {
   const categories = await getCategories();
+  const entries = await Promise.all(
+    categories.map(async ({ id, name, slug, image }) => {
+      const banner = /^[a-z0-9_-]+$/.test(slug)
+        ? await publicImageUrl(
+            `/images/collections/banners/mobile/${slug}.webp`,
+          )
+        : null;
+      return {
+        id,
+        name: plainText(name),
+        slug,
+        photo: banner || image?.src || "/images/brand/katukina-tree.svg",
+      };
+    }),
+  );
+  entries.sort((a, b) => a.name.localeCompare(b.name, "en"));
   return (
-    <main id="content" className="shell page-content">
-      <PageIntro title="Collections" eyebrow="EXPLORE YOUR CURIOSITY" />
-      <div className="collection-index">
-        {categories.map((category) => (
-          <Link
-            className="collection-index-entry"
-            key={category.id}
-            href={`/collections/${category.slug}`}
-          >
-            <h2>{plainText(category.name)}</h2>
-            <p>{category.count} discoveries</p>
-          </Link>
-        ))}
-      </div>
-      {!categories.length && (
+    <main id="content" className={`shell ${styles.page}`}>
+      <nav className="breadcrumbs" aria-label="Breadcrumb">
+        <Link href="/">Home</Link>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">Collections</span>
+      </nav>
+      {entries.length ? (
+        <CollectionDirectory entries={entries} />
+      ) : (
         <div className="no-results">
-          <h2>New discoveries are on their way.</h2>
+          <h1>Collections</h1>
           <p>Visit again soon to explore our collections.</p>
         </div>
       )}

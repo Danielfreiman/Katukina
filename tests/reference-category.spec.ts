@@ -77,6 +77,7 @@ test("category layout keeps search, sorting, pagination and mobile filters worki
     .getByRole("button", { name: "Close filters", exact: true })
     .click();
   await page.setViewportSize({ width: 1440, height: 1000 });
+  const documentStart = await page.evaluate(() => performance.timeOrigin);
   await page.getByLabel("Sort by", { exact: true }).selectOption("price-asc");
   await expect(page).toHaveURL(/sort=price-asc/);
   await page.waitForLoadState("networkidle");
@@ -84,7 +85,8 @@ test("category layout keeps search, sorting, pagination and mobile filters worki
   await expect(page).toHaveURL(/per_page=24/);
   await expect(page.locator(".catalog-results .product-card")).toHaveCount(24);
   await page.getByRole("link", { name: "Next page", exact: true }).click();
-  await expect(page).toHaveURL(/page=2/);
+  await expect(page).toHaveURL(/page=2#category-products$/);
+  await expect(page.locator(".catalog-results-toolbar")).toBeInViewport();
   await page.waitForLoadState("networkidle");
   const input = page
     .locator(".catalog-sidebar")
@@ -96,6 +98,7 @@ test("category layout keeps search, sorting, pagination and mobile filters worki
     page.locator(".catalog-results .product-card").first(),
   ).toContainText(productName);
   expect(new URL(page.url()).searchParams.get("page")).toBeNull();
+  expect(await page.evaluate(() => performance.timeOrigin)).toBe(documentStart);
   await page.waitForLoadState("networkidle");
   await input.fill("zzzz-no-matching-product");
   await input.press("Enter");

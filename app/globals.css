@@ -1901,7 +1901,7 @@ button.text-link {
   max-width: 68ch;
 }
 .commerce-summary > h2,
-.commerce-form > h2 {
+.commerce-form > :is(h1, h2) {
   font-size: var(--text-card-title);
   margin: 0;
 }

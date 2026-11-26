@@ -192,34 +192,6 @@ html .commerce-page > h1 {
   font-size: clamp(2rem, 3.5vw, 3rem);
   letter-spacing: -0.035em;
 }
-.collection-index {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
-  gap: 12px 20px;
-}
-.collection-index-entry {
-  display: grid;
-  align-content: center;
-  gap: 4px;
-  min-height: 88px;
-  padding: 16px 20px;
-  background: var(--soft);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-card);
-  overflow-wrap: anywhere;
-}
-.collection-index-entry:hover {
-  background: var(--support-soft);
-}
-.collection-index-entry h2 {
-  margin: 0;
-  font-size: 1.125rem;
-  line-height: 1.3;
-}
-.collection-index-entry p {
-  margin: 0;
-  color: var(--muted);
-}
 /* Share content rows between neighboring cards, including wrapped prices. */
 @supports (grid-template-rows: subgrid) {
   html .catalog-results .product-grid-v2 .product-card {

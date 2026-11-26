@@ -1,6 +1,7 @@
 "use client";
 import { useId, useRef, useState } from "react";
 import Link from "next/link";
+import Form from "next/form";
 import { SlidersHorizontal, X, Search } from "lucide-react";
 import { Category, categoryTrail } from "@/lib/commerce/product";
 import type { Brand } from "@/lib/commerce/catalog";
@@ -98,9 +99,9 @@ function FilterForm(props: Props) {
   return (
     <>
       <CategoryLinks {...props} />
-      <form action={path} method="get" className="catalog-filter-form">
-        {(["sort", "per_page", "category"] as const).map((key) => (
-          <input key={key} type="hidden" name={key} value={query[key]} />
+      <Form action={path} scroll={false} className="catalog-filter-form">
+        {(["sort", "per_page", "category", "min_price", "max_price", "stock", "sale", "rating"] as const).map((key) => (
+          query[key] && <input key={key} type="hidden" name={key} value={query[key]} />
         ))}
         <label htmlFor={`${id}-search`}>Search products</label>
         <div className="catalog-search-field">
@@ -166,7 +167,7 @@ function FilterForm(props: Props) {
             </div>
           </details>
         )}
-      </form>
+      </Form>
     </>
   );
 }
@@ -187,6 +188,7 @@ export function CatalogFilters(props: Props) {
         className="filter-dialog"
         ref={dialog}
         aria-label="Filter products"
+        onSubmit={() => dialog.current?.close()}
       >
         <div className="filter-dialog-heading">
           <h2>Filters</h2>
@@ -211,7 +213,7 @@ export function CatalogSort({
   query: CatalogQuery;
 }) {
   return (
-    <form action={path} method="get" className="catalog-sort">
+    <Form action={path} scroll={false} className="catalog-sort">
       {(
         [
           "q",
@@ -258,6 +260,6 @@ export function CatalogSort({
       <noscript>
         <button type="submit">Update results</button>
       </noscript>
-    </form>
+    </Form>
   );
 }

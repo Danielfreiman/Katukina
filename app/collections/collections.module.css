@@ -1,0 +1,112 @@
+.page {
+  padding-block: 24px var(--layout-section);
+}
+.page > nav {
+  margin: 0 0 20px;
+}
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.toolbar h1 {
+  margin: 0;
+  font-size: clamp(var(--text-page-small), 4vw, var(--text-display-small));
+}
+.toolbar p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: var(--text-ui);
+}
+.search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: min(100%, 19rem);
+  min-height: 44px;
+  padding-inline: 12px 4px;
+  border: 1px solid var(--control-line);
+  border-radius: var(--radius-control);
+}
+.search input {
+  width: 100%;
+  min-width: 0;
+  height: 42px;
+  border: 0;
+  background: transparent;
+  font: inherit;
+}
+.search button {
+  display: grid;
+  place-items: center;
+  min-width: 36px;
+  height: 36px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr));
+  gap: clamp(12px, 1.6vw, 24px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.list a {
+  display: block;
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background: var(--warm-white);
+}
+.list img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.list span {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  max-width: calc(100% - 24px);
+  padding: 6px 10px;
+  border-radius: var(--radius-control);
+  background: var(--warm-white);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: clamp(0.875rem, 1.15vw, 1.125rem);
+  font-weight: var(--weight-semibold);
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+.list a:hover span {
+  text-decoration: underline;
+}
+.empty {
+  padding-block: 16px;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 600px) {
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .search {
+    width: 100%;
+  }
+  .list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .list span {
+    top: 6px;
+    left: 6px;
+    max-width: calc(100% - 12px);
+    padding: 4px 6px;
+  }
+}
