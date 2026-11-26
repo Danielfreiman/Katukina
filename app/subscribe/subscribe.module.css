@@ -50,6 +50,18 @@
 .signup {
   display: grid;
   place-items: center;
+  position: relative;
+  isolation: isolate;
+}
+.signup::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: var(--leaf);
+  mask: url("/images/original-background.jpg") center / 420px auto repeat luminance;
+  opacity: .55;
 }
 .formColumn {
   width: min(100%, 440px);
