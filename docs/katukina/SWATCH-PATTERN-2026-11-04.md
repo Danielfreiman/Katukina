@@ -1,5 +1,9 @@
 # Pattern nos swatches — 2026-11-04
 
+**26/11/2026 · CONFIRMADO pelo responsável.** Todas as opções de apresentação, incluindo tamanho, tipo, peso e volume, passam a usar fundo liso em todos os estados. Esta decisão substitui a aplicação do grafismo registrada abaixo.
+
+## Histórico de 04/11/2026
+
 **CONFIRMADO — REQ-UX-SWATCH-01:** pedido do responsável nesta conversa para aplicar o pattern de forma sutil aos swatches de apresentação, conforme exemplo de Palo Santo beads.
 
 Implementação local em `app/catalog.css`: a superfície `.swatch-content` reutiliza `/images/original-background.jpg` intacto, com escala de 380 px e opacidade de 6,5%. A camada decorativa fica atrás do texto e não captura cliques. Aplica-se também às opções de tipo, peso e volume que reutilizam o mesmo componente visual. Os estados selecionado, indisponível e foco mantêm as bordas, fundos e indicação textual existentes.

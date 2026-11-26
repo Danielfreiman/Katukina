@@ -1278,7 +1278,6 @@
 .catalog-sidebar {
   border: 0;
   border-radius: 0;
-  padding: 0 20px 0 0;
   position: static;
   border-right: 1px solid var(--line);
 }
@@ -1490,8 +1489,6 @@
   height: 100%;
 }
 .swatch-content {
-  position: relative;
-  isolation: isolate;
   pointer-events: none;
   display: flex;
   flex-direction: column;
@@ -1504,18 +1501,6 @@
   background: var(--surface);
   min-height: 80px;
   overflow-wrap: anywhere;
-}
-.swatch-content::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  border-radius: inherit;
-  background: url("/images/original-background.jpg") center / 380px repeat;
-  filter: grayscale(1) brightness(4) invert(1);
-  mix-blend-mode: multiply;
-  opacity: 0.065;
-  pointer-events: none;
 }
 .swatch-content strong {
   font-size: var(--text-ui);
@@ -1568,6 +1553,20 @@
 }
 .recently-viewed .product-card {
   scroll-snap-align: start;
+}
+@media (any-pointer: fine) {
+  .recently-viewed .product-grid[tabindex] {
+    cursor: grab;
+    user-select: none;
+    scroll-snap-type: none;
+  }
+  .recently-viewed .product-grid[data-dragging] {
+    cursor: grabbing;
+  }
+}
+.recently-viewed .product-grid:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 2px;
 }
 .product-scroller { position: relative; min-width: 0; }
 .product-scroller .product-grid { scrollbar-width: none; }

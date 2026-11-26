@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { ComponentPropsWithRef } from "react";
 import { Product, productName, productPrice } from "@/lib/commerce/product";
 import {
   canPurchase,
@@ -9,7 +10,10 @@ import { plainText } from "@/lib/wordpress/text";
 import { BrandMark } from "@/components/site/brand-mark";
 import { AddToCart } from "@/components/commerce/add-to-cart";
 import { CatalogImage } from "./catalog-image";
-export function ProductGrid({ products }: { products: Product[] }) {
+export function ProductGrid({
+  products,
+  ...gridProps
+}: { products: Product[] } & Omit<ComponentPropsWithRef<"div">, "children" | "className">) {
   if (!products.length)
     return (
       <div className="no-results">
@@ -22,7 +26,7 @@ export function ProductGrid({ products }: { products: Product[] }) {
       </div>
     );
   return (
-    <div className="product-grid product-grid-v2">
+    <div className="product-grid product-grid-v2" {...gridProps}>
       {products.map((product) => {
         const href = `/products/${product.slug}`;
         return (
