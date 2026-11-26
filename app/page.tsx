@@ -233,7 +233,7 @@ export default async function Home() {
         .map((product) => [product.id, product]),
     ).values(),
   );
-  const categoryCards = [
+  const categoryCandidates = [
     ...collections,
     ...await Promise.all(categories
       .filter((category) => category.slug !== "uncategorized" && !collections.some((collection) => collection.slug === category.slug))
@@ -243,7 +243,7 @@ export default async function Home() {
         count: category.count,
         products: category.image?.src
           ? [{ image: category.image.src }]
-          : await products({ category: category.id, per_page: 1 }),
+          : await products({ category: category.id, per_page: 6 }),
       }))),
   ];
   const featured = selection.length ? selection : newest;
@@ -263,12 +263,28 @@ export default async function Home() {
   const essentialOil = essentialOilsCategory
     ? (await products({ category: essentialOilsCategory.id, per_page: 1 }))[0]
     : undefined;
-  const tools =
-    collections
-      .find((collection) => collection.slug === "kuripe-and-tepi")
-      ?.products.find((product) => /kuripe|tepi/i.test(product.name)) ||
-    find("kuripe-and-tepi") ||
-    find("shamanic-tools");
+  const usedPhotos = new Set<string>();
+  const categoryCards = categoryCandidates.map((collection) => {
+    const candidates = collection.products.map((product) => product.image);
+    if (collection.slug === "kuripe-and-tepi") {
+      const tool = collections.find((item) => item.slug === collection.slug)
+        ?.products.find((product) => /kuripe|tepi/i.test(product.name));
+      if (tool?.image) candidates.unshift(tool.image);
+    }
+    const image = candidates.find((src) => {
+      if (!src) return false;
+      const pathname = new URL(src, siteUrl).pathname;
+      const key = pathname.match(/\/white-([a-f0-9]{12})-/i)?.[1]
+        ?? pathname.replace(/-\d+x\d+(?=\.[^./]+$)/, "");
+      if (usedPhotos.has(key)) return false;
+      usedPhotos.add(key);
+      return true;
+    });
+    if (image) return { ...collection, image };
+    const banner = `/images/collections/banners/mobile/${collection.slug}.webp`;
+    const hasBanner = /^[a-z0-9_-]+$/.test(collection.slug) && existsSync(path.join(process.cwd(), "public", banner));
+    return { ...collection, image: hasBanner ? banner : null };
+  });
   const beautyDesktop = existsSync(path.join(process.cwd(), "public/images/home/beauty-body-banner/beauty-body-desktop.webp"));
   const beautyMobile = existsSync(path.join(process.cwd(), "public/images/home/beauty-body-banner/beauty-body-mobile.webp"));
   const productCampaigns = campaignProducts.flatMap((product, index) =>
@@ -400,17 +416,9 @@ export default async function Home() {
             >
               <span className="mh-category-card">
                 <span className="mh-category-image">
-                  {(
-                    collection.slug === "kuripe-and-tepi"
-                      ? tools?.image
-                      : collection.products[0]?.image
-                  ) ? (
+                  {collection.image ? (
                     <img
-                      src={
-                        (collection.slug === "kuripe-and-tepi"
-                          ? tools?.image
-                          : collection.products[0]?.image)!
-                      }
+                      src={collection.image}
                       alt=""
                       width={130}
                       height={130}
