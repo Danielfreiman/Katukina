@@ -1,5 +1,7 @@
 # Discovery Katukina
 
+**26/11/2026 · Espaço abaixo do cabeçalho da loja.** Em `/shop`, o espaço até a trilha “Home / Shop” varia de 16 a 32 px. A verificação em Chromium mediu 16 px na largura de 390 px e 32 px na de 1669 px.
+
 **26/11/2026 · Foto principal do produto.** A galeria usa a mesma borda cinza de 1 px e os mesmos cantos de 12 px do painel “Your selection”.
 
 **26/11/2026 · Rodapé.** O link “Explore incense” foi removido da coluna “A little guidance”.
