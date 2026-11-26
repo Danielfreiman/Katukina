@@ -1,0 +1,6 @@
+Imagem da página My account
+
+Arquivo: account-welcome.webp
+Formato: WebP
+Dimensões: 1200 × 1000 px (largura × altura)
+O título e o texto de cadastro aparecem abaixo da imagem e são renderizados pelo site.

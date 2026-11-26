@@ -36,7 +36,7 @@ async function account(
     throw new Error(data.message || "Unable to access your account.");
   return data;
 }
-export function AccountView() {
+export function AccountView({ artwork }: { artwork?: string }) {
   const [session, setSession] = useState<Session>();
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
@@ -141,57 +141,68 @@ export function AccountView() {
           )}
         </section>
       ) : (
-        <form className="commerce-form account-form" onSubmit={submit}>
-          <h2>{register ? "Create your account" : "Welcome back"}</h2>
-          <p>
-            We use your details to provide your account. Read our{" "}
-            <Link href="/privacy">privacy notice</Link>.
-          </p>
-          <label>
-            Email
-            <input name="email" type="email" autoComplete="email" required />
-          </label>
-          <label>
-            Password
-            <input
-              name="password"
-              type="password"
-              autoComplete={register ? "new-password" : "current-password"}
-              minLength={register ? 12 : undefined}
-              maxLength={200}
-              required
-            />
-          </label>
-          {register && (
-            <p className="commerce-caption">
-              Use at least 12 characters. This creates a customer account for
-              your orders.
+        <div className="account-entry">
+          <figure className="account-feature">
+            <div className="account-feature-art" aria-hidden="true">
+              {artwork && <img src={artwork} alt="" width={1200} height={1000} />}
+            </div>
+            <figcaption>
+              <h2>A world of discoveries</h2>
+              <p>{session.registration ? "Create an account to explore offers on botanicals, incense and handmade pieces from around the world." : "Explore botanicals, incense and handmade pieces from around the world."}</p>
+            </figcaption>
+          </figure>
+          <form className="commerce-form account-form" onSubmit={submit}>
+            <h2>{register ? "Create your account" : "Welcome back"}</h2>
+            <p>
+              We use your details to provide your account. Read our{" "}
+              <Link href="/privacy">privacy notice</Link>.
             </p>
-          )}
-          <button className="button primary" disabled={busy}>
-            {busy ? "Please wait…" : register ? "Create account" : "Sign in"}
-          </button>
-          {session.registration && (
-            <button
-              type="button"
-              className="text-link"
-              onClick={() => {
-                setRegister(!register);
-                setError("");
-              }}
-            >
-              {register
-                ? "Already have an account? Sign in"
-                : "New here? Create an account"}
+            <label>
+              Email
+              <input name="email" type="email" autoComplete="email" required />
+            </label>
+            <label>
+              Password
+              <input
+                name="password"
+                type="password"
+                autoComplete={register ? "new-password" : "current-password"}
+                minLength={register ? 12 : undefined}
+                maxLength={200}
+                required
+              />
+            </label>
+            {register && (
+              <p className="commerce-caption">
+                Use at least 12 characters. This creates a customer account for
+                your orders.
+              </p>
+            )}
+            <button className="button primary" disabled={busy}>
+              {busy ? "Please wait…" : register ? "Create account" : "Sign in"}
             </button>
-          )}
-          <a href="/wp-login.php?action=lostpassword">Reset your password</a>
-          {session.local && (
-            <p className="commerce-caption">
-              Local environment: outgoing email is disabled.
-            </p>
-          )}
-        </form>
+            {session.registration && (
+              <button
+                type="button"
+                className="text-link"
+                onClick={() => {
+                  setRegister(!register);
+                  setError("");
+                }}
+              >
+                {register
+                  ? "Already have an account? Sign in"
+                  : "New here? Create an account"}
+              </button>
+            )}
+            <a href="/wp-login.php?action=lostpassword">Reset your password</a>
+            {session.local && (
+              <p className="commerce-caption">
+                Local environment: outgoing email is disabled.
+              </p>
+            )}
+          </form>
+        </div>
       )}
     </>
   );

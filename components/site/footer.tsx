@@ -60,7 +60,6 @@ export function SiteFooter() {
           <span>© {new Date().getFullYear()} Katukina</span>
           <CookieSettingsButton id="footer-cookie-settings" />
         </div>
-        <span>Find your natural rhythm.</span>
         <a href="#content">Back to the top</a>
       </div>
     </footer>
